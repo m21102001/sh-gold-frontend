@@ -1,8 +1,9 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --main-color: #023200;
-  --goldish-color: #bdb55b;
-  --gray-color: rgba(46, 46, 46, 0.795);
+  --main-color: #2f3797;
+  --gold-color: #de9012;
+  --darkblue-color: #161635;
+  --shd: 0px 2px 50px 10px rgba(44, 43, 105, 0.59);
 }
 * {
   padding: 0;
@@ -20,25 +21,32 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background: #f8f9fa;
+  text-align: end !important;
 }
 input,
 textarea {
   border-radius: 5px !important;
   padding: 5px 10px !important;
   font-size: 18px !important;
-  border: 1px solid rgb(46, 46, 46) !important;
+  border: 1px solid var(--gold-color) !important;
 }
-a {
-  color: inherit !important;
+h2 {
+  color: var(--main-color) !important;
 }
 button {
   cursor: pointer;
-  border-radius: 8px !important;
-  color: black;
+  border-radius: 10px !important;
+  color:#fff;
   font-size: 18px;
   font-weight: 700;
-  background: #de9012;
+  background: var(--gold-color);
   padding: 6px;
+}
+button:hover {
+  background-color: #161635;
+  color: white;
+  border-color: #fff;
 }
 
 @keyframes spinner {

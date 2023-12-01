@@ -1,0 +1,16 @@
+.ServicesIncluded {
+  .cardService {
+    background-color: var(--darkblue-color) !important;
+    color: white;
+    border-radius: 1rem;
+    box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6)) !important;
+  }
+  .services {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: cursive;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+  }
+}

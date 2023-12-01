@@ -6,7 +6,7 @@
 
 @mixin div-styles {
   background-color: white;
-  box-shadow: -2px 5px 10px 1px rgb(0 0 0 / 6%);
+  box-shadow: -2px 5px 10px 1px #adb5bd;
   padding: 30px 20px;
   border-radius: 10px;
   display: flex;
@@ -78,4 +78,17 @@ button {
   .home-grid {
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   }
+}
+
+//
+TabList {
+  justify-content: center !important;
+}
+
+.react-tabs__tab--selected,
+.react-tabs__tab {
+  background: #000 !important;
+  border-color: #0a58ca !important;
+  color: #de9012 !important;
+  border-radius: 5px 5px 0 0 !important;
 }
