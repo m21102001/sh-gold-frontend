@@ -23,71 +23,88 @@ const Slider = () => {
   const image = [
     {
       id: 1,
-      img: angelPhotoSh
+      img: angelPhotoSh,
+    src:'info',
     },
     {
       id: 2,
-      img: BitcoinSh
+      img: BitcoinSh,
+    src:'info',
     },
     {
       id: 3,
-      img: ContractAgreement
+      img: ContractAgreement,
+    src:'info',
     },
     {
       id: 4,
-      img: CouncilChannel
+      img: CouncilChannel,
+    src:'info',
     },
     {
       id: 5,
-      img: explainShAnd3Mans
+      img: explainShAnd3Mans,
+    src:'info',
     },
     {
       id: 6,
-      img: instractorBoard
+      img: instractorBoard,
+    src:'info',
     },
     {
       id: 7,
-      img: instructorKuwaitConference
+      img: instructorKuwaitConference,
+    src:'info',
     },
     {
       id: 8,
-      img: instructorSh
+      img: instructorSh,
+    src:'info',
     },
     {
       id: 9,
-      img: KuwaitConference
+      img: KuwaitConference,
+    src:'info',
     },
     {
       id: 10,
-      img: papperPromiseSh
+      img: papperPromiseSh,
+    src:'info',
     },
     {
       id: 11,
-      img: personal4x6
+      img: personal4x6,
+    src:'info',
     },
     {
       id: 12,
-      img: PersonalStudioSh
+      img: PersonalStudioSh,
+    src:'info',
     },
     {
       id: 13,
-      img: PeshawarBayda
+      img: PeshawarBayda,
+    src:'info',
     },
     {
       id: 13,
-      img: professionalPoto
+      img: professionalPoto,
+    src:'info',
     },
     {
       id: 14,
-      img: profilePhoto
+      img: profilePhoto,
+    src:'info',
     },
     {
       id: 15,
-      img: rezkCompany
+      img: rezkCompany,
+    src:'info',
     },
     {
       id: 16,
-      img: Signature
+      img: Signature,
+    src:'info',
     },
   ]
   const responsive = {
@@ -112,18 +129,19 @@ const Slider = () => {
       responsive={responsive}
       swipeable={true}
       draggable={true}
-      showDots={true}
+      showDots={false}
       autoPlaySpeed={3000}
       autoPlay={true}
       customTransition="all .5"
       transitionDuration={500}
       dotListClass="custom-dot-list-style"
       // itemClass="carousel-item-padding-40-px"
-      containerClass="carousel-container"
+      // containerClass="carousel-container"
+      className='m-0'
     >
       {image?.map((item, index) => (
         <div key={index} className="m-0 bg-dark">
-          <LazyLoadImage  className="image" src={item?.img} alt="" srcSet="kenz book" loading="lazy" PlaceholderSrc={item?.image}/>
+          <LazyLoadImage  className="image" src={item?.img} alt="" loading="lazy" srcSet={item?.set}/>
         </div>
       ))}
     </Carousel>
