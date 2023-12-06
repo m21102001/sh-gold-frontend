@@ -1,9 +1,12 @@
 import { CoursesOpen } from '@/components'
-import React from 'react'
+import { Navbar } from '@/layout'
 
 const GoldPrice = () => {
   return (
+    <>
+    <Navbar />
    <CoursesOpen/>
+    </>
   )
 }
 

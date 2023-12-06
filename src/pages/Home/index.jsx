@@ -1,4 +1,4 @@
-import { Footer } from '@/layout'
+import { Footer, Navbar } from '@/layout'
 import styles from './home.module.css'
 import {
   AboutThat,
@@ -11,22 +11,31 @@ import {
   StartElectronicEcommerce,
   WhyKambridage
 } from '@/components'
+// import { useState } from 'react'
+import { GoldChart } from '@/pages'
 
 const Home = () => {
+  // const [loading, setLoading] = useState(false);
   return (
-    <div className={styles.root}>
-      <Slider />
-      {/* <GoldCard/> */}
-      <CoursesOpen />
-      <StartElectronicEcommerce />
-      <ServicesIncluded />
-      <DigitalMarkting />
-      <StartDigitalMarkting />
-      <WhyKambridage />
-      <AboutThat />
-      <PricePlannig />
-      <Footer />
-    </div>
+    <>
+      {/* {loading && <div className="loading"></div>} */}
+      <div className={styles.root}>
+        {/* <PdfToText /> */}
+        <Navbar />
+        <Slider />
+        <GoldChart/>
+        {/* <GoldCard/> */}
+        <CoursesOpen />
+        <StartElectronicEcommerce />
+        <ServicesIncluded />
+        <DigitalMarkting />
+        <StartDigitalMarkting />
+        <WhyKambridage />
+        <AboutThat />
+        <PricePlannig />
+        <Footer />
+      </div>
+    </>
   )
 }
 
