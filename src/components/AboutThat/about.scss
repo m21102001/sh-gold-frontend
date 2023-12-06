@@ -1,10 +1,27 @@
 .StartElectronicEcommerce {
-  .card {
-    background: transparent;
-    .image-card {
-      max-width: min-content;
-      max-height: min-content;
-      margin: auto;
+  .card-style {
+    .card-border {
+      background: #fff;
+      .image-card {
+        max-width: min-content;
+        max-height: min-content;
+        margin: auto;
+      }
+      .card-body {
+        .card-text {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  .StartElectronicEcommerce {
+    .card-style {
+      flex-wrap: wrap;
+      .card-border {
+        padding: 0 !important;
+      }
     }
   }
 }
