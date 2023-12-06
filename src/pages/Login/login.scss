@@ -1,0 +1,21 @@
+.login-page {
+  .login {
+    .body-card {
+      width: 50%;
+      padding-top: 1rem;
+      h3 {
+        color: var(--main-color);
+      }
+    }
+  }
+}
+// @media (max-width: 992px) {
+//  .login-page .login .body-card{
+//   width: 50%;
+//  }
+// }
+@media (max-width: 557px) {
+ .login-page .login .body-card{
+  width: 100%;
+ }
+}
