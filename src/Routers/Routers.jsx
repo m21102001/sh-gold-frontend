@@ -1,7 +1,9 @@
 import {
   Routes,
   Route,
-  BrowserRouter as Router
+  BrowserRouter as Router,
+
+  Navigate
 } from 'react-router-dom';
 import {
   AllUsersDash,
@@ -33,8 +35,24 @@ import {
   VerifyRestCode
 } from '@/pages';
 import ContactUs from '@/pages/ContactUS';
+import { useAuth } from '@/context/Auth';
 
 const Routers = () => {
+  const { Loggedin, role } = useAuth();
+  const Protect = ({ children }) => {
+    
+
+      if (Loggedin && role === "admin" || role === 'godAdmin' || role === 'manager') {
+        return <Navigate to={"/dash/dashboard"} />
+
+      } else {
+        if (role === 'user') {
+          return <Navigate to={"/"} />
+        }
+        return children;
+      }
+
+  }
   return (
     <div className='conatiner'>
       <Router>
@@ -45,10 +63,14 @@ const Routers = () => {
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path="/contactUs" element={<ContactUs />} />
           {/* auth */}
-          <Route path="/auth/shop" element={<Shop />} />
+          <Route path="/auth/shop" element={
+            <Protect>
+              <Shop />
+            </Protect>
+          } />
           <Route path="/auth/sign-up" element={<SignUp />} />
           <Route path="/auth/payment" element={<Payment />} />
-          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/login" element={<Protect> <Login /></Protect>} />
           <Route path="/auth/verifyCode" element={<VerifyRestCode />} />
           <Route path="/auth/resetPassword" element={<ResetPassword />} />
           <Route path="/auth/resetPasswordOtp" element={<ResetPasswordOtp />} />

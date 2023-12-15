@@ -28,6 +28,7 @@ const Login = () => {
         .then((response) => {
           console.log(response);
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem("role" ,response?.data?.data?.role );
           setIsPending(false)
           if (localStorage.getItem('token')) {
             if (response?.data?.data?.role === "manager" || response?.data?.data?.role === 'admin') {
