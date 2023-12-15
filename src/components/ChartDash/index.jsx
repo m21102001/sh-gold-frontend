@@ -9,6 +9,7 @@ import {
   Line,
   ComposedChart
 } from 'recharts';
+import './chart.scss'
 const ChartDash = () => {
   const data = [
     {
@@ -55,7 +56,7 @@ const ChartDash = () => {
     }
   ]
   return (
-    <ComposedChart width={730} height={250} data={data} >
+    <ComposedChart width={730} height={250} data={data} className='rechart-section'>
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />

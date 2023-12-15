@@ -1,20 +1,20 @@
 import { Navbar } from "@/layout"
 import { useState } from "react"
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from '@/api/axios'
 
-const ResetPasswordOtp = () => {
+const VerifyRestCode = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [email, setEmail] = useState('')
+  const [resetCode, setResetCode] = useState('')
 
   // Submit the form data to the server
   const handelSubmit = async (e) => {
     e.preventDefault()
     setIsPending(true)
     try {
-      await axios.post('/auth/forgotPassword', {
-        email: email,
+      await axios.post('/auth/verifyResetCode', {
+        resetCode: resetCode,
       },
         {
           headers: {
@@ -24,15 +24,19 @@ const ResetPasswordOtp = () => {
         .then((response) => {
           setIsPending(false)
           console.log(response);
-          if (response.status === 200) {
-            navigate('/auth/verifyCode')
+          if (response?.status === 200) {
+            navigate("/auth/resetPassword")
           }
         })
 
     } catch (err) {
       setIsPending(false);
       console.log('response', err.response);
-      console.log('message', err.message);
+      // console.log('virfy code from catch' + err?.response?.status);
+      if (err?.response?.status === 200) {
+        navigate("/auth/resetPassword")
+      }
+      // console.log('message', err.message);
     }
   }
 
@@ -44,24 +48,23 @@ const ResetPasswordOtp = () => {
         <div className="Container pt-5 login">
           <div className="container text-end d-flex flex-column justify-content-center m-auto body-card" >
             <div className="shadow-lg p-3 mb-5 bg-body rounded">
-              <h3 className='text-center pt-3 fs-2 fw-bold'> سوف يتم ارسال كود الي بريدك الالكتروني لتغيير كلمة المرور الخاصة بك</h3>
               <form className='pb-5 pt-2' onSubmit={handelSubmit}>
                 <div className="mb-3">
                   <label
                     htmlFor="exampleInputEmail1"
                     className="form-label fs-5 fw-bold"
-                  >  أدخل بريدك الإلكتروني*</label>
+                  >  أدخل الكود*</label>
                   <input
-                    type="email"
+                    type="number"
                     className="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    value={resetCode}
+                    onChange={e => setResetCode(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">
-                  <button >ارسال كود</button>
+                  <button >ارسال</button>
                 </div>
               </form>
               <p id="create-account" className="my-15 text-center fs-6 fw-bold"> هل لديك حساب بالفعل ؟
@@ -81,4 +84,4 @@ const ResetPasswordOtp = () => {
   )
 }
 
-export default ResetPasswordOtp
+export default VerifyRestCode

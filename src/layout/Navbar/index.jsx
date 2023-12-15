@@ -1,8 +1,11 @@
-import "./navbar.module.scss"
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom"
+import { RxAvatar } from 'react-icons/rx';
 import logo from "../../assets/Cambridge-logo-.svg"
-import { NavLink } from "react-router-dom"
+import "./navbar.module.scss"
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false);
   return (
     <>
       <nav className="navbar navbar-expand-lg mainNavbar" style={{ background: "var(--darkblue-color)" }}>
@@ -32,10 +35,32 @@ const Navbar = () => {
                 <NavLink className="nav-link navli" to={'/contactUS'}>تواصل معنا</NavLink>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input className="form-control ms-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="mx-2 px-3" type="submit">Search</button>
-            </form>
+            {!nav ? (
+              <div>
+                <Link to="/auth/login">
+                  <button className={`login-btn`}>Login</button>
+                </Link>
+                <Link to="/auth/sign-up">
+                  <button className={`signup-btn`}> Sign Up</button>
+                </Link>
+              </div>
+            ) : (
+              <>
+                <RxAvatar className="fs-1 avatar" />
+                <br />
+                {/* {user?.username} */}
+
+                <button
+                  onClick={() => {
+                    // setNav((pre) => !pre);
+                    localStorage.removeItem('token');
+                  }}
+                  className={`logout-btn`}
+                >
+                  Logout
+                </button>
+              </>
+            )}
           </div>
         </div>
       </nav>

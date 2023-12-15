@@ -56,7 +56,9 @@ const BooksDash = () => {
       <SidebarDashboard />
 
       <div className="container text-center">
-        <h1>Books Dashboard</h1>
+      <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
+          <h2 className='fs-1 fw-bold'>Books Dashboard</h2>
+        </div>
         <Link to="/dash/create-books">
           <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه جديد</button>
         </Link>

@@ -1,6 +1,6 @@
-import './footer.module.scss';
 import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import './footer.module.scss';
 const Footer = () => {
   return (
     <footer className="text-center text-lg-start tex-light "  >

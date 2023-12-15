@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --main-color: #2f3797;
+  --word-dash: #413ea0;
   --gold-color: #de9012;
   --gold-color2: #de9012;
   --darkblue-color: #161635;
   --shd: 0px 2px 50px 10px rgba(44, 43, 105, 0.59);
+
 }
 * {
+  font-family: 'Cairo', sans-serif !important;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -17,9 +21,12 @@
 }
 html {
   scroll-behavior: smooth;
+  /* font-family: 'Cairo', sans-serif !important; */
 }
 
 body {
+  /* font-family: 'Cairo', sans-serif !important; */
+  font-family: 'Roboto', sans-serif ;
   margin: 0;
   padding: 0;
   background: #f8f9fa;
@@ -33,12 +40,12 @@ textarea {
   border: 1px solid var(--gold-color) !important;
 }
 h2 {
-  color: var(--main-color) !important;
+  color: #fff ;
 }
 button {
   cursor: pointer;
   border-radius: 10px !important;
-  color:#fff;
+  color: #fff;
   font-size: 18px;
   font-weight: 700;
   background: var(--gold-color);

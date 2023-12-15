@@ -3,7 +3,7 @@ import "./ServicesIncluded.scss"
 const ServicesIncluded = () => {
   return (
     <div className="Container ServicesIncluded">
-      <h2 className="services ">خدماتنا تشمل</h2>
+      <h2 className="services ">خدماتنا :</h2>
       <div className="services-card d-flex flex-column flex-wrap align-content-center align-items-start justify-content-center">
         {services?.map((item, index) => (
           <div key={index} className=" shadow-lg p-3 px-3 mb-5 bg-body rounded cardService">

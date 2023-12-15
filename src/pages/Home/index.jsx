@@ -28,8 +28,8 @@ const Home = () => {
         <CoursesOpen />
         <StartElectronicEcommerce />
         <ServicesIncluded />
-        <DigitalMarkting />
-        <StartDigitalMarkting />
+        {/* <DigitalMarkting /> */}
+        {/* <StartDigitalMarkting /> */}
         <WhyKambridage />
         <AboutThat />
         <PricePlannig />

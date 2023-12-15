@@ -7,6 +7,7 @@ import { AiFillGold } from "react-icons/ai";
 import { IoBookSharp } from "react-icons/io5";
 import { PiFlagFill } from "react-icons/pi";
 import { FaMessage } from "react-icons/fa6";
+import { FaUsers } from "react-icons/fa";
 
 import "./sidebarDashboard.scss";
 
@@ -21,28 +22,37 @@ function SidebarDashboard() {
           }`}
       >
         <div>
+          <NavLink to={'/dash/dashboard'}>
+            <div className="sidebar-logo">
+              <img src="https://i.ibb.co/BZ9ZhLV/Cambridge-logo-pages-to-jpg-0001.jpg" alt="" width={180} height={64} style={{borderRadius:'10px'}}/>
+            </div>
+          </NavLink>
           <NavLink to="/dash/dashboard ">
-            <AiFillHome /> <p>الرئيسيه</p>
+            <AiFillHome /> <p className="fs-5 fw-bold me-4">الرئيسيه</p>
           </NavLink>
           <NavLink to="/dash/gold ">
-            <AiFillGold /> <p>الذهب</p>
+            <AiFillGold /> <p className="fs-5 fw-bold me-4">الذهب</p>
           </NavLink>
           <NavLink to="/dash/books ">
-            <IoBookSharp /> <p>الكتب</p>
+            <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>
           </NavLink>
           <NavLink to="/dash/club ">
-            <PiFlagFill /> <p>النادى</p>
+            <PiFlagFill /> <p className="fs-5 fw-bold me-4">النادى</p>
           </NavLink>
           <NavLink to="/dash/contact-form ">
-            <FaMessage /> <p>الرسائل</p>
+            <FaMessage /> <p className="fs-5 fw-bold me-4">الرسائل</p>
           </NavLink>
-          <NavLink to="/dash/profile">
-            <CgProfile /> <p>الاستاذ صلاح</p>
+          <NavLink to="/dash/all-users ">
+          <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>
           </NavLink>
+          {/* <NavLink to="/dash/profile">
+            <CgProfile /> <p className="fs-5 fw-bold me-4">الاستاذ صلاح</p>
+          </NavLink> */}
         </div>
         <div
+        className="d-flex justify-content-start"
           style={{ padding: "8px" }}
-          onClick={() => setSidebarOpen((pre) => !pre)}
+          // onClick={() => setSidebarOpen((pre) => !pre)}
         >
           <GiHamburgerMenu />
         </div>

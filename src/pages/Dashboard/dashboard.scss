@@ -1,3 +1,7 @@
 .dashboard{
-    background: rgba(0, 0, 0, 0.125);
+    background: linear-gradient(270deg, var(--main-color) 0%, var(--darkblue-color) 100%);
+    .main-title{
+        color: var(--word-dash);
+        background-color: var(--darkblue-color) !important;
+    }
 }

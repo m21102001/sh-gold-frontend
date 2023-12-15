@@ -21,7 +21,7 @@ const UpdateGoldDash = () => {
         .put(
           `/gold-bars/${item._id}`,
           {
-            title:title,
+            title: title,
             size: size,
             price: price,
             description: description
@@ -49,63 +49,70 @@ const UpdateGoldDash = () => {
       <div className="dashboard d-flex flex-row">
         <SidebarDashboard />
         <div className="container text-center">
-          <h1>Update Gold Item</h1>
+          <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
+            <h2 className='fs-1 fw-bold'>Update Gold Item</h2>
+          </div>
           <form
             onSubmit={hanelSubmit}
             className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
           >
+            <div className="label-form">ادخل اسم المنتج*</div>
             <input
               type="text"
               name="title"
-              className="form-control  mt-5"
+              className="form-control  mb-3"
               id="title"
               required
               placeholder="ادخل اسم المنتج*"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
+            <div className="label-form">ادخل حجم المنتج*</div>
             <input
               type="number"
               name="size"
-              className="form-control  mt-5"
+              className="form-control  mb-3"
               id="size"
               required
               placeholder="ادخل حجم المنتج*"
               value={size}
               onChange={(e) => setSize(e.target.value)}
             />
+            <div className="label-form">اكتب السعر*</div>
             <input
               type="number"
               name="price"
-              className="form-control  mt-5"
+              className="form-control  mb-3"
               id="price"
               required
               placeholder="اكتب السعر*"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
+            <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
             <textarea
               type="text"
               name="description"
-              className="form-control  mt-5"
+              className="form-control  mb-3"
               id="description"
               required
               placeholder="اكتب وصفا دقيقا للمنتج*"
+              rows={4}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
 
             {!isPending && (
-              <button className="d-grid col-4  align-content-center mx-auto btn btn-outline-primary  mt-5">
-                اضافه جديد
+              <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mt-3">
+                تعديل
               </button>
             )}
             {isPending && (
-              <button className="d-grid col-4  align-content-center mx-auto btn btn-outline-primary mt-5">
-                جاري الاضافه ...
+              <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mt-3">
+                جاري التعديل ...
               </button>
             )}
-            <button onClick={() => navigate('/dash/gold')} className="d-grid col-4  align-content-center mx-auto btn btn-outline-danger mt-5">
+            <button onClick={() => navigate('/dash/gold')} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mt-3">
               cancel
             </button>
           </form>

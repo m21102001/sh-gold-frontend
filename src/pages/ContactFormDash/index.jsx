@@ -80,7 +80,10 @@ const ContactFormDash = () => {
       <SidebarDashboard />
 
       <div className="container text-center">
-        <h1>Contact Form Dashboard</h1>
+        <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
+          <h2 className='fs-1 fw-bold'>Contact Form Dashboard</h2>
+        </div>
+
         <button onClick={() => handelDeleteAll()} type="button" className="btn btn-danger d-block m-3" style={{ padding: "7px 6rem" }}>حذف الكل</button>
         <table className="table table-striped table-hover">
           <thead>

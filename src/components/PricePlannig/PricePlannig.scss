@@ -1,6 +1,8 @@
-.card {
-    border:none;
+.planing {
+  .card {
+    border: none;
     padding: 10px 50px;
+    transition-timing-function: ease;
   }
 
   .card::after {
@@ -12,18 +14,21 @@
   }
 
   .card:hover {
-    transform: scale(1.02, 1.02);
-    -webkit-transform: scale(1.02, 1.02);
-    backface-visibility: hidden; 
+    transform: scale(1.12, 1.12);
+    -webkit-transform: scale(1.07, 1.02);
+    backface-visibility: hidden;
     will-change: transform;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.75) !important;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.75) !important;
+    background-color: var(--word-dash) !important;
+    color: #fff;
   }
 
   .card:hover::after {
     opacity: 1;
   }
 
-  .card:hover .btn-outline-primary{
-    color:white;
-    background:#007bff;
+  .card:hover .btn-outline-primary {
+    color: white;
+    background: #007bff;
   }
+}

@@ -56,7 +56,9 @@ const GoldDash = () => {
       <div className="dashboard d-flex flex-row">
         <SidebarDashboard />
         <div className="container text-center">
-          <h1>Gold Dash</h1>
+          <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
+            <h2 className='fs-1 fw-bold'>Gold Dash</h2>
+          </div>
           <Link to="/dash/create-gold-item">
             <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه جديد</button>
           </Link>
@@ -68,7 +70,7 @@ const GoldDash = () => {
                 <th scope="col">الحجم</th>
                 <th scope="col">السعر</th>
                 <th scope="col">الصوره</th>
-                <th scope="col">الاحداث</th>
+                <th scope="col" colSpan={2}>الاحداث</th>
               </tr>
             </thead>
             <tbody>
@@ -79,9 +81,10 @@ const GoldDash = () => {
                   <td>{item?.size} KG</td>
                   <td>{item?.price}كويتى</td>
                   <td>
-                    item.image
-                    {/* <img src={`${process.env.REACT_APP_API}/uploads/${item.image}`} alt=""
-                      style={{ width: "50px" }} /> */}
+                    {/* item.image */}
+                    <a href={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.image}`} target="_blank" rel="noopener noreferrer">صوره المنتج</a>
+                     <img src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.image}`} alt=""
+                      style={{ width: "50px" }} />
 
                   </td>
                   <td>
@@ -90,6 +93,12 @@ const GoldDash = () => {
                       state={{ item: item }}
                     >
                       <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
+                    </Link>
+                    <Link
+                      to={`/dash/details-gold/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
                     </Link>
                     <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
 

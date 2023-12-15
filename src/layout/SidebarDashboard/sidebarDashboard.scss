@@ -1,6 +1,6 @@
 :root {
-    --sidebar-open-width: 200px;
-    --sidebar-close-width: 77px;
+    --sidebar-open-width: 300px;
+    --sidebar-close-width: 300px;
   }
   
   * {
@@ -11,6 +11,7 @@
   
   .main-div {
     display: flex;
+    background-color: var(--darkblue-color);
   }
   
   .main-div > div {
@@ -34,7 +35,7 @@
   }
   
   .sidebar-div {
-    background-color: black;
+    background-color: var(--darkblue-color);
     color: white;
     padding-inline: 19.5px;
     display: flex;
@@ -52,12 +53,12 @@
     margin-bottom: 18px;
     width: calc(var(--sidebar-open-width) - 19.5px * 2);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
   }
   
   .sidebar-div a:hover {
-    color: black;
+    color: var(--darkblue-color);
     background-color: white;
     border-radius: 5px;
   }
@@ -83,3 +84,11 @@
     height: 100%;
   }
   
+  tr{
+    cursor: pointer;
+    font-weight: bold;
+    th , td{
+    color: var(--main-color) !important;
+    
+    }
+  }

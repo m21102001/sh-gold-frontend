@@ -1,0 +1,10 @@
+.rechart-section{
+    margin: 3rem auto;
+}
+
+@media (max-width: 600px) {
+    .rechart-section{
+        margin: auto;
+        overflow-x: scroll;
+    }
+}
