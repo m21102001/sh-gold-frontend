@@ -8,8 +8,15 @@
         margin: auto;
       }
       .card-body {
+        .card-title {
+          font-size: 1.5rem !important;
+          font-weight: 700;
+          color: var(--gold-color2);
+        }
         .card-text {
-          font-size: 1.2rem;
+          color: var(--swiper-theme-color);
+          font-weight: 700 !important;
+          font-size: 16px;
         }
       }
     }

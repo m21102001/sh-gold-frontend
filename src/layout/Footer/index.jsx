@@ -1,11 +1,13 @@
 import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import logo from '@/assets/Cambridge-logo-.svg'
 import './footer.module.scss';
+
 const Footer = () => {
   return (
     <footer className="text-center text-lg-start tex-light "  >
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <div>
+        {/* <div>
           <a href="https://github.com/m21102001" className="me-4 text-reset">
             <FaFacebook />
           </a>
@@ -21,7 +23,7 @@ const Footer = () => {
         </div>
         <div className="me-5 d-none d-lg-block">
           <span>Get connected with us on social networks:</span>
-        </div>
+        </div> */}
       </section>
 
       <section className="">
@@ -29,59 +31,61 @@ const Footer = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3"></i>Company name
+                <i className="fas fa-gem me-3"></i><img src={logo} alt="كامبردج " style={{ width: "10rem", height: "4rem", background: "rgb(233, 236, 239)", borderRadius: "10px", cursor: "pointer" }} />
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit.
+                شركة متخصصة في تقديم خدمات الاستشارات الفنيـة فـي الاستثمار في قطاع المعـادن
+                الثمينة وبيع وشـراء سبائك الذهب وتقديم إرشـادات وتحليلات يوميـة عـن سـوق الذهب
+                والفضة، كمـا يقـدم النـادي استشارات فـي عـالم المـال والاستثمار وكـل مـا يخـص مجتمع
+                ريادة الاعمال.
               </p>
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                Products
+                روابط رئسيه
               </h6>
               <p>
-                <a href="#!" className="text-reset">Angular</a>
+                <a href="#!" className="text-reset"> الرئيسية</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">React</a>
+                <a href="#!" className="text-reset">متجر سبائك </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Vue</a>
+                <a href="#!" className="text-reset"> نادي كامبردج</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Laravel</a>
+                <a href="#!" className="text-reset">التدريب والتطوير </a>
               </p>
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                Useful links
+                 روابط هامه
               </h6>
               <p>
-                <a href="#!" className="text-reset">Pricing</a>
+                <a href="#!" className="text-reset">الاستشارات</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Settings</a>
+                <a href="#!" className="text-reset">من نحن</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Orders</a>
+                <a href="#!" className="text-reset">تواصل معنا</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Help</a>
+                <a href="#!" className="text-reset">خدمة التوصيل</a>
               </p>
             </div>
 
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
+              <h6 className="text-uppercase fw-bold mb-4">طرق التواصل</h6>
+              <p><i className="fas fa-home me-3"></i>حولي شارع ابن خلدون مجمع مركز العثمان - الدور الخامس - مكتب (64) </p>
               <p>
                 <i className="fas fa-envelope me-3"></i>
                 info@example.com
               </p>
-              <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
-              <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p>
+              <p><i className="fas fa-phone me-3"></i> (+965) 95559682</p>
+              {/* <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p> */}
             </div>
           </div>
         </div>

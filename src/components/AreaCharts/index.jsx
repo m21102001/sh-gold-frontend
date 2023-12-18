@@ -73,7 +73,7 @@ const AreaCharts = () => {
 
   let servicess = {
     method: 'get',
-    url: '/gold-bars/',
+    url: `${import.meta.env.VITE_GOLD_URL}/latest?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=USD&currencies=EUR,XAU,XAG`,
   };
   useEffect(() => {
     setLoading(true);

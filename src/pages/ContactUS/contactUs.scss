@@ -1,7 +1,8 @@
 .contactUs {
+  background: var(--darkblue-color);
   .Container {
     .comunation {
-      background: rgba(255, 255, 255,1);
+      background: rgba(255, 255, 255, 1);
     }
     span {
       z-index: 0;
@@ -11,9 +12,9 @@
       margin: auto 20px;
     }
   }
-  .card-form{
+  .card-form {
     background-color: var(--darkblue-color);
-    .send{
+    .send {
       padding: 0.5rem 6rem;
     }
   }

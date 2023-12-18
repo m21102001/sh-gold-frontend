@@ -1,7 +1,7 @@
-import { Footer, Navbar } from '@/layout'
-import './contactUs.scss'
 import { useState } from 'react'
+import { Footer, Navbar } from '@/layout'
 import axios from '@/api/axios'
+import './contactUs.scss'
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false)
@@ -43,7 +43,7 @@ const ContactUs = () => {
         <div className='Container'>
           <div className='m-auto d-flex justify-content-center my-5'>
             <span></span>
-            <h2 className='text-center comunation fs-1 fw-bold'>اتصل بنا</h2>
+            <h2 className='text-center comunation fs-1 fw-bold' style={{  color:'var(--gold-color2)'  ,background: "var(--darkblue-color)"}}>اتصل بنا</h2>
             <span></span>
           </div>
           <div className='card-form form-control container rounded-4 text-end text-light my-4'>
@@ -162,31 +162,31 @@ const ContactUs = () => {
           <div className="text-center">
             <div className="row my-5">
               <div className="col">
-                <a href="https://wa.me/201011497266">
+                <a href="https://wa.me/201095559682">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">إتصل بنا مباشرة على :</h5>
-                      <p className="card-text">+201011497266</p>
+                      <p className="card-text">+(95559682 )</p>
                     </div>
                   </div>
                 </a>
               </div>
               <div className="col">
-                <a href="https://wa.me/201011497266">
+                <a href="https://wa.me/201095559682">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق الواتساب :</h5>
-                      <p className='card-text text-light'>+201011497266</p>
+                      <p className='card-text text-light'>+(95559682 )</p>
                     </div>
                   </div>
                 </a>
               </div>
               <div className="col">
-                <a href="mailto:mohaedelfayoumy@gmail.com">
+                <a href="mailto:mohayoumy@gmail.com">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق البريد الإلكتروني :</h5>
-                      <p className="card-text">mohaedelfayoumy@gmail.com</p>
+                      <p className="card-text">mohaeumy@gmail.com</p>
                     </div>
                   </div>
                 </a>

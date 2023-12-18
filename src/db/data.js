@@ -6,6 +6,9 @@ import { HiMiniComputerDesktop } from 'react-icons/hi2';
 import { RiComputerFill } from 'react-icons/ri';
 import { SiInternetcomputer } from 'react-icons/si';
 import { GiComputerFan } from 'react-icons/gi';
+import brainstorming from '@/assets/brainstorming.webp';
+import income from '@/assets/income.webp';
+import investor from '@/assets/investor.webp';
 
 export const courses = [
   {
@@ -184,7 +187,7 @@ export const services = [
     title: 'استشارات ماليه',
     description:
       'تقديم خدمات الاستشارات فى عالم المال و الاستثمار, بما فى ذلك تحليل الاسهم واداره المحافظ, وتخطيط الاستثمار',
-    button: 'اطلب الان',
+    button: 'احجز الان',
     icon: `<SiInternetcomputer />`,
   },
   {
@@ -212,10 +215,67 @@ export const services = [
     icon: 'GiComputerFan',
   },
 ];
+export const whyCambridag = [
+  {
+    id: 1,
+    title: 'لدينا حلول لمعوقات بيع وشراء الذهب',
+    icon: '',
+  },
+  {
+    id: 2,
+    title: 'لدينا حلول لمعوقات بيع وشراء الذهب',
+    icon: '',
+  },
+  {
+    id: 3,
+    title: 'القدرة توفير الذهب الفعلي عند الطلب',
+    icon: '',
+  },
+  {
+    id: 4,
+    title: ' لدينا حلول لنقل وتخزين الذهب بطريقة أمنه وصحيحة',
+    icon: '',
+  },
+  {
+    id: 5,
+    title: ' توفير احجام وأوزان الذهب المناسبة حسب احتياج كل عميل',
+    icon: '',
+  },
+  {
+    id: 6,
+    title: 'توفير احجام وأوزان الذهب المناسبة حسب احتياج كل عميل',
+    icon: '',
+  },
+  {
+    id: 7,
+    title: ' التعامل حسب نظم الشريعة اإلسالمية',
+    icon: '',
+  },
+];
+export const aboutthats = [
+  {
+    id: 1,
+    image: brainstorming,
+    title:'رؤيه الشركه',
+    body: 'أن تكـون الشركة الرائـدة فـي مجــال تـقـديـم خــدمات الاستشــارات الفنيـة فـي قطـاع المعـادن الثمينـة وتحليالت الاسواق الماليـة، وأن تكـون الخيـار الامثـل للمستثمرين الذين يسعون للحصول على استشارات ذهبية ودقيقة',
+  },
+  {
+    id: 2,
+    image: income,
+    title:'رسالة الشركة',
+    body: 'تقــــديـم خـــــدمات متخصصـة وشــــفافة فـــي قطــاع المعـــــــادن الثمينـة، ودعـم المستثمرين بـــــــالادوات والمعلومـــات اللزمـة لاتخـاذ قـرارات استثمارية  مدروسة',
+  },
+  {
+    id: 1,
+    image: investor,
+    title:'هدفنا؟',
+    body: 'رفـع الـوعـي حـول االدخـار والاستثمار فـي الـذهب، ودعـم وتعزيـز مجتمـع ريـادة.الاعمال من خلال تقديم استشارات حول الاستثمارات والاعمال المالية ',
+  },
+];
 export const planning = [
   {
     id: 1,
-    title: 'عضويه 3 شهور',
+    title: 'عضوية 3 شهور (silver) ',
     price: '58 دينار كويتى',
     description: 'عضويه لمده 3 شهور يستفيد من خلالها المشترك بالخدمات التاليه',
     features: [
@@ -250,7 +310,8 @@ export const planning = [
       {
         id: 8,
         title: 'عروض مميزه ف اسعار السبائك لاعضاء النادى',
-      },      {
+      },
+      {
         id: 9,
         title: 'الاستفاده من خدمه التخزين الامن والمجانى للذهب',
       },
@@ -270,7 +331,7 @@ export const planning = [
   },
   {
     id: 2,
-    title: 'عضويه سنويه',
+    title: 'عضويه سنويه  (golden)',
     price: '187 دينار كويتى',
     description: 'عضويه لمده سنه يستفيد من خلالها المشترك بالخدمات التاليه',
     features: [
@@ -285,7 +346,7 @@ export const planning = [
       },
       {
         id: 3,
-        title:'خصومات على الدورات التدربيه الحضوريه و online تصل الى 25%',
+        title: 'خصومات على الدورات التدربيه الحضوريه و online تصل الى 25%',
       },
       {
         id: 4,
@@ -317,7 +378,8 @@ export const planning = [
       },
       {
         id: 11,
-        title: 'التاهيل للدخول ف السحب الشهري على هديه سبيكه ذهب 10 جرام والسحب السنوى على سبيكه 20 جرام',
+        title:
+          'التاهيل للدخول ف السحب الشهري على هديه سبيكه ذهب 10 جرام والسحب السنوى على سبيكه 20 جرام',
       },
       {
         id: 12,

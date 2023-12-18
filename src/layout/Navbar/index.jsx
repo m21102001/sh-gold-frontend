@@ -20,7 +20,10 @@ const Navbar = () => {
                 <NavLink className="nav-link navli active" aria-current="page" to="/">الرئيسيه</NavLink>
               </li>
               <li className="nav-item ms-2 ">
-                <NavLink className="nav-link navli" to="/club">نادى كنز</NavLink>
+                <NavLink className="nav-link navli" to="/club">متجر السبائك</NavLink>
+              </li>
+              <li className="nav-item ms-2 ">
+                <NavLink className="nav-link navli" to="/club">نادى كامبردج</NavLink>
               </li>
               <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/develpment">التدريب و التطوير</NavLink>
@@ -29,7 +32,7 @@ const Navbar = () => {
                 <NavLink className="nav-link navli" to="/Consulting">الاستشارات</NavLink>
               </li>
               <li className="nav-item ms-2 ">
-                <NavLink className="nav-link navli" to="/investment">الاستثمار</NavLink>
+                <NavLink className="nav-link navli" to="/about-us">من نحن</NavLink>
               </li>
               <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to={'/contactUS'}>تواصل معنا</NavLink>
