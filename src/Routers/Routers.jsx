@@ -70,12 +70,39 @@ const Routers = () => {
               <Shop />
             </Protect>
           } />
-          <Route path="/auth/sign-up" element={<Protect><SignUp /></Protect>} />
-          <Route path="/auth/payment" element={<Payment />} />
-          <Route path="/auth/login" element={<Protect> <Login /></Protect>} />
-          <Route path="/auth/verifyCode" element={<Protect> <VerifyRestCode /></Protect>} />
-          <Route path="/auth/resetPassword" element={<Protect><ResetPassword /></Protect>} />
-          <Route path="/auth/resetPasswordOtp" element={<Protect><ResetPasswordOtp /></Protect>} />
+          <Route
+            path="/auth/sign-up"
+            element={
+              <Protect>
+                <SignUp />
+              </Protect>} />
+          <Route
+            path="/auth/payment"
+            element={<Payment />} />
+          <Route
+            path="/auth/login"
+            element={
+              <Protect>
+                <Login />
+              </Protect>} />
+          <Route
+            path="/auth/verifyCode"
+            element={
+              <Protect>
+                <VerifyRestCode />
+              </Protect>} />
+          <Route
+            path="/auth/resetPassword"
+            element={
+              <Protect>
+                <ResetPassword />
+              </Protect>} />
+          <Route
+            path="/auth/resetPasswordOtp"
+            element={
+              <Protect>
+                <ResetPasswordOtp />
+              </Protect>} />
           {/* Dashboard */}
           <Route path="/dash/dashboard" element={<Dashboard />} />
           <Route path="/dash/gold" element={<GoldDash />} />
