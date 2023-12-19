@@ -10,6 +10,94 @@ import brainstorming from '@/assets/brainstorming.webp';
 import income from '@/assets/income.webp';
 import investor from '@/assets/investor.webp';
 
+export const image = [
+  {
+    id: 1,
+    img: 'https://i.ibb.co/m6k8DrS/angel-Photo-Sh.jpg',
+    src: 'info',
+  },
+  {
+    id: 2,
+    img: ' https://i.ibb.co/rvzx2V5/Bitcoin-Sh.jpg',
+    src: 'info',
+  },
+  {
+    id: 3,
+    img: ' https://i.ibb.co/c1qRk8B/Contract-Agreement.jpg',
+    src: 'info',
+  },
+  {
+    id: 4,
+    img: ' https://i.ibb.co/dpbsryY/Council-Channel.jpg',
+    src: 'info',
+  },
+  {
+    id: 5,
+    img: ' https://i.ibb.co/7rQGCyr/creative.jpg',
+    src: 'info',
+  },
+  {
+    id: 6,
+    img: ' https://i.ibb.co/vv3JKYW/profile-Photo.jpg',
+    src: 'info',
+  },
+  {
+    id: 7,
+    img: ' https://i.ibb.co/s1NV05y/rezk-Company.jpg ',
+    src: 'info',
+  },
+  {
+    id: 8,
+    img:  'https://i.ibb.co/7pVRJZK/professional-Poto.jpg ',
+    src: 'info',
+  },
+  {
+    id: 9,
+    img:  'https://i.ibb.co/LDyNL5t/Peshawar-Bayda.jpg',
+    src: 'info',
+  },
+  {
+    id: 10,
+    img: 'https://i.ibb.co/BtTsbMS/Personal-Studio-Sh.jpg ',
+    src: 'info',
+  },
+  {
+    id: 11,
+    img: ' https://i.ibb.co/3hdjDBn/personal4x6.jpg ',
+    src: 'info',
+  },
+  {
+    id: 12,
+    img: ' https://i.ibb.co/DDxJbkD/papper-Promise-Sh.jpg',
+    src: 'info',
+  },
+  {
+    id: 13,
+    img: ' https://i.ibb.co/ZByZ87y/Kuwait-Conference.jpg',
+    src: 'info',
+  },
+  {
+    id: 14,
+    img: ' https://i.ibb.co/nfKZTQV/instructor-Sh.jpg',
+    src: 'info',
+  },
+  {
+    id: 15,
+    img: ' https://i.ibb.co/w6TzcS8/instructor-Kuwait-Conference.jpg',
+    src: 'info',
+  },
+  {
+    id: 16,
+    img: ' https://i.ibb.co/8ch2rJw/instractor-Board.jpg',
+    src: 'info',
+  },
+  {
+    id: 17,
+    img: ' https://i.ibb.co/Bffbfp4/explain-Sh-And3-Mans.jpg',
+    src: 'info',
+  },
+]
+
 export const courses = [
   {
     id: 1,

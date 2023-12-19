@@ -14,7 +14,6 @@ export { default as GoldChart } from './GoldChart';
 export { default as Dashboard } from './Dashboard';
 export { default as ContactUS } from './ContactUS';
 export { default as BooksDash } from './BooksDash';
-export { default as SilverDash } from './SilverDash';
 export { default as ProfileDash } from './ProfileDash';
 export { default as AllUsersDash } from './AllUsersDash';
 export { default as ResetPassword } from './ResetPassword';

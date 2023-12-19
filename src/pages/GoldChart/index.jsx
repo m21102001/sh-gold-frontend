@@ -2,8 +2,6 @@ import { AreaCharts } from '@/components'
 import './goldChart.scss'
 import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);

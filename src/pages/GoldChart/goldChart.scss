@@ -1,4 +1,9 @@
 .gold-chart {
   background-color: var(--darkblue-color);
   text-align: end !important;
+  .card-body {
+    .coursers-open {
+      overflow: auto;
+    }
+  }
 }

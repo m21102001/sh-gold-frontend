@@ -1,29 +1,26 @@
-import { Footer, Navbar } from '@/layout'
-import styles from './home.module.css'
+import { Footer, Header, Navbar } from '@/layout'
+
 import {
   AboutThat,
   CoursesOpen,
-  DigitalMarkting,
   PricePlannig,
   ServicesIncluded,
-  Slider,
-  StartDigitalMarkting,
   StartElectronicEcommerce,
   WhyKambridage
 } from '@/components'
-// import { useState } from 'react'
+import { useState } from 'react'
 import { GoldChart } from '@/pages'
 
 const Home = () => {
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   return (
     <>
-      {/* {loading && <div className="loading"></div>} */}
-      <div className={styles.root}>
+      {loading && <div className="loading"></div>}
+      <div>
         {/* <PdfToText /> */}
         <Navbar />
-        <Slider />
-        <GoldChart/>
+        <Header/>
+        <GoldChart />
         {/* <GoldCard/> */}
         <CoursesOpen />
         <StartElectronicEcommerce />

@@ -1,0 +1,18 @@
+.recharts-wrapper {
+  width: 900px;
+  .svg.recharts-surface {
+    width: 100% !important;
+    height: 107% !important;
+  }
+}
+@media (max-width: 786px) {
+  .recharts-wrapper {
+    width: 600px !important;
+    overflow: scroll;
+    .svg.recharts-surface {
+      width: 100% !important;
+      height: 107% !important;
+      overflow: scroll;
+    }
+  }
+}
