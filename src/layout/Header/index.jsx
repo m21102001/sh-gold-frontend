@@ -12,7 +12,7 @@ import {Autoplay, Pagination,Navigation } from 'swiper/modules';
 import { image } from '@/db/data'
 const Header = () => {
   return (
-    <>
+    <div className="header">
       <Swiper
          spaceBetween={30}
          centeredSlides={true}
@@ -44,7 +44,7 @@ const Header = () => {
         ))}
 
       </Swiper>
-    </>
+    </div>
   )
 }
 

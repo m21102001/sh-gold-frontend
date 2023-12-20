@@ -1,4 +1,5 @@
 export { default as Modal } from './Modal';
+export { default as Book } from './Book';
 export { default as Button } from './Button';
 export { default as Inputs } from './Inputs';
 export { default as ToolTip } from './ToolTip';

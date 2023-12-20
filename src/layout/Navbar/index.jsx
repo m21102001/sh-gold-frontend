@@ -23,6 +23,9 @@ const Navbar = () => {
                 <NavLink className="nav-link navli" to="/club">متجر السبائك</NavLink>
               </li>
               <li className="nav-item ms-2 ">
+                <NavLink className="nav-link navli" to="/book"> الكتب</NavLink>
+              </li>
+              <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/club">نادى كامبردج</NavLink>
               </li>
               <li className="nav-item ms-2 ">

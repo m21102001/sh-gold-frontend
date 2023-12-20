@@ -8,9 +8,11 @@ import {
 import {
   About,
   AllUsersDash,
+  Book,
   BooksDash,
   Club,
   ClubDash,
+  Consulting,
   ContactFormDash,
   CreateBookDash,
   CreateGoldDahs,
@@ -62,6 +64,8 @@ const Routers = () => {
           <Route path='/club' element={<Club />} />
           <Route path="/goldPrice" element={<GoldPrice />} />
           <Route path="/gold-news/:id" element={<GoldNews />} />
+          <Route path='/book' element={<Book />} />
+          <Route path='/Consulting' element={<Consulting />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
           {/* auth */}

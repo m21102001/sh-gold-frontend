@@ -1,4 +1,3 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Link } from 'react-router-dom';
 import styles from '../GoldCard/GoldCard.module.scss';
