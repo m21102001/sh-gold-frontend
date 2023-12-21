@@ -5,10 +5,7 @@ import axios from "@/api/axios"
 const CreateVideosDash = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [title, setTitle] = useState('')
-  const [playlist, setPlaylist] = useState('')
-  const [description, setDescription] = useState('')
-  const [url, setUrl] = useState('')
+  const [message, setMessage] = useState('')
 
 
   const hanelSubmit = async (e) => {
@@ -17,13 +14,9 @@ const CreateVideosDash = () => {
     try {
       await axios
         .post(
-          `/videos/`,
+          `/club/`,
           {
-            title: title,
-            playlist: playlist,
-            description: description,
-            url: url
-
+            message: message,
           },
           {
             headers: {
@@ -53,51 +46,18 @@ const CreateVideosDash = () => {
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
         >
-          <div className="label-form">ادخل اسم المنتج</div>
-          <input
+          <div className="label-form">اترك رساله تفصيليه</div>
+          <textarea
             type="text"
             name="title"
             className="form-control  mb-4"
             id="title"
+            rows={5}
             required
-            placeholder="ادخل اسم المنتج*"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            placeholder="تفاصيل الرساله*"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
-          <div className="label-form">اضف عنوان القائمه(playlist)</div>
-          <input
-            type="text"
-            name="playlist"
-            className="form-control  mb-4"
-            id="playlist"
-            required
-            placeholder=" اضف عنوان القائمه*"
-            value={playlist}
-            onChange={(e) => setPlaylist(e.target.value)}
-          />
-          <div className="label-form">اضف عنوان الفيديو(Url)</div>
-          <input
-            type="text"
-            name="url"
-            className="form-control  mb-4"
-            id="url"
-            required
-            placeholder="اضف لينك الفيديو*"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-          />
-          <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
-          <textarea
-            type="text"
-            name="description"
-            className="form-control  mb-4"
-            id="description"
-            required
-            placeholder="اكتب وصفا دقيقا للمنتج*"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">
               اضافه جديد
