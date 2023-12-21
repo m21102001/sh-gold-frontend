@@ -8,7 +8,7 @@ import "./book.scss";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Navbar } from "@/layout";
+import { Footer, Navbar } from "@/layout";
 import { courses } from "@/db/data";
 
 
@@ -24,12 +24,12 @@ const Book = () => {
           delay: 2500,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper my-5"
       >
         {courses.map((item, index) => (
           <SwiperSlide key={index}>
@@ -45,6 +45,7 @@ const Book = () => {
         ))}
 
       </Swiper>
+      <Footer />
     </div>
   )
 }
