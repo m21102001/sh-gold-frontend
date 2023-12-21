@@ -15,11 +15,14 @@ import {
   Consulting,
   ContactFormDash,
   CreateBookDash,
+  CreateClubDash,
   CreateGoldDahs,
+  CreateVideosDash,
   Dashboard,
   DeatilsContactFormDash,
   DetailsAllUsersDash,
   DetailsGoldDash,
+  DetailsVideosDash,
   ErrorPage,
   GoldDash,
   GoldNews,
@@ -33,9 +36,12 @@ import {
   Shop,
   SignUp,
   UpdateBooksDash,
+  UpdateClubDash,
   UpdateGoldDash,
   UpdateRoleUsersDash,
-  VerifyRestCode
+  UpdateVideosDash,
+  VerifyRestCode,
+  VideosDash
 } from '@/pages';
 import ContactUs from '@/pages/ContactUS';
 import { useAuth } from '@/context/Auth';
@@ -117,11 +123,17 @@ const Routers = () => {
           <Route path="/dash/create-books" element={<CreateBookDash />} />
           <Route path="/dash/update-books/:id" element={<UpdateBooksDash />} />
           <Route path="/dash/club" element={<ClubDash />} />
+          <Route path="/dash/create-club" element={<CreateClubDash />} />
+          <Route path="/dash/update-club/:id" element={<UpdateClubDash />} />
           <Route path="/dash/contact-form" element={<ContactFormDash />} />
           <Route path="/dash/details-contact-form/:id" element={<DeatilsContactFormDash />} />
           <Route path="/dash/all-users" element={<AllUsersDash />} />
           <Route path="/dash/all-users/:id" element={<DetailsAllUsersDash />} />
           <Route path="/dash/update-role-user/:id" element={<UpdateRoleUsersDash />} />
+          <Route path='/dash/videos' element={<VideosDash />} />
+          <Route path='/dash/create-video-item' element={<CreateVideosDash />} />
+          <Route path='/dash/update-videos/:id' element={<UpdateVideosDash />} />
+          <Route path='/dash/details-videos/:id' element={<DetailsVideosDash />} />
 
           <Route path="/dash/profile" element={<ProfileDash />} />
 

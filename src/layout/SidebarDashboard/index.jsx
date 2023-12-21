@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
+import { CgPlayList } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillGold } from "react-icons/ai";
 import { IoBookSharp } from "react-icons/io5";
@@ -38,6 +38,9 @@ function SidebarDashboard() {
           </NavLink>
           <NavLink to="/dash/club ">
             <PiFlagFill /> <p className="fs-5 fw-bold me-4">النادى</p>
+          </NavLink>
+          <NavLink to="/dash/videos ">
+            <CgPlayList /> <p className="fs-5 fw-bold me-4">الفيديوهات</p>
           </NavLink>
           <NavLink to="/dash/contact-form ">
             <FaMessage /> <p className="fs-5 fw-bold me-4">الرسائل</p>

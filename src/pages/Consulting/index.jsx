@@ -1,8 +1,6 @@
 import { Fragment } from "react"
 import { Footer, Navbar } from "@/layout"
-import { MdSupportAgent } from "react-icons/md";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
-import { GrSchedules } from "react-icons/gr";
 import { consalting } from "@/db/data"
 
 import './consalting.scss'
