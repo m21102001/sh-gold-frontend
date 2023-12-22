@@ -9,7 +9,7 @@ const ClubDash = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/club?page=${2}`)
+    axios.get(`/club/`)
       .then((response) => {
         setLoading(false)
         setClub(response.data)
@@ -31,7 +31,7 @@ const ClubDash = () => {
         },
       })
       .then((response) => {
-        axios.get(`/club?page=${2}`).then((response) => {
+        axios.get(`/club/`).then((response) => {
           setClub(response.data);
           setLoading(false);
           console.log(response.data);

@@ -28,6 +28,7 @@ import {
   GoldNews,
   GoldPrice,
   Home,
+  InvesmentDash,
   Login,
   Payment,
   ProfileDash,
@@ -122,6 +123,7 @@ const Routers = () => {
           <Route path="/dash/books" element={<BooksDash />} />
           <Route path="/dash/create-books" element={<CreateBookDash />} />
           <Route path="/dash/update-books/:id" element={<UpdateBooksDash />} />
+          <Route path='dash/investment' element={<InvesmentDash />} />
           <Route path="/dash/club" element={<ClubDash />} />
           <Route path="/dash/create-club" element={<CreateClubDash />} />
           <Route path="/dash/update-club/:id" element={<UpdateClubDash />} />

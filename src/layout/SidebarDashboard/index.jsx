@@ -39,6 +39,9 @@ function SidebarDashboard() {
           <NavLink to="/dash/club ">
             <PiFlagFill /> <p className="fs-5 fw-bold me-4">النادى</p>
           </NavLink>
+          <NavLink to="/dash/investment ">
+            <PiFlagFill /> <p className="fs-5 fw-bold me-4">مشاريع الاستثمار</p>
+          </NavLink>
           <NavLink to="/dash/videos ">
             <CgPlayList /> <p className="fs-5 fw-bold me-4">الفيديوهات</p>
           </NavLink>
