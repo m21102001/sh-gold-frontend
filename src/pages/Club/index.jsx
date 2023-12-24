@@ -1,15 +1,17 @@
 import { Footer, Navbar } from "@/layout"
-import { GoldNews } from "@/components"
+import { GoldNews, Investmant, TipsClub } from "@/components"
 
 
 const Club = () => {
-    return (
-        <>
-            <Navbar />
-            <GoldNews />
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Navbar />
+      <GoldNews />
+      <Investmant />
+      <TipsClub />
+      <Footer />
+    </>
+  )
 }
 
 export default Club

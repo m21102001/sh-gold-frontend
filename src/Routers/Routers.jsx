@@ -10,6 +10,8 @@ import {
   AllUsersDash,
   Book,
   BooksDash,
+  BullionStore,
+  BullionStoreItem,
   Club,
   ClubDash,
   Consulting,
@@ -26,12 +28,12 @@ import {
   ErrorPage,
   GoldDash,
   GoldNews,
-  GoldPrice,
   Home,
   InvesmentDash,
   Login,
   Payment,
   ProfileDash,
+  ProjectIdea,
   ResetPassword,
   ResetPasswordOtp,
   Shop,
@@ -49,38 +51,40 @@ import { useAuth } from '@/context/Auth';
 
 const Routers = () => {
   const { Loggedin, role } = useAuth();
+
   const Protect = ({ children }) => {
-
-
     if (Loggedin && role === "admin" || role === 'godAdmin' || role === 'manager') {
       return <Navigate to={"/dash/dashboard"} />
-
     } else {
       if (role === 'user') {
         return <Navigate to={"/"} />
       }
       return children;
     }
-
   }
   return (
     <div className='conatiner'>
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/bullion-store' element={<BullionStore />} />
+          <Route path='/bullion-store/:id' element={<BullionStoreItem />} />
           <Route path='/club' element={<Club />} />
-          <Route path="/goldPrice" element={<GoldPrice />} />
+          <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
+          {/* <Route path="/goldPrice" element={<GoldPrice />} /> */}
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path='/book' element={<Book />} />
           <Route path='/Consulting' element={<Consulting />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
-          {/* auth */}
-          <Route path="/auth/shop" element={
-            <Protect>
-              <Shop />
-            </Protect>
-          } />
+          {/*///////////////////////// auth ///////////////////////////////////////*/}
+          <Route
+            path="/auth/shop"
+            element={
+              <Protect>
+                <Shop />
+              </Protect>
+            } />
           <Route
             path="/auth/sign-up"
             element={
@@ -114,30 +118,163 @@ const Routers = () => {
               <Protect>
                 <ResetPasswordOtp />
               </Protect>} />
-          {/* Dashboard */}
-          <Route path="/dash/dashboard" element={<Dashboard />} />
-          <Route path="/dash/gold" element={<GoldDash />} />
-          <Route path="/dash/details-gold/:id" element={<DetailsGoldDash />} />
-          <Route path="/dash/create-gold-item" element={<CreateGoldDahs />} />
-          <Route path="/dash/update-gold/:id" element={<UpdateGoldDash />} />
-          <Route path="/dash/books" element={<BooksDash />} />
-          <Route path="/dash/create-books" element={<CreateBookDash />} />
-          <Route path="/dash/update-books/:id" element={<UpdateBooksDash />} />
-          <Route path='dash/investment' element={<InvesmentDash />} />
-          <Route path="/dash/club" element={<ClubDash />} />
-          <Route path="/dash/create-club" element={<CreateClubDash />} />
-          <Route path="/dash/update-club/:id" element={<UpdateClubDash />} />
-          <Route path="/dash/contact-form" element={<ContactFormDash />} />
-          <Route path="/dash/details-contact-form/:id" element={<DeatilsContactFormDash />} />
-          <Route path="/dash/all-users" element={<AllUsersDash />} />
-          <Route path="/dash/all-users/:id" element={<DetailsAllUsersDash />} />
-          <Route path="/dash/update-role-user/:id" element={<UpdateRoleUsersDash />} />
-          <Route path='/dash/videos' element={<VideosDash />} />
-          <Route path='/dash/create-video-item' element={<CreateVideosDash />} />
-          <Route path='/dash/update-videos/:id' element={<UpdateVideosDash />} />
-          <Route path='/dash/details-videos/:id' element={<DetailsVideosDash />} />
 
-          <Route path="/dash/profile" element={<ProfileDash />} />
+          {/*///////////////////////////// Dashboard //////////////////////////*/}
+          <Route
+            path="/dash/dashboard"
+            element={
+              <Protect>
+                <Dashboard />
+              </Protect>
+            } />
+          <Route
+            path="/dash/gold"
+            element={
+              <Protect>
+                <GoldDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/details-gold/:id"
+            element={
+              <Protect>
+                <DetailsGoldDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/create-gold-item"
+            element={
+              <Protect>
+                <CreateGoldDahs />
+              </Protect>
+            } />
+          <Route
+            path="/dash/update-gold/:id"
+            element={
+              <Protect>
+                <UpdateGoldDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/books"
+            element={
+              <Protect>
+                <BooksDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/create-books"
+            element={
+              <Protect>
+                <CreateBookDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/update-books/:id"
+            element={
+              <Protect>
+                <UpdateBooksDash />
+              </Protect>
+            } />
+          <Route
+            path='dash/investment'
+            element={
+              <Protect>
+                <InvesmentDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/club"
+            element={
+              <Protect>
+                <ClubDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/create-club"
+            element={
+              <Protect>
+                <CreateClubDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/update-club/:id"
+            element={
+              <Protect>
+                <UpdateClubDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/contact-form"
+            element={
+              <Protect>
+                <ContactFormDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/details-contact-form/:id"
+            element={
+              <Protect>
+                <DeatilsContactFormDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/all-users"
+            element={
+              <Protect>
+                <AllUsersDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/all-users/:id"
+            element={
+              <Protect>
+                <DetailsAllUsersDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/update-role-user/:id"
+            element={
+              <Protect>
+                <UpdateRoleUsersDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/videos'
+            element={
+              <Protect>
+                <VideosDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/create-video-item'
+            element={
+              <Protect>
+                <CreateVideosDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/update-videos/:id'
+            element={
+              <Protect>
+                <UpdateVideosDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/details-videos/:id'
+            element={
+              <Protect>
+                <DetailsVideosDash />
+              </Protect>
+            } />
+
+          <Route
+            path="/dash/profile"
+            element={
+              <Protect>
+                <ProfileDash />
+              </Protect>
+            } />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

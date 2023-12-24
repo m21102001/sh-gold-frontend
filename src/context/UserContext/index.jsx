@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { createContext } from 'react';
+import { useEffect, useState, createContext } from 'react';
+
 export const UserContext = createContext();
 const UserContextElement = ({ children }) => {
   const [user, setUser] = useState({});

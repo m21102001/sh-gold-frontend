@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom"
 import { RxAvatar } from 'react-icons/rx';
 import logo from "../../assets/Cambridge-logo-.svg"
 import "./navbar.module.scss"
+import { useAuth } from "@/context/Auth";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
+  const { Loggedin } = useAuth();
   return (
     <>
       <nav className="navbar navbar-expand-lg mainNavbar" style={{ background: "var(--darkblue-color)" }}>
@@ -20,7 +20,7 @@ const Navbar = () => {
                 <NavLink className="nav-link navli active" aria-current="page" to="/">الرئيسيه</NavLink>
               </li>
               <li className="nav-item ms-2 ">
-                <NavLink className="nav-link navli" to="/club">متجر السبائك</NavLink>
+                <NavLink className="nav-link navli" to="/bullion-store">متجر السبائك</NavLink>
               </li>
               <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/book"> الكتب</NavLink>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 <NavLink className="nav-link navli" to={'/contactUS'}>تواصل معنا</NavLink>
               </li>
             </ul>
-            {!nav ? (
+            {!Loggedin ? (
               <div>
                 <Link to="/auth/login">
                   <button className={`login-btn`}>Login</button>
@@ -52,7 +52,7 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <RxAvatar className="fs-1 avatar" />
+                <RxAvatar className="fs-1 avatar text-light" />
                 <br />
                 {/* {user?.username} */}
 
@@ -60,8 +60,9 @@ const Navbar = () => {
                   onClick={() => {
                     // setNav((pre) => !pre);
                     localStorage.removeItem('token');
+                    localStorage.removeItem('role');
                   }}
-                  className={`logout-btn`}
+                  className={`logout-btn mx-4 p-2 fs-5`}
                 >
                   Logout
                 </button>

@@ -1,6 +1,5 @@
-import { Navbar } from '@/layout';
-import React from 'react'
 import { useLocation } from 'react-router-dom';
+import { Navbar } from '@/layout';
 const GoldNews = () => {
     const item = useLocation()?.state?.item;
   return (
