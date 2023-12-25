@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from '@/api/axios';
+import { MdTipsAndUpdates } from "react-icons/md";
+import { FcIdea } from "react-icons/fc";
 import styles from '../GoldCard/GoldCard.module.scss';
-
 const GoldStore = () => {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState([])
@@ -33,14 +33,17 @@ const GoldStore = () => {
           <div className="container">
             <div className={styles['home-grid']}>
               {!loading && message?.messages?.map((item, index) => (
-                  <div key={index} className="card text-center" style={{ width: "18rem" }}>
-                    <div className="card-body">
-                      <h5 className="card-title">{item?.message}</h5>
-                      <div className="news-date">
-                        <label className="mx-2">التاريخ : {item?.createdAt?.split('T', 1)} </label>
-                      </div>
+                <div key={index} className="card text-end" style={{ width: "18rem" }}>
+                  <div className="card-body">
+                    <h5 className="card-title fw-bold" style={{ color: 'var(--main-color)' }}>
+                      <MdTipsAndUpdates size={40} color="#ffcc00" />
+                      {item?.message}
+                    </h5>
+                    <div className="news-date">
+                      <label className="mx-2">التاريخ : {item?.createdAt?.split('T', 1)} </label>
                     </div>
-                </div> 
+                  </div>
+                </div>
               ))}
             </div>
           </div>

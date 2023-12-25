@@ -1,0 +1,18 @@
+.react-tabs {
+background-color: var(--darkblue-color);
+  .react-tabs__tab-list {
+    text-align: center;
+    padding-top: 3rem;
+
+    margin: 0 0 30px !important;
+    .react-tabs__tab {
+      color: white;
+      font-size: 1.2rem;
+    }
+    .react-tabs__tab--selected {
+      color: var(--main-color);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+}

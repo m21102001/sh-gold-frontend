@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import {
   About,
+  AddNewIdea,
   AllUsersDash,
   Book,
   BooksDash,
@@ -16,6 +17,7 @@ import {
   ClubDash,
   Consulting,
   ContactFormDash,
+  ContactUS,
   CreateBookDash,
   CreateClubDash,
   CreateGoldDahs,
@@ -30,6 +32,7 @@ import {
   GoldNews,
   Home,
   InvesmentDash,
+  InvestmantPage,
   Login,
   Payment,
   ProfileDash,
@@ -46,7 +49,6 @@ import {
   VerifyRestCode,
   VideosDash
 } from '@/pages';
-import ContactUs from '@/pages/ContactUS';
 import { useAuth } from '@/context/Auth';
 
 const Routers = () => {
@@ -71,12 +73,14 @@ const Routers = () => {
           <Route path='/bullion-store/:id' element={<BullionStoreItem />} />
           <Route path='/club' element={<Club />} />
           <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
+          <Route path='/investment' element={<InvestmantPage />} />
+          <Route path="/club/add-project-idea" element={<AddNewIdea />} />
           {/* <Route path="/goldPrice" element={<GoldPrice />} /> */}
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path='/book' element={<Book />} />
           <Route path='/Consulting' element={<Consulting />} />
           <Route path="/about-us" element={<About />} />
-          <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/contactUs" element={<ContactUS />} />
           {/*///////////////////////// auth ///////////////////////////////////////*/}
           <Route
             path="/auth/shop"

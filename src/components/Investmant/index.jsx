@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { MdTipsAndUpdates } from "react-icons/md";
 import axios from '@/api/axios';
 import styles from '../GoldCard/GoldCard.module.scss';
 
-const GoldStore = () => {
+const Investment = () => {
   const [loading, setLoading] = useState(false)
   const [investment, setInvestment] = useState([])
 
@@ -28,6 +29,12 @@ const GoldStore = () => {
         <h2 className='text-center comunation fs-1 fw-bold'> افكار مشاريع </h2>
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
       </div>
+      <Link to='/club/add-project-idea' style={{ position: 'fixed', bottom: '15px', left: "11px", zIndex: "1" }}>
+        <button type="button" className="btn btn-warning fw-bold">
+          <MdTipsAndUpdates size={40} />
+          فكره جديده
+        </button>
+      </Link>
       <div className='m-auto d-flex justify-center'>
         <>
           <div className="container">
@@ -44,7 +51,7 @@ const GoldStore = () => {
                         src={item?.cover}
                       />
                       <div className="news-date">
-                        <label className="mx-2"> {item?.createdAt?.split('T',1)} </label>
+                        <label className="mx-2"> {item?.createdAt?.split('T', 1)} </label>
                         {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
                       </div>
                     </div>
@@ -63,4 +70,4 @@ const GoldStore = () => {
   )
 }
 
-export default GoldStore
+export default Investment
