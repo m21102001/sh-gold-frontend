@@ -25,7 +25,10 @@ import {
   Dashboard,
   DeatilsContactFormDash,
   DetailsAllUsersDash,
+  DetailsBook,
   DetailsGoldDash,
+  DetailsInactiveInvesmentDash,
+  DetailsInvesmentDash,
   DetailsVideosDash,
   ErrorPage,
   GoldDash,
@@ -72,12 +75,13 @@ const Routers = () => {
           <Route path='/bullion-store' element={<BullionStore />} />
           <Route path='/bullion-store/:id' element={<BullionStoreItem />} />
           <Route path='/club' element={<Club />} />
-          <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
           <Route path='/investment' element={<InvestmantPage />} />
+          <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
           <Route path="/club/add-project-idea" element={<AddNewIdea />} />
           {/* <Route path="/goldPrice" element={<GoldPrice />} /> */}
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path='/book' element={<Book />} />
+          <Route path='/book/detalis-book/:id' element={<DetailsBook />} />
           <Route path='/Consulting' element={<Consulting />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contactUs" element={<ContactUS />} />
@@ -185,6 +189,20 @@ const Routers = () => {
             element={
               <Protect>
                 <InvesmentDash />
+              </Protect>
+            } />
+          <Route
+            path='dash/details-investment/:id'
+            element={
+              <Protect>
+                <DetailsInvesmentDash />
+              </Protect>
+            } />
+          <Route
+            path='/investment/inactive/details-investment/:id'
+            element={
+              <Protect>
+                <DetailsInactiveInvesmentDash />
               </Protect>
             } />
           <Route

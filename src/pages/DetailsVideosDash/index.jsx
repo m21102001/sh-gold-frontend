@@ -1,5 +1,6 @@
 import { SidebarDashboard } from '@/layout';
-import { useLocation } from 'react-router-dom';
+import { MdOutlineArrowBack } from 'react-icons/md';
+import { Link, useLocation } from 'react-router-dom';
 
 const DetailsVideosDash = () => {
   const item = useLocation()?.state?.item
@@ -10,6 +11,10 @@ const DetailsVideosDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>Deatils Video playlist</h2>
         </div>
+        <Link to={'/dash/videos'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="butto" className="fw-bold fs-5 back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
         <section style={{ backgroundColor: "#eee" }}>
           <div className="container py-5">
             <div className="row">

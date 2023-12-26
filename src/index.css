@@ -7,7 +7,6 @@
   --gold-color2: #de9012;
   --darkblue-color: #161635;
   --shd: 0px 2px 50px 10px rgba(44, 43, 105, 0.59);
-
 }
 * {
   font-family: 'Cairo', sans-serif !important;
@@ -26,7 +25,7 @@ html {
 
 body {
   /* font-family: 'Cairo', sans-serif !important; */
-  font-family: 'Roboto', sans-serif ;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background: #f8f9fa;
@@ -40,7 +39,7 @@ textarea {
   border: 1px solid var(--gold-color) !important;
 }
 h2 {
-  color: #fff ;
+  color: #fff;
 }
 button {
   cursor: pointer;
@@ -92,6 +91,13 @@ button {
   padding: 30px 55px;
   margin-inline: auto;
   max-width: 1300px;
+}
+.back-details-button {
+  border-radius: 22px !important;
+  border: 3px solid #9b9ec1;
+  background: none;
+  color: #9b9ec1;
+  width: 7rem;
 }
 
 @media (max-width: 700px) {

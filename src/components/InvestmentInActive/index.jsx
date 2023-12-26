@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from '@/api/axios'
+import { Link } from "react-router-dom"
 
 const InvestmentInActive = () => {
   const [loading, setLoading] = useState(false)
@@ -21,13 +22,18 @@ const InvestmentInActive = () => {
   return (
     <div className="d-flex flex-wrap justify-content-evenly">
       {!loading && investment?.invest?.map((item, index) => (
-        <div key={index} className="card mb-5" style={{ width: "18rem" }}>
+        <Link
+          to={`/investment/inactive/details-investment/${item._id}`}
+          state={{ item: item }}
+          key={index}
+          className="card mb-5"
+          style={{ width: "18rem" }}>
           <img src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
-          {/* <img src={``} className="card-img-top" alt="..." /> */}
+          {/* src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover} */}
           <div className="card-body">
             <p className="card-text">عنوان الفكره</p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   )

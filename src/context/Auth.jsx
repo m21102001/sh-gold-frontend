@@ -8,7 +8,7 @@ export const AuthProvider = ({children})=>{
 const [Loggedin , SetLoggedin] = useState(false);
 const [role , Setrole] = useState("");
 const check = ()=>{
-  if(localStorage.getItem("token")&&Loggedin === false){
+  if(localStorage.getItem("token")&&Loggedin === true){
     SetLoggedin(true);
     Setrole(localStorage.getItem("role"))
   }else{

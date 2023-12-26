@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 const UpdateBooksDash = () => {
-  const item=useLocation()?.state?.item
+  const item = useLocation()?.state?.item
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
   const [title, setTitle] = useState('')
@@ -65,6 +65,7 @@ const UpdateBooksDash = () => {
             placeholder="ادخل اسم المنتج*"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            // defaultValue="Some initial value"
           />
           <div className="label-form">اكتب السعر*</div>
           <input
