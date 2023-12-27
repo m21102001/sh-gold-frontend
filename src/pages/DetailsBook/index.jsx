@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import { Footer, Navbar } from "@/layout"
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import axios from "@/api/axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import styles from '../../components/GoldCard/GoldCard.module.scss';
 const DetailsBook = () => {
+  const navigate = useNavigate();
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
+  const [counter, setCounter] = useState(1);
+
+  const increase = () => {
+    setCounter(count => count + 1);
+  };
+  const decrease = () => {
+    if (counter > 1) {
+      setCounter(count => count - 1);
+    }
+  };
 
   let fetchBook = {
     method: 'get',
@@ -31,7 +42,7 @@ const DetailsBook = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 bg-body rounded">
+      <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">
             <Swiper
@@ -61,15 +72,15 @@ const DetailsBook = () => {
             </Swiper>
           </div>
           <div className="col-md-6 col-sm-12 m-0 p-0">
-            <section style={{ backgroundColor: "#eee" }}>
+            <section style={{ backgroundColor: 'var(--darkblue-color)' }}>
               <div className="container py-5">
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="card mb-4">
-                      <div className="card-body">
+                      <div className="card-body" style={{ color: 'var(--main-color)' }}>
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">الاسم</p>
+                            <p className="mb-0 fw-bold">اسم الكتاب  </p>
                           </div>
                           <div className="col-sm-9">
                             <p className="text-muted fw-bold mb-0">{item?.title}</p>
@@ -89,7 +100,7 @@ const DetailsBook = () => {
                           <div className="col-sm-3">
                             <p className="mb-0 fw-bold">الوصف الكامل</p>
                           </div>
-                          <div className="col-sm-9">
+                          <div className="col-sm-9 overflow-auto" style={{ height: '20rem' }}>
                             <p className="text-muted fw-bold mb-0">{item?.description}</p>
                           </div>
                         </div>
@@ -102,11 +113,29 @@ const DetailsBook = () => {
                             <p className="text-muted fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>
                           </div>
                         </div>
+                        <div className="row align-items-center mt-5">
+                          <div className="col-sm-4">
+                            <button type='button' className='btn btn-secondary px-4' onClick={increase}>+</button>
+                            <input readOnly min={1} value={counter} style={{ width: '4rem', color: 'var(--gold-color2)', border: "none !important", textAlign: 'center', margin: '0 1rem' }} />
+                            <button type='button' className='btn btn-secondary px-4' onClick={decrease}>-</button>
+                          </div>
+                          <div className="col-sm-4">
+                            <Link
+                              to={`/auth/shop`}
+                            >
+                              <button onClick={() => { }} type="button" className="btn btn-primary mx-2">اضف الى السله</button>
+                            </Link>
+                          </div>
+                          <div className="col-sm-4">
+                            <button onClick={() => navigate('/book')} type="button" className="btn btn-outline-primary mx-2">استمرار التسوق</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
             </section>
           </div>
         </div>
