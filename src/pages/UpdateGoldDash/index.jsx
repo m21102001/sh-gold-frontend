@@ -12,6 +12,16 @@ const UpdateGoldDash = () => {
   const [size, setSize] = useState('')
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
+  
+  const getInitialState = () => {
+    const value = "Premium Products";
+    return value;
+  };
+  const [value, setValue] = useState(getInitialState);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
   const hanelSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +34,8 @@ const UpdateGoldDash = () => {
             title: title,
             size: size,
             price: price,
-            description: description
+            description: description,
+            category:value
           },
           {
             headers: {
@@ -94,6 +105,27 @@ const UpdateGoldDash = () => {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
+            <div className="label-form">اضافه االى قائمه *</div>
+            <select
+              className="form-select"
+              aria-label="Default select example"
+              value={value}
+              onChange={handleChange}
+            >
+              <option defaultValue selected value="Premium Products">Premium Products</option>
+              <option value="Othmani Lera and Georgian">Othmani Lera and Georgian</option>
+              <option value="Mother Day">Mother Day</option>
+              <option value="Silver">Silver</option>
+              <option value="Platinum">Platinum</option>
+              <option value="PAMP Bullion">PAMP Bullion</option>
+              <option value="Swiss Bar">Swiss Bar</option>
+              <option value="White Gold">White Gold</option>
+              <option value="Sabhat">Sabhat</option>
+              <option value="Islamic">Islamic</option>
+              <option value="Bracelet">Bracelet</option>
+              <option value="Sets">Sets</option>
+              <option value="Rremium products">Rremium products</option>
+            </select>
             <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
             <textarea
               type="text"

@@ -11,6 +11,17 @@ const CreateGoldDahs = () => {
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
 
+  const getInitialState = () => {
+    const value = "Premium Products";
+    return value;
+  };
+  const [value, setValue] = useState(getInitialState);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+
   const hanelSubmit = async (e) => {
     e.preventDefault();
     setIsPending(true);
@@ -23,7 +34,8 @@ const CreateGoldDahs = () => {
             size: size,
             price: price,
             description: description,
-            image: image
+            image: image,
+            category: value
           },
           {
             headers: {
@@ -41,7 +53,7 @@ const CreateGoldDahs = () => {
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response'+ err?.response?.data?.errors?.map((item) => item.msg));
+      console.log('response' + err?.response.json);
       alert('error message: ' + err?.response?.data?.errors?.map((item) => item.msg));
     }
   };
@@ -90,6 +102,27 @@ const CreateGoldDahs = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
+          <div className="label-form">اضافه االى قائمه *</div>
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            value={value}
+            onChange={handleChange}
+          >
+            <option defaultValue selected value="Premium Products">Premium Products</option>
+            <option value="Othmani Lera and Georgian">Othmani Lera and Georgian</option>
+            <option value="Mother Day">Mother Day</option>
+            <option value="Silver">Silver</option>
+            <option value="Platinum">Platinum</option>
+            <option value="PAMP Bullion">PAMP Bullion</option>
+            <option value="Swiss Bar">Swiss Bar</option>
+            <option value="White Gold">White Gold</option>
+            <option value="Sabhat">Sabhat</option>
+            <option value="Islamic">Islamic</option>
+            <option value="Bracelet">Bracelet</option>
+            <option value="Sets">Sets</option>
+            <option value="Rremium products">Rremium products</option>
+          </select>
           <div className="label-form">اضف صوره للذهب</div>
           <input
             type="file"

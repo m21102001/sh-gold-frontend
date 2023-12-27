@@ -1,9 +1,9 @@
-import React from 'react'
-import styles from './shop.module.css'
-
+// import useLocation from 'react-router-dom';
 const index = () => {
+  // const item = useLocation()?.state?.item;
   return (
     <div>
+      {/* {item._id} */}
       Shop
     </div>
   )
