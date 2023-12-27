@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Footer, Navbar } from "@/layout"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { Link, useLocation } from "react-router-dom"
-import styles from '../../components/GoldCard/GoldCard.module.scss';
 import axios from "@/api/axios";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+import styles from '../../components/GoldCard/GoldCard.module.scss';
 const DetailsBook = () => {
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false);
@@ -32,12 +34,31 @@ const DetailsBook = () => {
       <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 bg-body rounded">
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">
-            <LazyLoadImage
-              src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-              alt=""
-              loading="lazy"
-              style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
-            />
+            <Swiper
+              pagination={{
+                type: 'fraction',
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <LazyLoadImage
+                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
+                  alt=""
+                  loading="lazy"
+                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <LazyLoadImage
+                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
+                  alt=""
+                  loading="lazy"
+                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
           <div className="col-md-6 col-sm-12 m-0 p-0">
             <section style={{ backgroundColor: "#eee" }}>
