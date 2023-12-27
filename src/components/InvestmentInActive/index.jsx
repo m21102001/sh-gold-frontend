@@ -31,7 +31,7 @@ const InvestmentInActive = () => {
           <img src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
           {/* src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover} */}
           <div className="card-body">
-            <p className="card-text">عنوان الفكره</p>
+            <h5 className="card-title fw-bold m-0"> {item?.name}</h5>
           </div>
         </Link>
       ))}

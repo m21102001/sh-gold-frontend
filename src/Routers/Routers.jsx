@@ -21,6 +21,7 @@ import {
   CreateBookDash,
   CreateClubDash,
   CreateGoldDahs,
+  CreateInvesmentDash,
   CreateVideosDash,
   Dashboard,
   DeatilsContactFormDash,
@@ -189,6 +190,13 @@ const Routers = () => {
             element={
               <Protect>
                 <InvesmentDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/create-investment-item'
+            element={
+              <Protect>
+                <CreateInvesmentDash />
               </Protect>
             } />
           <Route

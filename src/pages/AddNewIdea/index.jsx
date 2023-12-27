@@ -152,7 +152,7 @@ const AddNewIdea = () => {
                 value={description}
                 rows="3"
                 required
-              ></textarea>
+              />
             </div>
             {!isPending && (
               <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">

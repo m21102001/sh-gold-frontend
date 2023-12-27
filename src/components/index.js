@@ -10,6 +10,7 @@ export { default as ChartDash } from './ChartDash';
 export { default as GoldStore } from './GoldStore';
 export { default as LoginForm } from './LoginForm';
 export { default as AboutThat } from './AboutThat';
+export { default as Pagination } from './Pagination';
 export { default as Investmant } from './Investmant';
 export { default as AreaCharts } from './AreaCharts';
 export { default as WidgetCart } from './WidgetCart';

@@ -42,6 +42,7 @@ export { default as ResetPasswordOtp } from './ResetPasswordOtp';
 export { default as DetailsVideosDash } from './DetailsVideosDash';
 export { default as DetailsAllUsersDash } from './DetailsAllUsersDash';
 export { default as UpdateRoleUsersDash } from './UpdateRoleUsersDash';
+export { default as CreateInvesmentDash } from './CreateInvesmentDash';
 export { default as DetailsInvesmentDash } from './DetailsInvesmentDash';
 export { default as DeatilsContactFormDash } from './DetailsContactFormDash';
 export { default as DetailsInactiveInvesmentDash } from './DetailsInactiveInvesmentDash';

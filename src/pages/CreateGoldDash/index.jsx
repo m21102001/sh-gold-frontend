@@ -23,24 +23,26 @@ const CreateGoldDahs = () => {
             size: size,
             price: price,
             description: description,
-            img: image
+            image: image
           },
           {
             headers: {
               'Content-Type': 'multipart/form-data',
-              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc1OGEzOTY4YTU3MjJhM2VjNjkzZmIiLCJpYXQiOjE3MDIyMDIwNzEsImV4cCI6MTcwMjI4ODQ3MX0.xoI8xrWDnX3rqnSsYctG5-0YsHcUp0rDryWNooXHiNM',
-
             },
           }
         )
         .then((response) => {
-          console.log('created success', response.data);
+          console.log('created success', response);
+          if (response?.status == 201) {
+            alert('created successfully')
+            return navigate('/dash/gold')
+          }
         });
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      console.log('response'+ err?.response?.data?.errors?.map((item) => item.msg));
+      alert('error message: ' + err?.response?.data?.errors?.map((item) => item.msg));
     }
   };
 

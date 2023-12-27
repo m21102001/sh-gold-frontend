@@ -34,13 +34,17 @@ const CreateBookDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response.data);
+          console.log('created success', response);
+          if (response?.status == 201) {
+            alert('created successfully')
+            return navigate('/dash/books')
+          }
         });
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
       console.log('response', err.response);
-      console.log('message', err.message);
+      alert('error message: ' + err?.response?.data?.errors?.map((item) => item.msg));
     }
   };
 

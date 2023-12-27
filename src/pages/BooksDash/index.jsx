@@ -39,6 +39,7 @@ const BooksDash = () => {
       .request(config, {
       })
       .then((response) => {
+        alert('Deleted Success');
         axios.request(fetchBook).then((response) => {
           setBookData(response.data);
           setLoading(false);

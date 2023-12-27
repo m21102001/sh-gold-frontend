@@ -25,7 +25,7 @@ const DetailsGoldDash = () => {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">العنوان</p>
+                        <p className="mb-0">الاسم</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.title}</p>

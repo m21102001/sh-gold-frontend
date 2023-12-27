@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 const UpdateBooksDash = () => {
@@ -34,13 +34,17 @@ const UpdateBooksDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response.data);
+          console.log('created success', response);
+          if (response?.status == 201) {
+            alert('Updated successfully')
+            return navigate('/dash/book')
+          }
         });
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      console.log('response'+ err?.response?.data?.errors?.map((item) => item.msg));
+      alert('error message: ' + err?.response?.data?.errors?.map((item) => item.msg));
     }
   };
 

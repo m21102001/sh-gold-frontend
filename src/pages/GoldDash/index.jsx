@@ -39,6 +39,7 @@ const GoldDash = () => {
       .request(config, {
       })
       .then((response) => {
+        alert('Deleted Success');
         axios.request(fetchGold).then((response) => {
           setGoldData(response.data);
           setLoading(false);

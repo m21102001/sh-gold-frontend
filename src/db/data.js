@@ -2,10 +2,6 @@ import book from '../assets/img/kenzbook.png';
 import creative from '../assets/img/creative.jpeg';
 import app from '../assets/img/app.jpeg';
 import kinz from '../assets/img/kinz.jpeg';
-import { HiMiniComputerDesktop } from 'react-icons/hi2';
-import { RiComputerFill } from 'react-icons/ri';
-import { SiInternetcomputer } from 'react-icons/si';
-import { GiComputerFan } from 'react-icons/gi';
 import brainstorming from '@/assets/brainstorming.webp';
 import income from '@/assets/income.webp';
 import investor from '@/assets/investor.webp';
@@ -178,7 +174,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'minning',
     rating: 3.4,
-    img: book,
+    img: `https://goldtodayprices.com/wp-content/uploads/2022/09/how-invest-in-gold-investors-guide.jpg`,
   },
   {
     id: 2,
@@ -187,7 +183,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'minning',
     rating: 3.4,
-    img: book,
+    img: `https://5.imimg.com/data5/ECOM/Default/2022/4/CY/EE/NJ/11885699/ch-991-1-1000x1000.jpg`,
   },
   {
     id: 3,
@@ -196,7 +192,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'minning',
     rating: 3.4,
-    img: book,
+    img: `https://5.imimg.com/data5/ECOM/Default/2022/11/HI/VI/JG/11885699/linkeduniquedesignpremium-gradequalitygoldplatedchainformen-125x125.jpg`,
   },
   {
     id: 4,
@@ -205,7 +201,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'minning',
     rating: 3.4,
-    img: book,
+    img: `https://5.imimg.com/data5/ECOM/Default/2022/4/FB/RZ/XY/11885699/ch-9a-991-125x125.jpg`,
   },
   {
     id: 5,
@@ -214,7 +210,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'programming',
     rating: 3.4,
-    img: creative,
+    img: `https://5.imimg.com/data5/SELLER/Default/2022/6/SA/RG/TF/2929620/ds-chain-1604-250x250.JPG`,
   },
   {
     id: 6,
@@ -223,7 +219,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'programming',
     rating: 3.4,
-    img: creative,
+    img: `https://5.imimg.com/data5/SELLER/Default/2023/9/343557208/SV/BE/JX/41236899/soku-7459-500x500.jpeg`,
   },
   {
     id: 7,
@@ -232,7 +228,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'programming',
     rating: 3.4,
-    img: creative,
+    img: `https://5.imimg.com/data5/RM/BY/NL/SELLER-20789525/100-original-rudraksha-wear-synthetic-navratan-rhodium-gold-plated-pendant-charm-250x250.jpg`,
   },
   {
     id: 8,
@@ -241,7 +237,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'programming',
     rating: 3.4,
-    img: creative,
+    img: `https://5.imimg.com/data5/SELLER/Default/2021/9/PZ/TT/KN/136645234/gold-plated-brass-chain-250x250.jpg`,
   },
   {
     id: 9,
@@ -250,7 +246,7 @@ export const courses = [
     desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     catigory: 'programming',
     rating: 3.4,
-    img: creative,
+    img: `https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`,
   },
   {
     id: 10,

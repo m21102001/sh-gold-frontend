@@ -15,11 +15,11 @@ const GoldNews = () => {
           <div className="container">
             <div className={styles['home-grid']}>
               {courses.map((item, index) => (
-                index < 8 ? (
+                // index < 8 ? (
                   <Link
                     key={index}
-                    to={`/gold-news/${item.id}`}
-                    state={{ item: item }}
+                    // to={`/gold-news/${item.id}`}
+                    // state={{ item: item }}
                   >
                     <div className={styles['gold-div']}>
                       <div className='title-card'>
@@ -37,7 +37,7 @@ const GoldNews = () => {
                       </div>
                     </div>
                   </Link>
-                ) : (null)
+                // ) : (null)
               ))}
             </div>
           </div>
