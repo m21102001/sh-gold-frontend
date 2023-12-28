@@ -4,7 +4,7 @@ import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 
 const UpdateClubDash = () => {
-  const item=useLocation()?.state?.item
+  const item = useLocation()?.state?.item
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
   const [message, setMessage] = useState(item?.message)
@@ -26,7 +26,13 @@ const UpdateClubDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response.data);
+          console.log('created success', response);
+          if (response?.status == 201) {
+
+            alert('created successfully')
+            return navigate('/dash/club')
+          }
+
         });
       setIsPending(false);
     } catch (err) {
@@ -61,12 +67,12 @@ const UpdateClubDash = () => {
 
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">
-              اضافه جديد
+              تعديل
             </button>
           )}
           {isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mb-4">
-              جاري الاضافه ...
+              جاري التعديل ...
             </button>
           )}
           <button onClick={() => navigate('/dash/club')} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mb-4">

@@ -25,7 +25,11 @@ const CreateClubDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response.data);
+          console.log('created success', response);
+          if (response?.status == 201) {
+            alert('created successfully')
+            return navigate('/dash/club')
+          }
         });
       setIsPending(false);
     } catch (err) {

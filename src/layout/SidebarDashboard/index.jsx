@@ -37,7 +37,7 @@ function SidebarDashboard() {
             <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>
           </NavLink>
           <NavLink to="/dash/club ">
-            <PiFlagFill /> <p className="fs-5 fw-bold me-4">النادى</p>
+            <PiFlagFill /> <p className="fs-5 fw-bold me-4">نصايح النادى</p>
           </NavLink>
           <NavLink to="/dash/investment ">
             <PiFlagFill /> <p className="fs-5 fw-bold me-4">مشاريع الاستثمار</p>

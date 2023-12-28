@@ -40,8 +40,6 @@ const CreateInvesmentDash = () => {
 
             alert('created successfully')
             return navigate('/dash/investment')
-          } else {
-            alert(<div className="alert alert-success" role="alert"> A simple success alert—check it out!</div>)
           }
         });
       setIsPending(false);
