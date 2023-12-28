@@ -548,10 +548,6 @@ export const goldCategory = [
     name: 'Premium Products',
   },
   {
-    id: 2,
-    name: 'Othmani Lera and Georgian',
-  },
-  {
     id: 3,
     name: 'Mother Day',
   },
@@ -594,5 +590,9 @@ export const goldCategory = [
   {
     id: 13,
     name: 'Rremium products',
+  },
+  {
+    id: 2,
+    name: 'Othmani Lera and Georgian',
   },
 ];

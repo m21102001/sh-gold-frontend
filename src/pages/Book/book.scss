@@ -3,23 +3,45 @@
   .swiper {
     width: 100%;
     height: 100%;
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      border-radius: 1.5rem;
-      /* Center slide text vertically */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 19vh !important;
-        object-fit: cover;
-      }
-    }
   }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    width: 266px;
+    margin-left: 30px;
+    border-radius: 22px;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // .swiper {
+  //   width: 100%;
+  //   height: 100%;
+  //   .swiper-slide {
+  //     text-align: center;
+  //     font-size: 18px;
+  //     background: #fff;
+  //     border-radius: 1.5rem;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+
+  //     .swiper-slide img {
+  //       display: block;
+  //       width: 100%;
+  //       height: 19vh !important;
+  //       object-fit: cover;
+  //     }
+  //   }
+  // }
 }

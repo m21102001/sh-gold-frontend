@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Footer, Navbar } from "@/layout";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+
+
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { FreeMode, Pagination } from 'swiper/modules';
+
+
 import axios from '@/api/axios'
 import "./book.scss";
 import styles from '../../components/GoldCard/GoldCard.module.scss';
@@ -45,18 +50,17 @@ const Book = () => {
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
-        centeredSlides={true}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
+        freeMode={true}
         // pagination={{
         //   clickable: true,
         // }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[FreeMode, Pagination]}
         className="mySwiper my-5"
-      >      
+      >
         <div className={styles['container home-grid']}>
           {!loading && bookData?.document?.map((item, index) => (
             <SwiperSlide key={index}>
