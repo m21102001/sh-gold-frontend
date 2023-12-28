@@ -69,7 +69,6 @@ const BooksDash = () => {
               <th scope="col">#</th>
               <th scope="col">العنوان</th>
               <th scope="col">السعر</th>
-              <th scope="col">صورخ الكتاب</th>
               <th scope="col" colSpan={2}>الاحداث</th>
             </tr>
           </thead>
@@ -79,18 +78,6 @@ const BooksDash = () => {
                 <td>{index + 1}</td>
                 <td>{item?.title}</td>
                 <td>{item?.price}كويتى</td>
-                <td>
-                  <a
-                    // href={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.image}`}
-                    href={`https://www.mecmining.com.au/wp-content/uploads/2017/09/GOLD.jpg`}
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <button type="button" className="btn btn-info">صوره المنتج</button>
-                  </a>
-                  {/* <img src={`${process.env.REACT_APP_API}/uploads/${item.image}`} alt=""
-                      style={{ width: "50px" }} /> */}
-
-                </td>
                 <td>
                   <Link
                     to={`/dash/update-books/${item._id}`}

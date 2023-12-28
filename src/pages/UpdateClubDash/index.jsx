@@ -7,7 +7,7 @@ const UpdateClubDash = () => {
   const item=useLocation()?.state?.item
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState(item?.message)
 
   const hanelSubmit = async (e) => {
     e.preventDefault();

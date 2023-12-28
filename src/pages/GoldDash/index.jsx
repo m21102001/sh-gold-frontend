@@ -71,7 +71,6 @@ const GoldDash = () => {
                 <th scope="col">الاسم</th>
                 <th scope="col">الحجم</th>
                 <th scope="col">السعر</th>
-                <th scope="col">الصوره</th>
                 <th scope="col" colSpan={2}>الاحداث</th>
               </tr>
             </thead>
@@ -83,21 +82,6 @@ const GoldDash = () => {
                   <td>{item?.title}</td>
                   <td>{item?.size} KG</td>
                   <td>{item?.price}كويتى</td>
-                  <td>
-                    <a 
-                    // href={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.image}`}
-                    href={`https://www.mecmining.com.au/wp-content/uploads/2017/09/GOLD.jpg`}
-                     target="_blank"
-                      rel="noopener noreferrer">
-                      <button type="button" className="btn btn-info">صوره المنتج</button>
-                    </a>
-
-                    {/* <img 
-                      // src={`https://www.mecmining.com.au/wp-content/uploads/2017/09/GOLD.jpg`} alt=""
-                      //  src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.image}`} alt=""
-                      // style={{ width: "100px" }} />
-                      */}
-                  </td>
                   <td>
                     <Link
                       to={`/dash/update-gold/${item._id}`}

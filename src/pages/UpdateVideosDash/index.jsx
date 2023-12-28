@@ -8,9 +8,9 @@ const UpdateVideosDash = () => {
   const navigate = useNavigate();
 
   const [isPending, setIsPending] = useState(false)
-  const [title, setTitle] = useState('')
-  const [price, setPrice] = useState('')
-  const [image, setImage] = useState('')
+  const [title, setTitle] = useState(item?.title)
+  const [price, setPrice] = useState(item?.price)
+  const [image, setImage] = useState(item?.image)
 
 
 
