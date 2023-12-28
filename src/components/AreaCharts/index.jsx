@@ -69,24 +69,34 @@ const datas = [
 ]
 const AreaCharts = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([])
+  const [metalSymbols, setMetalSymbols] = useState([]);
 
-  let servicess = {
-    method: 'get',
-    url: `${import.meta.env.VITE_GOLD_URL}/latest?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=USD&currencies=EUR,XAU,XAG`,
-  };
   useEffect(() => {
-    setLoading(true);
-    axios
-      .request(servicess)
-      .then((response) => {
-        setData(response.data);
-        // console.log(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchData = async () => {
+      try {
+        // const response = await axios.get(`https://api.metalpriceapi.com/v1/latest?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=USD&currencies=EUR,XAU,XAG`, {
+        const response = await axios.get(`https://api.metalpriceapi.com/v1/symbols?api_key=5e07d6a8157ced4d13198dda0c05bc07`,
+          {
+          }, {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin": '*',
+            "Connection": "keep-alive",
+            "Content-Length": "1172",
+            "Accept":"application/json, text/plain, */*",
+
+          }
+        }
+        );
+
+        setMetalSymbols(response.data);
+        console.log('metai' + response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -94,7 +104,7 @@ const AreaCharts = () => {
       {/* {loading && <div className="loading"></div>} */}
       <AreaChart
         width={900}
-        height={250}
+        height={350}
         data={datas}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
       >

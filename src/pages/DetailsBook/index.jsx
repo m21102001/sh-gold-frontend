@@ -123,7 +123,7 @@ const DetailsBook = () => {
                             <Link
                               to={`/auth/shop`}
                             >
-                              <button onClick={() => { }} type="button" className="btn btn-primary mx-2">اضف الى السله</button>
+                              <button type="button" className="btn btn-primary mx-2">اضف الى السله</button>
                             </Link>
                           </div>
                           <div className="col-sm-4">
