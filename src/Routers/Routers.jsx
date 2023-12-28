@@ -27,6 +27,7 @@ import {
   DeatilsContactFormDash,
   DetailsAllUsersDash,
   DetailsBook,
+  DetailsBooksDash,
   DetailsGoldDash,
   DetailsInactiveInvesmentDash,
   DetailsInvesmentDash,
@@ -183,6 +184,13 @@ const Routers = () => {
             element={
               <Protect>
                 <UpdateBooksDash />
+              </Protect>
+            } />
+          <Route
+            path="/dash/details-books/:id"
+            element={
+              <Protect>
+                <DetailsBooksDash />
               </Protect>
             } />
           <Route

@@ -2,16 +2,16 @@ import { Link, useLocation } from 'react-router-dom'
 import { SidebarDashboard } from '@/layout'
 import { MdOutlineArrowBack } from "react-icons/md";
 
-const DetailsGoldDash = () => {
+const DetailsBooksDash = () => {
   const item = useLocation()?.state?.item
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Deatils For One Item</h2>
+          <h2 className='fs-1 fw-bold'>Deatils Book</h2>
         </div>
-        <Link to={'/dash/gold'} className='mb-3 d-flex flex-row-reverse'>
+        <Link to={'/dash/books'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
           ><MdOutlineArrowBack size={30} /></button>
         </Link>
@@ -38,24 +38,6 @@ const DetailsGoldDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">النوع</p>
-                      </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.category}</p>
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">الحجم</p>
-                      </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.size}</p>
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
                         <p className="mb-0">السعر</p>
                       </div>
                       <div className="col-sm-9">
@@ -71,6 +53,21 @@ const DetailsGoldDash = () => {
                         <p className="text-muted mb-0">{item?.description}</p>
                       </div>
                     </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0"> محتوى الكتاب (PDF)</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">
+                          <Link
+                          >
+                            <button type="button" className="btn btn-success">عرض الكتاب</button>
+                          </Link>
+                          {/* {item?.pdf} */}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -82,12 +79,4 @@ const DetailsGoldDash = () => {
   )
 }
 
-export default DetailsGoldDash
-
-
-// {
-//   "image": "1703527766837-state.jpg",
-//   "pdf": "1703527767463-OUUOOaUU-UUUUO-UOUOOOO.pdf",
-//   "createdAt": "2023-12-21T19:13:09.433Z",
-//   "updatedAt": "2023-12-27T09:47:32.597Z",
-// },
+export default DetailsBooksDash

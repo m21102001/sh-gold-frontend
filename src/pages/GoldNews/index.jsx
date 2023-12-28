@@ -33,6 +33,7 @@ const GoldNews = () => {
       .then((response) => {
         setGoldData(response.data);
         setLoading(false);
+
         console.log("bookData", response);
       })
       .catch((error) => {
@@ -40,6 +41,7 @@ const GoldNews = () => {
         console.log(error);
       });
   }, []);
+  let id = item?._id
   let type = item?.category
 
   return (
@@ -181,11 +183,12 @@ const GoldNews = () => {
             <div className="container">
               <div className={styles['home-grid']}>
                 {!loading && goldData?.document?.map((item, index) => (
-                  index > 6 && item?.category == type ? (
+                  index > 6 && item?.category == type && item?._id !== id ? (
                     <Link
                       key={index}
                       to={`/gold-news/${item._id}`}
                       state={{ item: item }}
+                      onClick={window.scrollTo(0, 0)}
                     >
                       <div className={styles['gold-div']}>
                         <div className='title-card'>
@@ -215,7 +218,7 @@ const GoldNews = () => {
       <div className='coursers-open goldNews py-5'>
         <div className='m-auto d-flex justify-content-center mb-5'>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-          <h2 className='text-center comunation fs-1 fw-bold'>  باقى المنتجات</h2>
+          <h2 className='text-center comunation fs-1 fw-bold'>  باقى الانواع</h2>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         </div>
         <div className='m-auto d-flex justify-center'>
@@ -236,13 +239,13 @@ const GoldNews = () => {
                             alt=""
                             loading="lazy"
                           />
-                          <div className="news-date">
-                            <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>
-                            {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
-                          </div>
+                          {/* <div className="news-date"> */}
+                          {/* <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label> */}
+                          {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                          {/* </div> */}
                         </div>
                         <div>
-                          <h3 className='text-center fw-bold'>{item.title}</h3>
+                          <h3 className='text-center fw-bold'>{item.category}</h3>
                         </div>
                       </div>
                     </Link>

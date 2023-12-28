@@ -36,6 +36,7 @@ export { default as ContactFormDash } from './ContactFormDash';
 export { default as UpdateBooksDash } from './UpdateBooksdash';
 export { default as DetailsGoldDash } from './DetailsGoldDash';
 export { default as BullionStoreItem } from './BullionStoreItem';
+export { default as DetailsBooksDash } from './DetailsBooksDash';
 export { default as CreateVideosDash } from './CreateVideosDash';
 export { default as UpdateVideosDash } from './UpdateVideosDash';
 export { default as ResetPasswordOtp } from './ResetPasswordOtp';

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from '@/layout';
 import { useLocation } from 'react-router-dom';
-import { useState } from "react"
+import { useRef, useState } from "react"
 import axios from "@/api/axios"
 
 const UpdateGoldDash = () => {
@@ -11,8 +11,9 @@ const UpdateGoldDash = () => {
   const [title, setTitle] = useState('')
   const [size, setSize] = useState('')
   const [price, setPrice] = useState('')
+  // const price = useRef([]);
   const [description, setDescription] = useState('')
-  
+  const [image, setImage] = useState('')
   const getInitialState = () => {
     const value = "Premium Products";
     return value;
@@ -35,7 +36,8 @@ const UpdateGoldDash = () => {
             size: size,
             price: price,
             description: description,
-            category:value
+            category: value,
+            image: image
           },
           {
             headers: {
@@ -72,7 +74,7 @@ const UpdateGoldDash = () => {
             onSubmit={hanelSubmit}
             className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
           >
-            <div className="label-form">ادخل اسم المنتج*</div>
+            <div className="label-form">تعديل اسم المنتج*</div>
             <input
               type="text"
               name="title"
@@ -83,7 +85,7 @@ const UpdateGoldDash = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <div className="label-form">ادخل حجم المنتج*</div>
+            <div className="label-form">تعديل حجم المنتج*</div>
             <input
               type="number"
               name="size"
@@ -94,18 +96,20 @@ const UpdateGoldDash = () => {
               value={size}
               onChange={(e) => setSize(e.target.value)}
             />
-            <div className="label-form">اكتب السعر*</div>
+            <div className="label-form">تعديل السعر*</div>
             <input
-              type="number"
-              name="price"
+              // type="number"
+              // name="price"
               className="form-control  mb-3"
-              id="price"
+              // id="price"
               required
               placeholder="اكتب السعر*"
+              // ref={price.current.value}
               value={price}
+              // defaultValue={item?.price}
               onChange={(e) => setPrice(e.target.value)}
             />
-            <div className="label-form">اضافه االى قائمه *</div>
+            <div className="label-form">تعديل  القائمه *</div>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -126,7 +130,16 @@ const UpdateGoldDash = () => {
               <option value="Sets">Sets</option>
               <option value="Rremium products">Rremium products</option>
             </select>
-            <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
+            <div className="label-form">تعديل صوره المنتج</div>
+            <input
+              type="file"
+              className="form-control  mb-3"
+              required
+              // placeholder="اكتب السعر*"
+              // value={price}
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+            <div className="label-form">تعديل الوصف للمنتج*</div>
             <textarea
               type="text"
               name="description"

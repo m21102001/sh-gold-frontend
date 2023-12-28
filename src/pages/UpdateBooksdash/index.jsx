@@ -37,7 +37,7 @@ const UpdateBooksDash = () => {
           console.log('created success', response);
           if (response?.status == 201) {
             alert('Updated successfully')
-            return navigate('/dash/book')
+            return navigate('/dash/books')
           }
         });
       setIsPending(false);

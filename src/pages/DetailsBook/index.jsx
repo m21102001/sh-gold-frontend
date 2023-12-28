@@ -39,6 +39,7 @@ const DetailsBook = () => {
         console.log(error);
       });
   }, []);
+  let id =item?._id
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -151,11 +152,12 @@ const DetailsBook = () => {
             <div className="container">
               <div className={styles['home-grid']}>
                 {!loading && goldData?.document?.map((item, index) => (
-                  index < 6 ? (
+                  index < 6 &&item?._id !==id ? (
                     <Link
                       key={index}
                       to={`/book/detalis-book/${item._id}`}
                       state={{ item: item }}
+                      onClick={window.scrollTo(0, 0)}
                     >
                       <div className={styles['gold-div']}>
                         <div className='title-card'>

@@ -30,7 +30,7 @@ const CoursesOpen = () => {
     <div className='coursers-open'>
       <div className='m-auto d-flex justify-content-center my-5'>
         <span style={{ zIndex: "0", backgroundColor: "#000", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-        <h2 className='text-center comunation fs-1 fw-bold' style={{ color: "var(--gold-color2)" }}> قسم الذهب</h2>
+        <h2 className='text-center comunation fs-1 fw-bold' style={{ color: "var(--gold-color2)" }}> انواع السائك </h2>
         <span style={{ zIndex: "0", backgroundColor: "#000", width: "50px", height: "3px", margin: "auto 20px" }}></span>
       </div>
       <div className='m-auto d-flex justify-center'>
@@ -45,8 +45,8 @@ const CoursesOpen = () => {
                       {/* <LazyLoadImage src={item?.image} alt="" loading="lazy" /> */}
                     </div>
                     <div className=''>
-                      <h3 className='text-end fw-700'>{item.title}</h3>
-                      <p className='text-end fs-4 mb-0'>{item?.price} دينار كويتى</p>
+                      <h3 className=' fw-700'>{item.category}</h3>
+                      {/* <p className='text-end fs-4 mb-0'>{item?.price} دينار كويتى</p> */}
                       <Link
                         to={`/gold-news/${item._id}`}
                         state={{ item: item }}
