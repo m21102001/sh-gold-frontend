@@ -1,19 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from '@/layout';
 import { useLocation } from 'react-router-dom';
-import { useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "@/api/axios"
 
 const UpdateGoldDash = () => {
   const item = useLocation()?.state?.item
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [title, setTitle] = useState('')
-  const [size, setSize] = useState('')
-  const [price, setPrice] = useState('')
+  const [title, setTitle] = useState(item?.title)
+  const [size, setSize] = useState(item?.size)
+  const [price, setPrice] = useState(item?.price)
   // const price = useRef([]);
-  const [description, setDescription] = useState('')
-  const [image, setImage] = useState('')
+  const [description, setDescription] = useState(item?.description)
+  const [image, setImage] = useState(item?.image)
   const getInitialState = () => {
     const value = "Premium Products";
     return value;
@@ -60,7 +60,7 @@ const UpdateGoldDash = () => {
 
     }
   };
-
+  useEffect
 
   return (
     <>
@@ -87,6 +87,7 @@ const UpdateGoldDash = () => {
             />
             <div className="label-form">تعديل حجم المنتج*</div>
             <input
+
               type="number"
               name="size"
               className="form-control  mb-3"

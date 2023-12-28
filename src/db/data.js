@@ -1,5 +1,3 @@
-import book from '../assets/img/kenzbook.png';
-import creative from '../assets/img/creative.jpeg';
 import app from '../assets/img/app.jpeg';
 import kinz from '../assets/img/kinz.jpeg';
 import brainstorming from '@/assets/brainstorming.webp';
@@ -542,5 +540,59 @@ export const planning = [
         title: 'خدمه التوصيل مجانى',
       },
     ],
+  },
+];
+export const goldCategory = [
+  {
+    id: 1,
+    name: 'Premium Products',
+  },
+  {
+    id: 2,
+    name: 'Othmani Lera and Georgian',
+  },
+  {
+    id: 3,
+    name: 'Mother Day',
+  },
+  {
+    id: 4,
+    name: 'Silver',
+  },
+  {
+    id: 5,
+    name: 'Platinum',
+  },
+  {
+    id: 6,
+    name: 'PAMP Bullion',
+  },
+  {
+    id: 7,
+    name: 'Swiss Bar',
+  },
+  {
+    id: 8,
+    name: 'White Gold',
+  },
+  {
+    id: 9,
+    name: ' Sabhat',
+  },
+  {
+    id: 10,
+    name: 'Islamic',
+  },
+  {
+    id: 11,
+    name: 'Bracelet',
+  },
+  {
+    id: 12,
+    name: 'Sets',
+  },
+  {
+    id: 13,
+    name: 'Rremium products',
   },
 ];

@@ -6,11 +6,11 @@ const UpdateBooksDash = () => {
   const item = useLocation()?.state?.item
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [title, setTitle] = useState('')
-  const [image, setImage] = useState('')
-  const [pdf, setpdf] = useState('')
-  const [description, setDescription] = useState('')
-  const [price, setPrice] = useState('')
+  const [title, setTitle] = useState(item?.title)
+  const [image, setImage] = useState(item?.image)
+  const [pdf, setpdf] = useState(item?.pdf)
+  const [description, setDescription] = useState(item?.description)
+  const [price, setPrice] = useState(item?.price)
 
 
   const hanelSubmit = async (e) => {

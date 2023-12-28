@@ -2,6 +2,7 @@ import { AreaCharts } from '@/components'
 import './goldChart.scss'
 import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
+import { goldCategory } from '@/db/data';
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);
@@ -60,10 +61,10 @@ const GoldChart = () => {
                 <div className="card-body p-0">
                   <ul className="list-group list-group-flush rounded-3 overflow-auto" style={{ height: '24.3rem' }}>
                     <h5 className='px-2 pt-2 text-center' style={{ color: "#f8d25c" }}>انواع السبائك</h5>
-                    {data?.document?.map((item, index) => (
+                    {goldCategory?.map((item, index) => (
                       <li key={index} className="list-group-item d-flex justify-content-start align-items-center p-3">
                         <i className="fas fa-globe fa-lg text-warning"></i>
-                        <p className="mb-0">{item?.category}</p>
+                        <p className="mb-0">{item?.name}</p>
                       </li>
                     ))}
                   </ul>

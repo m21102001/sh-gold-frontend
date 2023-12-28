@@ -103,7 +103,7 @@ const AreaCharts = () => {
     <>
       {/* {loading && <div className="loading"></div>} */}
       <AreaChart
-        width={900}
+        width={980}
         height={350}
         data={datas}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
