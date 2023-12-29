@@ -31,6 +31,7 @@ import {
   DetailsGoldDash,
   DetailsInactiveInvesmentDash,
   DetailsInvesmentDash,
+  DetailsRequestInvestment,
   DetailsVideosDash,
   ErrorPage,
   GoldDash,
@@ -42,6 +43,7 @@ import {
   Payment,
   ProfileDash,
   ProjectIdea,
+  RequestInvestment,
   ResetPassword,
   ResetPasswordOtp,
   Shop,
@@ -227,6 +229,20 @@ const Routers = () => {
             element={
               <Protect>
                 <UpdateInactiveInvesmentDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/requests-investment'
+            element={
+              <Protect>
+                <RequestInvestment />
+              </Protect>
+            } />
+          <Route
+            path='/dash/details-requests-investment/:id'
+            element={
+              <Protect>
+                <DetailsRequestInvestment />
               </Protect>
             } />
           <Route

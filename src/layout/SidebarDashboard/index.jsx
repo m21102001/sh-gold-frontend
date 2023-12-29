@@ -6,6 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillGold } from "react-icons/ai";
 import { IoBookSharp } from "react-icons/io5";
 import { PiFlagFill } from "react-icons/pi";
+import { FaCodePullRequest } from "react-icons/fa6";
+import { GrProjects } from "react-icons/gr";
 import { FaMessage } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 
@@ -40,7 +42,10 @@ function SidebarDashboard() {
             <PiFlagFill /> <p className="fs-5 fw-bold me-4">نصايح النادى</p>
           </NavLink>
           <NavLink to="/dash/investment ">
-            <PiFlagFill /> <p className="fs-5 fw-bold me-4">مشاريع الاستثمار</p>
+            <GrProjects /> <p className="fs-5 fw-bold me-4">مشاريع الاستثمار</p>
+          </NavLink>
+          <NavLink to="/dash/requests-investment ">
+            <FaCodePullRequest /> <p className="fs-5 fw-bold me-4">طلبات المستثمرين</p>
           </NavLink>
           <NavLink to="/dash/videos ">
             <CgPlayList /> <p className="fs-5 fw-bold me-4">الفيديوهات</p>
