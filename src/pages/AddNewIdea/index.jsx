@@ -8,6 +8,9 @@ const AddNewIdea = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('');
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [profit, setProfit] = useState('');
   const [cover, setCover] = useState('');
   const [description, setDescription] = useState('');
   const [pdf, setPdf] = useState('');
@@ -23,6 +26,9 @@ const AddNewIdea = () => {
             name: name,
             email: email,
             phone: phone,
+            title: title,
+            price: price,
+            profit: profit,
             images: cover,
             description: description,
             pdf: pdf
@@ -74,22 +80,6 @@ const AddNewIdea = () => {
             </div>
             <div className="col-md-6 col-sm-12">
               <label
-                htmlFor="inputPhone"
-                className="form-label"
-              >الهاتف</label>
-              <input
-                name="inputPhone"
-                type="number"
-                className="form-control"
-                id="inputPhone"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder='الهاتف*'
-              />
-            </div>
-            <div className="col-12">
-              <label
                 htmlFor="inputEmail"
                 className="form-label"
               >البريد الالكترونى</label>
@@ -104,11 +94,76 @@ const AddNewIdea = () => {
                 placeholder="البريد الالكترونى*"
               />
             </div>
+            <div className="col-md-6 col-sm-12">
+              <label
+                htmlFor="inputPhone"
+                className="form-label"
+              >الهاتف</label>
+              <input
+                name="inputPhone"
+                type="number"
+                className="form-control"
+                id="inputPhone"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder='الهاتف*'
+              />
+            </div>
+            <div className="col-md-6 col-sm-12">
+              <label
+                htmlFor="inputtitle"
+                className="form-label"
+              >وصف مختصر</label>
+              <input
+                name="inputtitle"
+                type="text"
+                className="form-control"
+                id="inputtitle"
+                required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder='وصف مختصر*'
+              />
+            </div>
+            <div className="col-md-6 col-sm-12">
+              <label
+                htmlFor="inputprice"
+                className="form-label"
+              >السعر</label>
+              <input
+                name="inputprice"
+                type="number"
+                className="form-control"
+                id="inputprice"
+                required
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder='السعر*'
+              />
+            </div>
+            <div className="col-md-6 col-sm-12">
+              <label
+                htmlFor="inputprofit"
+                className="form-label"
+              >النسبة</label>
+              <input
+                name="inputprofit"
+                type="number"
+                className="form-control"
+                id="inputprofit"
+                required
+                value={profit}
+                onChange={(e) => setProfit(e.target.value)}
+                placeholder='النسبة*'
+              />
+            </div>
+
             <div className="col-12">
               <label
                 htmlFor="photoinput"
                 className="form-label"
-              > ارفع صور توضع المشروع</label>
+              > ارفع صور توضح المشروع</label>
               <input
                 name="cover"
                 type="file"

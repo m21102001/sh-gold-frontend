@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MdTipsAndUpdates } from "react-icons/md";
 import axios from '@/api/axios';
 import styles from '../GoldCard/GoldCard.module.scss';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Investment = () => {
   const [loading, setLoading] = useState(false)
@@ -47,8 +48,10 @@ const Investment = () => {
                 >
                   <div className={styles['gold-div']}>
                     <div className='title-card'>
-                      <img
-                        src={item?.cover}
+                      <LazyLoadImage
+                        src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
+                        alt={item?.title}
+                        loading='lazy'
                       />
                       <div className="news-date">
                         <label className="mx-2"> {item?.createdAt?.split('T', 1)} </label>
@@ -56,7 +59,7 @@ const Investment = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className='text-center fw-bold'>{item?.name}</h3>
+                      <h3 className='text-center fw-bold'>{item?.title}</h3>
                       {/* <h4>{item.title}</h4> */}
                     </div>
                   </div>

@@ -38,7 +38,6 @@ import {
   Home,
   InvesmentDash,
   InvestmantPage,
-  InvestmentContactUs,
   Login,
   Payment,
   ProfileDash,
@@ -50,6 +49,7 @@ import {
   UpdateBooksDash,
   UpdateClubDash,
   UpdateGoldDash,
+  UpdateInactiveInvesmentDash,
   UpdateRoleUsersDash,
   UpdateVideosDash,
   VerifyRestCode,
@@ -81,7 +81,6 @@ const Routers = () => {
           <Route path='/investment' element={<InvestmantPage />} />
           <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
           <Route path="/club/add-project-idea" element={<AddNewIdea />} />
-          <Route path="/investment-contact-us" element={<InvestmentContactUs/>} />
           {/* <Route path="/goldPrice" element={<GoldPrice />} /> */}
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path='/book' element={<Book />} />
@@ -221,6 +220,13 @@ const Routers = () => {
             element={
               <Protect>
                 <DetailsInactiveInvesmentDash />
+              </Protect>
+            } />
+          <Route
+            path='/investment/inactive/update-investment/:id'
+            element={
+              <Protect>
+                <UpdateInactiveInvesmentDash />
               </Protect>
             } />
           <Route

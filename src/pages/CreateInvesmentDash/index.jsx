@@ -9,6 +9,9 @@ const CreateInvesmentDash = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('');
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [profit, setProfit] = useState('');
   const [cover, setCover] = useState('');
   const [description, setDescription] = useState('');
   const [pdf, setPdf] = useState('');
@@ -24,6 +27,9 @@ const CreateInvesmentDash = () => {
             name: name,
             email: email,
             phone: phone,
+            title: title,
+            price: price,
+            profit: profit,
             images: cover,
             description: description,
             pdf: pdf
@@ -93,6 +99,39 @@ const CreateInvesmentDash = () => {
             placeholder=" الايميل*"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          />
+          <div className="label-form"> العنوان </div>
+          <input
+            type="text"
+            name="title"
+            className="form-control mb-4"
+            id="title"
+            required
+            placeholder=" العنوان*"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <div className="label-form"> السعر </div>
+          <input
+            type="number"
+            name="price"
+            className="form-control mb-4"
+            id="price"
+            required
+            placeholder=" السعر*"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <div className="label-form"> الربح </div>
+          <input
+            type="text"
+            name="profit"
+            className="form-control mb-4"
+            id="profit"
+            required
+            placeholder=" الربح*"
+            value={profit}
+            onChange={(e) => setProfit(e.target.value)}
           />
           <div className="label-form"> ارفع غلاف للمشروع </div>
           <input
