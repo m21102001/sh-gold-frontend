@@ -136,7 +136,6 @@ const DetailsBook = () => {
                   </div>
                 </div>
               </div>
-
             </section>
           </div>
         </div>

@@ -38,6 +38,7 @@ import {
   Home,
   InvesmentDash,
   InvestmantPage,
+  InvestmentContactUs,
   Login,
   Payment,
   ProfileDash,
@@ -80,6 +81,7 @@ const Routers = () => {
           <Route path='/investment' element={<InvestmantPage />} />
           <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
           <Route path="/club/add-project-idea" element={<AddNewIdea />} />
+          <Route path="/investment-contact-us" element={<InvestmentContactUs/>} />
           {/* <Route path="/goldPrice" element={<GoldPrice />} /> */}
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path='/book' element={<Book />} />

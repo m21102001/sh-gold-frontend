@@ -167,7 +167,7 @@ const AddNewIdea = () => {
               </button>
             )}
             <button
-              onClick={() => navigate('/club')}
+              onClick={() => navigate('/investment')}
               className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mb-4">
               الغاء
             </button>

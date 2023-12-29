@@ -118,12 +118,12 @@ const UpdateBooksDash = () => {
 
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mt-3">
-              اضافه جديد
+              تعديل 
             </button>
           )}
           {isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mt-3">
-              جاري الاضافه ...
+              جاري التعديل ...
             </button>
           )}
           <button onClick={() => navigate('/dash/books')} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mt-3">
