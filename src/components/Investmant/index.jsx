@@ -4,7 +4,7 @@ import { MdTipsAndUpdates } from "react-icons/md";
 import axios from '@/api/axios';
 import styles from '../GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import './investment.scss'
 const Investment = () => {
   const [loading, setLoading] = useState(false)
   const [investment, setInvestment] = useState([])
@@ -24,7 +24,7 @@ const Investment = () => {
   }, [])
 
   return (
-    <div className='coursers-open goldNews py-5'>
+    <div className='coursers-open goldNews py-5 '>
       <div className='m-auto d-flex justify-content-center mb-5'>
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         <h2 className='text-center comunation fs-1 fw-bold'> افكار مشاريع </h2>
@@ -36,7 +36,7 @@ const Investment = () => {
           فكره جديده
         </button>
       </Link>
-      <div className='m-auto d-flex justify-center'>
+      <div className='m-auto d-flex justify-center investment'>
         <>
           <div className="container">
             <div className={styles['home-grid']}>

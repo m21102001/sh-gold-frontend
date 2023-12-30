@@ -1,5 +1,7 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Footer, Navbar } from '@/layout';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from "@/api/axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -8,21 +10,16 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 // import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useState } from 'react';
 
+import './projectIdea.scss'
 const ProjectIdea = () => {
   const item = useLocation()?.state?.item;
-  const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
   const [name, setName] = useState('');
   const [address, setAddress] = useState('')
   const [phone, setPhone] = useState('');
-  const [title, setTitle] = useState('');
   const [email, setEmail] = useState('')
   const [description, setDescription] = useState('')
-  const [price, setPrice] = useState('')
-  const [profit, setProfit] = useState('')
 
   const handelSubmit = async (e) => {
     e.preventDefault();
@@ -35,11 +32,9 @@ const ProjectIdea = () => {
             name: name,
             address: address,
             phone: phone,
-            title:'title',
+            title: 'title',
             email: email,
             description: description,
-            price: price,
-            profit: profit
           },
           {
             headers: {
@@ -61,9 +56,10 @@ const ProjectIdea = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
-        <div className="row align-items-center">
-          <div className="col-md-6 col-sm-12">
+      <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" >
+        <div className="row align-items-center mt-5">
+          <h2 className='text-center text-light fs-1 fw-bold'>{item?.title}</h2>
+          <div className="col-md-10 col-sm-12 m-auto">
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -72,9 +68,9 @@ const ProjectIdea = () => {
                 disableOnInteraction: false,
               }}
               freeMode={true}
-              // pagination={{
-              //   clickable: true,
-              // }}
+              pagination={{
+                clickable: true,
+              }}
               modules={[FreeMode, Pagination]}
               className="mySwiper my-5"
             >
@@ -83,7 +79,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -91,7 +87,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -99,7 +95,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -107,42 +103,64 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
                 />
               </SwiperSlide>
             </Swiper>
           </div>
-          <div className="col-md-6 col-sm-12 m-0 p-0">
-            <section style={{ backgroundColor: 'var(--darkblue-color)' }}>
-              <div className="container py-5">
+          <div className="col-md-12 col-sm-12 m-0 p-0">
+            <section className='text-light'>
+              <div className="container pb-5">
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="card mb-4">
-                      <div className="card-body" style={{ color: 'var(--main-color)' }}>
+                      <div className="card-body" >
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">العنوان  </p>
+                            <p className="fs-4 mb-0 fw-bold">العنوان  </p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.title}</p>
+                            <p className="fs-4 mb-0">
+                              <a href={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`}>
+                                <button type="button" className='btn btn-info px-5'>PDF</button>
+                              </a>
+                            </p>
                           </div>
                         </div>
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">الوصف الكامل</p>
+                            <p className="fs-4 mb-0 fw-bold">تاريخ الاضافه</p>
                           </div>
-                          <div className="col-sm-9 overflow-auto" style={{ height: '20rem' }}>
-                            <p className="text-muted fw-bold mb-0">{item?.description}</p>
+                          <div className="col-sm-9">
+                            <p className="fs-4 fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>
                           </div>
                         </div>
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">تاريخ الاضافه</p>
+                            <p className="fs-4 mb-0 fw-bold">الوصف الكامل</p>
+                          </div>
+                          <div className="col-sm-9 overflow-auto" style={{ height: '10rem' }}>
+                            <p className="fs-4 fw-bold mb-0">{item?.description}</p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <p className="fs-4 mb-0 fw-bold">السعر </p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>
+                            <p className="fs-4 fw-bold mb-0">{item?.price}</p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <p className="fs-4 mb-0 fw-bold">نسبه الربح</p>
+                          </div>
+                          <div className="col-sm-9 ">
+                            <p className="fs-4 fw-bold mb-0">{item?.profit} %</p>
                           </div>
                         </div>
                       </div>
@@ -228,38 +246,6 @@ const ProjectIdea = () => {
                   placeholder="العنوان *"
                 />
               </div>
-              <div className="col-md-6 col-sm-12">
-                <label
-                  htmlFor="inputPrice"
-                  className="form-label"
-                > السعر بالدينار الكويتى</label>
-                <input
-                  name="inputPrice"
-                  type="number"
-                  className="form-control"
-                  id="inputِPrice"
-                  required
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  placeholder=" السعر   *"
-                />
-              </div>
-              <div className="col-md-6 col-sm-12">
-                <label
-                  htmlFor="inputProfit"
-                  className="form-label"
-                >  النسبه  </label>
-                <input
-                  name="inputProfit"
-                  type="number"
-                  className="form-control"
-                  id="inputِProfit"
-                  required
-                  value={profit}
-                  onChange={(e) => setProfit(e.target.value)}
-                  placeholder="مثال (10%) *"
-                />
-              </div>
               <div className="col-12">
                 <label
                   htmlFor="inputAddress2"
@@ -289,11 +275,6 @@ const ProjectIdea = () => {
                   جاري التقديم ...
                 </button>
               )}
-              <button
-                onClick={() => navigate('/investment')}
-                className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mb-4">
-                الغاء
-              </button>
             </form>
           </div>
         </div >

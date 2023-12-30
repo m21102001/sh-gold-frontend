@@ -50,3 +50,4 @@ export { default as DeatilsContactFormDash } from './DetailsContactFormDash';
 export { default as DetailsRequestInvestment } from './DetailsRequestInvestment';
 export { default as UpdateInactiveInvesmentDash } from './UpdateInactiveInvesmentDash';
 export { default as DetailsInactiveInvesmentDash } from './DetailsInactiveInvesmentDash';
+export { default as DetailsIdeaRequestInvestment } from './DetailsIdeaRequestInvestment';

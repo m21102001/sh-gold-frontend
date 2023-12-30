@@ -41,6 +41,8 @@ const AddNewIdea = () => {
         )
         .then((response) => {
           console.log('created success', response.data);
+          alert('Add successfully')
+          navigate('/investment')
         });
       setIsPending(false);
     } catch (err) {
@@ -139,7 +141,7 @@ const AddNewIdea = () => {
                 required
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                placeholder='السعر*'
+                placeholder='السعر بالدينار الكويتى*'
               />
             </div>
             <div className="col-md-6 col-sm-12">
@@ -221,11 +223,6 @@ const AddNewIdea = () => {
                 جاري الاضافه ...
               </button>
             )}
-            <button
-              onClick={() => navigate('/investment')}
-              className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mb-4">
-              الغاء
-            </button>
           </form>
         </div>
       </div >

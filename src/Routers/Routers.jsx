@@ -29,6 +29,7 @@ import {
   DetailsBook,
   DetailsBooksDash,
   DetailsGoldDash,
+  DetailsIdeaRequestInvestment,
   DetailsInactiveInvesmentDash,
   DetailsInvesmentDash,
   DetailsRequestInvestment,
@@ -243,6 +244,13 @@ const Routers = () => {
             element={
               <Protect>
                 <DetailsRequestInvestment />
+              </Protect>
+            } />
+          <Route
+            path='/dash/details-idea-requests-investment/:id'
+            element={
+              <Protect>
+                <DetailsIdeaRequestInvestment />
               </Protect>
             } />
           <Route

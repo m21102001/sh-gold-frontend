@@ -1,6 +1,6 @@
+import { Link, useLocation } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import { MdOutlineArrowBack } from "react-icons/md"
-import { Link, useLocation } from "react-router-dom"
 
 const DetailsInactiveInvesmentDash = () => {
   const item = useLocation()?.state?.item

@@ -4,17 +4,29 @@ import { Link, useLocation } from "react-router-dom"
 
 const DetailsRequestInvestment = () => {
   const item = useLocation()?.state?.item
+  // const investmentId = item?.investment
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Deatils Investment Active</h2>
+          <h2 className='fs-1 fw-bold'>Deatils Requests Investment</h2>
         </div>
-        <Link to={'/dash/requests-investment'} className='mb-3 d-flex flex-row-reverse'>
-          <button type="butto" className="fw-bold fs-5 back-details-button"
-          ><MdOutlineArrowBack size={30} /></button>
-        </Link>
+        <div className="d-flex justify-content-between">
+          <Link
+            to={`/dash/details-idea-requests-investment/${item?.investment}`}
+            state={{ item: item }}
+            className='mb-3 d-flex flex-row'
+          >
+            <button type="butto" className="fw-bold fs-5 back-details-button"
+            >الفكره<MdOutlineArrowBack size={30} /></button>
+          </Link>
+
+          <Link to={'/dash/requests-investment'} className='mb-3 d-flex flex-row-reverse'>
+            <button type="butto" className="fw-bold fs-5 back-details-button"
+            ><MdOutlineArrowBack size={30} /></button>
+          </Link>
+        </div>
         <section style={{ backgroundColor: "#eee" }}>
           <div className="container py-5">
             <div className="row">
@@ -54,33 +66,6 @@ const DetailsRequestInvestment = () => {
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.email}</p>
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">عنوان الفكره </p>
-                      </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.title}</p>
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">  السعر</p>
-                      </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.price}</p>
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">نسبه الربح  </p>
-                      </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.profit}</p>
                       </div>
                     </div>
                     <hr />
