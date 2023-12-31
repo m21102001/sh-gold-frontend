@@ -3,6 +3,7 @@ import { Footer, Header, Navbar } from '@/layout'
 import {
   AboutThat,
   CoursesOpen,
+  GoldCard,
   PricePlannig,
   ServicesIncluded,
   StartElectronicEcommerce,
@@ -21,8 +22,8 @@ const Home = () => {
         <Navbar />
         <Header/>
         <GoldChart />
-        {/* <GoldCard/> */}
         <CoursesOpen />
+        <GoldCard/>
         <StartElectronicEcommerce />
         <ServicesIncluded />
         {/* <DigitalMarkting /> */}

@@ -1,6 +1,12 @@
 import { SidebarDashboard } from "@/layout"
 import axios from '@/api/axios'
-import { useEffect } from "react";
+import { Worker } from '@react-pdf-viewer/core';
+// Import the main component
+import { Viewer } from '@react-pdf-viewer/core';
+
+// Import the styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
+
 const ProfileDash = () => {
 
   let config = {
@@ -22,11 +28,14 @@ const ProfileDash = () => {
     .catch((error) => {
       console.log(error);
     });
-    
+
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
       home
+      <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
+        <Viewer fileUrl="https://cambridge-files-repository.s3.amazonaws.com/pdfs/1703874091396-Cambridge-logo-.pdf" />;
+      </Worker>
     </div>
   )
 }

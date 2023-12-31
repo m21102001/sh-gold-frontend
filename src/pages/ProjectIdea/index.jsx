@@ -4,12 +4,17 @@ import { Footer, Navbar } from '@/layout';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from "@/api/axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
+import { Worker } from '@react-pdf-viewer/core';
+// Import the main component
+import { Viewer } from '@react-pdf-viewer/core';
+
+// Import the styles
+import '@react-pdf-viewer/core/lib/styles/index.css';
 
 import './projectIdea.scss'
 const ProjectIdea = () => {
@@ -45,6 +50,11 @@ const ProjectIdea = () => {
         .then((response) => {
           console.log('created success', response.data);
           alert("Your request has been sent successfully")
+          setName('')
+          setAddress('')
+          setDescription('')
+          setEmail('')
+          setPhone('')
         });
       setIsPending(false);
     } catch (err) {
@@ -67,11 +77,11 @@ const ProjectIdea = () => {
                 delay: 2500,
                 disableOnInteraction: false,
               }}
-              freeMode={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
+              // pagination={{
+              //   type: 'progressbar',
+              // }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
               className="mySwiper my-5"
             >
               <SwiperSlide>
@@ -79,7 +89,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -87,7 +97,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -95,7 +105,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -103,7 +113,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px',margin:'0 8rem' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
                 />
               </SwiperSlide>
             </Swiper>
@@ -117,13 +127,13 @@ const ProjectIdea = () => {
                       <div className="card-body" >
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">العنوان  </p>
+                            <p className="fs-4 mb-0 fw-bold">تفاصيل الفكره  </p>
                           </div>
                           <div className="col-sm-9">
                             <p className="fs-4 mb-0">
-                              <a href={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`}>
-                                <button type="button" className='btn btn-info px-5'>PDF</button>
-                              </a>
+                              <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
+                                <Viewer fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`} />;
+                              </Worker>
                             </p>
                           </div>
                         </div>
@@ -141,7 +151,7 @@ const ProjectIdea = () => {
                           <div className="col-sm-3">
                             <p className="fs-4 mb-0 fw-bold">الوصف الكامل</p>
                           </div>
-                          <div className="col-sm-9 overflow-auto" style={{ height: '10rem' }}>
+                          <div className="col-sm-9 overflow-auto" style={{ height: '5rem' }}>
                             <p className="fs-4 fw-bold mb-0">{item?.description}</p>
                           </div>
                         </div>
@@ -151,7 +161,7 @@ const ProjectIdea = () => {
                             <p className="fs-4 mb-0 fw-bold">السعر </p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="fs-4 fw-bold mb-0">{item?.price}</p>
+                            <p className="fs-4 fw-bold mb-0">{item?.price}دينار كويتى</p>
                           </div>
                         </div>
                         <hr />
@@ -160,7 +170,7 @@ const ProjectIdea = () => {
                             <p className="fs-4 mb-0 fw-bold">نسبه الربح</p>
                           </div>
                           <div className="col-sm-9 ">
-                            <p className="fs-4 fw-bold mb-0">{item?.profit} %</p>
+                            <p className="fs-4 fw-bold mb-0">{item?.profit}%</p>
                           </div>
                         </div>
                       </div>
@@ -181,7 +191,7 @@ const ProjectIdea = () => {
           </div>
           {/* ///////////////////////// contact us form ////////////////////////  */}
           <div className='card-form form-control container rounded-4 text-end text-light my-4'>
-            <form className="row g-3" onSubmit={handelSubmit}>
+            <form className="row g-3" onSubmit={handelSubmit} >
               <div className="col-md-6 col-sm-12">
                 <label
                   htmlFor="inputName"

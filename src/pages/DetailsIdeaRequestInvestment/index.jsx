@@ -118,7 +118,7 @@ const DetailsIdeaRequestInvestment = () => {
                         <div className="col-sm-9">
                           <p className="text-muted mb-0">
                             <a href={`${import.meta.env.VITE_FILE_URL}${ideaData?.document?.pdf}`}>
-                              <button type="button">الفكره</button>
+                              <button type="button" className="btn btn-info px-4">الفكره</button>
                             </a>
                           </p>
                         </div>

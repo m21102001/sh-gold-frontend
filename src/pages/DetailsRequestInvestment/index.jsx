@@ -19,7 +19,7 @@ const DetailsRequestInvestment = () => {
             className='mb-3 d-flex flex-row'
           >
             <button type="butto" className="fw-bold fs-5 back-details-button"
-            >الفكره<MdOutlineArrowBack size={30} /></button>
+            >الفكره</button>
           </Link>
 
           <Link to={'/dash/requests-investment'} className='mb-3 d-flex flex-row-reverse'>
