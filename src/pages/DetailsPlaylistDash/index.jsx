@@ -1,0 +1,131 @@
+import { SidebarDashboard } from '@/layout';
+import axios from '@/api/axios';
+import { useState } from 'react';
+import { MdOutlineArrowBack } from 'react-icons/md';
+import { Link, useLocation } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+const DetailsPlaylistDash = () => {
+  const item = useLocation()?.state?.item
+  const [loading, setLoading] = useState(false)
+
+  const handelDelete = async (id) => {
+    setLoading(true);
+    await axios
+      .delete(`/videos/${id}`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        alert('deleted success')
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
+
+  console.log(item);
+  return (
+    <div className="dashboard d-flex flex-row">
+      <SidebarDashboard />
+      <div className="container text-center">
+        <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
+          <h2 className='fs-1 fw-bold'>Deatils Playlist Item</h2>
+        </div>
+        <div className='d-flex justify-content-between align-items-center'>
+          <Link
+            // to={{ pathname: "/dash/create-video-item", state: dataToPass }}
+            to="/dash/create-video-item"
+            state={{ item: item }}
+          >
+            <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه فيديو جديد</button>
+          </Link>
+          <Link to={'/dash/playlists'} className='mb-3 d-flex flex-row-reverse'>
+            <button type="butto" className="fw-bold fs-5 back-details-button"
+            ><MdOutlineArrowBack size={30} /></button>
+          </Link>
+        </div>
+        <section style={{ backgroundColor: "#eee" }}>
+          <div className="container py-5">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card mb-4">
+                  <img src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`} className="card-img-top" alt="img-video" />
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">عنوان الفيديو</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{item?.title}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">السعر </p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{item?.price}دينار كويتى</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">الوصف </p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{item?.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="d-flex flex-wrap justify-content-evenly">
+          {!loading && item?.videos?.map((item, index) => (
+            <div
+              key={index}
+              className="card mb-5"
+              style={{ width: "18rem" }}
+            >
+              <LazyLoadImage
+                src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                className="card-img-top"
+                alt={item?.title} />
+              <div className="card-body">
+                <h5 className="card-title fw-bold "> tttt{item?.title}</h5>
+                <div className="d-flex flex-column">
+                  <div className="d-flex justify-content-around mt-3">
+                    <Link
+                      to={`/investment/inactive/details-investment/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-primary px-4">تفاصيل</button>
+                    </Link>
+                    <Link
+                      to={`/dash/update-videos/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-info px-4">تعديل</button>
+                    </Link>
+                  </div>
+                  <div className="d-flex justify-content-around mt-3">
+                    <button onClick={() => handelDelete(item._id)} className="btn btn-danger px-4">حذف</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default DetailsPlaylistDash

@@ -132,7 +132,7 @@ const ProjectIdea = () => {
                           <div className="col-sm-9">
                             <p className="fs-4 mb-0">
                               <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
-                                <Viewer fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`} />;
+                                <Viewer fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`} />
                               </Worker>
                             </p>
                           </div>

@@ -47,7 +47,7 @@ function SidebarDashboard() {
           <NavLink to="/dash/requests-investment ">
             <FaCodePullRequest /> <p className="fs-5 fw-bold me-4">طلبات المستثمرين</p>
           </NavLink>
-          <NavLink to="/dash/videos ">
+          <NavLink to="/dash/playlists ">
             <CgPlayList /> <p className="fs-5 fw-bold me-4">الفيديوهات</p>
           </NavLink>
           <NavLink to="/dash/contact-form ">

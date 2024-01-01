@@ -2,10 +2,8 @@ import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { LazyLoadImage } from "react-lazy-load-image-component"
 
-
-const VideosDash = () => {
+const PlaylistsDash = () => {
   const [loading, setLoading] = useState(false)
   const [playlists, setPlaylists] = useState([])
 
@@ -44,15 +42,14 @@ const VideosDash = () => {
         console.log(error);
       });
   };
-
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Videos Dash</h2>
+          <h2 className='fs-1 fw-bold'>Playlist Dash</h2>
         </div>
-        <Link to="/dash/create-video-item">
+        <Link to="/dash/create-playlist-item">
           <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه جديد</button>
         </Link>
         <table className="table table-striped table-hover">
@@ -60,7 +57,7 @@ const VideosDash = () => {
             <tr>
               <th scope="col">#</th>
               <th scope="col">العنوان</th>
-              <th scope="col">الصوره</th>
+              <th scope="col">السعر</th>
               <th scope="col" colSpan={2}>الاحداث</th>
             </tr>
           </thead>
@@ -69,12 +66,9 @@ const VideosDash = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{item?.title}</td>
-                <td>
-                  <LazyLoadImage
-                    src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
-                    alt={item?.title}
-                    style={{ width: "50px" }} />
-                </td>
+                <td>{item?.price}دينار كويتى</td>
+                {/* <img src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`} alt={item?.title}
+                  style={{ width: "50px" }} /> */}
                 <td>
                   <Link
                     to={`/dash/update-playlist/${item._id}`}
@@ -100,4 +94,4 @@ const VideosDash = () => {
   )
 }
 
-export default VideosDash
+export default PlaylistsDash

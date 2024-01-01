@@ -22,6 +22,7 @@ import {
   CreateClubDash,
   CreateGoldDahs,
   CreateInvesmentDash,
+  CreatePlaylistDash,
   CreateVideosDash,
   Dashboard,
   DeatilsContactFormDash,
@@ -32,6 +33,7 @@ import {
   DetailsIdeaRequestInvestment,
   DetailsInactiveInvesmentDash,
   DetailsInvesmentDash,
+  DetailsPlaylistDash,
   DetailsRequestInvestment,
   DetailsVideosDash,
   ErrorPage,
@@ -42,6 +44,7 @@ import {
   InvestmantPage,
   Login,
   Payment,
+  PlaylistsDash,
   ProfileDash,
   ProjectIdea,
   RequestInvestment,
@@ -53,6 +56,7 @@ import {
   UpdateClubDash,
   UpdateGoldDash,
   UpdateInactiveInvesmentDash,
+  UpdatePlaylistDash,
   UpdateRoleUsersDash,
   UpdateVideosDash,
   VerifyRestCode,
@@ -309,7 +313,35 @@ const Routers = () => {
                 <UpdateRoleUsersDash />
               </Protect>
             } />
-          <Route
+          <Route          
+            path='/dash/playlists'
+            element={
+              <Protect>
+                <PlaylistsDash />
+              </Protect>
+            } />
+          <Route          
+            path='/dash/create-playlist-item'
+            element={
+              <Protect>
+                <CreatePlaylistDash />
+              </Protect>
+            } />
+          <Route          
+            path='/dash/update-playlist/:id'
+            element={
+              <Protect>
+                <UpdatePlaylistDash />
+              </Protect>
+            } />
+          <Route          
+            path='/dash/details-playlist/:id'
+            element={
+              <Protect>
+                <DetailsPlaylistDash />
+              </Protect>
+            } />
+          <Route          
             path='/dash/videos'
             element={
               <Protect>
