@@ -39,11 +39,13 @@ const CoursesOpen = () => {
           <div className="container">
             <div className={styles['home-grid']}>
               {!loading && goldCategory?.map((item, index) => (
-                index <8 ? (
+                index < 8 ? (
                   <div key={index} className={styles['gold-div']}>
                     <div>
-                      <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
-                      {/* <LazyLoadImage src={item?.image} alt="" loading="lazy" /> */}
+                      <LazyLoadImage
+                        src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                        alt={item?.name}
+                        loading="lazy" />
                     </div>
                     <div className=''>
                       <h3 className=' fw-700'>{item.name}</h3>

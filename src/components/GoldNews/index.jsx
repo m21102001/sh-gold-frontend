@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from '../GoldCard/GoldCard.module.scss';
 import './GoldNews.scss'
 import { courses } from '@/db/data';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 const GoldNews = () => {
   return (
     <div className='coursers-open goldNews py-5'>
@@ -23,7 +24,7 @@ const GoldNews = () => {
                   >
                     <div className={styles['gold-div']}>
                       <div className='title-card'>
-                        <img
+                        <LazyLoadImage
                           src={item?.img}
                         />
                         <div className="news-date">

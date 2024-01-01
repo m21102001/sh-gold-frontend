@@ -2,6 +2,7 @@ import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logo from '@/assets/Cambridge-logo-.svg'
 import './footer.module.scss';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {
   return (
@@ -31,7 +32,7 @@ const Footer = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3"></i><img src={logo} alt="كامبردج " style={{ width: "10rem", height: "4rem", background: "rgb(233, 236, 239)", borderRadius: "10px", cursor: "pointer" }} />
+                <i className="fas fa-gem me-3"></i><LazyLoadImage src={logo} alt="كامبردج " style={{ width: "10rem", height: "4rem", background: "rgb(233, 236, 239)", borderRadius: "10px", cursor: "pointer" }} />
               </h6>
               <p>
                 شركة متخصصة في تقديم خدمات الاستشارات الفنيـة فـي الاستثمار في قطاع المعـادن

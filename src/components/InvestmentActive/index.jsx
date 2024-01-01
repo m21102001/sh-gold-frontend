@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from '@/api/axios'
 import { Link } from "react-router-dom"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 const InvestmentActive = () => {
   const [loading, setLoading] = useState(false)
@@ -78,8 +79,8 @@ const InvestmentActive = () => {
           className="card mb-5"
           style={{ width: "18rem" }}
         >
-          <img src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
-          {/* <img src={``} className="card-img-top" alt="..." /> */}
+          <LazyLoadImage src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
+          {/* <LazyLoadImage src={``} className="card-img-top" alt="..." /> */}
           <div className="card-body">
             <h5 className="card-title fw-bold "> {item?.title}</h5>
             <div className="d-flex flex-column">

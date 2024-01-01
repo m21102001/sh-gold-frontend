@@ -56,8 +56,8 @@ const DetailsBook = () => {
             >
               <SwiperSlide>
                 <LazyLoadImage
-                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                  alt=""
+                  src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                  alt={item?.title}
                   loading="lazy"
                   style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
                 />

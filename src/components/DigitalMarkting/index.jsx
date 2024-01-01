@@ -13,7 +13,7 @@ const DigitalMarkting = () => {
               </h3>
             </div>
             <div className="col-md-4 col-sm-12">
-              <img src={book} alt="Kenz book" srcSet="Kenz book" className="kenzbook" />
+              <LazyLoadImage src={book} alt="Kenz book" srcSet="Kenz book" className="kenzbook" />
             </div>
           </div>
         </div>

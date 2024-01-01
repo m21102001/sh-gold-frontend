@@ -1,5 +1,6 @@
 import { SidebarDashboard } from "@/layout"
 import { MdOutlineArrowBack } from "react-icons/md"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import { Link, useLocation } from "react-router-dom"
 
 const DetailsInvesmentDash = () => {
@@ -20,7 +21,7 @@ const DetailsInvesmentDash = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="card mb-4">
-                  <img src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover}`} className="card-img-top" alt="img-video" />
+                  <LazyLoadImage src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover}`} className="card-img-top" alt="img-video" />
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm-3">

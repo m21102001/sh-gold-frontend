@@ -84,20 +84,17 @@ const UpdateBooksDash = () => {
           />
           <div className="label-form">اضف ملف بصيغه (pdf)</div>
           <input
-            hidden
             type="file"
             name="pdf"
             className="form-control mb-3"
             id="pdf"
             required
             placeholder="اختر ملف pdf"
-            // value={pdf}
-            // defaultValue={'lkfmlfdfdlk'}
             onChange={(e) => setpdf(e.target.files[0])}
           />
-          <label id="file-input-label" htmlFor='pdf'>
-            {pdf}
-          </label>
+          {/* <label id="file-input-label" className="text-light" htmlFor='pdf'>
+            {pdf} <FaFilePdf size={30} />
+          </label> */}
 
           <div className="label-form">اضف صوره*</div>
           <input
@@ -107,9 +104,12 @@ const UpdateBooksDash = () => {
             id="image"
             required
             placeholder="اضف صوره*"
-            // value={image}
             onChange={(e) => setImage(e.target.files[0])}
           />
+          {/* <label id="file-input-label" className="text-light" htmlFor='image'>
+            {image}
+            <FaImage size={30} />
+          </label> */}
           <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
           <textarea
             type="text"

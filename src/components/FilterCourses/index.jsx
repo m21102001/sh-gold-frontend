@@ -2,6 +2,7 @@ import { Button, ButtonGroup } from "react-bootstrap"
 import { useState, useEffect } from "react"
 
 import axios from "axios"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 const LastestPacks = () => {
 
   const [images, setImages] = useState([])
@@ -71,7 +72,9 @@ const LastestPacks = () => {
           {filteredImages.map((data) => {
             return (
               <div className="image-data" key={data.id}>
-                <img src={data.image} alt="an error occurred" />
+                <LazyLoadImage
+                 src={data.image}
+                  alt={data?.id} />
               </div>
             );
           })}

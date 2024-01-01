@@ -12,6 +12,7 @@ import { FaMessage } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa";
 
 import "./sidebarDashboard.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function SidebarDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -26,7 +27,7 @@ function SidebarDashboard() {
         <div>
           <NavLink to={'/dash/dashboard'}>
             <div className="sidebar-logo">
-              <img src="https://i.ibb.co/BZ9ZhLV/Cambridge-logo-pages-to-jpg-0001.jpg" alt="" width={180} height={64} style={{borderRadius:'10px'}}/>
+              <LazyLoadImage src="https://i.ibb.co/BZ9ZhLV/Cambridge-logo-pages-to-jpg-0001.jpg" alt="" width={180} height={64} style={{borderRadius:'10px'}}/>
             </div>
           </NavLink>
           <NavLink to="/dash/dashboard ">

@@ -143,9 +143,12 @@ const UpdateInactiveInvesmentDash = () => {
             placeholder="ارفع غلاف للمشروع"
             onChange={(e) => setCover(e.target.files[0])}
             multiple
-            // value={cover}
             required
           />
+          {/* <label id="file-input-label" className="text-light" htmlFor='cover'>
+            {cover}
+            <FaImage size={30} />
+          </label> */}
           <div className="label-form"> ارفع ملف لتفاصيل المشروع (pdf)</div>
           <input
             name="inputCname"
@@ -154,9 +157,11 @@ const UpdateInactiveInvesmentDash = () => {
             id="pdf"
             placeholder="ارفع ملف لتفاصيل المشروع"
             onChange={(e) => setPdf(e.target.files[0])}
-            // value={}
             required
           />
+          {/* <label id="file-input-label" className="text-light" htmlFor='pdf'>
+            {pdf} <FaFilePdf size={30} />
+          </label> */}
           <div className="label-form">اكتب وصف مختصر للمشروع</div>
           <textarea
             type="text"
@@ -172,7 +177,7 @@ const UpdateInactiveInvesmentDash = () => {
 
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">
-              تعديل 
+              تعديل
             </button>
           )}
           {isPending && (

@@ -29,12 +29,14 @@ const UpdateVideosDash = () => {
           },
           {
             headers: {
-              'Content-Type': 'multipart/form-data',
+              'Content-Type': 'application/json',
             },
           }
         )
         .then((response) => {
           console.log('updated success', response.data);
+          alert("updated success")
+          navigate(`/dash/details-playlist/${item?._id}`)
         });
       setIsPending(false);
     } catch (err) {
@@ -86,20 +88,22 @@ const UpdateVideosDash = () => {
             id="image"
             required
             placeholder="اضف صوره*"
-            // value={image}
             onChange={(e) => setImage(e.target.files[0])}
           />
+          {/* <label id="file-input-label" htmlFor='image'>
+            {image}
+          </label> */}
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mt-3">
-              اضافه جديد
+              تعديل
             </button>
           )}
           {isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mt-3">
-              جاري الاضافه ...
+              جاري التعديل ...
             </button>
           )}
-          <button onClick={() => navigate('/dash/videos')} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mt-3">
+          <button onClick={() => navigate(`/dash/details-playlist/${item?._id}`)} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mt-3">
             cancel
           </button>
         </form>

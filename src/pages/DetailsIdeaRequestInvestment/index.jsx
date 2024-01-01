@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import { useEffect, useState } from "react"
 import axios from "@/api/axios"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 const DetailsIdeaRequestInvestment = () => {
   const item = useLocation()?.state?.item
@@ -44,7 +45,7 @@ const DetailsIdeaRequestInvestment = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="card mb-4">
-                    <img src={`${import.meta.env.VITE_FILE_URL}${ideaData?.document?.images}`}
+                    <LazyLoadImage src={`${import.meta.env.VITE_FILE_URL}${ideaData?.document?.images}`}
                      className="card-img-top" 
                      alt={ideaData?.document?.title} />
                     <div className="card-body">

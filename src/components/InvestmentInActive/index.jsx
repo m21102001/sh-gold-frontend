@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from '@/api/axios'
 import { Link } from "react-router-dom"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 const InvestmentInActive = () => {
   const [loading, setLoading] = useState(false)
@@ -75,7 +76,7 @@ const InvestmentInActive = () => {
           key={index}
           className="card mb-5"
           style={{ width: "18rem" }}>
-          <img src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
+          <LazyLoadImage src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
           {/* src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover} */}
           <div className="card-body">
             <h5 className="card-title fw-bold m-0"> {item?.title}</h5>

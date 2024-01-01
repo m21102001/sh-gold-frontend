@@ -11,7 +11,6 @@ const UpdateGoldDash = () => {
   const [title, setTitle] = useState(item?.title)
   const [size, setSize] = useState(item?.size)
   const [price, setPrice] = useState(item?.price)
-  // const price = useRef([]);
   const [description, setDescription] = useState(item?.description)
   const [image, setImage] = useState(item?.image)
   const getInitialState = () => {
@@ -133,13 +132,17 @@ const UpdateGoldDash = () => {
             </select>
             <div className="label-form">تعديل صوره المنتج</div>
             <input
+              // hidden
               type="file"
               className="form-control  mb-3"
               required
-              // placeholder="اكتب السعر*"
-              // value={price}
+              id='image'
               onChange={(e) => setImage(e.target.files[0])}
             />
+            {/* <label id="file-input-label" className="text-light" htmlFor='image'>
+              {image}
+              <FaImage size={30} />
+            </label> */}
             <div className="label-form">تعديل الوصف للمنتج*</div>
             <textarea
               type="text"

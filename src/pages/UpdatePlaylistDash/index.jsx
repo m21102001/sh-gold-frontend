@@ -85,9 +85,12 @@ const UpdatePlaylistDash = () => {
             id="image"
             required
             placeholder="اضف صوره*"
-            // value={image}
             onChange={(e) => setImage(e.target.files[0])}
           />
+          {/* <label id="file-input-label" className="text-light" htmlFor='image'>
+            {image}
+            <FaImage size={30} />
+          </label> */}
           <div className="label-form">تعديل الوصف *</div>
           <textarea
             rows={5}

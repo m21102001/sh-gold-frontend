@@ -1,14 +1,15 @@
 import { SidebarDashboard } from '@/layout';
 import axios from '@/api/axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MdOutlineArrowBack } from 'react-icons/md';
 import { Link, useLocation } from 'react-router-dom';
+import ReactPlayer from 'react-player/lazy'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const DetailsPlaylistDash = () => {
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false)
-
+  const [videosPlaylist, setVideosPlaylist] = useState([])
   const handelDelete = async (id) => {
     setLoading(true);
     await axios
@@ -18,8 +19,12 @@ const DetailsPlaylistDash = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         alert('deleted success')
+        axios.get(`/playlists/${item?._id}/videos`)
+          .then((response) => {
+            setVideosPlaylist(response.data)
+          })
+        console.log(response);
       })
       .catch((error) => {
         setLoading(false);
@@ -27,7 +32,21 @@ const DetailsPlaylistDash = () => {
       });
   };
 
-  console.log(item);
+  useEffect(() => {
+    setLoading(true);
+    axios.get(`/playlists/${item?._id}/videos`)
+      .then((response) => {
+        setLoading(false)
+        setVideosPlaylist(response.data)
+        console.log('setVideosPlaylist', response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+
+  }, [])
+
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -53,7 +72,11 @@ const DetailsPlaylistDash = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="card mb-4">
-                  <img src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`} className="card-img-top" alt="img-video" />
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                    className="card-img-top"
+                    alt={item?.title}
+                  />
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm-3">
@@ -87,23 +110,34 @@ const DetailsPlaylistDash = () => {
             </div>
           </div>
         </section>
-        <div className="d-flex flex-wrap justify-content-evenly">
-          {!loading && item?.videos?.map((item, index) => (
+        <div className="d-flex flex-wrap justify-content-between mt-5">
+          {!loading && videosPlaylist?.document?.map((item, index) => (
             <div
               key={index}
               className="card mb-5"
               style={{ width: "18rem" }}
             >
-              <LazyLoadImage
-                src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
-                className="card-img-top"
-                alt={item?.title} />
+              <ReactPlayer
+                url={item?.url}
+                config={{
+                  youtube: {
+                    playerVars: { showinfo: 1 }
+                  },
+                }}
+                width='100%'
+                height='100%'
+              // style={{
+              //   position: "absolute",
+              //   top: "0",
+              //   left: "0",
+              // }}
+              />
               <div className="card-body">
                 <h5 className="card-title fw-bold "> tttt{item?.title}</h5>
                 <div className="d-flex flex-column">
                   <div className="d-flex justify-content-around mt-3">
                     <Link
-                      to={`/investment/inactive/details-investment/${item._id}`}
+                      to={`/dash/details-videos/${item._id}`}
                       state={{ item: item }}
                     >
                       <button className="btn btn-primary px-4">تفاصيل</button>
