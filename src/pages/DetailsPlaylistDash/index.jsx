@@ -10,27 +10,6 @@ const DetailsPlaylistDash = () => {
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false)
   const [videosPlaylist, setVideosPlaylist] = useState([])
-  const handelDelete = async (id) => {
-    setLoading(true);
-    await axios
-      .delete(`/videos/${id}`, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then((response) => {
-        alert('deleted success')
-        axios.get(`/playlists/${item?._id}/videos`)
-          .then((response) => {
-            setVideosPlaylist(response.data)
-          })
-        console.log(response);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  };
 
   useEffect(() => {
     setLoading(true);
@@ -46,6 +25,26 @@ const DetailsPlaylistDash = () => {
       });
 
   }, [])
+
+  const handelDelete = async (id) => {
+    setLoading(true);
+    await axios
+      .delete(`/videos/${id}`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then((response) => {
+        axios.get(`/playlists/${item?._id}/videos`)
+        console.log(response)
+      })
+    alert('deleted success')
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
+
 
   return (
     <div className="dashboard d-flex flex-row">
@@ -110,9 +109,9 @@ const DetailsPlaylistDash = () => {
             </div>
           </div>
         </section>
-        <div className="d-flex flex-wrap justify-content-between mt-5">
+        <div className="d-flex flex-wrap justify-content-evenly mt-5">
           {!loading && videosPlaylist?.document?.map((item, index) => (
-            <div
+            <Link
               key={index}
               className="card mb-5"
               style={{ width: "18rem" }}
@@ -133,7 +132,7 @@ const DetailsPlaylistDash = () => {
               // }}
               />
               <div className="card-body">
-                <h5 className="card-title fw-bold "> tttt{item?.title}</h5>
+                <h5 className="card-title fw-bold ">{item?.title}</h5>
                 <div className="d-flex flex-column">
                   <div className="d-flex justify-content-around mt-3">
                     <Link
@@ -154,7 +153,7 @@ const DetailsPlaylistDash = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

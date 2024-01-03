@@ -9,9 +9,8 @@ const UpdateVideosDash = () => {
 
   const [isPending, setIsPending] = useState(false)
   const [title, setTitle] = useState(item?.title)
-  const [price, setPrice] = useState(item?.price)
-  const [image, setImage] = useState(item?.image)
-
+  const [description, setDescription] = useState(item?.description)
+  const [url, setUrl] = useState(item?.url)
 
 
   const hanelSubmit = async (e) => {
@@ -22,10 +21,10 @@ const UpdateVideosDash = () => {
         .put(
           `/videos/${item?._id}`,
           {
-            _id: item?._id,
+            playlist: item?.playlist,
             title: title,
-            image: image,
-            price: price,
+            url: url,
+            description: description,
           },
           {
             headers: {
@@ -69,30 +68,29 @@ const UpdateVideosDash = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className="label-form">اكتب السعر*</div>
+          <div className="label-form">عنوان(url)*</div>
           <input
-            type="number"
-            name="price"
+            type="text"
+            name="url"
             className="form-control mb-3"
-            id="price"
+            id="url"
             required
-            placeholder="اكتب السعر*"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            placeholder="عنوان(url)*"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
           />
-          <div className="label-form">اضف صوره*</div>
-          <input
-            type="file"
-            name="image"
+          <div className="label-form">الوصف *</div>
+          <textarea
+            rows={5}
+            type="text"
+            name="description"
             className="form-control mb-3"
-            id="image"
+            id="description"
             required
-            placeholder="اضف صوره*"
-            onChange={(e) => setImage(e.target.files[0])}
+            placeholder="عدل ف الوصف *"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
-          {/* <label id="file-input-label" htmlFor='image'>
-            {image}
-          </label> */}
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mt-3">
               تعديل
@@ -113,3 +111,11 @@ const UpdateVideosDash = () => {
 }
 
 export default UpdateVideosDash
+
+
+// {
+//   "title": "سورة البقرة كامله للشيخ عبد الباسط عبد الصمد رحمه الله ",
+//   "playlist": "6591d6a6f3befc93049abbff",
+//   "description": " سورة البقرة كامله للشيخ عبد الباسط عبد الصمد رحمه الله /بدون اعلانات",
+//   "url": "https://www.youtube.com/watch?v=YH5bInDqpkI"
+// }
