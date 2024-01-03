@@ -35,7 +35,9 @@ import {
   DetailsInvesmentDash,
   DetailsPlaylistDash,
   DetailsRequestInvestment,
+  DetailsVideoDevelopment,
   DetailsVideosDash,
+  Development,
   ErrorPage,
   GoldDash,
   GoldNews,
@@ -93,6 +95,8 @@ const Routers = () => {
           <Route path='/book' element={<Book />} />
           <Route path='/book/detalis-book/:id' element={<DetailsBook />} />
           <Route path='/Consulting' element={<Consulting />} />
+          <Route path='/development' element={<Development />} />
+          <Route path='/development/details-video/:id' element={<DetailsVideoDevelopment />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contactUs" element={<ContactUS />} />
           {/*///////////////////////// auth ///////////////////////////////////////*/}
@@ -313,35 +317,35 @@ const Routers = () => {
                 <UpdateRoleUsersDash />
               </Protect>
             } />
-          <Route          
+          <Route
             path='/dash/playlists'
             element={
               <Protect>
                 <PlaylistsDash />
               </Protect>
             } />
-          <Route          
+          <Route
             path='/dash/create-playlist-item'
             element={
               <Protect>
                 <CreatePlaylistDash />
               </Protect>
             } />
-          <Route          
+          <Route
             path='/dash/update-playlist/:id'
             element={
               <Protect>
                 <UpdatePlaylistDash />
               </Protect>
             } />
-          <Route          
+          <Route
             path='/dash/details-playlist/:id'
             element={
               <Protect>
                 <DetailsPlaylistDash />
               </Protect>
             } />
-          <Route          
+          <Route
             path='/dash/videos'
             element={
               <Protect>

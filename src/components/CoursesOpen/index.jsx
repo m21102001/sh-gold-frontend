@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import 'react-tabs/style/react-tabs.css';
 import { Link } from 'react-router-dom';
 import styles from '../GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -44,16 +43,15 @@ const CoursesOpen = () => {
                     <div>
                       <LazyLoadImage
                         src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                        // src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
                         alt={item?.name}
                         loading="lazy" />
                     </div>
                     <div className=''>
                       <h3 className=' fw-700'>{item.name}</h3>
-                      {/* <p className='text-end fs-4 mb-0'>{item?.price} دينار كويتى</p> */}
                       <Link
                         to={`/bullion-store`}
                         state={{ item: item }}
-                        onClick={window.scrollTo(0, 0)}
                       >
                         <button>تفاصيل اضافيه</button>
                       </Link>

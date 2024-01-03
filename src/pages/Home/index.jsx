@@ -3,6 +3,7 @@ import { Footer, Header, Navbar } from '@/layout'
 import {
   AboutThat,
   CoursesOpen,
+  DigitalMarkting,
   GoldCard,
   PricePlannig,
   ServicesIncluded,
@@ -20,13 +21,16 @@ const Home = () => {
       <div>
         {/* <PdfToText /> */}
         <Navbar />
-        <Header/>
+        <Header />
         <GoldChart />
+        {/* category gold */}
         <CoursesOpen />
-        <GoldCard/>
+        {/* investment */}
+        <GoldCard />
+        {/* videos */}
+        <DigitalMarkting />
         <StartElectronicEcommerce />
         <ServicesIncluded />
-        {/* <DigitalMarkting /> */}
         {/* <StartDigitalMarkting /> */}
         <WhyKambridage />
         <AboutThat />

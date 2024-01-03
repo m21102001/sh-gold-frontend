@@ -111,11 +111,3 @@ const UpdateVideosDash = () => {
 }
 
 export default UpdateVideosDash
-
-
-// {
-//   "title": "سورة البقرة كامله للشيخ عبد الباسط عبد الصمد رحمه الله ",
-//   "playlist": "6591d6a6f3befc93049abbff",
-//   "description": " سورة البقرة كامله للشيخ عبد الباسط عبد الصمد رحمه الله /بدون اعلانات",
-//   "url": "https://www.youtube.com/watch?v=YH5bInDqpkI"
-// }

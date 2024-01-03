@@ -1,24 +1,83 @@
-import './DigitalMarkting.scss'
-import book from "../../assets/img/kenzbook.png"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import axios from "@/api/axios"
+import styles from '../GoldCard/GoldCard.module.scss';
+import ReactPlayer from 'react-player/lazy'
+
+
 const DigitalMarkting = () => {
+  const [loading, setLoading] = useState(false);
+  const [getvideos, setGetvideos] = useState([])
+
+  let fetchBook = {
+    method: 'get',
+    url: '/videos/',
+  };
+  useEffect(() => {
+    setLoading(true);
+    axios.request(fetchBook)
+      .then((response) => {
+        setGetvideos(response.data);
+        setLoading(false);
+        console.log("getvideos", response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }, []);
+
   return (
-    <div className="StartElectronicEcommerce my-5 ">
-      <div>
-        <div className="Container">
-          <div className="row align-items-start">
-            <div className="col-md-8 col-sm-12 px-5">
-              <h2 className="text-light text-end fw-semibold my-3 pt-4 digitalMarkting">ما هي التجارة الالكترونية؟ </h2>
-              <h3 className="text-end text-light">
-                ابدأ تجارتك الالكترونية باحتراف نقوم ببناء متجر متكامل لك ومصمم بشكل احترافي ويتناسب مع المنتجات المراد بيعها بالإضافة إلى إضافة عشر منتجات من الأعلى طلباً في السوق المستهدفه
-              </h3>
-            </div>
-            <div className="col-md-4 col-sm-12">
-              <LazyLoadImage src={book} alt="Kenz book" srcSet="Kenz book" className="kenzbook" />
+    <div className='coursers-open'>
+      <div className='m-auto d-flex justify-content-center my-5'>
+        <span style={{ zIndex: "0", backgroundColor: "#000", width: "50px", height: "3px", margin: "auto 20px" }}></span>
+        <h2 className='text-center comunation fs-1 fw-bold' style={{ color: "var(--gold-color2)" }}> التدريب و التطوير   </h2>
+        <span style={{ zIndex: "0", backgroundColor: "#000", width: "50px", height: "3px", margin: "auto 20px" }}></span>
+      </div>
+      <div className='m-auto d-flex justify-center'>
+        <>
+          <div className="container gold-dash">
+            <div className={styles['home-grid']} style={{gridTemplateColumns:'repeat(auto-fill, minmax(370px, 1fr))'}}>
+              {!loading && getvideos?.document?.map((item, index) => (
+                index < 3 ? (
+                <div key={index} className={styles['gold-div']} >
+                  <div>
+                    <ReactPlayer
+                      url={item?.url}
+                      config={{
+                        youtube: {
+                          playerVars: { showinfo: 1 }
+                        },
+                      }}
+                      width='100%'
+                      // height='320px'
+                    // style={{
+                    //   position: "absolute",
+                    //   top: "0",
+                    //   left: "0",
+                    // }}
+                    />
+                  </div>
+                  <div className=''>
+                    <h3 className=' fw-700'>{item.title}</h3>
+                    <Link
+                      to={`/development`}
+                      state={{ item: item }}
+                    >
+                      <button>تفاصيل اضافيه</button>
+                    </Link>
+                  </div>
+                </div>
+                ) : ('')
+              ))}
             </div>
           </div>
-        </div>
+        </>
       </div>
-    </div>
+      <Link to="/development">
+        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip">شاهد جميع الانواع </h4>
+      </Link>
+    </div >
   )
 }
 
