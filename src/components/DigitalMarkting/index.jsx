@@ -61,7 +61,7 @@ const DigitalMarkting = () => {
                   <div className=''>
                     <h3 className=' fw-700'>{item.title}</h3>
                     <Link
-                      to={`/development`}
+                      to={`/development/details-video/${item?._id}`}
                       state={{ item: item }}
                     >
                       <button>تفاصيل اضافيه</button>
