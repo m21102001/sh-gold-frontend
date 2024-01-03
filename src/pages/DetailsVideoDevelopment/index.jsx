@@ -85,77 +85,39 @@ const DetailsVideoDevelopment = () => {
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         </div>
         <div className='m-auto d-flex justify-center'>
-                <>
-                  <div className="container ">
-                    <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))',padding:'0' }}>
-                      {!loading && getvideos?.document?.map((item, index) => (
-                        <div key={index} className={styles['gold-div']}  style={{height:'570px'}}>
-                          <div className="p-0">
-                            <ReactPlayer
-                              url={item?.url}
-                              config={{
-                                youtube: {
-                                  playerVars: { showinfo: 1 }
-                                },
-                              }}
-                              width='-webkit-fill-available'
-                              height={'350px'}
-                            />
-                          </div>
-                          <div className=''>
-                            <h3 className=' fw-700'>{item.title}</h3>
-                            <Link
-                              to={`/development/details-video/${item?._id}`}
-                              state={{ item: item }}
-                            >
-                              <button>تفاصيل اضافيه</button>
-                            </Link>
-                          </div>
-                        </div>
-                      ))}
+          <>
+            <div className="container ">
+              <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', padding: '0' }}>
+                {!loading && getvideos?.document?.map((item, index) => (
+                  <div key={index} className={styles['gold-div']} style={{ height: '570px' }}>
+                    <div className="p-0">
+                      <ReactPlayer
+                        url={item?.url}
+                        config={{
+                          youtube: {
+                            playerVars: { showinfo: 1 }
+                          },
+                        }}
+                        width='-webkit-fill-available'
+                        height={'350px'}
+                      />
+                    </div>
+                    <div className=''>
+                      <h3 className=' fw-700'>{item.title}</h3>
+                      <Link
+                        to={`/development/details-video/${item?._id}`}
+                        state={{ item: item }}
+                        onClick={window.scrollTo(0, 0)}
+                      >
+                        <button>تفاصيل اضافيه</button>
+                      </Link>
                     </div>
                   </div>
-                </>
-              </div>
-        {/* <div className='m-auto d-flex justify-center'>
-          <>
-            <div className="container">
-              <div className={styles['home-grid']}>
-                {!loading && getvideos?.document?.map((item, index) => (
-                  // index > 6 && item?.category == type && item?._id !== id ? (
-                  <Link
-                    key={index}
-                    to={`/development/details-video/${item?._id}`}
-                    state={{ item: item }}
-                    onClick={window.scrollTo(0, 0)}
-                  >
-                    <div className={styles['gold-div']}>
-                      <div className='title-card'>
-                        <ReactPlayer
-                          url={item?.url}
-                          config={{
-                            youtube: {
-                              playerVars: { showinfo: 1 }
-                            },
-                          }}
-                          width='100%'
-                          height='70vh'
-                        />
-                        <div className="news-date">
-                          <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className='text-center fw-bold'>{item.title}</h3>
-                      </div>
-                    </div>
-                  </Link>
-                  // ) : (null)
                 ))}
               </div>
             </div>
           </>
-        </div> */}
+        </div>
       </div >
       <Footer />
     </>
