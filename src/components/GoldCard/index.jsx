@@ -48,7 +48,7 @@ const GoldCard = () => {
                       <h3 className=' fw-700'>{item.title}</h3>
                       {/* <p className='text-end fs-4 mb-0'>{item?.price} دينار كويتى</p> */}
                       <Link
-                        to={`/investment`}
+                        to={`/club/project-idea/${item?._id}`}
                         state={{ item: item }}
                       >
                         <button>تفاصيل اضافيه</button>

@@ -9,7 +9,7 @@ import { PiFlagFill } from "react-icons/pi";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { GrProjects } from "react-icons/gr";
 import { FaMessage } from "react-icons/fa6";
-import { FaUsers } from "react-icons/fa";
+import { FaTicketAlt, FaUsers } from "react-icons/fa";
 
 import "./sidebarDashboard.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -27,7 +27,7 @@ function SidebarDashboard() {
         <div>
           <NavLink to={'/dash/dashboard'}>
             <div className="sidebar-logo">
-              <LazyLoadImage src="https://i.ibb.co/BZ9ZhLV/Cambridge-logo-pages-to-jpg-0001.jpg" alt="" width={180} height={64} style={{borderRadius:'10px'}}/>
+              <LazyLoadImage src="https://i.ibb.co/BZ9ZhLV/Cambridge-logo-pages-to-jpg-0001.jpg" alt="" width={180} height={64} style={{ borderRadius: '10px' }} />
             </div>
           </NavLink>
           <NavLink to="/dash/dashboard ">
@@ -54,17 +54,20 @@ function SidebarDashboard() {
           <NavLink to="/dash/contact-form ">
             <FaMessage /> <p className="fs-5 fw-bold me-4">الرسائل</p>
           </NavLink>
+          <NavLink to="/dash/consultations ">
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">الحجوزات</p>
+          </NavLink>
           <NavLink to="/dash/all-users ">
-          <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>
+            <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>
           </NavLink>
           {/* <NavLink to="/dash/profile">
             <CgProfile /> <p className="fs-5 fw-bold me-4">الاستاذ صلاح</p>
           </NavLink> */}
         </div>
         <div
-        className="d-flex justify-content-start"
+          className="d-flex justify-content-start"
           style={{ padding: "8px" }}
-          // onClick={() => setSidebarOpen((pre) => !pre)}
+        // onClick={() => setSidebarOpen((pre) => !pre)}
         >
           <GiHamburgerMenu />
         </div>

@@ -2,8 +2,7 @@ import {
   Routes,
   Route,
   BrowserRouter as Router,
-
-  Navigate
+  Navigate,
 } from 'react-router-dom';
 import {
   About,
@@ -15,11 +14,13 @@ import {
   BullionStoreItem,
   Club,
   ClubDash,
+  ConsultationsDash,
   Consulting,
   ContactFormDash,
   ContactUS,
   CreateBookDash,
   CreateClubDash,
+  CreateConsultationsDash,
   CreateGoldDahs,
   CreateInvesmentDash,
   CreatePlaylistDash,
@@ -67,17 +68,19 @@ import {
 import { useAuth } from '@/context/Auth';
 
 const Routers = () => {
-  const { Loggedin, role } = useAuth();
+  const { Loggedin, role, user, Fetched } = useAuth();
 
   const Protect = ({ children }) => {
-    if (Loggedin && role === "admin" || role === 'godAdmin' || role === 'manager') {
-      return <Navigate to={"/dash/dashboard"} />
-    } else {
-      if (role === 'user') {
-        return <Navigate to={"/"} />
+    if (Loggedin) {
+      if (role == "admin" || role == "godAdmin" || role == "manager") {
+        <Navigate to="/dash/dashboard" />
+      } else {
+        if (role == "user") {
+          <Navigate to="/" />
+        }
       }
-      return children;
     }
+    return children
   }
   return (
     <div className='conatiner'>
@@ -371,6 +374,20 @@ const Routers = () => {
             element={
               <Protect>
                 <DetailsVideosDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/consultations'
+            element={
+              <Protect>
+                <ConsultationsDash />
+              </Protect>
+            } />
+          <Route
+            path='/dash/create-consultation-item'
+            element={
+              <Protect>
+                <CreateConsultationsDash />
               </Protect>
             } />
 

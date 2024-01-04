@@ -72,7 +72,7 @@ const GoldStore = () => {
               <div className="container">
                 <div className={styles['home-grid']}>
                   {!loading && bookData?.document?.map((item, index) => (
-                    item?.category == value ? (
+                    item?.category == value && item?.category !== 'selectAll' ? (
                       <Link
                         key={index}
                         to={`/gold-news/${item._id}`}
@@ -91,7 +91,28 @@ const GoldStore = () => {
                           </div>
                         </div>
                       </Link>
-                    ) : ("")
+                    ) : (
+                      value == 'selectAll' ? (
+                        <Link
+                          key={index}
+                          to={`/gold-news/${item._id}`}
+                          state={{ item: item }}
+                        >
+                          <div className={styles['gold-div']}>
+                            <div className='title-card'>
+                              <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
+                              <div className="news-date">
+                                <label className="mx-2"> {item?.createdAt?.split('T', '1')}</label>
+                                {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                              </div>
+                            </div>
+                            <div>
+                              <h3 className='text-center fw-bold'>{item.title}</h3>
+                            </div>
+                          </div>
+                        </Link>
+                      ) : ('')
+                    )
                   ))}
                 </div>
               </div>

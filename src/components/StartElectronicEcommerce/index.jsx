@@ -42,7 +42,7 @@ const StartElectronicEcommerce = () => {
                   <h3 className="text-end text-light fs-4">{item?.description}</h3>
                 </div>
                 <div className="col-md-4 col-sm-12">
-                  <LazyLoadImage src={`${book}`} alt="Kenz book" srcSet="Kenz book" className="kenzbook" />
+                  <LazyLoadImage src={`${book}`} alt="Kenz book" className="kenzbook" />
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@ const StartElectronicEcommerce = () => {
             <div key={index} className="Container">
               <div className="row align-items-center">
                 <div className="col-md-4 col-sm-12">
-                  <LazyLoadImage src={book} alt="Kenz book" srcSet="Kenz book" className="kenzbook" />
+                  <LazyLoadImage src={book} alt="Kenz book"  className="kenzbook" />
                 </div>
                 <div className="col-md-8 col-sm-12 px-5">
                   <h2 className="mb-3 text-end text-light">{item?.title}</h2>

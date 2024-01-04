@@ -8,23 +8,23 @@ const CoursesOpen = () => {
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
 
-  let fetchBook = {
-    method: 'get',
-    url: '/gold-bars/',
-  };
-  useEffect(() => {
-    setLoading(true);
-    axios.request(fetchBook)
-      .then((response) => {
-        setBookData(response.data);
-        setLoading(false);
-        console.log("bookData", response);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  }, []);
+  // let fetchBook = {
+  //   method: 'get',
+  //   url: '/gold-bars/',
+  // };
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios.request(fetchBook)
+  //     .then((response) => {
+  //       setBookData(response.data);
+  //       setLoading(false);
+  //       console.log("bookData", response);
+  //     })
+  //     .catch((error) => {
+  //       setLoading(false);
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <div className='coursers-open'>
@@ -42,7 +42,7 @@ const CoursesOpen = () => {
                   <div key={index} className={styles['gold-div']}>
                     <div>
                       <LazyLoadImage
-                        src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                        src={item?.image}
                         // src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
                         alt={item?.name}
                         loading="lazy" />

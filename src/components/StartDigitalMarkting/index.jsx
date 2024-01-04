@@ -7,7 +7,7 @@ const StartDigitalMarkting = () => {
       <div className="Container">
         <div className="row align-items-center">
           <div className="col-lg-4 col-sm-12 m-auto d-flex">
-            <LazyLoadImage src={book} alt="Kenz book" srcSet="Kenz book" className="kenzbook" />
+            <LazyLoadImage src={book} alt="Kenz book" className="kenzbook" />
           </div>
           <div className="col-lg-8 col-sm-12 px-5">
           <h2 className="text-dark text-end fw-semibold my-3 pt-4 digitalMarkting">ابدأ التجارة الالكترونية اليوم ولا تضيع الوقت</h2>
