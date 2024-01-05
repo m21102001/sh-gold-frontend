@@ -18,10 +18,10 @@ export const AuthProvider = ({ children }) => {
           setuser(data);
           Setrole(data.data.role)
           console.log('from auth', data.data);
+          SetLoggedin(true)
         }
       } finally {
         setFetched(true);
-        SetLoggedin(true)
       }
     }
 

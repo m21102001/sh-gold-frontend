@@ -89,7 +89,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -97,7 +97,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -105,7 +105,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
                 />
               </SwiperSlide>
               <SwiperSlide>
@@ -113,7 +113,7 @@ const ProjectIdea = () => {
                   src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
                   alt=""
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem',border:'3px solid white' }}
+                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
                 />
               </SwiperSlide>
             </Swiper>
@@ -130,9 +130,11 @@ const ProjectIdea = () => {
                             <p className="fs-4 mb-0 fw-bold">تفاصيل الفكره  </p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="fs-4 mb-0">
+                            <p className="fs-4 m-auto mb-0" style={{width:'306px',height:'420px',overflow:"auto"}}>
                               <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
-                                <Viewer fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`} />
+                                <Viewer
+                                  fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`}
+                                />
                               </Worker>
                             </p>
                           </div>

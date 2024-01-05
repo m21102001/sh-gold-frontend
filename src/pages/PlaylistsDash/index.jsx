@@ -50,7 +50,7 @@ const PlaylistsDash = () => {
           <h2 className='fs-1 fw-bold'>Playlist Dash</h2>
         </div>
         <Link to="/dash/create-playlist-item">
-          <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه جديد</button>
+          <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه قائمه جديد</button>
         </Link>
         <table className="table table-striped table-hover">
           <thead>

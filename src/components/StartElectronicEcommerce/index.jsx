@@ -10,6 +10,8 @@ const StartElectronicEcommerce = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
+  const [showMore, setShowMore] = useState(false)
+  const [showMore2, setShowMore2] = useState(false)
 
   let fetchBook = {
     method: 'get',
@@ -39,7 +41,11 @@ const StartElectronicEcommerce = () => {
               <div className="row align-items-center">
                 <div className="col-md-8 col-sm-12 px-5">
                   <h2 className="mb-3 text-end text-light">{item?.title}</h2>
-                  <h3 className="text-end text-light fs-4">{item?.description}</h3>
+                  <h3 className="text-end text-light fs-4 lh-lg">
+                    {showMore ? item?.description?.substring(400,800) : `${item?.description?.substring(0, 400)}`}
+                    <span onClick={() => setShowMore(!showMore)} className="mx-4 cursorPointer" style={{color: 'var(--gold-color)', cursor: 'pointer' }}>{showMore ? "Read less" : "Read more..."}</span>
+
+                  </h3>
                 </div>
                 <div className="col-md-4 col-sm-12">
                   <LazyLoadImage src={`${book}`} alt="Kenz book" className="kenzbook" />
@@ -53,19 +59,23 @@ const StartElectronicEcommerce = () => {
             <div key={index} className="Container">
               <div className="row align-items-center">
                 <div className="col-md-4 col-sm-12">
-                  <LazyLoadImage src={book} alt="Kenz book"  className="kenzbook" />
+                  <LazyLoadImage src={book} alt="Kenz book" className="kenzbook" />
                 </div>
                 <div className="col-md-8 col-sm-12 px-5">
                   <h2 className="mb-3 text-end text-light">{item?.title}</h2>
-                  <h3 className="text-end text-light fs-4"> {item?.description}</h3>
+                  <h3 className="text-end text-light fs-4 lh-lg">
+                    {showMore2 ? item?.description?.substring(400,800) : `${item?.description?.substring(0, 400)}`}
+                    <span onClick={() => setShowMore2(!showMore2)} className="mx-4 cursorPointer" style={{color: 'var(--gold-color)', cursor: 'pointer' }}>{showMore2 ? "Read less" : "Read more..."}</span>
+
+                  </h3>
                 </div>
               </div>
             </div>
           ) : ('')
         ))}
-        <button onClick={() => navigate('/book')} className="d-flex m-auto"> لقرأه المزيد <FaArrowLeft color="var(--darkblue-color)" size={30} pointsAtX={2}/></button>
+        <button onClick={() => navigate('/book')} className="d-flex m-auto"> لقرأه المزيد <FaArrowLeft color="var(--darkblue-color)" size={30} pointsAtX={2} /></button>
       </div>
-    </div>
+    </div >
   )
 }
 

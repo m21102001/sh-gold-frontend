@@ -44,6 +44,7 @@ export { default as UpdateVideosDash } from './UpdateVideosDash';
 export { default as ResetPasswordOtp } from './ResetPasswordOtp';
 export { default as ConsultationsDash } from './ConsultationsDash';
 export { default as RequestInvestment } from './RequestInvestment';
+export { default as ReservationTicket } from './ReservationTicket';
 export { default as DetailsVideosDash } from './DetailsVideosDash';
 export { default as CreatePlaylistDash } from './CreatePlaylistDash';
 export { default as UpdatePlaylistDash } from './UpdatePlaylistDash';

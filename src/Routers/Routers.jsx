@@ -51,6 +51,7 @@ import {
   ProfileDash,
   ProjectIdea,
   RequestInvestment,
+  ReservationTicket,
   ResetPassword,
   ResetPasswordOtp,
   Shop,
@@ -79,8 +80,11 @@ const Routers = () => {
           <Navigate to="/" />
         }
       }
-    }
-    return children
+    } 
+    // else {
+      // < Navigate to={'auth/login'}/>
+      return children 
+    // }
   }
   return (
     <div className='conatiner'>
@@ -142,6 +146,12 @@ const Routers = () => {
             element={
               <Protect>
                 <ResetPasswordOtp />
+              </Protect>} />
+          <Route
+            path="/auth/reservation-ticket"
+            element={
+              <Protect>
+                <ReservationTicket />
               </Protect>} />
 
           {/*///////////////////////////// Dashboard //////////////////////////*/}

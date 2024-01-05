@@ -37,37 +37,37 @@ const DigitalMarkting = () => {
       <div className='m-auto d-flex justify-center'>
         <>
           <div className="container gold-dash">
-            <div className={styles['home-grid']} style={{gridTemplateColumns:'repeat(auto-fill, minmax(370px, 1fr))'}}>
+            <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', gap: '90px' }}>
               {!loading && getvideos?.document?.map((item, index) => (
                 index < 3 ? (
-                <div key={index} className={styles['gold-div']} >
-                  <div>
-                    <ReactPlayer
-                      url={item?.url}
-                      config={{
-                        youtube: {
-                          playerVars: { showinfo: 1 }
-                        },
-                      }}
-                      width='100%'
-                      // height='320px'
-                    // style={{
-                    //   position: "absolute",
-                    //   top: "0",
-                    //   left: "0",
-                    // }}
-                    />
+                  <div key={index} className={styles['gold-div']} >
+                    <div>
+                      <ReactPlayer
+                        url={item?.url}
+                        config={{
+                          youtube: {
+                            playerVars: { showinfo: 1 }
+                          },
+                        }}
+                        width='100%'
+                        height='360px'
+                        style={{
+                          //   position: "absolute",
+                          //   top: "0",
+                          //   left: "0",
+                        }}
+                      />
+                    </div>
+                    <div className=''>
+                      <h3 className=' fw-700'>{item.title}</h3>
+                      <Link
+                        to={`/development/details-video/${item?._id}`}
+                        state={{ item: item }}
+                      >
+                        <button>تفاصيل اضافيه</button>
+                      </Link>
+                    </div>
                   </div>
-                  <div className=''>
-                    <h3 className=' fw-700'>{item.title}</h3>
-                    <Link
-                      to={`/development/details-video/${item?._id}`}
-                      state={{ item: item }}
-                    >
-                      <button>تفاصيل اضافيه</button>
-                    </Link>
-                  </div>
-                </div>
                 ) : ('')
               ))}
             </div>

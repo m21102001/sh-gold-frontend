@@ -36,13 +36,19 @@ const GoldCard = () => {
       <div className='m-auto d-flex justify-center'>
         <>
           <div className="container gold-dash">
-            <div className={styles['home-grid']} style={{gridTemplateColumns:'repeat(auto-fill, minmax(370px, 1fr))'}}>
+            <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', gap: '90px' }}>
               {!loading && getInvestment?.invest?.map((item, index) => (
                 index < 3 ? (
                   <div key={index} className={styles['gold-div']}>
                     <div>
-                      <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
-                      {/* <LazyLoadImage src={item?.image} alt="" loading="lazy" /> */}
+                      <LazyLoadImage
+                        src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
+                        alt=""
+                        loading="lazy"
+                        style={{height:'318px'}}
+                        // height={'318px'}
+                        />
+
                     </div>
                     <div className=''>
                       <h3 className=' fw-700'>{item.title}</h3>

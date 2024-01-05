@@ -31,7 +31,7 @@ const CreateConsultationsDash = () => {
           `/consultation/tickets/create`,
           {
             title: title,
-            period: period,
+            duration: period,
             startDate: startDate,
             price: price,
             day: day,
