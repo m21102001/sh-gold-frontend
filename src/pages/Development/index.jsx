@@ -113,7 +113,7 @@ const Development = () => {
                               to={`/development/details-playlist/${item?._id}`}
                               state={{ item: item }}
                             >
-                              <button>المزيد</button>
+                              <button>ابدا الكورس</button>
                             </Link>
                           </div>
                         </div>
