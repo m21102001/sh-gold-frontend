@@ -35,6 +35,7 @@ import {
   DetailsInactiveInvesmentDash,
   DetailsInvesmentDash,
   DetailsPlaylistDash,
+  DetailsPlaylistDevelopment,
   DetailsRequestInvestment,
   DetailsVideoDevelopment,
   DetailsVideosDash,
@@ -80,10 +81,10 @@ const Routers = () => {
           <Navigate to="/" />
         }
       }
-    } 
+    }
     // else {
-      // < Navigate to={'auth/login'}/>
-      return children 
+    // < Navigate to={'auth/login'}/>
+    return children
     // }
   }
   return (
@@ -103,6 +104,7 @@ const Routers = () => {
           <Route path='/book/detalis-book/:id' element={<DetailsBook />} />
           <Route path='/Consulting' element={<Consulting />} />
           <Route path='/development' element={<Development />} />
+          <Route path='/development/details-playlist/:id' element={<DetailsPlaylistDevelopment />} />
           <Route path='/development/details-video/:id' element={<DetailsVideoDevelopment />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contactUs" element={<ContactUS />} />

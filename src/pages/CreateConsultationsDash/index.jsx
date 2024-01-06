@@ -119,14 +119,14 @@ const CreateConsultationsDash = () => {
             <option value="offline">حضوريه</option>
           </select>
 
-          <div className="label-form">حدد التاريخ</div>
+          <div className="label-form">حدد معاد بدايه الحجز</div>
           <input
-            type="datetime-local"
+            type="time"
             name="title"
             className="form-control  mb-4"
             id="title"
             required
-            placeholder="حدد الوقت والتاريخ *"
+            placeholder="حدد الوقت  *"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />

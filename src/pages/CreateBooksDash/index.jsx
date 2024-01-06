@@ -7,7 +7,7 @@ const CreateBookDash = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
   const [title, setTitle] = useState('')
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState([])
   const [pdf, setpdf] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
@@ -47,6 +47,24 @@ const CreateBookDash = () => {
       alert('error message: ' + err?.response?.data?.errors?.map((item) => item.msg));
     }
   };
+
+  // const handleImageChange = (event) => {
+  //   const files = event.target.files;
+  //   const imageArray = [];
+
+  //   for (let i = 0; i < files.length; i++) {
+  //     const reader = new FileReader();
+
+  //     reader.onload = (e) => {
+  //       imageArray.push(e.target.result);
+  //       if (imageArray.length === files.length) {
+  //         setImage(imageArray);
+  //       }
+  //     };
+
+  //     reader.readAsDataURL(files[i]);
+  //   }
+  // };
 
   return (
     <div className="dashboard d-flex flex-row">
@@ -98,10 +116,13 @@ const CreateBookDash = () => {
             name="image"
             className="form-control  mb-4"
             id="image"
+            accept="image/*"
+            multiple
             required
             placeholder="اضف صوره*"
             // value={image}
             onChange={(e) => setImage(e.target.files[0])}
+            // onChange={handleImageChange}
           />
           <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
           <textarea

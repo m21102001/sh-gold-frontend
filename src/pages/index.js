@@ -57,6 +57,7 @@ export { default as DeatilsContactFormDash } from './DetailsContactFormDash';
 export { default as DetailsVideoDevelopment } from './DetailsVideoDevelopment';
 export { default as CreateConsultationsDash } from './CreateConsultationsDash';
 export { default as DetailsRequestInvestment } from './DetailsRequestInvestment';
+export { default as DetailsPlaylistDevelopment } from './DetailsPlaylistDevelopment';
 export { default as UpdateInactiveInvesmentDash } from './UpdateInactiveInvesmentDash';
 export { default as DetailsInactiveInvesmentDash } from './DetailsInactiveInvesmentDash';
 export { default as DetailsIdeaRequestInvestment } from './DetailsIdeaRequestInvestment';

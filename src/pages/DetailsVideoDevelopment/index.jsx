@@ -42,6 +42,7 @@ const DetailsVideoDevelopment = () => {
                       playerVars: { showinfo: 1 }
                     },
                   }}
+                  controls
                   width='100%'
                   height='70vh'
                 />
@@ -109,7 +110,7 @@ const DetailsVideoDevelopment = () => {
                         state={{ item: item }}
                         onClick={window.scrollTo(0, 0)}
                       >
-                        <button>تفاصيل اضافيه</button>
+                        <button>شاهد الان </button>
                       </Link>
                     </div>
                   </div>
