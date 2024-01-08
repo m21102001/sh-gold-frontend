@@ -37,6 +37,29 @@ const GoldStore = () => {
         console.log(error);
       });
   }, []);
+  ////////////////pagination///////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
+  console.log(prev, next);
+
   return (
     <div className='coursers-open goldNews py-5'>
       <div className='m-auto d-flex justify-content-center mb-5'>
@@ -45,7 +68,7 @@ const GoldStore = () => {
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
       </div>
       <div className="row align-items-start m-auto">
-        <div className="col-md-3">
+        <div className="col-md-3 d-flex">
           <select
             className="form-select mb-3"
             aria-label="Default select example"
@@ -95,28 +118,37 @@ const GoldStore = () => {
                       </Link>
                     ) : (
                       value == 'selectAll' ? (
-                        <Link
-                          key={index}
-                          to={`/gold-news/${item._id}`}
-                          state={{ item: item }}
-                        >
-                          <div className={styles['gold-div']}>
-                            <div className='title-card'>
-                              <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
-                              <div className="news-date">
-                                <label className="mx-2"> {item?.createdAt?.split('T', '1')}</label>
-                                {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                        index >= prev && index <= next ? (
+                          <Link
+                            key={index}
+                            to={`/gold-news/${item._id}`}
+                            state={{ item: item }}
+                          >
+                            <div className={styles['gold-div']}>
+                              <div className='title-card'>
+                                <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
+                                <div className="news-date">
+                                  <label className="mx-2"> {item?.createdAt?.split('T', '1')}</label>
+                                  {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className='text-center fw-bold'>{item.title}</h3>
                               </div>
                             </div>
-                            <div>
-                              <h3 className='text-center fw-bold'>{item.title}</h3>
-                            </div>
-                          </div>
-                        </Link>
+                          </Link>
+                        ) : null
                       ) : ('')
                     )
                   ))}
                 </div>
+                {
+                  value == 'selectAll' ? (
+                    < div className="pt-5 mt-5 d-flex justify-content-around " >
+                      <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+                      <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+                    </div>
+                  ) : null}
               </div>
             </>
           </div>

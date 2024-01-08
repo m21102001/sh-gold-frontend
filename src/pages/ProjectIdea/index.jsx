@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Footer, Navbar } from '@/layout';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from "@/api/axios";
@@ -18,6 +18,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 
 import './projectIdea.scss'
 const ProjectIdea = () => {
+  const navigate = useNavigate()
   const item = useLocation()?.state?.item;
   const [isPending, setIsPending] = useState(false)
   const [name, setName] = useState('');
@@ -66,7 +67,9 @@ const ProjectIdea = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" >
+      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 ">رجوع </button>
+      <div className="text-center shadow-lg p-3 mx-3 mb-5 rounded" >
+
         <div className="row align-items-center mt-5">
           <h2 className='text-center text-light fs-1 fw-bold'>{item?.title}</h2>
           <div className="col-md-10 col-sm-12 m-auto">
@@ -130,7 +133,7 @@ const ProjectIdea = () => {
                             <p className="fs-4 mb-0 fw-bold">تفاصيل الفكره  </p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="fs-4 m-auto mb-0" style={{width:'306px',height:'420px',overflow:"auto"}}>
+                            <p className="fs-4 m-auto mb-0" style={{ width: '306px', height: '420px', overflow: "auto" }}>
                               <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
                                 <Viewer
                                   fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`}

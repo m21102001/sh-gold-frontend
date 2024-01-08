@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import axios from "@/api/axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
-import styles from '../../components/GoldCard/GoldCard.module.scss';
+import styles from '@/components/GoldCard/GoldCard.module.scss';
 const DetailsBook = () => {
   const navigate = useNavigate();
   const item = useLocation()?.state?.item
@@ -39,10 +39,12 @@ const DetailsBook = () => {
         console.log(error);
       });
   }, []);
+
   let id =item?._id
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
+      <button onClick={() => navigate('/book')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
       <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">
@@ -186,7 +188,4 @@ const DetailsBook = () => {
     </div>
   )
 }
-
 export default DetailsBook
-
-// src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.image}`}

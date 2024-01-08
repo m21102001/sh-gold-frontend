@@ -5,7 +5,6 @@ import axios from '@/api/axios'
 import { Link } from "react-router-dom";
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import ReactPlayer from 'react-player/lazy'
 const Development = () => {
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
@@ -98,10 +97,10 @@ const Development = () => {
               <div className='m-auto d-flex justify-center'>
                 <>
                   <div className="container gold-dash">
-                    <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))' }}>
+                    <div className={styles['home-grid']} >
                       {!loading && getPlaylist?.document?.map((item, index) => (
-                        <div key={index} className={styles['gold-div']} >
-                          <div>
+                        <div key={index} className={styles['gold-div']} style={{height:'290px'}} >
+                          <div style={{width:'-webkit-fill-available',height:'-webkit-fill-available'}}>
                             <LazyLoadImage
                               src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
                               alt={item?.description}

@@ -1,11 +1,12 @@
 import { Footer, Navbar } from "@/layout"
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ReactPlayer from 'react-player/lazy'
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { useEffect, useState } from "react";
 import axios from "@/api/axios";
 
 const DetailsVideoDevelopment = () => {
+  const navigate = useNavigate()
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
@@ -30,7 +31,8 @@ const DetailsVideoDevelopment = () => {
   return (
     <>
       <Navbar />
-      <section style={{ backgroundColor: "var(--darkblue-color)" }}>
+      <section style={{ backgroundColor: "var(--darkblue-color)" ,paddingTop:'2rem'}}>
+        <button onClick={() => navigate(`/development/details-playlist/${item?._id}`)} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-12">

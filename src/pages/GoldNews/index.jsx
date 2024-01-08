@@ -4,7 +4,7 @@ import { Footer, Navbar } from '@/layout';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from '@/api/axios'
 import { FaLocationDot } from "react-icons/fa6";
-import styles from '../../components/GoldCard/GoldCard.module.scss';
+import styles from '@/components/GoldCard/GoldCard.module.scss';
 
 const GoldNews = () => {
   const navigate = useNavigate();
@@ -47,6 +47,7 @@ const GoldNews = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
+      <button onClick={() => navigate('/bullion-store')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
       <div className="text-center shadow-lg px-3 mx-3 mt-3 mb-5 bg-body rounded">
         <h2 className='p-3 fs-1 fw-bold' style={{ color: 'var(--main-color)' }}>{item?.title}</h2>
         <div className="row align-items-center" style={{ margin: '0 -16px 0 -16px' }}>
@@ -113,62 +114,7 @@ const GoldNews = () => {
                 </div>
               </div>
             </div>
-            {/* <section style={{ backgroundColor: "#eee" }}>
-              <div className="container py-5">
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className="card mb-4">
-                      <div className="card-body">
-                        <div className="row">
-                          <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">الاسم</p>
-                          </div>
-                          <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.title}</p>
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                          <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">الوزن</p>
-                          </div>
-                          <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.size} جرام</p>
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                          <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">السعر</p>
-                          </div>
-                          <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.price} دينار كويتى</p>
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                          <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">الوصف الكامل</p>
-                          </div>
-                          <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.description}</p>
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                          <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">تاريخ الاضافه</p>
-                          </div>
-                          <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section> */}
+            
           </div>
         </div>
       </div>
@@ -239,10 +185,6 @@ const GoldNews = () => {
                             alt=""
                             loading="lazy"
                           />
-                          {/* <div className="news-date"> */}
-                          {/* <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label> */}
-                          {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
-                          {/* </div> */}
                         </div>
                         <div>
                           <h3 className='text-center fw-bold'>{item.category}</h3>

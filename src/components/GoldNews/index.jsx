@@ -3,7 +3,31 @@ import styles from '../GoldCard/GoldCard.module.scss';
 import './GoldNews.scss'
 import { courses } from '@/db/data';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useState } from 'react';
 const GoldNews = () => {
+  ////////////////pagination///////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
+  console.log(prev, next);
+
   return (
     <div className='coursers-open goldNews py-5'>
       <div className='m-auto d-flex justify-content-center mb-5'>
@@ -16,11 +40,9 @@ const GoldNews = () => {
           <div className="container">
             <div className={styles['home-grid']}>
               {courses.map((item, index) => (
-                // index < 8 ? (
+                index >= prev && index <= next ? (
                   <Link
                     key={index}
-                    // to={`/gold-news/${item.id}`}
-                    // state={{ item: item }}
                   >
                     <div className={styles['gold-div']}>
                       <div className='title-card'>
@@ -34,13 +56,16 @@ const GoldNews = () => {
                       </div>
                       <div>
                         <h4>الذهب يتخلى عن مكاسبه خلال اليوم من أعلى مستوياته على الإطلاق نتيجة بعض عمليات جني</h4>
-                        {/* <h4>{item.title}</h4> */}
                       </div>
                     </div>
                   </Link>
-                // ) : (null)
+                ) : (null)
               ))}
             </div>
+          < div className="pt-5 mt-5 d-flex justify-content-around " >
+            <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+            <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+          </div>
           </div>
         </>
       </div>

@@ -23,6 +23,29 @@ const Investment = () => {
       });
   }, [])
 
+  ////////////////pagination///////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
+  console.log(prev, next);
+
   return (
     <div className='coursers-open goldNews py-5 '>
       <div className='m-auto d-flex justify-content-center mb-5'>
@@ -41,30 +64,36 @@ const Investment = () => {
           <div className="container">
             <div className={styles['home-grid']}>
               {!loading && investment?.invest?.map((item, index) => (
-                <Link
-                  key={index}
-                  to={`/club/project-idea/${item._id}`}
-                  state={{ item: item }}
-                >
-                  <div className={styles['gold-div']}>
-                    <div className='title-card'>
-                      <LazyLoadImage
-                        src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                        alt={item?.title}
-                        loading='lazy'
-                      />
-                      <div className="news-date">
-                        <label className="mx-2"> {item?.createdAt?.split('T', 1)} </label>
-                        {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                index >= prev && index <= next ? (
+                  <Link
+                    key={index}
+                    to={`/club/project-idea/${item._id}`}
+                    state={{ item: item }}
+                  >
+                    <div className={styles['gold-div']}>
+                      <div className='title-card'>
+                        <LazyLoadImage
+                          src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
+                          alt={item?.title}
+                          loading='lazy'
+                        />
+                        <div className="news-date">
+                          <label className="mx-2"> {item?.createdAt?.split('T', 1)} </label>
+                          {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className='text-center fw-bold'>{item?.title}</h3>
+                        {/* <h4>{item.title}</h4> */}
                       </div>
                     </div>
-                    <div>
-                      <h3 className='text-center fw-bold'>{item?.title}</h3>
-                      {/* <h4>{item.title}</h4> */}
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                ) : null
               ))}
+            </div>
+            < div className="pt-5 mt-5 d-flex justify-content-around " >
+              <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+              <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
             </div>
           </div>
         </>

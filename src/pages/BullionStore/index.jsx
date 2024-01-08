@@ -6,7 +6,6 @@ const BullionStore = () => {
     <>
       <Navbar />
       <GoldStore />
-
       <Footer />
     </>
   )

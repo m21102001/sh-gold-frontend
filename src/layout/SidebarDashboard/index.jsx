@@ -1,31 +1,44 @@
 import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { AiFillHome, AiFillGold } from "react-icons/ai";
 import { CgPlayList } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiFillGold } from "react-icons/ai";
 import { IoBookSharp } from "react-icons/io5";
+import { TbLogout } from "react-icons/tb";
 import { PiFlagFill } from "react-icons/pi";
-import { FaCodePullRequest } from "react-icons/fa6";
+import { FaCodePullRequest, FaMessage } from "react-icons/fa6";
 import { GrProjects } from "react-icons/gr";
-import { FaMessage } from "react-icons/fa6";
 import { FaTicketAlt, FaUsers } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { deleteCookie } from "cookies-next";
 
 import "./sidebarDashboard.scss";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function SidebarDashboard() {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
 
+  const handelLogout = () => {
+    deleteCookie('token')
+    deleteCookie('role')
+    navigate('/auth/login')
+  }
   return (
     <div className="main-div">
       <div
         className={`sidebar-div ${sidebarOpen ? "sidebar-open" : "sidebar-close"
           }`}
       >
+        <NavLink style={{ background: "var(--darkblue-color)" }}>
+          <button onClick={handelLogout} type="button" className="btn btn-danger">
+
+            <TbLogout color="#fff" size={30} />
+            تسجيل الخروج
+          </button>
+        </NavLink>
         <div>
-          <NavLink to={'/dash/dashboard'}>
+          <NavLink to={'/'}>
             <div className="sidebar-logo">
               <LazyLoadImage src="https://i.ibb.co/BZ9ZhLV/Cambridge-logo-pages-to-jpg-0001.jpg" alt="" width={180} height={64} style={{ borderRadius: '10px' }} />
             </div>
@@ -67,7 +80,7 @@ function SidebarDashboard() {
         <div
           className="d-flex justify-content-start"
           style={{ padding: "8px" }}
-        // onClick={() => setSidebarOpen((pre) => !pre)}
+          onClick={() => setSidebarOpen((pre) => !pre)}
         >
           <GiHamburgerMenu />
         </div>
