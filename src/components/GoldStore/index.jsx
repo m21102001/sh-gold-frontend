@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from '../GoldCard/GoldCard.module.scss';
 
 import axios from '@/api/axios'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 const GoldStore = () => {
+  const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
 
   const getInitialState = () => {
-    const value = "Premium Products";
+    const value = item?.option;
     return value;
   };
   const [value, setValue] = useState(getInitialState);
@@ -28,7 +29,8 @@ const GoldStore = () => {
       .then((response) => {
         setBookData(response.data);
         setLoading(false);
-        console.log("bookData", response);
+        window.scrollTo(0, 0);
+        // console.log("bookData", response);
       })
       .catch((error) => {
         setLoading(false);

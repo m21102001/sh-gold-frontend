@@ -1,31 +1,8 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import axios from '@/api/axios'
 import { goldCategory } from '@/db/data';
 const CoursesOpen = () => {
-  const [loading, setLoading] = useState(false);
-  const [bookData, setBookData] = useState([])
-
-  // let fetchBook = {
-  //   method: 'get',
-  //   url: '/gold-bars/',
-  // };
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios.request(fetchBook)
-  //     .then((response) => {
-  //       setBookData(response.data);
-  //       setLoading(false);
-  //       console.log("bookData", response);
-  //     })
-  //     .catch((error) => {
-  //       setLoading(false);
-  //       console.log(error);
-  //     });
-  // }, []);
-
   return (
     <div className='coursers-open'>
       <div className='m-auto d-flex justify-content-center my-5'>
@@ -37,7 +14,7 @@ const CoursesOpen = () => {
         <>
           <div className="container">
             <div className={styles['home-grid']}>
-              {!loading && goldCategory?.map((item, index) => (
+              {goldCategory?.map((item, index) => (
                 index < 8 ? (
                   <div key={index} className={styles['gold-div']}>
                     <div>

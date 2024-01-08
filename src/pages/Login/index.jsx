@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Navbar } from '@/layout'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from '@/api/axios'
+import { getCookie, setCookie } from 'cookies-next';
 import './login.scss'
 
 const Login = () => {
@@ -21,37 +22,21 @@ const Login = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc4NWUwMzMxYTgxMWI4OTE2ZTkyYmMiLCJpYXQiOjE3MDIzODcyMDgsImV4cCI6MTcwMjQ3MzYwOH0.ugeg_sTcPcYosYpGwstlvpOKRYgkeMiRgfqZKFRFTL8', 
-            // 'Cookie': 'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc3OTNkZmZhNzczMzNkMDgxZjc3OGEiLCJpYXQiOjE3MDIzMzU0NTcsImV4cCI6MTcwMjQyMTg1N30.d6A7jWj5_VpBXgtxs_s5SEzvIndwzWDeQs2qURe4efU'
           }
         })
         .then((response) => {
           console.log(response);
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem("role" ,response?.data?.data?.role );
+          setCookie("token", response.data.token);
+          setCookie("role", response?.data?.data?.role);
           setIsPending(false)
-          if (localStorage.getItem('token')) {
+          if (getCookie('token') !== null) {
             if (response?.data?.data?.role === "manager" || response?.data?.data?.role === 'admin') {
               navigate('/dash/dashboard')
             }
             if (response?.data?.data?.role === "user") {
               navigate('/')
             }
-
-          } else {
-            navigate('/auth/login')
-            if (response.status === 200) {
-              if (response?.data?.data?.role === "manager" || response?.data?.data?.role === 'admin') {
-                navigate('/dash/dashboard')
-              }
-              if (response?.data?.data?.role === "user") {
-                navigate('/')
-              }
-            }
-            const { token } = response.data;
-            localStorage.setItem('token', token);
           }
-          console.log(response?.data?.data?.role)
         })
 
     } catch (err) {
@@ -61,14 +46,6 @@ const Login = () => {
     }
 
   }
-  useEffect(() => {
-    if (localStorage.getItem('userInfo') && localStorage.getItem('token')) {
-
-      navigate(
-        `/dash/home/${JSON.parse(localStorage.getItem('userInfo'))?.id}`
-      );
-    }
-  }, []);
   return (
     <>
       {isPending && <div className="loading"></div>}

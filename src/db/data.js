@@ -545,67 +545,92 @@ export const planning = [
 export const goldCategory = [
   {
     id: 1,
-    image:'https://static.vecteezy.com/system/resources/previews/002/127/645/original/luxury-gold-badge-and-label-premium-quality-product-illustration-free-vector.jpg',
+    image:
+      'https://static.vecteezy.com/system/resources/previews/002/127/645/original/luxury-gold-badge-and-label-premium-quality-product-illustration-free-vector.jpg',
     name: 'Premium Products',
+    option: 'Premium Products',
   },
   {
     id: 3,
-    image:'https://www.jckonline.com/wp-content/uploads/2020/04/Pendant-Mom-Established-Jewelry.jpg',
+    image:
+      'https://www.jckonline.com/wp-content/uploads/2020/04/Pendant-Mom-Established-Jewelry.jpg',
     name: 'Mother Day',
+    option: 'Mother Day',
   },
   {
     id: 4,
-    image:'https://bunney.co.uk/wp-content/webp-express/webp-images/uploads/2023/04/G-FigaroBracelet1_W.jpg.webp',
+    image:
+      'https://bunney.co.uk/wp-content/webp-express/webp-images/uploads/2023/04/G-FigaroBracelet1_W.jpg.webp',
     name: 'Silver',
+    option: 'Silver',
   },
   {
     id: 5,
-    image:'https://aaronbuysgold.com/wp-content/uploads/2013/07/1-Oz-platnium-bar.jpg',
+    image:
+      'https://aaronbuysgold.com/wp-content/uploads/2013/07/1-Oz-platnium-bar.jpg',
     name: 'Platinum',
+    option: 'Platinum',
   },
   {
     id: 6,
-    image:'https://britishbullion.co.uk/wp-content/uploads/2021/04/PAMP-Suisse-1oz-Gold-Bullion-Bar.jpg',
+    image:
+      'https://britishbullion.co.uk/wp-content/uploads/2021/04/PAMP-Suisse-1oz-Gold-Bullion-Bar.jpg',
     name: 'PAMP Bullion',
+    option: 'PAMP Bullion',
   },
   {
     id: 7,
-    image:'https://www.silverbullion.com.sg/Uploads/generalmanager/Swiss_Bank_Corp_Gold_Minted_Bar_20g_FRONT.jpg',
+    image:
+      'https://www.silverbullion.com.sg/Uploads/generalmanager/Swiss_Bank_Corp_Gold_Minted_Bar_20g_FRONT.jpg',
     name: 'Swiss Bar',
+    option: 'Swiss Bar',
   },
   {
     id: 8,
-    image:'https://www.karington.com.au/cdn/shop/products/N-1460-010-Y_0c416e7f-c07b-4f40-8cfd-caa6e6891c18_800x.jpg?v=1699311047',
+    image:
+      'https://www.karington.com.au/cdn/shop/products/N-1460-010-Y_0c416e7f-c07b-4f40-8cfd-caa6e6891c18_800x.jpg?v=1699311047',
     name: 'White Gold',
+    option: 'White Gold',
   },
   {
     id: 9,
-    image:'https://dahabmasr.com/media/catalog/product/cache/5ce4ad433ae81dd9c8890b62529f52b7/5/0/50-grams-no-pack.png',
+    image:
+      'https://dahabmasr.com/media/catalog/product/cache/5ce4ad433ae81dd9c8890b62529f52b7/5/0/50-grams-no-pack.png',
     name: ' Sabhat',
+    option: 'Sabhat',
   },
   {
     id: 10,
-    image:'https://shop.btcegyptgold.com/media/catalog/product/cache/34b0bf95b5cc352e2d8ac49a7d717563/f/i/file_157.jpg',
+    image:
+      'https://shop.btcegyptgold.com/media/catalog/product/cache/34b0bf95b5cc352e2d8ac49a7d717563/f/i/file_157.jpg',
     name: 'Islamic',
+    option: 'Islamic',
   },
   {
     id: 11,
-    image:'https://i.ebayimg.com/images/g/BukAAOSw1xVkL3ir/s-l1200.webp',
+    image: 'https://i.ebayimg.com/images/g/BukAAOSw1xVkL3ir/s-l1200.webp',
     name: 'Bracelet',
+    option: 'Bracelet',
   },
   {
     id: 12,
-    image:'https://jewelishq.co.za/wp-content/uploads/2021/11/20211126_181037.jpg',
+    image:
+      'https://jewelishq.co.za/wp-content/uploads/2021/11/20211126_181037.jpg',
     name: 'Sets',
+    option: 'Sets',
   },
   {
     id: 13,
-    image:'https://img.freepik.com/premium-vector/collection-metal-gold-badge-labels-quality-product_10532-23.jpg',
+    image:
+      'https://img.freepik.com/premium-vector/collection-metal-gold-badge-labels-quality-product_10532-23.jpg',
     name: 'Rremium products',
+    option: 'Rremium products',
   },
   {
     id: 2,
-    image:'https://anjalijeweldubai.com/278-medium_default/21k-36grams-turkey-lira.jpg',
+    image:
+      'https://anjalijeweldubai.com/278-medium_default/21k-36grams-turkey-lira.jpg',
     name: 'Othmani Lera and Georgian',
+    option: 'Othmani Lera and Georgian',
   },
 ];

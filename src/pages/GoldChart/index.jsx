@@ -3,6 +3,7 @@ import './goldChart.scss'
 import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
 import { goldCategory } from '@/db/data';
+import { Link } from 'react-router-dom';
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ const GoldChart = () => {
       .request(servicess)
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -62,27 +63,16 @@ const GoldChart = () => {
                   <ul className="list-group list-group-flush rounded-3 overflow-auto" style={{ height: '24.3rem' }}>
                     <h5 className='px-2 pt-2 text-center' style={{ color: "#f8d25c" }}>انواع السبائك</h5>
                     {goldCategory?.map((item, index) => (
-                      <li key={index} className="list-group-item d-flex justify-content-start align-items-center p-3">
-                        <i className="fas fa-globe fa-lg text-warning"></i>
+                      <Link
+                        to={'/bullion-store'}
+                        state={{ item }}
+                        key={index}
+                        className="list-group-item d-flex justify-content-start align-items-center p-3">
                         <p className="mb-0">{item?.name}</p>
-                      </li>
+                      </Link>
                     ))}
                   </ul>
                 </div>
-                {/* <hr /> */}
-                {/* </div>
-              <div className=" card mb-4 p-1"> */}
-                {/* <div className="card-body p-0">
-                  <ul className="list-group list-group-flush rounded-3">
-                    <h5 className='px-2 pt-2 text-center' style={{ color: "silver" }}>seliver Prices</h5>
-                    {data?.document?.map((item, index) => (
-                      <li key={index} className="list-group-item d-flex justify-content-start align-items-center p-3">
-                        <i className="fas fa-globe fa-lg text-warning"></i>
-                        <p className="mb-0">{item?.title}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
               </div>
             </div>
             <div className="col-lg-9 col-md-12">
@@ -90,21 +80,6 @@ const GoldChart = () => {
                 <div className="card-body px-1 text-end">
                   <div className='coursers-open'>
                     <AreaCharts />
-                    {/* <Tabs className={'d-flex flex-column m-auto'}>
-                      <div className='m-auto d-flex justify-center'>
-                        <TabList className="d-flex justify-center flex-row mb-3 container fs-4 fw-bold" style={{ justifyContent: "center !important" }}>
-                          <Tab className="mx-1 teb">الذهب</Tab>
-                          <Tab >الذهب</Tab>
-                          <Tab >الفضه</Tab>
-                        </TabList>
-                      </div>
-                      <TabPanel>
-                        <AreaCharts />
-                      </TabPanel>
-                      <TabPanel>
-                        <AreaCharts />
-                      </TabPanel>
-                    </Tabs> */}
                   </div>
                 </div>
               </div>

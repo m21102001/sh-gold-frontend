@@ -27,7 +27,14 @@ const ContactUs = () => {
           company: company,
         })
         .then((response) => {
-          console.log('created successful', response.data);
+          // console.log('created successful', response.data);
+          setName('')
+          setEmail('')
+          setAddress('')
+          setPhone('')
+          setMessage('')
+          setCompany('')
+          alert("Your Message has been sent successfully")
         });
       setLoading(false);
     } catch (err) {
@@ -43,7 +50,7 @@ const ContactUs = () => {
         <div className='Container'>
           <div className='m-auto d-flex justify-content-center my-5'>
             <span></span>
-            <h2 className='text-center comunation fs-1 fw-bold' style={{  color:'var(--gold-color2)'  ,background: "var(--darkblue-color)"}}>اتصل بنا</h2>
+            <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اتصل بنا</h2>
             <span></span>
           </div>
           <div className='card-form form-control container rounded-4 text-end text-light my-4'>
@@ -146,13 +153,13 @@ const ContactUs = () => {
               </div>
               <div className="col-12">
                 {!loading && (
-                  <button className='d-flex m-auto send'>
-                    ارسال
+                  <button className='d-flex m-auto fs-4 send'>
+                    sent
                   </button>
                 )}
                 {loading && (
-                  <button className='d-flex m-auto send'>
-                    جاري الارسال ...
+                  <button className='d-flex m-auto send' disabled>
+                    sending  ...
                   </button>
                 )}
 

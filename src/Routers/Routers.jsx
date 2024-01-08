@@ -3,6 +3,7 @@ import {
   Route,
   BrowserRouter as Router,
   Navigate,
+  useLocation
 } from 'react-router-dom';
 import {
   About,
@@ -68,9 +69,21 @@ import {
   VideosDash
 } from '@/pages';
 import { useAuth } from '@/context/Auth';
+import { getCookie } from 'cookies-next';
 
 const Routers = () => {
-  const { Loggedin, role, user, Fetched } = useAuth();
+  const { Loggedin, role } = useAuth();
+  // console.log(getCookie('role'));
+  const AuthRoute = () => {
+    const location = useLocation()
+    getCookie('token') !== null ? (
+      (getCookie('role') == "admin" || getCookie('role') == "godAdmin" || getCookie('role') == "manager") ? (
+        <Navigate to="/dash/dashboard" replace state={{ from: location }} />
+      ) : (getCookie('role') == 'user' ? (
+        <Navigate to="/" />
+      ) : (''))
+    ) : ('')
+  }
 
   const Protect = ({ children }) => {
     if (Loggedin) {
@@ -82,11 +95,9 @@ const Routers = () => {
         }
       }
     }
-    // else {
-    // < Navigate to={'auth/login'}/>
     return children
-    // }
   }
+
   return (
     <div className='conatiner'>
       <Router>

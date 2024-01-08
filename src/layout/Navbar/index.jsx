@@ -1,17 +1,36 @@
 import { Link, NavLink } from "react-router-dom"
 import { RxAvatar } from 'react-icons/rx';
-import logo from "../../assets/Cambridge-logo-.svg"
+import logo from "@/assets/Cambridge-logo-.svg"
 import "./navbar.module.scss"
 import { useAuth } from "@/context/Auth";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { IoNotifications } from "react-icons/io5";
+import axios from '@/api/axios'
+import { getCookie,deleteCookie } from 'cookies-next';
 const Navbar = () => {
-  const { Loggedin } = useAuth();
+  const { setRole, setFetched, setuser, setLoggedin } = useAuth();
+
+  const handelLogout = async () => {
+    try {
+      await axios.post('/auth/logout')
+        .then(response => {
+          deleteCookie('token');
+          setLoggedin(false)
+          setRole(null)
+          setFetched(false)
+          setuser({})
+          // console.log("logout successfully", response);
+        })
+    } catch (error) {
+      console.log(error.response);
+    }
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg mainNavbar" style={{ background: "var(--darkblue-color)" }}>
         <div className="container-fluid">
-          <NavLink className="navbar-brand" href="/"><LazyLoadImage className="img-logo" src={logo} alt=""  style={{ width: "10rem", height: "4rem", background: "#e9ecef", borderRadius: "10px" }} /></NavLink>
+          <NavLink className="navbar-brand" href="/"><LazyLoadImage className="img-logo" src={logo} alt="" style={{ width: "10rem", height: "4rem", background: "#e9ecef", borderRadius: "10px" }} /></NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -45,7 +64,7 @@ const Navbar = () => {
                 <NavLink className="nav-link navli" to={'/contactUS'}>تواصل معنا</NavLink>
               </li>
             </ul>
-            {!Loggedin ? (
+            {getCookie('token') == null ? (
               <div>
                 <Link to="/auth/login">
                   <button className={`login-btn`}>Login</button>
@@ -56,15 +75,12 @@ const Navbar = () => {
               </div>
             ) : (
               <>
+                <IoNotifications className="fs-1  ms-4 avatar text-light" />
                 <RxAvatar className="fs-1 avatar text-light" />
                 <br />
-                {/* {user?.username} */}
-
                 <button
                   onClick={() => {
-                    // setNav((pre) => !pre);
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('role');
+                    handelLogout()
                   }}
                   className={`logout-btn mx-4 p-2 fs-5`}
                 >
@@ -75,9 +91,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* <main>
-        <Outlet />
-      </main> */}
     </>
   )
 }
