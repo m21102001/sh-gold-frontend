@@ -23,6 +23,7 @@ export { default as ProfileDash } from './ProfileDash';
 export { default as ProjectIdea } from './ProjectIdea';
 export { default as Development } from './Development';
 export { default as DetailsBook } from './DetailsBook';
+export { default as Notification } from './Notification';
 export { default as AllUsersDash } from './AllUsersDash';
 export { default as BullionStore } from './BullionStore';
 export { default as PlaylistsDash } from './PlaylistsDash';

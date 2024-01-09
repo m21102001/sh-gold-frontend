@@ -6,7 +6,7 @@ import { useAuth } from "@/context/Auth";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoNotifications } from "react-icons/io5";
 import axios from '@/api/axios'
-import { getCookie,deleteCookie } from 'cookies-next';
+import { getCookie, deleteCookie } from 'cookies-next';
 const Navbar = () => {
   const { setRole, setFetched, setuser, setLoggedin } = useAuth();
 
@@ -75,7 +75,11 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <IoNotifications className="fs-1  ms-4 avatar text-light" />
+                <Link
+                  to={'/auth/notifaction'}
+                >
+                  <IoNotifications className="fs-1  ms-4 avatar text-light" />
+                </Link>
                 <RxAvatar className="fs-1 avatar text-light" />
                 <br />
                 <button

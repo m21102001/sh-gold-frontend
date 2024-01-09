@@ -48,6 +48,7 @@ import {
   InvestmantPage,
   Login,
   MyWallet,
+  Notification,
   Payment,
   PlaylistsDash,
   ProfileDash,
@@ -188,6 +189,13 @@ const Routers = () => {
             element={
               <Protect>
                 <MyWallet />
+              </Protect>}
+          />
+          <Route
+            path="/auth/notifaction"
+            element={
+              <Protect>
+                <Notification />
               </Protect>}
           />
 
