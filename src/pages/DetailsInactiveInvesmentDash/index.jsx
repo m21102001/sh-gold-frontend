@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import { MdOutlineArrowBack } from "react-icons/md"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 const DetailsInactiveInvesmentDash = () => {
   const item = useLocation()?.state?.item
+  console.log(item?.images?.[0])
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -20,7 +22,11 @@ const DetailsInactiveInvesmentDash = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="card mb-4">
-                  <LazyLoadImage src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover}`} className="card-img-top" alt="img-video" />
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item?.images?.[0]}`}
+                    className="card-img-top"
+                    alt={item?.title}
+                  />
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm-3">
@@ -72,7 +78,7 @@ const DetailsInactiveInvesmentDash = () => {
                         <p className="mb-0">  تاريخ الاضافه</p>
                       </div>
                       <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.createdAt?.split('','t')}</p>
+                        <p className="text-muted mb-0">{item?.createdAt?.split('T',1)}</p>
                       </div>
                     </div>
                   </div>

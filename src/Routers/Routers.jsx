@@ -3,7 +3,6 @@ import {
   Route,
   BrowserRouter as Router,
   Navigate,
-  useLocation
 } from 'react-router-dom';
 import {
   About,
@@ -48,6 +47,7 @@ import {
   InvesmentDash,
   InvestmantPage,
   Login,
+  MyWallet,
   Payment,
   PlaylistsDash,
   ProfileDash,
@@ -68,32 +68,45 @@ import {
   VerifyRestCode,
   VideosDash
 } from '@/pages';
-import { useAuth } from '@/context/Auth';
 import { getCookie } from 'cookies-next';
 
 const Routers = () => {
-  const { Loggedin, role } = useAuth();
+  // const navigate = useNavigate();
+  // const { Loggedin, role } = useAuth();
   // console.log(getCookie('role'));
-  const AuthRoute = () => {
-    const location = useLocation()
-    getCookie('token') !== null ? (
-      (getCookie('role') == "admin" || getCookie('role') == "godAdmin" || getCookie('role') == "manager") ? (
-        <Navigate to="/dash/dashboard" replace state={{ from: location }} />
-      ) : (getCookie('role') == 'user' ? (
-        <Navigate to="/" />
-      ) : (''))
-    ) : ('')
-  }
+
+  // const AdminPrivate = ({ children }) => {
+  //   useEffect(() => {
+  //     if (role == "admin" || role == "manager" || role == "manager") {
+  //       <Navigate to='/dash/dashboard' />
+  //     }
+  //   }, [role]);
+  //   return children;
+  // };
+  // const AuthRoute = () => {
+  //   const location = useLocation()
+  //   getCookie('token') !== null ? (
+  //     (getCookie('role') == "admin" || getCookie('role') == "godAdmin" || getCookie('role') == "manager") ? (
+  //       <Navigate to="/dash/dashboard" replace state={{ from: location }} />
+  //     ) : (getCookie('role') == 'user' ? (
+  //       <Navigate to="/" />
+  //     ) : (''))
+  //   ) : (""
+  //     //  <Navigate to="/auth/login" replace/>
+  //   )
+  // }
 
   const Protect = ({ children }) => {
-    if (Loggedin) {
-      if (role == "admin" || role == "godAdmin" || role == "manager") {
+    if (getCookie('token')) {
+      if (getCookie('role') == "admin" || getCookie('role') == "godAdmin" || getCookie('role') == "manager") {
         <Navigate to="/dash/dashboard" />
       } else {
-        if (role == "user") {
+        if (getCookie('role') == "user") {
           <Navigate to="/" />
         }
       }
+    } else {
+      <Navigate to="/auth/login" />
     }
     return children
   }
@@ -147,33 +160,42 @@ const Routers = () => {
             element={
               <Protect>
                 <VerifyRestCode />
-              </Protect>} />
+              </Protect>}
+          />
           <Route
             path="/auth/resetPassword"
             element={
               <Protect>
                 <ResetPassword />
-              </Protect>} />
+              </Protect>}
+          />
           <Route
             path="/auth/resetPasswordOtp"
             element={
               <Protect>
                 <ResetPasswordOtp />
-              </Protect>} />
+              </Protect>}
+          />
           <Route
             path="/auth/reservation-ticket"
             element={
               <Protect>
                 <ReservationTicket />
-              </Protect>} />
+              </Protect>}
+          />
+          <Route
+            path="/auth/my-wallet"
+            element={
+              <Protect>
+                <MyWallet />
+              </Protect>}
+          />
 
           {/*///////////////////////////// Dashboard //////////////////////////*/}
           <Route
             path="/dash/dashboard"
             element={
-              <Protect>
-                <Dashboard />
-              </Protect>
+              <Dashboard />
             } />
           <Route
             path="/dash/gold"
@@ -232,7 +254,7 @@ const Routers = () => {
               </Protect>
             } />
           <Route
-            path='dash/investment'
+            path='/dash/investment'
             element={
               <Protect>
                 <InvesmentDash />

@@ -11,6 +11,7 @@ const UpdateVideosDash = () => {
   const [title, setTitle] = useState(item?.title)
   const [description, setDescription] = useState(item?.description)
   const [url, setUrl] = useState(item?.url)
+  const [image, setImage] = useState(item?.image)
 
 
   const hanelSubmit = async (e) => {
@@ -25,6 +26,7 @@ const UpdateVideosDash = () => {
             title: title,
             url: url,
             description: description,
+            image: image ? URL.createObjectURL(image) : null,
           },
           {
             headers: {
@@ -35,7 +37,7 @@ const UpdateVideosDash = () => {
         .then((response) => {
           console.log('updated success', response.data);
           alert("updated success")
-          navigate(`/dash/details-playlist/${item?._id}`)
+          // navigate(`/dash/details-playlist/${item?._id}`)
         });
       setIsPending(false);
     } catch (err) {
@@ -67,6 +69,17 @@ const UpdateVideosDash = () => {
             placeholder=" عنوان الفيديو*"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+          />
+          <div className="label-form">تعديل صوره الغلاف*</div>
+          <input
+            type="file"
+            name="image"
+            className="form-control mb-3"
+            id="image"
+            required
+            placeholder="تعديل صوره الغلاف*"
+            // value={url}
+            onChange={(e) => setImage(e.target.files[0])}
           />
           <div className="label-form">عنوان(url)*</div>
           <input

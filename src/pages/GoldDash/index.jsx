@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios";
-
+import { getCookie } from "cookies-next";
 const GoldDash = () => {
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
@@ -13,17 +13,19 @@ const GoldDash = () => {
   };
   useEffect(() => {
     setLoading(true);
-    axios
-      .request(fetchGold)
-      .then((response) => {
-        setGoldData(response.data);
-        setLoading(false);
-        console.log("goldData", response.data);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
+    if (getCookie('token')) {
+      axios
+        .request(fetchGold)
+        .then((response) => {
+          setGoldData(response.data);
+          setLoading(false);
+          console.log("goldData", response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error);
+        });
+    }
   }, []);
 
   const handelDelete = async (id) => {
@@ -35,22 +37,46 @@ const GoldDash = () => {
       },
     };
     setLoading(true);
-    await axios
-      .request(config, {
-      })
-      .then((response) => {
-        alert('Deleted Success');
-        axios.request(fetchGold).then((response) => {
-          setGoldData(response.data);
+    if (getCookie('token')) {
+      await axios
+        .request(config, {
+        })
+        .then((response) => {
+          alert('Deleted Success');
+          axios.request(fetchGold).then((response) => {
+            setGoldData(response.data);
+            setLoading(false);
+            console.log(response.data);
+          });
+        })
+        .catch((error) => {
           setLoading(false);
-          console.log(response.data);
+          console.log(error);
         });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
+    }
   };
+
+  ////////////////pagination///////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
   return (
     <>
       {/* {loading && <div className="loading"></div>} */}
@@ -76,32 +102,42 @@ const GoldDash = () => {
             </thead>
             <tbody>
               {!loading && goldData?.document?.map((item, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td width={120}>{item?.category}</td>
-                  <td>{item?.title}</td>
-                  <td>{item?.size} KG</td>
-                  <td>{item?.price}كويتى</td>
-                  <td>
-                    <Link
-                      to={`/dash/update-gold/${item._id}`}
-                      state={{ item: item }}
-                    >
-                      <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
-                    </Link>
-                    <Link
-                      to={`/dash/details-gold/${item._id}`}
-                      state={{ item: item }}
-                    >
-                      <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
-                    </Link>
-                    <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
+                index >= prev && index <= next ? (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td width={120}>{item?.category}</td>
+                    <td>{item?.title}</td>
+                    <td>{item?.size} KG</td>
+                    <td>{item?.price}كويتى</td>
+                    <td>
+                      <Link
+                        to={`/dash/update-gold/${item._id}`}
+                        state={{ item: item }}
+                      >
+                        <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
+                      </Link>
+                      <Link
+                        to={`/dash/details-gold/${item._id}`}
+                        state={{ item: item }}
+                      >
+                        <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
+                      </Link>
+                      <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
 
-                  </td>
-                </tr>
+                    </td>
+                  </tr>
+                ) : null
               ))}
             </tbody>
           </table>
+          {!getCookie('token') ? (
+            <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+          ) : null
+          }
+          <div className="d-flex justify-content-around">
+            <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+            <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+          </div>
         </div>
       </div>
     </>

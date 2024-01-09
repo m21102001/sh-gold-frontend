@@ -1,7 +1,8 @@
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { getCookie } from "cookies-next";
 
 const PlaylistsDash = () => {
   const [loading, setLoading] = useState(false)
@@ -9,17 +10,18 @@ const PlaylistsDash = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get('/playlists')
-      .then((response) => {
-        setLoading(false)
-        setPlaylists(response.data)
-        console.log('playlist', response.data);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-
+    if (getCookie('token')) {
+      axios.get('/playlists')
+        .then((response) => {
+          setLoading(false)
+          setPlaylists(response.data)
+          console.log('playlist', response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error);
+        });
+    }
   }, [])
 
   const handelDelete = async (id) => {
@@ -42,6 +44,27 @@ const PlaylistsDash = () => {
         console.log(error);
       });
   };
+  //////////////////pagination///////////////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -89,6 +112,14 @@ const PlaylistsDash = () => {
             ))}
           </tbody>
         </table>
+        {!getCookie('token') ? (
+          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+        ) : null
+        }
+        <div className="d-flex justify-content-around">
+          <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+        </div>
       </div>
     </div>
   )

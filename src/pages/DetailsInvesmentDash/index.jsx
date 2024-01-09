@@ -21,7 +21,11 @@ const DetailsInvesmentDash = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="card mb-4">
-                  <LazyLoadImage src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover}`} className="card-img-top" alt="img-video" />
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item.images?.[0]}`}
+                    className="card-img-top"
+                    alt={item?.title}
+                  />
                   <div className="card-body">
                     <div className="row">
                       <div className="col-sm-3">

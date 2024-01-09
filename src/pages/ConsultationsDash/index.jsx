@@ -2,23 +2,25 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
+import { getCookie } from "cookies-next";
 const ConsultationsDash = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
 
   useEffect(() => {
     setLoading(true);
-    axios.get('/consultation/tickets/available')
-      .then((response) => {
-        setLoading(false)
-        setConsultation(response.data)
-        console.log('consultation', response.data);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-
+    if (getCookie('token')) {
+      axios.get('/consultation/tickets/available')
+        .then((response) => {
+          setLoading(false)
+          setConsultation(response.data)
+          console.log('consultation', response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error);
+        });
+    }
   }, [])
 
   const handelDelete = async (id) => {
@@ -36,13 +38,34 @@ const ConsultationsDash = () => {
             setLoading(false);
             console.log(response.data);
           });
-          console.log(response);
+        console.log(response);
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
       });
   };
+  //////////////////pagination///////////////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -66,26 +89,36 @@ const ConsultationsDash = () => {
           </thead>
           <tbody>
             {!loading && consultation?.data?.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item?.title}</td>
-                <td>{item?.startDate}</td>
-                <td>{item?.price}</td>
-                <td>{item?.day?.split('T',1)}</td>
-                <td>
-                  {/* <Link
+              index >= prev && index <= next ? (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{item?.title}</td>
+                  <td>{item?.startDate}</td>
+                  <td>{item?.price}</td>
+                  <td>{item?.day?.split('T', 1)}</td>
+                  <td>
+                    {/* <Link
                     to={`/dash/details-playlist/${item._id}`}
                     state={{ item: item }}
                   >
                     <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
                   </Link> */}
-                  <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
+                    <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
 
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              ) : null
             ))}
           </tbody>
         </table>
+        {!getCookie('token') ? (
+          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+        ) : null
+        }
+        <div className="d-flex justify-content-around">
+          <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+        </div>
       </div>
     </div>
   )

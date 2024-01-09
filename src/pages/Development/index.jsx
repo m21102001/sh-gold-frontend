@@ -62,31 +62,25 @@ const Development = () => {
                 <h5 className="card-title text-center fs-4 fw-bold pt-2 mb-4">الاكثر مشاهده</h5>
                 <ul className="list-group list-group-flush rounded-3">
                   {!loading && getvideos?.document?.map((item, index) => (
-                    // <Link
-                    //   to={`/video/${item._id}`}
-                    //   state={{ item }}
-                    //   key={index}
-                    //   className="d-flex"
-                    // >
-                    //   <div>
-                    //     <FaFire size={30} color={"gold"} />
-                    //   </div>
-                    //   <div>
-                    //     <ReactPlayer
-                    //       url={item?.url}
-                    //       style={{
-                    //         width: "80px",
-                    //         height: "80px",
-                    //         borderRadius: "50 %"
-                    //       }}
-                    //     />
-                    //     <p className="mb-4 me-4"> {item?.title}</p>
-                    //   </div>
-                    // </Link>
-                    <li key={index} className="list-group-item d-flex  align-items-center p-3">
+                    <Link
+                      to={`/development/details-video/${item?._id}`}
+                      state={{ item }}
+                      key={index}
+                      className="list-group-item d-flex align-items-center p-3"
+                    >
                       <FaFire size={30} color={"gold"} />
+                      <LazyLoadImage
+                        src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                        alt={item?.title}
+                        style={{
+                          width: "55px",
+                          height: "55px",
+                          margin: '0 0.7rem',
+                          borderRadius: '50%'
+                        }}
+                      />
                       <p className="mb-2 me-4 text-end">{item?.title}</p>
-                    </li>
+                    </Link>
                   ))}
                 </ul>
               </div>
@@ -99,8 +93,8 @@ const Development = () => {
                   <div className="container gold-dash">
                     <div className={styles['home-grid']} >
                       {!loading && getPlaylist?.document?.map((item, index) => (
-                        <div key={index} className={styles['gold-div']} style={{height:'290px'}} >
-                          <div style={{width:'-webkit-fill-available',height:'-webkit-fill-available'}}>
+                        <div key={index} className={styles['gold-div']} style={{ height: '290px' }} >
+                          <div style={{ width: '-webkit-fill-available', height: '-webkit-fill-available' }}>
                             <LazyLoadImage
                               src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
                               alt={item?.description}

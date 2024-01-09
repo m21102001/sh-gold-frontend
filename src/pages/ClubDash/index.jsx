@@ -2,24 +2,25 @@ import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
+import { getCookie } from "cookies-next";
 const ClubDash = () => {
   const [loading, setLoading] = useState(false)
   const [club, setClub] = useState([])
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/club/`)
-      .then((response) => {
-        setLoading(false)
-        setClub(response.data)
-        console.log('club', response.data);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-
+    if (getCookie('token')) {
+      axios.get(`/club/`)
+        .then((response) => {
+          setLoading(false)
+          setClub(response.data)
+          console.log('club', response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error);
+        });
+    }
   }, [])
 
   const handelDelete = async (id) => {
@@ -42,7 +43,27 @@ const ClubDash = () => {
         console.log(error);
       });
   };
+  //////////////////pagination///////////////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
 
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -64,22 +85,32 @@ const ClubDash = () => {
           </thead>
           <tbody>
             {!loading && club?.messages?.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item?.message}</td>
-                <td>
-                  <Link
-                    to={`/dash/update-club/${item._id}`}
-                    state={{ item: item }}
-                  >
-                    <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
-                  </Link>
-                  <button onClick={() => handelDelete(item?._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
-                </td>
-              </tr>
+              index >= prev && index <= next ? (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{item?.message}</td>
+                  <td>
+                    <Link
+                      to={`/dash/update-club/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
+                    </Link>
+                    <button onClick={() => handelDelete(item?._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
+                  </td>
+                </tr>
+              ) : null
             ))}
           </tbody>
         </table>
+        {!getCookie('token') ? (
+          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+        ) : null
+        }
+        <div className="d-flex justify-content-around">
+          <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+        </div>
       </div>
     </div>
   )

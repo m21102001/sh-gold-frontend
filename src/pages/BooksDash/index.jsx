@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios";
+import { getCookie } from "cookies-next";
 
 const BooksDash = () => {
   const [loading, setLoading] = useState(false);
@@ -13,17 +14,19 @@ const BooksDash = () => {
   };
   useEffect(() => {
     setLoading(true);
-    axios
-      .request(fetchBook)
-      .then((response) => {
-        setBookData(response.data);
-        setLoading(false);
-        console.log("bookData", response.data);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
+    if (getCookie('token')) {
+      axios
+        .request(fetchBook)
+        .then((response) => {
+          setBookData(response.data);
+          setLoading(false);
+          console.log("bookData", response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error);
+        });
+    }
   }, []);
 
   const handelDelete = async (id) => {
@@ -51,6 +54,28 @@ const BooksDash = () => {
         console.log(error);
       });
   };
+  //////////////////////////////////////
+  const [prev, setPrev] = useState(0)
+  const [next, setNext] = useState(10)
+
+  const handelprev = () => {
+    setPrev(count => count - 10)
+    setNext(count => count - 10)
+    if (prev <= 0) {
+      setPrev(0);
+      setNext(10)
+    }
+  }
+  const handelNext = () => {
+    setNext(count => count + 10);
+    setPrev(count => count + 10)
+    if (next < 10) {
+      setPrev(0);
+      setNext(10)
+
+    }
+  }
+
 
   return (
     <div className="dashboard d-flex flex-row">
@@ -74,30 +99,41 @@ const BooksDash = () => {
           </thead>
           <tbody>
             {!loading && bookData?.document?.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item?.title}</td>
-                <td>{item?.price}كويتى</td>
-                <td>
-                  <Link
-                    to={`/dash/update-books/${item._id}`}
-                    state={{ item: item }}
-                  >
-                    <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
-                  </Link>
-                  <Link
-                    to={`/dash/details-books/${item._id}`}
-                    state={{ item: item }}
-                  >
-                    <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
-                  </Link>
-                  <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
+              index >= prev && index <= next ? (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{item?.title}</td>
+                  <td>{item?.price}كويتى</td>
+                  <td>
+                    <Link
+                      to={`/dash/update-books/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-outline-success mx-2 px-4">تعديل</button>
+                    </Link>
+                    <Link
+                      to={`/dash/details-books/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
+                    </Link>
+                    <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
 
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              ) : null
             ))}
+
           </tbody>
         </table>
+        {!getCookie('token') ? (
+          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+        ) : null
+        }
+        <div className="d-flex justify-content-around">
+          <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+        </div>
       </div>
     </div>
   )

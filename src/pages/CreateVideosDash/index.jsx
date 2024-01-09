@@ -10,6 +10,7 @@ const CreateVideosDash = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [url, setUrl] = useState('')
+  const [image, setImage] = useState('')
 
   
   const hanelSubmit = async (e) => {
@@ -23,7 +24,8 @@ const CreateVideosDash = () => {
             title: title,
             playlist: item?._id,
             description: description,
-            url: url
+            url: url,
+            image: image ? URL.createObjectURL(image): null,
 
           },
           {
@@ -38,6 +40,7 @@ const CreateVideosDash = () => {
           setTitle('')
           setDescription('')
           setUrl('')
+          setImage('')
           // navigate(`/dash/details-playlist/${item?._id}`)
         });
       setIsPending(false);
@@ -69,6 +72,17 @@ const CreateVideosDash = () => {
             placeholder="ادخل اسم المنتج*"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+          />
+          <div className="label-form">اضف صوره غلاف للفيديو</div>
+          <input
+            type="file"
+            name="image"
+            className="form-control  mb-4"
+            id="image"
+            required
+            placeholder="اضف صوره غلاف للفيديو*"
+            // value={url}
+            onChange={(e) => setImage(e.target.files[0])}
           />
           <div className="label-form">اضف عنوان الفيديو(Url)</div>
           <input

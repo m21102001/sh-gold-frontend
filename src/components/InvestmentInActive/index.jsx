@@ -76,7 +76,11 @@ const InvestmentInActive = () => {
           key={index}
           className="card mb-5"
           style={{ width: "18rem" }}>
-          <LazyLoadImage src="https://stgaccountdals.blob.core.windows.net/prdcont/images/news/5030_2364683.jpeg" className="card-img-top" alt="..." />
+          <LazyLoadImage
+            src={`${import.meta.env.VITE_IMAGE_URL}${item.images?.[0]}`}
+            className="card-img-top"
+            alt={item?.title}
+          />
           {/* src={`${import.meta.env.VITE_IMAGE_URL}/uploads/${item.cover} */}
           <div className="card-body">
             <h5 className="card-title fw-bold m-0"> {item?.title}</h5>

@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }) => {
       }
     }
     if (getCookie('token')) {
-
       CheckUser();
     }
   }, [])

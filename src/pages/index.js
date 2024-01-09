@@ -6,6 +6,7 @@ export { default as About } from './About';
 export { default as Login } from './Login';
 export { default as SignUp } from './SignUp';
 export { default as Payment } from './Payment';
+export { default as MyWallet } from './MyWallet';
 export { default as ClubDash } from './ClubDash';
 export { default as GoldNews } from './GoldNews';
 export { default as GoldDash } from './GoldDash';

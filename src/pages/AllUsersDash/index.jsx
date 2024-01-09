@@ -8,6 +8,7 @@ import { getCookie } from "cookies-next";
 const AllUsersDash = () => {
   const [loading, setLoading] = useState(false);
   const [allUser, setAlluser] = useState([])
+  //////////////////pagination///////////////////
   const [prev, setPrev] = useState(0)
   const [next, setNext] = useState(10)
 
@@ -94,7 +95,10 @@ const AllUsersDash = () => {
             ))}
           </tbody>
         </table>
-        <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+        {!getCookie('token') ? (
+          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+        ) : null
+        }
         <div className="d-flex justify-content-around">
           <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
