@@ -79,6 +79,7 @@ const BooksDash = () => {
 
   return (
     <div className="dashboard d-flex flex-row">
+      {getCookie('role') == 'user' && <div className="loading"></div>}
       <SidebarDashboard />
 
       <div className="container text-center">

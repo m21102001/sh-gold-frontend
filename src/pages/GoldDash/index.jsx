@@ -79,7 +79,7 @@ const GoldDash = () => {
   }
   return (
     <>
-      {/* {loading && <div className="loading"></div>} */}
+      {getCookie('role') == 'user' && <div className="loading"></div>}
       <div className="dashboard d-flex flex-row">
         <SidebarDashboard />
         <div className="container text-center">

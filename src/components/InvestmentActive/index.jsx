@@ -94,7 +94,6 @@ const InvestmentActive = () => {
 
     }
   }
-  console.log(prev, next);
 
   return (
     <div className="d-flex flex-wrap justify-content-evenly">

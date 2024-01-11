@@ -5,12 +5,17 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 import './investment.scss'
+import { getCookie } from "cookies-next";
 
 const InvesmentDash = () => {
 
   return (
     <>
-      {/* {loading && <div className="loading"></div>} */}
+      {getCookie('role') == 'user' &&
+        <div className="m-auto loading">
+          <h2>YOU ARE NOT PROVIDE</h2>
+          <h2>PLEASE <span className="text-danger">SINGIN</span> AND BACK</h2>
+        </div>}
       <div className="dashboard d-flex flex-row">
         <SidebarDashboard />
         <div className="container text-center">

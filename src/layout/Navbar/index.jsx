@@ -78,7 +78,11 @@ const Navbar = () => {
                 <Link
                   to={'/auth/notifaction'}
                 >
-                  <IoNotifications className="fs-1  ms-4 avatar text-light" />
+                  <div className="position-relative">
+                    <IoNotifications className="fs-1 ms-4 avatar text-light" />
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-danger bg-danger">10</span>
+                  </div>
+
                 </Link>
                 <RxAvatar className="fs-1 avatar text-light" />
                 <br />
