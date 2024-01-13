@@ -130,7 +130,7 @@ const Signup = () => {
 
                   >كلمه المرور*</label>
                   <input
-                    type={showPassword ? "text" : ""}
+                    type={showPassword ? "text" : "password"}
                     className="form-control fw-bold"
                     id="exampleInputPassword1"
                     placeholder='كلمه المرور*'
