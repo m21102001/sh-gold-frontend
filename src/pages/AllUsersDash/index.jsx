@@ -29,7 +29,7 @@ const AllUsersDash = () => {
 
     }
   }
-  console.log(prev, next);
+  // console.log(allUser.results,prev, next);
 
   useEffect(() => {
     setLoading(true);
@@ -100,7 +100,7 @@ const AllUsersDash = () => {
         ) : null
         }
         <div className="d-flex justify-content-around">
-          <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${next >= allUser.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

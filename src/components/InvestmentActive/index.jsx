@@ -14,7 +14,7 @@ const InvestmentActive = () => {
       axios.get(`/invest/active`)
         .then((response) => {
           setInvestment(response.data)
-          console.log(response.data);
+          // console.log("ffff", response.data);
           setLoading(false)
         })
         .catch((error) => {
@@ -143,7 +143,7 @@ const InvestmentActive = () => {
       ) : null
       }
       <div className="d-flex justify-content-around">
-        <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+        <button className={`btn btn-outline-info ${next >= investment?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
         <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
       </div>
     </div>

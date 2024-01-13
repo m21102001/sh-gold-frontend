@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
 import { MdTipsAndUpdates } from "react-icons/md";
-import { FcIdea } from "react-icons/fc";
 import styles from '../GoldCard/GoldCard.module.scss';
 const GoldStore = () => {
   const [loading, setLoading] = useState(false)
@@ -12,7 +11,7 @@ const GoldStore = () => {
     axios.get(`/club`)
       .then((response) => {
         setMessage(response.data)
-        console.log(response.data);
+        // console.log('ffff',response.data);
         setLoading(false)
       })
       .catch((error) => {
@@ -42,7 +41,7 @@ const GoldStore = () => {
 
     }
   }
-  console.log(prev, next);
+  // console.log(prev, next);
 
   return (
     <div className='coursers-open goldNews py-5'>
@@ -72,7 +71,7 @@ const GoldStore = () => {
               ))}
             </div>
             < div className="pt-5 mt-5 d-flex justify-content-around " >
-              <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+              <button className={`btn btn-outline-info ${next >= message?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
               <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
             </div>
           </div>

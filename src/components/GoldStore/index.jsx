@@ -30,7 +30,7 @@ const GoldStore = () => {
         setBookData(response.data);
         setLoading(false);
         window.scrollTo(0, 0);
-        // console.log("bookData", response);
+        // console.log("bookData", response.data.results);
       })
       .catch((error) => {
         setLoading(false);
@@ -58,7 +58,7 @@ const GoldStore = () => {
 
     }
   }
-  console.log(prev, next);
+
 
   return (
     <div className='coursers-open goldNews py-5'>
@@ -145,7 +145,7 @@ const GoldStore = () => {
                 {
                   value == 'selectAll' ? (
                     < div className="pt-5 mt-5 d-flex justify-content-around " >
-                      <button className={`btn btn-outline-info`} onClick={handelNext}> next</button>
+                      <button className={`btn btn-outline-info ${next >= bookData?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
                       <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
                     </div>
                   ) : null}
