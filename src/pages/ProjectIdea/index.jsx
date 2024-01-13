@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Footer, Navbar } from '@/layout';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from "@/api/axios";
@@ -130,7 +130,7 @@ const ProjectIdea = () => {
                       <div className="card-body" >
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">تفاصيل الفكره  </p>
+                            <p className="fs-4 mb-0 fw-bold">نظره عامه على الفكره  </p>
                           </div>
                           <div className="col-sm-9">
                             <p className="fs-4 m-auto mb-0" style={{ width: '306px', height: '420px', overflow: "auto" }}>
@@ -140,6 +140,20 @@ const ProjectIdea = () => {
                                 />
                               </Worker>
                             </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <p className="fs-4 mb-0 fw-bold">لتفاصيل اكثر</p>
+                          </div>
+                          <div className="col-sm-9">
+                            <Link
+                              to={'/view-more-details/:id'}
+                              state={{item}}
+                            >
+                              <button className="fs-4 fw-bold mb-0">قرأه التفاصيل</button>
+                            </Link>
                           </div>
                         </div>
                         <hr />

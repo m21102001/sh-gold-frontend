@@ -40,7 +40,7 @@ const DetailsBook = () => {
       });
   }, []);
 
-  let id =item?._id
+  let id = item?._id
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -110,6 +110,20 @@ const DetailsBook = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
+                            <p className="mb-0 fw-bold"> قرأه الكتاب</p>
+                          </div>
+                          <div className="col-sm-9 overflow-auto" >
+                            <Link
+                              to={`/view-more-details/${item?._id}`}
+                              state={{ item }}
+                            >
+                              <button className="text-muted fw-bold mb-0">الكتاب</button>
+                            </Link>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
                             <p className="mb-0 fw-bold">تاريخ الاضافه</p>
                           </div>
                           <div className="col-sm-9">
@@ -153,7 +167,7 @@ const DetailsBook = () => {
             <div className="container">
               <div className={styles['home-grid']}>
                 {!loading && goldData?.document?.map((item, index) => (
-                  index < 6 &&item?._id !==id ? (
+                  index < 6 && item?._id !== id ? (
                     <Link
                       key={index}
                       to={`/book/detalis-book/${item._id}`}

@@ -69,7 +69,8 @@ import {
   UpdateRoleUsersDash,
   UpdateVideosDash,
   VerifyRestCode,
-  VideosDash
+  VideosDash,
+  ViewPdf
 } from '@/pages';
 import { getCookie } from 'cookies-next';
 
@@ -125,7 +126,7 @@ const Routers = () => {
           <Route path='/investment' element={<InvestmantPage />} />
           <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
           <Route path="/club/add-project-idea" element={<AddNewIdea />} />
-          {/* <Route path="/goldPrice" element={<GoldPrice />} /> */}
+          <Route path="/view-more-details/:id" element={<ViewPdf />} />
           <Route path="/gold-news/:id" element={<GoldNews />} />
           <Route path='/book' element={<Book />} />
           <Route path='/book/detalis-book/:id' element={<DetailsBook />} />
