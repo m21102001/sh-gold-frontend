@@ -6,7 +6,7 @@ import axios from '@/api/axios'
 const ResetPasswordOtp = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
 
   // Submit the form data to the server
   const handelSubmit = async (e) => {
@@ -14,7 +14,7 @@ const ResetPasswordOtp = () => {
     setIsPending(true)
     try {
       await axios.post('/auth/forgotPassword', {
-        email: email,
+        phone: phone,
       },
         {
           headers: {
@@ -44,20 +44,20 @@ const ResetPasswordOtp = () => {
         <div className="Container pt-5 login">
           <div className="container text-end d-flex flex-column justify-content-center m-auto body-card" >
             <div className="shadow-lg p-3 mb-5 bg-body rounded">
-              <h3 className='text-center pt-3 fs-2 fw-bold'> سوف يتم ارسال كود الي بريدك الالكتروني لتغيير كلمة المرور الخاصة بك</h3>
+              <h3 className='text-center pt-3 fs-2 fw-bold'> سوف يتم ارسال كود الي رقم الهاتف لتغيير كلمة المرور الخاصة بك</h3>
               <form className='pb-5 pt-2' onSubmit={handelSubmit}>
                 <div className="mb-3">
                   <label
-                    htmlFor="exampleInputEmail1"
+                    htmlFor="exampleInputphone1"
                     className="form-label fs-5 fw-bold"
-                  >  أدخل بريدك الإلكتروني*</label>
+                  >  أدخل  رقم الهاتف*</label>
                   <input
-                    type="email"
+                    type="number"
                     className="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    id="exampleInputphone1"
+                    aria-describedby="phoneHelp"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">

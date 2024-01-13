@@ -12,7 +12,7 @@ const CreateVideosDash = () => {
   const [url, setUrl] = useState('')
   const [image, setImage] = useState('')
 
-  
+
   const hanelSubmit = async (e) => {
     e.preventDefault();
     setIsPending(true);
@@ -25,8 +25,7 @@ const CreateVideosDash = () => {
             playlist: item?._id,
             description: description,
             url: url,
-            image: image ? URL.createObjectURL(image): null,
-
+            image: image,
           },
           {
             headers: {

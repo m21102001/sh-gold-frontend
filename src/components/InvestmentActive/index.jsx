@@ -96,57 +96,59 @@ const InvestmentActive = () => {
   }
 
   return (
-    <div className="d-flex flex-wrap justify-content-evenly">
-      {!loading && investment?.invest?.map((item, index) => (
-        index >= prev && index <= next ? (
-          <Link
-            // to={`/dash/details-investment/${item._id}`}
-            // state={{ item: item }}
-            key={index}
-            className="card mb-5"
-            style={{ width: "18rem" }}
-          >
-            <LazyLoadImage
-              src={`${import.meta.env.VITE_IMAGE_URL}${item.images?.[0]}`}
-              className="card-img-top"
-              alt={item?.title}
-            />
-            {/* <LazyLoadImage src={``} className="card-img-top" alt="..." /> */}
-            <div className="card-body">
-              <h5 className="card-title fw-bold "> {item?.title}</h5>
-              <div className="d-flex flex-column">
-                <div className="d-flex justify-content-around mt-3">
-                  <Link
-                    to={`/investment/inactive/details-investment/${item._id}`}
-                    state={{ item: item }}
-                  >
-                    <button className="btn btn-primary px-4">تفاصيل</button>
-                  </Link>
-                  <button onClick={() => handelToggle(item._id)} className="btn btn-success px-4">الغاء التفعيل</button>
-                </div>
-                <div className="d-flex justify-content-around mt-3">
-                  <Link
-                    to={`/investment/inactive/Update-investment/${item._id}`}
-                    state={{ item: item }}
-                  >
-                    <button className="btn btn-info px-4">تعديل</button>
-                  </Link>
-                  <button onClick={() => handelDelete(item._id)} className="btn btn-danger px-4">حذف</button>
+    <>
+      <div className="d-flex flex-wrap justify-content-evenly">
+        {!loading && investment?.invest?.map((item, index) => (
+          index >= prev && index <= next ? (
+            <Link
+              // to={`/dash/details-investment/${item._id}`}
+              // state={{ item: item }}
+              key={index}
+              className="card mb-5"
+              style={{ width: "18rem" }}
+            >
+              <LazyLoadImage
+                src={`${import.meta.env.VITE_IMAGE_URL}${item.images?.[0]}`}
+                className="card-img-top"
+                alt={item?.title}
+              />
+              <div className="card-body">
+                <h5 className="card-title fw-bold "> {item?.title}</h5>
+                <div className="d-flex flex-column">
+                  <div className="d-flex justify-content-around mt-3">
+                    <Link
+                      to={`/investment/inactive/details-investment/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-primary px-4">تفاصيل</button>
+                    </Link>
+                    <button onClick={() => handelToggle(item._id)} className="btn btn-success px-4">الغاء التفعيل</button>
+                  </div>
+                  <div className="d-flex justify-content-around mt-3">
+                    <Link
+                      to={`/investment/inactive/Update-investment/${item._id}`}
+                      state={{ item: item }}
+                    >
+                      <button className="btn btn-info px-4">تعديل</button>
+                    </Link>
+                    <button onClick={() => handelDelete(item._id)} className="btn btn-danger px-4">حذف</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          ) : null
+        ))}
+      </div>
+        {!getCookie('token') ? (
+          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
-      ))}
-      {!getCookie('token') ? (
-        <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
-      ) : null
-      }
+        }
       <div className="d-flex justify-content-around">
         <button className={`btn btn-outline-info ${next >= investment?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
         <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
       </div>
-    </div>
+    </>
+
   )
 }
 

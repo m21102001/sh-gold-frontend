@@ -7,12 +7,15 @@ import axios from '@/api/axios'
 const Signup = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [name, setName] = useState('mohamed')
-  const [email, setEmail] = useState('test@gmail.com')
-  const [password, setPassword] = useState('123456')
-  const [passwordConfirm, setPasswordConfirm] = useState('123456')
+  const [showValidationMessage, setShowValidationMessage] = useState(true);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false);
+  const [validationMessage, setValidationMessage] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState('')
 
-  // Submit the form data to the server
   const handelSubmit = async (e) => {
     e.preventDefault()
     if (password !== passwordConfirm) {
@@ -23,13 +26,13 @@ const Signup = () => {
       await axios.post('/auth/signup', {
         name: name,
         email: email,
+        phone: phone,
         password: password,
         passwordConfirm: passwordConfirm
       },
         {
           headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc1OGI1MzY4YTU3MjJhM2VjNjk0MDgiLCJpYXQiOjE3MDIzMjEzNjcsImV4cCI6MTcwMjQwNzc2N30.kMP-s1p1mzjuP1myqELORbONmW6KaPffb3BcbxTffyo'
           }
         })
         .then((response) => {
@@ -40,9 +43,26 @@ const Signup = () => {
     } catch (err) {
       setIsPending(false);
       console.log('response', err.response);
-      console.log('message', err.message);
+      // console.log('message', err.message);
     }
   }
+
+  const validatePassword = () => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!password) {
+      setShowValidationMessage(false);
+      return;
+    }
+    if (passwordRegex.test(password)) {
+      setShowValidationMessage(false);
+    } else {
+      setShowValidationMessage(true);
+      setValidationMessage(
+        // "يجب ان يحتوى الرقم السري على رقم على الاقل وحرف كبير وحرف صغير و حرف خاص ويكون اكبر من 8 احرف"
+        "Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 8 characters long."
+      );
+    }
+  };
 
   return (
     <>
@@ -68,6 +88,7 @@ const Signup = () => {
                     placeholder='الاسم بالكامل*'
                     aria-describedby="nameHelp"
                     value={name}
+                    required
                     onChange={e => setName(e.target.value)}
                   />
                 </div>
@@ -83,50 +104,64 @@ const Signup = () => {
                     aria-describedby="emailHelp"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    required
                   />
                   <div id="emailHelp" className="form-text fw-bold">لن نشارك بريدك الإلكتروني أبدًا مع أي شخص آخر. </div>
                 </div>
-                {/* <div className="mb-3">
-                <label
-                  htmlFor="exampleInputPhone"
-                  className="form-label fs-5 fw-bold"
-                >
-                  رقم الجوال*
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="exampleInputPhone"
-                  placeholder='رقم الجوال*'
-                  aria-describedby="phoneHelp"
-                />
-              </div> */}
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleInputPhone"
+                    className="form-label fs-5 fw-bold"> رقم الهاتف*</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="exampleInputPhone"
+                    placeholder=' رقم الهاتف*'
+                    aria-describedby="phoneHelp"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+                    required
+                  />
+                </div>
                 <div className="mb-3">
                   <label
                     htmlFor="exampleInputPassword1"
                     className="form-label fs-5 fw-bold"
+
                   >كلمه المرور*</label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : ""}
                     className="form-control fw-bold"
                     id="exampleInputPassword1"
                     placeholder='كلمه المرور*'
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    onInput={validatePassword}
+                    required
                   />
+                  <button
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="password-button mt-3"
+                  >
+                    {showPassword ? "Hide password" : "Show password"}
+                  </button>
                 </div>
+                {showValidationMessage && (
+                  <span className="validation-message">{validationMessage}</span>
+                )}
                 <div className="mb-3">
                   <label
                     htmlFor="exampleInputPassword2"
                     className="form-label fs-5 fw-bold"
                   > تأكيد كلمه المرور*</label>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     className="form-control fw-bold"
                     id="exampleInputPassword2"
                     placeholder='تأكيد كلمه المرور*'
                     value={passwordConfirm}
                     onChange={e => setPasswordConfirm(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="d-grid gap-2 pt-4">
