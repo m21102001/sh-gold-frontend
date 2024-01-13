@@ -1,6 +1,8 @@
 import { services } from "@/db/data"
 import "./ServicesIncluded.scss"
+import { useNavigate } from "react-router-dom"
 const ServicesIncluded = () => {
+  const navigate =useNavigate()
   return (
     <div className="Container ServicesIncluded">
       <h2 className="services ">خدماتنا :</h2>
@@ -13,7 +15,7 @@ const ServicesIncluded = () => {
           <p className="text-end  fs-5">{item?.description}</p>
           </div>
           <div className="col-6 col-md-4 m-auto">
-          <button type="button" className="d-flex m-auto px-5 fs-4">{item?.button}</button>
+          <button type="button" className="d-flex m-auto px-5 fs-4" onClick={()=>navigate('/auth/reservation-ticket')}>{item?.button}</button>
           </div>
         </div>
       ))}

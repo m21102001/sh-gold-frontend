@@ -48,7 +48,7 @@ const ReservationTicket = () => {
               </ul>
               <ul className="list-inline">
                 <li className="list-inline-item mx-3"><FaMoneyBillAlt size={30} color={'#198754'} /> {item?.price}دينار كويتى</li>
-                <li className="list-inline-item mx-3"><FaClock size={30} color={'var(--gold-color)'} />12:30 PM - 2:00 PM</li>
+                {/* <li className="list-inline-item mx-3"><FaClock size={30} color={'var(--gold-color)'} />12:30 PM - 2:00 PM</li> */}
               </ul>
             </div>
           </Link>
