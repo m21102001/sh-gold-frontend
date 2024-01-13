@@ -149,7 +149,7 @@ const ProjectIdea = () => {
                           </div>
                           <div className="col-sm-9">
                             <Link
-                              to={'/view-more-details/:id'}
+                              to={`/view-more-details/${item?._id}`}
                               state={{item}}
                             >
                               <button className="fs-4 fw-bold mb-0">قرأه التفاصيل</button>

@@ -26,7 +26,7 @@ const UpdateVideosDash = () => {
             title: title,
             url: url,
             description: description,
-            image: image ? URL.createObjectURL(image) : null,
+            // image: image ? URL.createObjectURL(image) : null,
           },
           {
             headers: {
@@ -70,7 +70,7 @@ const UpdateVideosDash = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className="label-form">تعديل صوره الغلاف*</div>
+          {/* <div className="label-form">تعديل صوره الغلاف*</div>
           <input
             type="file"
             name="image"
@@ -80,7 +80,7 @@ const UpdateVideosDash = () => {
             placeholder="تعديل صوره الغلاف*"
             // value={url}
             onChange={(e) => setImage(e.target.files[0])}
-          />
+          /> */}
           <div className="label-form">عنوان(url)*</div>
           <input
             type="text"
