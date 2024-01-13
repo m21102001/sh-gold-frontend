@@ -67,7 +67,7 @@ const GoldCard = () => {
           </div>
         </>
       </div>
-      <Link to="/bullion-store">
+      <Link to="/investment">
         <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip">شاهد جميع الانواع </h4>
       </Link>
     </div >
