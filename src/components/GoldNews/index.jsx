@@ -11,8 +11,8 @@ const GoldNews = () => {
   useEffect(() => {
     setLoading(true)
     axios.get(
-      "https://newsapi.org/v2/everything?q=gold&from=2023-12-12&sortBy=publishedAt&apiKey=524b74b89f804f918385b51ac1adc506",
-      // 'https://newsapi.org/v2/everything?q=gold&from=2024-01-01&sortBy=popularity&apiKey=524b74b89f804f918385b51ac1adc506',
+      // "https://newsapi.org/v2/everything?q=gold&from=2023-12-12&sortBy=publishedAt&apiKey=524b74b89f804f918385b51ac1adc506",
+      "https://newsapi.org/v2/everything?q=gold&from=2023-12-20&sortBy=publishedAt&apiKey=41838a71f20f42aab058839d1e995b8e",
       {
         withCredentials: false
       }

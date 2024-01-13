@@ -10,7 +10,7 @@ const CreateVideosDash = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [url, setUrl] = useState('')
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState({})
 
 
   const hanelSubmit = async (e) => {

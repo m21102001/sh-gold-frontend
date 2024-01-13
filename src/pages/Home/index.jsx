@@ -12,7 +12,9 @@ import {
 } from '@/components'
 import { useState } from 'react'
 import { GoldChart } from '@/pages'
-
+import { Link } from 'react-router-dom'
+import { RiDashboardFill } from "react-icons/ri";
+import { getCookie } from 'cookies-next'
 const Home = () => {
   const [loading, setLoading] = useState(false);
   return (
@@ -37,6 +39,16 @@ const Home = () => {
         <PricePlannig />
         <Footer />
       </div>
+      { getCookie('role') == 'admin' && getCookie('role') == 'manager' ? (
+        <Link to="/dash/dashboard">
+          <RiDashboardFill
+            className="editIcon"
+            style={{
+              bottom: '1rem',
+            }}
+          />
+        </Link>
+      ) : null}
     </>
   )
 }

@@ -8,6 +8,7 @@
   --darkblue-color: #161635;
   --shd: 0px 2px 50px 10px rgba(44, 43, 105, 0.59);
 }
+
 * {
   font-family: 'Cairo', sans-serif !important;
   padding: 0;
@@ -18,6 +19,7 @@
   color: inherit;
   text-decoration: none !important;
 }
+
 html {
   scroll-behavior: smooth;
   /* font-family: 'Cairo', sans-serif !important; */
@@ -31,6 +33,7 @@ body {
   background: #f8f9fa;
   text-align: end !important;
 }
+
 input,
 textarea {
   border-radius: 5px !important;
@@ -38,9 +41,11 @@ textarea {
   font-size: 18px !important;
   border: 1px solid var(--gold-color) !important;
 }
+
 h2 {
   color: #fff;
 }
+
 button {
   cursor: pointer;
   border-radius: 10px !important;
@@ -50,6 +55,7 @@ button {
   background: var(--gold-color);
   padding: 6px;
 }
+
 button:hover {
   background-color: #161635;
   color: white;
@@ -60,10 +66,12 @@ button:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .loading {
   position: fixed;
   inset: 0;
@@ -74,6 +82,7 @@ button:hover {
   z-index: 1000000;
   place-content: center;
 }
+
 .loading::before {
   content: '';
   width: 50px;
@@ -83,15 +92,18 @@ button:hover {
   border-radius: 50%;
   animation: spinner 1.2s linear infinite;
 }
+
 button {
   cursor: pointer;
   border-radius: 8px !important;
 }
+
 .Container {
   padding: 30px 55px;
   margin-inline: auto;
   max-width: 1300px;
 }
+
 .back-details-button {
   border-radius: 22px !important;
   border: 3px solid #9b9ec1;
@@ -100,11 +112,30 @@ button {
   width: 7rem;
 }
 
+.editIcon {
+  background-color: #000;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 2000;
+  align-items: center;
+  cursor: pointer !important;
+
+}
+
+
 @media (max-width: 700px) {
   .Container {
     padding: 10px 35px;
 
     padding-bottom: 30px;
+
     h2 {
       margin-top: 30px;
     }

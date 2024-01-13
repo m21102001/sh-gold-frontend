@@ -11,7 +11,7 @@ const UpdateVideosDash = () => {
   const [title, setTitle] = useState(item?.title)
   const [description, setDescription] = useState(item?.description)
   const [url, setUrl] = useState(item?.url)
-  const [image, setImage] = useState(item?.image)
+  // const [image, setImage] = useState(item?.image)
 
 
   const hanelSubmit = async (e) => {

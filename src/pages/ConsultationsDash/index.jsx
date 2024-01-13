@@ -82,7 +82,7 @@ const ConsultationsDash = () => {
             <tr>
               <th scope="col">#</th>
               <th scope="col">العنوان</th>
-              <th scope="col">تاريخ البدء</th>
+              <th scope="col"> الوقت</th>
               <th scope="col">السعر </th>
               <th scope="col">اليوم</th>
               <th scope="col">الاحداث</th>
