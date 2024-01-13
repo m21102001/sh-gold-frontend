@@ -3,6 +3,8 @@ import { Navbar } from '@/layout'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from '@/api/axios'
 import { getCookie, setCookie } from 'cookies-next';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './login.scss'
 
 const Login = () => {
@@ -10,6 +12,16 @@ const Login = () => {
   const [isPending, setIsPending] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const notify = () => toast.error("sorry, please check email or password!", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
 
   const handelSubmit = async (e) => {
     e.preventDefault()
@@ -95,7 +107,8 @@ const Login = () => {
                   </p>
                 </Link>
                 <div className="d-grid gap-2">
-                  <button >تسجيل الدخول</button>
+                  <ToastContainer />
+                  <button onClick={notify} >تسجيل الدخول</button>
                 </div>
               </form>
               <p id="create-account" className="my-15 text-center fs-6 fw-bold"> ليس لديك حساب ؟

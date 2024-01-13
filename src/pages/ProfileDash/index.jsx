@@ -6,8 +6,11 @@ import { Viewer } from '@react-pdf-viewer/core';
 
 // Import the styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const ProfileDash = () => {
+  const notify = () => toast("Wow so easy!");
 
   let config = {
     method: 'get',
@@ -32,6 +35,10 @@ const ProfileDash = () => {
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
+      <div>
+        <button onClick={notify}>Notify!</button>
+        <ToastContainer />
+      </div>
       home
       <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
         <Viewer fileUrl="https://cambridge-files-repository.s3.amazonaws.com/pdfs/1703874091396-Cambridge-logo-.pdf" />;

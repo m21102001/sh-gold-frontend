@@ -40,6 +40,7 @@ import {
   DetailsVideoDevelopment,
   DetailsVideosDash,
   Development,
+  EditProfile,
   ErrorPage,
   GoldDash,
   GoldNews,
@@ -48,9 +49,9 @@ import {
   InvestmantPage,
   Login,
   MyWallet,
-  Notification,
   Payment,
   PlaylistsDash,
+  Profile,
   ProfileDash,
   ProjectIdea,
   RequestInvestment,
@@ -63,6 +64,7 @@ import {
   UpdateClubDash,
   UpdateGoldDash,
   UpdateInactiveInvesmentDash,
+  UpdatePassword,
   UpdatePlaylistDash,
   UpdateRoleUsersDash,
   UpdateVideosDash,
@@ -146,58 +148,75 @@ const Routers = () => {
             element={
               <Protect>
                 <SignUp />
-              </Protect>} />
+              </Protect>
+            } />
           <Route
             path="/auth/payment"
-            element={<Payment />} />
+            element={<Payment />
+            } />
           <Route
             path="/auth/login"
             element={
               <Protect>
                 <Login />
-              </Protect>} />
+              </Protect>
+            } />
           <Route
             path="/auth/verifyCode"
             element={
               <Protect>
                 <VerifyRestCode />
-              </Protect>}
-          />
+              </Protect>
+            } />
+          <Route
+            path="/auth/update-password"
+            element={
+              <Protect>
+                <UpdatePassword />
+              </Protect>
+            } />
+          <Route
+            path="/auth/edit-profile"
+            element={
+              <Protect>
+                <EditProfile />
+              </Protect>
+            } />
           <Route
             path="/auth/resetPassword"
             element={
               <Protect>
                 <ResetPassword />
-              </Protect>}
-          />
+              </Protect>
+            } />
           <Route
             path="/auth/resetPasswordOtp"
             element={
               <Protect>
                 <ResetPasswordOtp />
-              </Protect>}
-          />
+              </Protect>
+            } />
           <Route
             path="/auth/reservation-ticket"
             element={
               <Protect>
                 <ReservationTicket />
-              </Protect>}
-          />
+              </Protect>
+            } />
           <Route
             path="/auth/my-wallet"
             element={
               <Protect>
                 <MyWallet />
-              </Protect>}
-          />
+              </Protect>
+            } />
           <Route
-            path="/auth/notifaction"
+            path="/auth/profile"
             element={
               <Protect>
-                <Notification />
-              </Protect>}
-          />
+                <Profile />
+              </Protect>
+            } />
 
           {/*///////////////////////////// Dashboard //////////////////////////*/}
           <Route

@@ -1,4 +1,4 @@
-import axios from '@/api/axios';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart } from 'recharts';
 import "./chart.scss"
@@ -69,29 +69,25 @@ const datas = [
 ]
 const AreaCharts = () => {
   const [loading, setLoading] = useState(false);
-  const [metalSymbols, setMetalSymbols] = useState([]);
+  const [metalSymbols, setMetalSymbols] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await axios.get(`https://api.metalpriceapi.com/v1/latest?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=USD&currencies=EUR,XAU,XAG`, {
-        const response = await axios.get(`https://api.metalpriceapi.com/v1/symbols?api_key=5e07d6a8157ced4d13198dda0c05bc07`,
-          {
-          }, {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            "Access-Control-Allow-Origin": '*',
-            "Connection": "keep-alive",
-            "Content-Length": "1172",
-            "Accept":"application/json, text/plain, */*",
-
+        const response =
+          await axios.get(
+            `${import.meta.env.VITE_GOLD_URL}?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=KWD&currencies=XAU`,
+            {
+              withCredentials: false,
+            }, {
+            headers: {
+              "Content-Type": "application/json;",
+            }
           }
-        }
-        );
+          );
 
         setMetalSymbols(response.data);
-        console.log('metai' + response.data);
+        console.log('metai' + metalSymbols.base);
       } catch (error) {
         console.error('Error fetching data:', error);
       }

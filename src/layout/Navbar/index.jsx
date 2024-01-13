@@ -75,17 +75,19 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <Link
-                  to={'/auth/notifaction'}
-                >
+                {/*
                   <div className="position-relative">
-                    <IoNotifications className="fs-1 ms-4 avatar text-light" />
-                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-danger bg-danger">10</span>
+                  <IoNotifications className="fs-1 ms-4 avatar text-light" />
+                  // <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-danger bg-danger">10</span>
                   </div>
-
+                  
+                  <br />
+                */}
+                <Link
+                  to={'/auth/profile'}
+                >
+                  <RxAvatar className="fs-1 avatar text-light" />
                 </Link>
-                <RxAvatar className="fs-1 avatar text-light" />
-                <br />
                 <button
                   onClick={() => {
                     handelLogout()
