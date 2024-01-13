@@ -36,7 +36,7 @@ const StartElectronicEcommerce = () => {
       <div>
         <h2 className="text-light text-center fw-semibold my-3 pt-4">افضل الكتب فى الاستثمار وبيع وشراء الذهب</h2>
         {!loading && bookData?.document?.map((item, index) => (
-          index == 3 ? (
+          index == 0 ? (
             <div key={index} className="Container">
               <div className="row align-items-center">
                 <div className="col-md-8 col-sm-12 px-5">
@@ -55,7 +55,7 @@ const StartElectronicEcommerce = () => {
           ) : ('')
         ))}
         {!loading && bookData?.document?.map((item, index) => (
-          index == 4 ? (
+          index == 1 ? (
             <div key={index} className="Container">
               <div className="row align-items-center">
                 <div className="col-md-4 col-sm-12">
