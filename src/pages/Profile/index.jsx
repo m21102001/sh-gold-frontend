@@ -96,7 +96,7 @@ const Profile = () => {
                       <p className="mb-0">محفظتى</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                      <Link to={'/auth/my-wallet'} className="text-muted mb-0">محفظتى</Link>
                     </div>
                   </div>
                 </div>
