@@ -39,7 +39,7 @@ const Home = () => {
         <PricePlannig />
         <Footer />
       </div>
-      { getCookie('role') == 'admin' && getCookie('role') == 'manager' ? (
+      { getCookie('role') == 'admin' || getCookie('role') == 'manager' ? (
         <Link to="/dash/dashboard">
           <RiDashboardFill
             className="editIcon"
