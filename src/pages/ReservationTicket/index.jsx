@@ -26,7 +26,7 @@ const ReservationTicket = () => {
   }, [])
 
   return (
-    <>
+    <div style={{color:'var(--darkblue-color)'}}>
       <Navbar />
       <div className="container text-center pt-5">
         {!loading && consultation?.data?.map((item, index) => (
@@ -55,7 +55,7 @@ const ReservationTicket = () => {
         ))}
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
 

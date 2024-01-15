@@ -7,19 +7,22 @@ import './GoldNews.scss'
 const GoldNews = () => {
   const [loading, setLoading] = useState(false)
   const [report, setReport] = useState([])
+  const [pageNum, setPageNum] = useState('1')
 
   useEffect(() => {
     setLoading(true)
     axios.get(
       // "https://newsapi.org/v2/everything?q=gold&from=2023-12-12&sortBy=publishedAt&apiKey=524b74b89f804f918385b51ac1adc506",
-      "https://newsapi.org/v2/everything?q=gold&from=2023-12-20&sortBy=publishedAt&apiKey=41838a71f20f42aab058839d1e995b8e",
+      // "https://newsapi.org/v2/everything?q=gold&from=2023-12-20&sortBy=publishedAt&apiKey=41838a71f20f42aab058839d1e995b8e",
+      "https://api.daralsabaek.com/api/news?pageNo=1&PageSize=10",
+      // `https://api.daralsabaek.com/api/news?pageNo=${setPageNum}&PageSize=10`,
       {
         withCredentials: false
       }
     )
       .then((response) => {
         setReport(response.data)
-        console.log(response.data);
+        // console.log('fffff', response.data.result.homeNewsModel);
         setLoading(false)
       })
       .catch((error) => {
@@ -49,7 +52,7 @@ const GoldNews = () => {
 
     }
   }
-  console.log(report?.totalResults, prev, next);
+  // console.log(report?.result?.newsCount, prev, next);
 
   return (
     <div className='coursers-open goldNews py-5'>
@@ -63,7 +66,8 @@ const GoldNews = () => {
         <>
           <div className="container">
             <div className={styles['home-grid']}>
-              {report?.articles?.map((item, index) => (
+              {/* {report?.articles?.map((item, index) => ( */}
+              {report?.result?.homeNewsModel.map((item, index) => (
                 index >= prev && index <= next ? (
                   <Link
                     key={index}
@@ -71,16 +75,20 @@ const GoldNews = () => {
                     <div className={styles['gold-div']}>
                       <div className='title-card'>
                         <LazyLoadImage
-                          src={item?.urlToImage}
+                          src={`https://stgaccountdals.blob.core.windows.net/prdcont/${item?.imageUrl?.url}`}
+                        // src={item?.urlToImage}
                         />
                         <div className="news-date">
-                          <label className="news-date-time mx-2"> {item?.publishedAt?.slice(11, 16)}</label>
+                          {/* <label className="news-date-time mx-2"> {item?.publishedAt?.slice(11, 16)}</label> */}
+                          <label className="news-date-time mx-2"> {item?.createdOn?.slice(11, 16)}</label>
                           /
-                          <label className="mx-2"> {item?.publishedAt?.split('T', 1)}  </label>
+                          {/* <label className="mx-2"> {item?.publishedAt?.split('T', 1)}  </label> */}
+                          <label className="mx-2"> {item?.createdOn?.split('T', 1)}  </label>
                         </div>
                       </div>
                       <div>
-                        <h4>{item?.title}</h4>
+                        {/* <h4>{item?.title}</h4> */}
+                        <h4>{item?.titleAr}</h4>
                       </div>
                     </div>
                   </Link>
@@ -88,7 +96,11 @@ const GoldNews = () => {
               ))}
             </div>
             < div className="pt-5 mt-5 d-flex justify-content-around " >
-              <button className={`btn btn-outline-info ${next >= report?.totalResults ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+              {/* <button className={`btn btn-outline-info ${next >= report?.totalResults ? ('disabled') : ('')}`} onClick={handelNext}> next</button>*/}
+              <button
+                className={`btn btn-outline-info ${next >= report?.result?.newsCount ? ('disabled') : ('')}`}
+                onClick={handelNext }
+              > next</button>
               <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
             </div>
           </div>

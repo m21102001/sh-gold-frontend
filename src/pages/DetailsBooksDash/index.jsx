@@ -62,6 +62,8 @@ const DetailsBooksDash = () => {
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">
                           <Link
+                          to={`/view-more-details/${item?._id}`}
+                          state={{item}}
                           >
                             <button type="button" className="btn btn-success">عرض الكتاب</button>
                           </Link>

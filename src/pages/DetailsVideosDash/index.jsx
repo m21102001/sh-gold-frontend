@@ -28,13 +28,9 @@ const DetailsVideosDash = () => {
                         playerVars: { showinfo: 1 }
                       },
                     }}
+                    controls
                     width='100%'
                     height='70vh'
-                  // style={{
-                  //   position: "absolute",
-                  //   top: "0",
-                  //   left: "0",
-                  // }}
                   />
                   <div className="card-body">
                     <div className="row">

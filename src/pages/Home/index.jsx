@@ -40,13 +40,8 @@ const Home = () => {
         <Footer />
       </div>
       { getCookie('role') == 'admin' || getCookie('role') == 'manager' ? (
-        <Link to="/dash/dashboard">
-          <RiDashboardFill
-            className="editIcon"
-            style={{
-              bottom: '1rem',
-            }}
-          />
+        <Link className="editIcon" to="/dash/dashboard">
+          D
         </Link>
       ) : null}
     </>

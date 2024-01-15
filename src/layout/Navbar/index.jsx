@@ -4,7 +4,6 @@ import logo from "@/assets/Cambridge-logo-.svg"
 import "./navbar.module.scss"
 import { useAuth } from "@/context/Auth";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { IoNotifications } from "react-icons/io5";
 import axios from '@/api/axios'
 import { getCookie, deleteCookie } from 'cookies-next';
 const Navbar = () => {
@@ -75,14 +74,6 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                {/*
-                  <div className="position-relative">
-                  <IoNotifications className="fs-1 ms-4 avatar text-light" />
-                  // <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-danger bg-danger">10</span>
-                  </div>
-                  
-                  <br />
-                */}
                 <Link
                   to={'/auth/profile'}
                 >

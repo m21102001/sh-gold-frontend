@@ -44,7 +44,10 @@ const EditProfile = () => {
           deleteCookie('role')
           deleteCookie('token')
           navigate("/")
-          tosts()
+          if (response.status == 200) {
+            // tosts()
+          }
+
         })
 
     } catch (err) {
@@ -61,6 +64,7 @@ const EditProfile = () => {
         <div className="Container pt-5 login">
           <div className="container text-end d-flex flex-column justify-content-center m-auto body-card" >
             <div className="shadow-lg p-3 mb-5 bg-body rounded">
+              <h3 className='text-center pt-3 fs-2 fw-bold'>تغييرالبايانات الشخصيه</h3>
               <form className='pb-5 pt-2' onSubmit={handelSubmit}>
                 <div className="mb-3">
                   <label
@@ -74,6 +78,7 @@ const EditProfile = () => {
                     aria-describedby="emailHelp"
                     value={fullName}
                     onChange={e => setFullName(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="mb-3">
@@ -88,11 +93,12 @@ const EditProfile = () => {
                     aria-describedby="emailHelp"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="d-grid gap-2">
                   <ToastContainer />
-                  <button onClick={() => tosts()} >تغيير الرقم السري</button>
+                  <button onClick={() => tosts()} >تغيير البيانات </button>
                 </div>
               </form>
             </div>
