@@ -1,0 +1,23 @@
+// .news-date {
+//     position: absolute;
+//     bottom: 8px;
+//     width: 96%;
+//     margin-left: 2%;
+//     margin-right: 2%;
+//     background: #151514 0% 0% no-repeat padding-box;
+//     border-radius: 4px;
+//     opacity: .66;
+// }
+.details-news .news-date {
+position: absolute;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background: #151514 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 0.66;
+    color: var(--gold-color2);
+    text-align: center;
+    top: 87%;
+    padding: 0.5rem 0;
+}

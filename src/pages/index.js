@@ -53,6 +53,7 @@ export { default as ReservationTicket } from './ReservationTicket';
 export { default as DetailsVideosDash } from './DetailsVideosDash';
 export { default as CreatePlaylistDash } from './CreatePlaylistDash';
 export { default as UpdatePlaylistDash } from './UpdatePlaylistDash';
+export { default as DetailsGoldNewsClub } from './DetailsGoldNewsClub';
 export { default as DetailsPlaylistDash } from './DetailsPlaylistDash';
 export { default as DetailsAllUsersDash } from './DetailsAllUsersDash';
 export { default as UpdateRoleUsersDash } from './UpdateRoleUsersDash';
