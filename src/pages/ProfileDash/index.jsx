@@ -1,49 +1,64 @@
-import { SidebarDashboard } from "@/layout"
+import { useEffect, useState } from "react";
 import axios from '@/api/axios'
-import { Worker } from '@react-pdf-viewer/core';
-// Import the main component
-import { Viewer } from '@react-pdf-viewer/core';
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 
-// Import the styles
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
 
 const ProfileDash = () => {
-  const notify = () => toast("Wow so easy!");
+  const [goldPrice, setGoldPrice] = useState([])
+  const [data, setData] = useState([])
+  const [keys, setKeys] = useState([])
+  const [values, setValues] = useState([])
 
-  let config = {
-    method: 'get',
-    url: `${import.meta.env.VITE_GOLD_URL}/latest?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=USD&currencies=EUR,XAU,XAG`,
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc3OGU2YmZhNzczMzNkMDgxZjc3NmMiLCJpYXQiOjE3MDIzMzQzNjEsImV4cCI6MTcwMjQyMDc2MX0.TM_TFOc0CTHxVWff1eiiVMRdOhpY8O3eNEqHIMsIwos',
-      // 'Cookie': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTc3OGU2YmZhNzczMzNkMDgxZjc3NmMiLCJpYXQiOjE3MDI0ODYwNDMsImV4cCI6MTcwMjU3MjQ0M30.8fa03fkjdy2CRBwqUXtPXphYIW8i1LXL_g1C-Y8gozw',
-      withCredentials: true,
-    },
+  useEffect(() => {
+    try {
+      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=2023-01-20&end_date=2024-01-16&base=KWD&currencies=XAU,USD&unit=gram`,
+        {
+          withCredentials: false
+        }
+      ).then(response => {
+        setGoldPrice(response?.data.rates)
+        const data = Object.entries(response?.data.rates).map(([key, value]) => ({ name: key, usd: value.USD }))
+        setData(data)
+        setKeys(Object.keys(response?.data.rates))
+        setValues(Object.values(response?.data.rates))
+      })
 
-  };
-
-  axios.request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch((error) => {
+    } catch (error) {
       console.log(error);
-    });
+    }
+
+  }, [])
+
+  // const USD = values.map(value => value.USD)
+
+  console.log(data);
+
+  // console.log(keys, values);
+
+  // const XAU = values.map(value => value.XAU)
 
   return (
-    <div className="dashboard d-flex flex-row">
-      <SidebarDashboard />
-      <div>
-        <button onClick={notify}>Notify!</button>
-        <ToastContainer />
-      </div>
-      home
-      <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
-        <Viewer fileUrl="https://cambridge-files-repository.s3.amazonaws.com/pdfs/1703874091396-Cambridge-logo-.pdf" />;
-      </Worker>
-    </div>
+    <>
+      {/* <SidebarDashboard /> */}
+      <AreaChart width={730} height={250} data={data}
+        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        <Area type="monotone" dataKey="usd" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+      </AreaChart>
+    </>
   )
 }
 

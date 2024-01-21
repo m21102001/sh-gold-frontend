@@ -1,124 +1,69 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart } from 'recharts';
 import "./chart.scss"
-const datas = [
-  {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400
-  },
-  {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  },
-  {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290
-  }, {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  }, {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  }, {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290
-  },
-  {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290
-  },
-  {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400
-  },
-  {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  },
-  {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400
-  },
-  {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  },
-]
+import  axios from 'axios';
+
 const AreaCharts = () => {
   const [loading, setLoading] = useState(false);
-  const [metalSymbols, setMetalSymbols] = useState({});
-
+  const [goldPrice, setGoldPrice] = useState([])
+  const [data, setData] = useState([])
+  const [keys, setKeys] = useState([])
+  const [values, setValues] = useState([])
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response =
-          await axios.get(
-            `${import.meta.env.VITE_GOLD_URL}?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=KWD&currencies=XAU`,
+    try {
+      // axios.get(`${import.meta.env.VITE_GOLD_URL}timeframe?api_key=${import.meta.env.VITE_GOLD_SECRET}&start_date=2023-01-20&end_date=2024-01-21&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
+      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=2023-01-22&end_date=2024-01-20&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
+        {
+          withCredentials: false
+        }
+      ).then(response => {
+        setGoldPrice(response?.data.rates)
+        const data = Object.entries(response?.data.rates).map(
+          ([key, value]) => (
             {
-              withCredentials: false,
-            }, {
-            headers: {
-              "Content-Type": "application/json;",
+              name: key,
+              gold: ((1 / value.XAU) + 0.5 / 100),
+              silver: (1 / value.XAG) + 0.5 / 100,
+              Platinum: (1 / value.XPT) + 0.5 / 100
             }
-          }
-          );
+          ))
+        setData(data)
+        setKeys(Object.keys(response?.data.rates))
+        setValues(Object.values(response?.data.rates))
+      })
 
-        setMetalSymbols(response.data);
-        console.log('metai' + metalSymbols.base);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, []);
+    } catch (error) {
+      console.log(error);
+    }
+
+  }, [])
+
+  // console.log(data,goldPrice);
 
   return (
-    <>
-      {/* {loading && <div className="loading"></div>} */}
-      <AreaChart
-        width={980}
-        height={350}
-        data={datas}
-        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-      >
-        <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <CartesianGrid strokeDasharray="3 3" />
-        <Tooltip />
-        {/* {data?.document.map((data, index) => ( */}
-        <Area type="monotone" dataKey="uv" stroke="#f8d25c" fillOpacity={1} fill="url(#colorUv)" />
-        {/* ))} */}
-      </AreaChart>
-    </>
+    <AreaChart
+      width={980}
+      height={350}
+      data={data}
+      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+      <defs>
+        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
+          <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
+        </linearGradient>
+        <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
+          <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
+        </linearGradient>
+      </defs>
+      <XAxis dataKey="name" />
+      <YAxis />
+      <CartesianGrid strokeDasharray="3 3" />
+      <Tooltip />
+      <Area type="monotone" dataKey="gold" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+      <Area type="monotone" dataKey="silver" stroke="#4d8" fillOpacity={1} fill="url(#colorUv)" />
+      <Area type="monotone" dataKey="Platinum" stroke="#848" fillOpacity={1} fill="url(#colorUv)" />
+    </AreaChart>
   );
 }
 
