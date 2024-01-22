@@ -634,3 +634,28 @@ export const goldCategory = [
     option: 'Othmani Lera and Georgian',
   },
 ];
+export const metalType = [
+  {
+    id: 1,
+    name: 'الذهب',
+    type: 'gold',
+    duration: 'اسبوع',
+    durationTime: new Date().setMonth()
+  },
+  {
+    id: 2,
+    name: 'الفضة',
+    type: 'silver',
+    duration: 'شهر',
+    // durationTime:
+  },
+  {
+    id: 3,
+    name: 'البلاتينيوم',
+    type: 'Platinum',
+    duration: 'سنه',
+    // durationTime:
+  }
+
+]
+// console.log(metalType.durationTime);

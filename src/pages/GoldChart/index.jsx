@@ -1,20 +1,52 @@
-import { AreaCharts } from '@/components'
-import './goldChart.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { AreaCharts } from '@/components'
+import './goldChart.scss'
+import { Link } from 'react-router-dom';
+import { metalType } from '@/db/data';
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);
   const [time, setTime] = useState(new Date())
-  // const [counter, setCounter] = useState(60)
+  const [counter, setCounter] = useState(60)
   const [price, setPrice] = useState([])
-  // const [data, setData] = useState([])
+  const [data, setData] = useState([])
+  const [carat, setCarat] = useState([])
   const [keys, setKeys] = useState([])
   const [values, setValues] = useState([])
 
+  const [gold, setGold] = useState('gold')
+
+  // useEffect(() => {
+  setInterval(() => setTime(new Date), 59000)
+  setInterval(() => counter, 1000)
+  // }, [])
   useEffect(() => {
-    setInterval(() => setTime(new Date), 60000)
+    axios.get(`https://api.metalpriceapi.com/v1/carat?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=KWD`,
+      {
+        withCredentials: false
+      })
+      .then((response) => {
+        setCarat(response.data)
+        // console.log(response.data.data);
+        const data = Object.entries(response?.data?.data).map(
+          ([key, value]) => (
+            {
+              name: key,
+              gold24: value,
+            }
+          )
+        )
+        // setData(data)
+        // setKeys(Object.keys(response?.data.rates))
+        // setValues(Object.values(response?.data.rates))
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [])
+
+  // console.log(carat.data.value);
 
   useEffect(() => {
     setLoading(true);
@@ -41,18 +73,18 @@ const GoldChart = () => {
         console.log(error);
       });
   }, []);
-  console.log(keys, values, price);
+  // console.log(values);
   return (
     <>
       {/* {loading && <div className="loading"></div>} */}
-      <section  className="gold-chart">
+      <section className="gold-chart">
         <div className="container py-5">
           <div className="row">
             <div className="col">
               <nav aria-label="breadcrumb" className="bg-light rounded-3 p-3 mb-4">
                 <ol className="breadcrumb mb-0">
                   <li className="breadcrumb-item m-auto">Prices will be updated in
-                    {/* <span style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{counter}</span> */}
+                    <span className='mx-1' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{counter}</span>
                     seconds according to international price
                     <span style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{time.toLocaleTimeString()}</span>
                   </li>
@@ -62,57 +94,73 @@ const GoldChart = () => {
           </div>
           <div className="row mt-4">
             <div className="col-lg-3">
-              <div className=" py-1 mt-1 mb-5 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الذهب</div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الذهب</div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 24 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{color:'#FFC107'}}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">20.260</span>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[0]}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
-                <app-arrow-prices className="pb-2">
-                  <img src="https://daralsabaek.com/assets/image/icon/chartconstant.svg" className="w-100 ng-star-inserted" />
-                </app-arrow-prices>
+                <hr />
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 22 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{color:'#FFC107'}}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">20.260</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
-                <app-arrow-prices className="pb-2">
-                  <img src="https://daralsabaek.com/assets/image/icon/chartconstant.svg" className="w-100 ng-star-inserted" />
-                </app-arrow-prices>
+                <hr />
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 21 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{color:'#FFC107'}}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">20.260</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
-                <app-arrow-prices className="pb-2">
-                  <img src="https://daralsabaek.com/assets/image/icon/chartconstant.svg" className="w-100 ng-star-inserted" />
-                </app-arrow-prices>
+                <hr />
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 18 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{color:'#FFC107'}}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">20.260</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
-                <app-arrow-prices className="pb-2">
-                  <img src="https://daralsabaek.com/assets/image/icon/chartconstant.svg" className="w-100 ng-star-inserted" />
-                </app-arrow-prices>
               </div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الفضه</div>
+              <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
+                <div className="flex-grow-1">
+                  <div className="row">
+                    <p className="col text-light fs-6"> الفضة (كجم)</p>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[1]}</span>
+                      <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر البلاتينيوم </div>
+              <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
+                <div className="flex-grow-1">
+                  <div className="row">
+                    <p className="col text-light fs-6">البلاتينيوم (جرام)</p>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[2]}</span>
+                      <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* <div className="card mb-4 mb-lg-0">
                 <div className="card-body p-0">
                   <ul className="list-group list-group-flush rounded-3">
@@ -162,9 +210,36 @@ const GoldChart = () => {
               </div> */}
             </div>
             <div className="col-lg-9 col-md-12">
+              <div className="shadow-none p-3 mb-5 rounded d-flex justify-content-between">
+                <div className=''>
+                  {metalType?.map((item, index) => (
+                    <Link
+                      key={index}
+                      to='/'
+                      state={{ item: item.type }}
+                    >
+                      <button type="button" className='btn btn-warning mx-2'>{item?.name}</button>
+                    </Link>
+                  ))
+                  }
+                </div>
+                {metalType?.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={'/'}
+                    state={{ item: item }}
+                  >
+                    <div className=''>
+                      <button type="button" className='btn btn-outline-warning mx-2'>{item?.duration}</button>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
               <div className="card mb-4 px-0">
                 <div className="card-body px-1 text-end">
-                  <div className='coursers-open'>
+                  <div dir='ltr' className='coursers-open'>
+
                     <AreaCharts />
                   </div>
                 </div>
@@ -172,7 +247,7 @@ const GoldChart = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   )
 }

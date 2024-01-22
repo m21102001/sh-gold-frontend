@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart } from 'recharts';
+import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Legend } from 'recharts';
 import "./chart.scss"
-import  axios from 'axios';
+import axios from 'axios';
+import {  useLocation } from 'react-router-dom';
 
 const AreaCharts = () => {
+  const item=useLocation()?.state?.item
+  console.log('item',item);
   const [loading, setLoading] = useState(false);
   const [goldPrice, setGoldPrice] = useState([])
   const [data, setData] = useState([])
@@ -41,29 +44,38 @@ const AreaCharts = () => {
   // console.log(data,goldPrice);
 
   return (
-    <AreaChart
-      width={980}
-      height={350}
-      data={data}
-      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-      <defs>
-        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
-          <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
-        </linearGradient>
-        <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
-          <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
-        </linearGradient>
-      </defs>
-      <XAxis dataKey="name" />
-      <YAxis />
-      <CartesianGrid strokeDasharray="3 3" />
-      <Tooltip />
-      <Area type="monotone" dataKey="gold" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-      <Area type="monotone" dataKey="silver" stroke="#4d8" fillOpacity={1} fill="url(#colorUv)" />
-      <Area type="monotone" dataKey="Platinum" stroke="#848" fillOpacity={1} fill="url(#colorUv)" />
-    </AreaChart>
+    <>
+      <AreaChart
+        width={980}
+        height={350}
+        data={data}
+        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="#f8d" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="#f8d" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <YAxis />
+        <XAxis dataKey="name" />
+        <CartesianGrid strokeDasharray="3 3" />
+        <Tooltip />
+        {/* <Legend verticalAlign="top" height={36} /> */}
+        {item == "gold" ?
+          <Area type="monotone" dataKey="gold" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+          : item === "silver" ?
+            <Area type="monotone" dataKey="silver" stroke="#4d8" fillOpacity={1} fill="url(#colorUv)" />
+            : item == "Platinum" ?
+              <Area type="monotone" dataKey="Platinum" stroke="#848" fillOpacity={1} fill="url(#colorUv)" />
+              :
+              <Area type="monotone" dataKey="gold" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+        }
+      </AreaChart>
+    </>
   );
 }
 
