@@ -53,46 +53,46 @@ const GoldNews = () => {
         <div className="row align-items-center" style={{ margin: '0 -16px 0 -16px' }}>
           <div className="col-md-6 col-sm-12 p-0">
             <LazyLoadImage
-              src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-              alt=""
+              src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+              alt={item?.title}
               loading="lazy"
               style={{ width: '-webkit-fill-available', height: '40rem', borderRadius: '2px' }}
             />
           </div>
           <div className="col-md-6 col-sm-12 p-3 text-light container" style={{ height: '40rem', backgroundColor: 'var(--darkblue-color)', borderRadius: '4px' }}>
             <div className='d-flex justify-content-start flex-column align-items-start align-content-start flex-wrap'>
-              <h5>السعر  </h5>
+              <h6>السعر  </h6>
               <strong className='fs-4' style={{ color: 'var(--gold-color)' }}>{item?.price} دينار كويتى</strong>
             </div>
             <div className='d-flex justify-content-start flex-column align-items-start align-content-start flex-wrap'>
-              <h5>النوع  </h5>
+              <h6>النوع  </h6>
               <strong className='fs-4' style={{ color: 'var(--gold-color)' }}>{type}</strong>
             </div>
             <div className='d-flex justify-content-start flex-column align-items-start align-content-start flex-wrap py-3'>
-              <h5>الوزن والمقاس  </h5>
+              <h6>الوزن والمقاس  </h6>
               <strong className='fs-4 fw-normal' >{item?.size}  جرام</strong>
             </div>
             <div className='d-flex justify-content-start flex-column align-items-start align-content-start flex-wrap py-3'>
-              <h5> الوصف الكامل  </h5>
+              <h6> الوصف الكامل  </h6>
               <strong className='fs-4 fw-normal ' > {item?.description} </strong>
             </div>
             <div className='d-flex justify-content-start flex-column align-items-start align-content-start flex-wrap py-3'>
               <h6> متوفر فى   </h6>
               <div className='d-flex'>
                 <div className='d-flex justify-content-start flex-row align-items-start align-content-start flex-wrap pb-3'>
-                  <h5 className='mx-3'> <FaLocationDot color='var(--gold-color)' /></h5>
+                  <h6 className='mx-3'> <FaLocationDot color='var(--gold-color)' /></h6>
                   <strong className='fs-4 fw-normal ' >{item?.description} </strong>
                 </div>
               </div>
               <div className='d-flex'>
                 <div className='d-flex justify-content-start flex-row align-items-start align-content-start flex-wrap pb-3'>
-                  <h5 className='mx-3'> <FaLocationDot color='var(--gold-color)' /></h5>
+                  <h6 className='mx-3'> <FaLocationDot color='var(--gold-color)' /></h6>
                   <strong className='fs-4 fw-normal ' >{item?.description} </strong>
                 </div>
               </div>
               <div className='d-flex'>
                 <div className='d-flex justify-content-start flex-row align-items-start align-content-start flex-wrap pb-3'>
-                  <h5 className='mx-3'> <FaLocationDot color='var(--gold-color)' /></h5>
+                  <h6 className='mx-3'> <FaLocationDot color='var(--gold-color)' /></h6>
                   <strong className='fs-4 fw-normal ' >{item?.description} </strong>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const GoldNews = () => {
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -139,13 +139,13 @@ const GoldNews = () => {
                       <div className={styles['gold-div']}>
                         <div className='title-card'>
                           <LazyLoadImage
-                            src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                            alt=""
+                            src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                            alt={item?.title}
                             loading="lazy"
                           />
                           <div className="news-date">
-                            <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>
-                            {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                            <label className="mx-2"> {item?.createdAt?.slice(0, 10)}</label>
+                            <label className="news-date-time mx-2"> {item?.createdAt?.slice(11, 16)}</label>
                           </div>
                         </div>
                         <div>
@@ -181,10 +181,14 @@ const GoldNews = () => {
                       <div className={styles['gold-div']}>
                         <div className='title-card'>
                           <LazyLoadImage
-                            src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                            alt=""
+                            src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                            alt={item?.title}
                             loading="lazy"
                           />
+                          <div className="news-date">
+                            <label className="mx-2"> {item?.createdAt?.slice(0, 10)}</label>
+                            <label className="news-date-time mx-2"> {item?.createdAt?.slice(11, 16)}</label>
+                          </div>
                         </div>
                         <div>
                           <h3 className='text-center fw-bold'>{item.category}</h3>

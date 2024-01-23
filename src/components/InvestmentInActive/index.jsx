@@ -13,7 +13,7 @@ const InvestmentInActive = () => {
       axios.get(`/invest/inactive`)
         .then((response) => {
           setInvestment(response.data)
-          console.log(response.data);
+          // console.log(response.data);
           setLoading(false)
         })
         .catch((error) => {
@@ -93,7 +93,6 @@ const InvestmentInActive = () => {
 
     }
   }
-  // console.log(investment?.invest?.map());
   return (
     <>
       <div className="d-flex flex-wrap justify-content-evenly">

@@ -130,7 +130,7 @@ const UpdateGoldDash = () => {
               <option value="Sets">Sets</option>
               <option value="Rremium products">Rremium products</option>
             </select>
-            <div className="label-form">تعديل صوره المنتج</div>
+            <div className="label-form mt-3">تعديل صوره المنتج (Choose image (.png, .jpg, ...))</div>
             <input
               // hidden
               type="file"

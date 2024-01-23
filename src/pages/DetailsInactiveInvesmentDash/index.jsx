@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component"
 
 const DetailsInactiveInvesmentDash = () => {
   const item = useLocation()?.state?.item
-  console.log(item?.images?.[0])
+  // console.log(item)
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -34,6 +34,23 @@ const DetailsInactiveInvesmentDash = () => {
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.title}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">  محتوى الفكره  (PDF)</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">
+                          <Link
+                            to={`/view-more-details/${item?._id}`}
+                            state={{ item }}
+                          >
+                            <button type="button" className="btn btn-success">عرض الفكره</button>
+                          </Link>
+                          {/* {item?.pdf} */}
+                        </p>
                       </div>
                     </div>
                     <hr />
@@ -78,7 +95,7 @@ const DetailsInactiveInvesmentDash = () => {
                         <p className="mb-0">  تاريخ الاضافه</p>
                       </div>
                       <div className="col-sm-9">
-                        <p className="text-muted mb-0">{item?.createdAt?.split('T',1)}</p>
+                        <p className="text-muted mb-0">{item?.createdAt?.split('T', 1)}</p>
                       </div>
                     </div>
                   </div>

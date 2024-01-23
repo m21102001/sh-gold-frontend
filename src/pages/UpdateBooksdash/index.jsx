@@ -82,7 +82,7 @@ const UpdateBooksDash = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form">اضف ملف بصيغه (pdf)</div>
+          <div className="label-form">اضف ملف بصيغه (Choose PDF)*</div>
           <input
             type="file"
             name="pdf"
@@ -96,7 +96,7 @@ const UpdateBooksDash = () => {
             {pdf} <FaFilePdf size={30} />
           </label> */}
 
-          <div className="label-form">اضف صوره*</div>
+          <div className="label-form">اضف صوره*(Choose image (.png, .jpg, ...))</div>
           <input
             type="file"
             name="image"

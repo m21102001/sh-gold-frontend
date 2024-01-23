@@ -7,26 +7,9 @@ import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const Development = () => {
   const [loading, setLoading] = useState(false);
-  const [getvideos, setGetvideos] = useState([])
   const [getPlaylist, setGetPlaylist] = useState([])
 
-  let fetchVideos = {
-    method: 'get',
-    url: '/videos/',
-  };
-  useEffect(() => {
-    setLoading(true);
-    axios.request(fetchVideos)
-      .then((response) => {
-        setGetvideos(response.data);
-        setLoading(false);
-        console.log("getvideos", response);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  }, []);
+
 
   let fetchPlaylist = {
     method: 'get',
@@ -61,9 +44,9 @@ const Development = () => {
               <div className="card-body p-0">
                 <h5 className="card-title text-center fs-4 fw-bold pt-2 mb-4">الاكثر مشاهده</h5>
                 <ul className="list-group list-group-flush rounded-3">
-                  {!loading && getvideos?.document?.map((item, index) => (
+                  {!loading && getPlaylist?.document?.map((item, index) => (
                     <Link
-                      to={`/development/details-video/${item?._id}`}
+                      to={`/development/details-playlist/${item?._id}`}
                       state={{ item }}
                       key={index}
                       className="list-group-item d-flex align-items-center p-3"

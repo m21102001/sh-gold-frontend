@@ -14,7 +14,7 @@ const InvesmentDash = () => {
       {getCookie('role') == 'user' &&
         <div className="m-auto loading">
           <h2>YOU ARE NOT PROVIDE</h2>
-          <h2>PLEASE <span className="text-danger">SINGIN</span> AND BACK</h2>
+          <h2>PLEASE <span className="text-danger"><Link to={'auth/login'}> SINGIN</Link></span> AND BACK</h2>
         </div>}
       <div className="dashboard d-flex flex-row">
         <SidebarDashboard />

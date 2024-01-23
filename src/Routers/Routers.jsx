@@ -122,7 +122,7 @@ const Routers = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/bullion-store' element={<BullionStore />} />
-          <Route path='/bullion-store/:id' element={<BullionStoreItem />} />
+          {/* <Route path='/bullion-store/:id' element={<BullionStoreItem />} /> */}
           <Route path='/club' element={<Club />} />
           <Route path='/investment' element={<InvestmantPage />} />
           <Route path='/club/project-idea/:id' element={<ProjectIdea />} />
@@ -317,28 +317,32 @@ const Routers = () => {
               <Protect>
                 <UpdateInactiveInvesmentDash />
               </Protect>
-            } />
+            }
+             />
           <Route
             path='/dash/requests-investment'
             element={
               <Protect>
                 <RequestInvestment />
               </Protect>
-            } />
+            }
+             />
           <Route
             path='/dash/details-requests-investment/:id'
             element={
               <Protect>
                 <DetailsRequestInvestment />
               </Protect>
-            } />
+            } 
+            />
           <Route
             path='/dash/details-idea-requests-investment/:id'
             element={
               <Protect>
                 <DetailsIdeaRequestInvestment />
               </Protect>
-            } />
+            } 
+            />
           <Route
             path="/dash/club"
             element={

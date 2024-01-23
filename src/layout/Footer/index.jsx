@@ -29,7 +29,7 @@ const Footer = () => {
 
       <section className="">
         <div className="container text-center text-md-start mt-5">
-          <div className="row mt-3">
+          <div className="row mt-3 text-end">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
                 <i className="fas fa-gem me-3"></i><LazyLoadImage src={logo} alt="كامبردج " style={{ width: "10rem", height: "4rem", background: "rgb(233, 236, 239)", borderRadius: "10px", cursor: "pointer" }} />

@@ -30,7 +30,7 @@ const GoldStore = () => {
         setBookData(response.data);
         setLoading(false);
         window.scrollTo(0, 0);
-        // console.log("bookData", response.data.results);
+        // console.log("bullion store", response.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -105,10 +105,14 @@ const GoldStore = () => {
                       >
                         <div className={styles['gold-div']}>
                           <div className='title-card'>
-                            <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
+                            <LazyLoadImage
+                              src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                              alt={item?.title}
+                              loading="lazy"
+                            />
                             <div className="news-date">
-                              <label className="mx-2"> {item?.createdAt?.split('T', '1')}</label>
-                              {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                              <label className="mx-2"> {item?.createdAt?.slice(0, 10)}</label>
+                              <label className="news-date-time mx-2"> {item?.createdAt?.slice(11, 16)}</label>
                             </div>
                           </div>
                           <div>
@@ -126,10 +130,14 @@ const GoldStore = () => {
                           >
                             <div className={styles['gold-div']}>
                               <div className='title-card'>
-                                <LazyLoadImage src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`} alt="" loading="lazy" />
+                                <LazyLoadImage
+                                  src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                                  alt={item?.title}
+                                  loading="lazy"
+                                />
                                 <div className="news-date">
-                                  <label className="mx-2"> {item?.createdAt?.split('T', '1')}</label>
-                                  {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                                  <label className="mx-2"> {item?.createdAt?.slice(0, 10)}</label>
+                                  <label className="news-date-time mx-2"> {item?.createdAt?.slice(11, 16)}</label>
                                 </div>
                               </div>
                               <div>

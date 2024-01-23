@@ -99,7 +99,7 @@ const CreateBookDash = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form">اضف ملف (pdf)</div>
+          <div className="label-form">اضف ملف (Choose PDF)*</div>
           <input
             type="file"
             name="pdf"
@@ -110,7 +110,7 @@ const CreateBookDash = () => {
             // value={pdf}
             onChange={(e) => setpdf(e.target.files[0])}
           />
-          <div className="label-form">اضف صوره*</div>
+          <div className="label-form">اضف صوره* (Choose image (.png, .jpg, ...))</div>
           <input
             type="file"
             name="image"
