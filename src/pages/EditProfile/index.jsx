@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { Navbar } from "@/layout";
 import { ToastContainer, toast } from 'react-toastify';
@@ -23,7 +23,6 @@ const EditProfile = () => {
       theme: "colored",
     })
   }
-
   // Submit the form data to the server
   const handelSubmit = async (e) => {
     e.preventDefault()
@@ -41,22 +40,24 @@ const EditProfile = () => {
         .then((response) => {
           setIsPending(false)
           console.log(response);
-          deleteCookie('role')
-          deleteCookie('token')
+          // deleteCookie('role')
+          // deleteCookie('token')
           navigate("/")
           if (response.status == 200) {
             // tosts()
           }
-
+          
         })
-
-    } catch (err) {
-      setIsPending(false);
-      console.log('response', err.response);
+        
+      } catch (err) {
+        setIsPending(false);
+        console.log('response', err.response);
+      }
     }
-  }
-
-  return (
+    useCallback(handelSubmit,[])
+    // useEffect(()=>{},[handelSubmit])
+    
+    return (
     <>
       {isPending && <div className="loading"></div>}
       <div className='login-page'>
