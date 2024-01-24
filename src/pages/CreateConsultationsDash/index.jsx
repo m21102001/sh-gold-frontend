@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
+import { MdOutlineArrowBack } from "react-icons/md";
 
 const CreateConsultationsDash = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const CreateConsultationsDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response);
+          // console.log('created success', response);
           alert("Ticket created successfully")
           setTitle('')
           setPeriod('')
@@ -56,8 +57,8 @@ const CreateConsultationsDash = () => {
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      // console.log('response', err.response);
+      // console.log('message', err.message);
     }
   };
 
@@ -68,6 +69,10 @@ const CreateConsultationsDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>Create Ticket Item</h2>
         </div>
+        <Link to={'/dash/consultations'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="butto" className="fw-bold fs-5 back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
         <form
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"

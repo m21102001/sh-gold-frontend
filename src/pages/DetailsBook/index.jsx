@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Footer, Navbar } from "@/layout"
-import { LazyLoadImage } from "react-lazy-load-image-component"
 import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Footer, Navbar } from "@/layout"
 import axios from "@/api/axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import styles from '@/components/GoldCard/GoldCard.module.scss';
+import { FaShoppingCart } from "react-icons/fa";
 const DetailsBook = () => {
   const navigate = useNavigate();
   const item = useLocation()?.state?.item
@@ -32,7 +33,7 @@ const DetailsBook = () => {
       .then((response) => {
         setGoldData(response.data);
         setLoading(false);
-        console.log("bookData", response);
+        // console.log("bookData", response);
       })
       .catch((error) => {
         setLoading(false);
@@ -44,7 +45,7 @@ const DetailsBook = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <button onClick={() => navigate('/book')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
+      <button onClick={() => navigate('/book')} type="button" className="btn btn-primary px-5 my-3 ms-5">رجوع </button>
       <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">
@@ -60,14 +61,6 @@ const DetailsBook = () => {
                 <LazyLoadImage
                   src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
                   alt={item?.title}
-                  loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <LazyLoadImage
-                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                  alt=""
                   loading="lazy"
                   style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
                 />
@@ -132,15 +125,10 @@ const DetailsBook = () => {
                         </div>
                         <div className="row align-items-center mt-5">
                           <div className="col-sm-4">
-                            <button type='button' className='btn btn-secondary px-4' onClick={increase}>+</button>
-                            <input readOnly min={1} value={counter} style={{ width: '4rem', color: 'var(--gold-color2)', border: "none !important", textAlign: 'center', margin: '0 1rem' }} />
-                            <button type='button' className='btn btn-secondary px-4' onClick={decrease}>-</button>
-                          </div>
-                          <div className="col-sm-4">
                             <Link
                               to={`/auth/shop`}
                             >
-                              <button type="button" className="btn btn-primary mx-2">اضف الى السله</button>
+                              <button type="button" className="btn btn-primary mx-2 shopping-btn">اضف الى السله <FaShoppingCart /></button>
                             </Link>
                           </div>
                           <div className="col-sm-4">
@@ -159,7 +147,7 @@ const DetailsBook = () => {
       <div className='coursers-open goldNews py-5'>
         <div className='m-auto d-flex justify-content-center mb-5'>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-          <h2 className='text-center comunation fs-1 fw-bold'>  منتجات متشابهة</h2>
+          <h2 className='text-center comunation fs-1 fw-bold'>  كتب متشابهة</h2>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         </div>
         <div className='m-auto d-flex justify-center'>
@@ -177,13 +165,13 @@ const DetailsBook = () => {
                       <div className={styles['gold-div']}>
                         <div className='title-card'>
                           <LazyLoadImage
-                            src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                            alt=""
+                            src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                            alt={item?.title}
                             loading="lazy"
                           />
                           <div className="news-date">
-                            <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>
-                            {/* <label className="news-date-time mx-2"> 10:01 <span >ص</span></label> */}
+                            <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>/
+                            <label className="news-date-time mx-2">{item?.createdAt?.slice(11, 16)} </label>
                           </div>
                         </div>
                         <div>

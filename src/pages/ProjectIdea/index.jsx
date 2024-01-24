@@ -67,7 +67,7 @@ const ProjectIdea = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 ">رجوع </button>
+      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 mt-3 ms-5 ">رجوع </button>
       <div className="text-center shadow-lg p-3 mx-3 mb-5 rounded" >
 
         <div className="row align-items-center mt-5">
@@ -80,45 +80,20 @@ const ProjectIdea = () => {
                 delay: 2500,
                 disableOnInteraction: false,
               }}
-              // pagination={{
-              //   type: 'progressbar',
-              // }}
               navigation={true}
               modules={[Pagination, Navigation]}
               className="mySwiper my-5"
             >
-              <SwiperSlide>
+              {item?.images.map((item,index)=>(
+              <SwiperSlide key={index}>
                 <LazyLoadImage
-                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                  alt=""
+                  src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
+                  alt={item?.title}
                   loading="lazy"
                   style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
                 />
               </SwiperSlide>
-              <SwiperSlide>
-                <LazyLoadImage
-                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                  alt=""
-                  loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <LazyLoadImage
-                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                  alt=""
-                  loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <LazyLoadImage
-                  src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                  alt=""
-                  loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
-                />
-              </SwiperSlide>
+              ))}
             </Swiper>
           </div>
           <div className="col-md-12 col-sm-12 m-0 p-0">
@@ -150,7 +125,7 @@ const ProjectIdea = () => {
                           <div className="col-sm-9">
                             <Link
                               to={`/view-more-details/${item?._id}`}
-                              state={{item}}
+                              state={{ item }}
                             >
                               <button className="fs-4 fw-bold mb-0">قرأه التفاصيل</button>
                             </Link>

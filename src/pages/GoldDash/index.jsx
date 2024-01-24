@@ -19,7 +19,7 @@ const GoldDash = () => {
         .then((response) => {
           setGoldData(response.data);
           setLoading(false);
-          console.log("goldData", response.data);
+          // console.log("goldData", response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -107,7 +107,7 @@ const GoldDash = () => {
                     <td>{index + 1}</td>
                     <td width={120}>{item?.category}</td>
                     <td>{item?.title}</td>
-                    <td>{item?.size} KG</td>
+                    <td>{item?.size} جرام</td>
                     <td>{item?.price}كويتى</td>
                     <td>
                       <Link

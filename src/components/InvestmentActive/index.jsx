@@ -111,6 +111,7 @@ const InvestmentActive = () => {
                 src={`${import.meta.env.VITE_IMAGE_URL}${item.images?.[0]}`}
                 className="card-img-top"
                 alt={item?.title}
+                height={250}
               />
               <div className="card-body">
                 <h5 className="card-title fw-bold "> {item?.title}</h5>

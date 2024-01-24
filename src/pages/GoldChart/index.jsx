@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AreaCharts } from '@/components'
 import './goldChart.scss'
 import { Link } from 'react-router-dom';
-import { metalType } from '@/db/data';
+import { durationTime, metalType } from '@/db/data';
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);
@@ -210,7 +210,7 @@ const GoldChart = () => {
               </div> */}
             </div>
             <div className="col-lg-9 col-md-12">
-              <div className="shadow-none p-3 mb-5 rounded d-flex justify-content-between">
+              <div className="shadow-none p-3 rounded d-flex justify-content-between flex-wrap">
                 <div className=''>
                   {metalType?.map((item, index) => (
                     <Link
@@ -223,23 +223,29 @@ const GoldChart = () => {
                   ))
                   }
                 </div>
-                {metalType?.map((item, index) => (
-                  <Link
-                    key={index}
-                    to={'/'}
-                    state={{ item: item }}
-                  >
-                    <div className=''>
-                      <button type="button" className='btn btn-outline-warning mx-2'>{item?.duration}</button>
-                    </div>
-                  </Link>
-                ))}
+                <div className='d-flex flex-column'>
+
+                  {durationTime?.map((item, index) => (
+                    <Link
+                      className='d-flex flex-row align-items-center mb-3'
+                      key={index}
+                      // to={'/'}
+                      state={{ item: item }}
+                    >
+                      <label htmlFor="datefrom" className='text-light ms-4'>{item?.duration}</label>
+                      <input
+                        type="date"
+                      id="datefrom"
+                      name="datefrom"
+                      />
+                    </Link>
+                  ))}
+                </div>
               </div>
 
               <div className="card mb-4 px-0">
                 <div className="card-body px-1 text-end">
                   <div dir='ltr' className='coursers-open'>
-
                     <AreaCharts />
                   </div>
                 </div>

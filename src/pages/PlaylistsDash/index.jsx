@@ -15,7 +15,7 @@ const PlaylistsDash = () => {
         .then((response) => {
           setLoading(false)
           setPlaylists(response.data)
-          console.log('playlist', response.data);
+          // console.log('playlist', response.data);
         })
         .catch((error) => {
           setLoading(false);

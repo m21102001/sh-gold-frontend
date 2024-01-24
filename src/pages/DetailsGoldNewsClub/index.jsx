@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Footer, Navbar } from '@/layout'
 import './detailsGoldNewsClub.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -6,12 +6,9 @@ import { useEffect, useState } from 'react'
 import axios from '@/api/axios'
 const DetailsGoldNewsClub = () => {
   const item = useLocation()?.state?.item
-  console.log(item);
-
-
   const [loading, setLoading] = useState(false)
   const [report, setReport] = useState([])
-  const [pageNum, setPageNum] = useState('1')
+  // const [pageNum, setPageNum] = useState('1')
 
   useEffect(() => {
     setLoading(true)
@@ -42,7 +39,12 @@ const DetailsGoldNewsClub = () => {
             <div className="col-lg-5 col-sm-12 shadow p-3 mb-5 bg-body-tertiary rounded">
               <h2 className="fw-bold text-center text-uppercase mb-4" style={{ color: 'var(--main-color)' }}> أخبار ذات صلة</h2>
               {!loading && report?.result?.homeNewsModel.map((item, index) => (
-                <div key={index} className="card mb-3" >
+                <Link
+                key={index}
+                to={`/club/details-news/${item?.id}`}
+                state={{item}}
+                  className="card mb-3"
+                >
                   <div className="row g-0 container">
                     <div className="col-md-4 container m-auto">
                       <img
@@ -56,11 +58,12 @@ const DetailsGoldNewsClub = () => {
                         <h5 className="card-title" style={{ color: 'var(--main-color)', fontWeight: "700" }}>{item?.titleAr}</h5>
 
                         <p className="card-text">
+                      التاريخ : <span>{item?.createdOn?.split("T",1)}</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="col-lg-1 col-sm-12"></div>
@@ -84,7 +87,7 @@ const DetailsGoldNewsClub = () => {
                     <h4 className="card-title fw-bold" style={{ color: 'var(--main-color)' }}>{item?.titleAr}</h4>
                     <div>
                       <p className=' lh-lg fw-bold'>
-                      مواصلاً خسائر الجلسة السابقة، مع ارتفاع عوائد الدولار وسندات الخزانة بفعل بيانات تجارة التجزئة الأمريكية الأقوى من المتوقع والتصريحات المتشددة من محافظي البنوك المركزية. ارتفعت مبيعات التجزئة الأمريكية بنسبة 0.6% على أساس شهري في ديسمبر 2023، متجاوزة توقعات النمو بنسبة 0.4% ومضرة بفكرة التيسير النقدي في وقت سابق. في السابق، قال محافظ الاحتياطي الفيدرالي كريستوفر والر إنه لا يرى سببًا لخفض أسعار الفائدة بالسرعة التي كان عليها في الماضي، مما يعكس اللهجة المتشددة لمسؤولي البنك المركزي الأوروبي ويؤدي إلى إعادة معايرة توقعات خفض أسعار الفائدة. ترى الأسواق الآن فرصة أقل من 60% لخفض سعر الفائدة الفيدرالي في مارس، بانخفاض ملحوظ من 76.9% في الجلسة السابقة، وفقًا لأداة FedWatch التابعة لمجموعة CME. يتطلع المستثمرون الآن إلى المزيد من تعليقات بنك الاحتياطي الفيدرالي هذا الأسبوع للحصول على إرشادات.
+                        مواصلاً خسائر الجلسة السابقة، مع ارتفاع عوائد الدولار وسندات الخزانة بفعل بيانات تجارة التجزئة الأمريكية الأقوى من المتوقع والتصريحات المتشددة من محافظي البنوك المركزية. ارتفعت مبيعات التجزئة الأمريكية بنسبة 0.6% على أساس شهري في ديسمبر 2023، متجاوزة توقعات النمو بنسبة 0.4% ومضرة بفكرة التيسير النقدي في وقت سابق. في السابق، قال محافظ الاحتياطي الفيدرالي كريستوفر والر إنه لا يرى سببًا لخفض أسعار الفائدة بالسرعة التي كان عليها في الماضي، مما يعكس اللهجة المتشددة لمسؤولي البنك المركزي الأوروبي ويؤدي إلى إعادة معايرة توقعات خفض أسعار الفائدة. ترى الأسواق الآن فرصة أقل من 60% لخفض سعر الفائدة الفيدرالي في مارس، بانخفاض ملحوظ من 76.9% في الجلسة السابقة، وفقًا لأداة FedWatch التابعة لمجموعة CME. يتطلع المستثمرون الآن إلى المزيد من تعليقات بنك الاحتياطي الفيدرالي هذا الأسبوع للحصول على إرشادات.
                       </p>
                     </div>
                   </div>

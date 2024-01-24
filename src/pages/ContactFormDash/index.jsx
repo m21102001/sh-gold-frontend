@@ -20,7 +20,7 @@ const ContactFormDash = () => {
         .then((response) => {
           setContactForm(response.data);
           setLoading(false);
-          console.log("contactForm", response.data);
+          // console.log("contactForm", response.data);
         })
         .catch((error) => {
           setLoading(false);

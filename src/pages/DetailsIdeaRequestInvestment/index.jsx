@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import { useEffect, useState } from "react"
 import axios from "@/api/axios"
@@ -20,7 +20,7 @@ const DetailsIdeaRequestInvestment = () => {
       .then((response) => {
         setIdeaData(response.data);
         setLoading(false);
-        console.log("ideaData", response.data);
+        // console.log("ideaData", response.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -45,9 +45,9 @@ const DetailsIdeaRequestInvestment = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="card mb-4">
-                    <LazyLoadImage src={`${import.meta.env.VITE_FILE_URL}${ideaData?.document?.images}`}
-                     className="card-img-top" 
-                     alt={ideaData?.document?.title} />
+                    <LazyLoadImage src={`${import.meta.env.VITE_IMAGE_URL}${ideaData?.document?.images[0]}`}
+                      className="card-img-top"
+                      alt={ideaData?.document?.title} />
                     <div className="card-body">
                       <div className="row">
                         <div className="col-sm-3">
@@ -118,9 +118,12 @@ const DetailsIdeaRequestInvestment = () => {
                         </div>
                         <div className="col-sm-9">
                           <p className="text-muted mb-0">
-                            <a href={`${import.meta.env.VITE_FILE_URL}${ideaData?.document?.pdf}`}>
+                            <Link
+                              to={`/view-more-details/${ideaData?.document?._id}`}
+                              state={{ item: ideaData?.document }}
+                            >
                               <button type="button" className="btn btn-info px-4">الفكره</button>
-                            </a>
+                            </Link>
                           </p>
                         </div>
                       </div>

@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import { SidebarDashboard } from '@/layout';
-import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react"
+import { useLocation,Link, useNavigate } from 'react-router-dom';
+import { SidebarDashboard } from '@/layout';
 import axios from "@/api/axios"
+import { MdOutlineArrowBack } from "react-icons/md";
 
 const UpdateGoldDash = () => {
   const item = useLocation()?.state?.item
@@ -14,7 +14,7 @@ const UpdateGoldDash = () => {
   const [description, setDescription] = useState(item?.description)
   const [image, setImage] = useState(item?.image)
   const getInitialState = () => {
-    const value = "Premium Products";
+    const value = item.category;
     return value;
   };
   const [value, setValue] = useState(getInitialState);
@@ -45,7 +45,7 @@ const UpdateGoldDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response);
+          // console.log('created success', response);
           if (response?.status == 201) {
             alert('created successfully')
             return navigate('/dash/gold')
@@ -69,6 +69,10 @@ const UpdateGoldDash = () => {
           <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
             <h2 className='fs-1 fw-bold'>Update Gold Item</h2>
           </div>
+          <Link to={'/dash/gold'} className='mb-3 d-flex flex-row-reverse'>
+            <button type="butto" className="fw-bold fs-5 back-details-button"
+            ><MdOutlineArrowBack size={30} /></button>
+          </Link>
           <form
             onSubmit={hanelSubmit}
             className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
@@ -130,19 +134,23 @@ const UpdateGoldDash = () => {
               <option value="Sets">Sets</option>
               <option value="Rremium products">Rremium products</option>
             </select>
-            <div className="label-form mt-3">تعديل صوره المنتج (Choose image (.png, .jpg, ...))</div>
+            <div className="label-form mt-3">تعديل صوره المنتج (Choose image (.png, .jpg, ...)) <span className='text-danger'>اختياري</span></div>
             <input
-              // hidden
               type="file"
-              className="form-control  mb-3"
-              required
+              name={item?.title}
+              className="form-control mb-3"
               id='image'
               onChange={(e) => setImage(e.target.files[0])}
             />
-            {/* <label id="file-input-label" className="text-light" htmlFor='image'>
-              {image}
-              <FaImage size={30} />
-            </label> */}
+            <input
+              id="image"
+              type="image"
+              width="320"
+              height="250"
+              alt="Login"
+              disabled
+              src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+            />
             <div className="label-form">تعديل الوصف للمنتج*</div>
             <textarea
               type="text"
@@ -171,12 +179,6 @@ const UpdateGoldDash = () => {
             </button>
           </form>
         </div>
-        {/* <div className="container text-center">
-          <h1>Update Gold Item</h1>
-          <div>{item?.price}</div>
-          <div>{item?.title}</div>
-          <div>{item?._id}</div>
-        </div> */}
       </div>
     </>
   )

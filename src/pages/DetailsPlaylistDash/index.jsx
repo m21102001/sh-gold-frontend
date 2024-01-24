@@ -17,7 +17,7 @@ const DetailsPlaylistDash = () => {
       .then((response) => {
         setLoading(false)
         setVideosPlaylist(response.data)
-        console.log('setVideosPlaylist', response);
+        // console.log('setVideosPlaylist', response);
       })
       .catch((error) => {
         setLoading(false);
@@ -125,11 +125,6 @@ const DetailsPlaylistDash = () => {
                 }}
                 width='100%'
                 height='100%'
-              // style={{
-              //   position: "absolute",
-              //   top: "0",
-              //   left: "0",
-              // }}
               />
               <div className="card-body">
                 <h5 className="card-title fw-bold ">{item?.title}</h5>

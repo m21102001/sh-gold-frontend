@@ -6,7 +6,9 @@ import {  useLocation } from 'react-router-dom';
 
 const AreaCharts = () => {
   const item=useLocation()?.state?.item
-  console.log('item',item);
+  // useEffect(()=>{
+    console.log('item',item);
+  // },[])
   const [loading, setLoading] = useState(false);
   const [goldPrice, setGoldPrice] = useState([])
   const [data, setData] = useState([])
@@ -15,7 +17,7 @@ const AreaCharts = () => {
   useEffect(() => {
     try {
       // axios.get(`${import.meta.env.VITE_GOLD_URL}timeframe?api_key=${import.meta.env.VITE_GOLD_SECRET}&start_date=2023-01-20&end_date=2024-01-21&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
-      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=2023-01-22&end_date=2024-01-20&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
+      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=2024-01-01&end_date=${new Date().toISOString().slice(0,10)}&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
         {
           withCredentials: false
         }

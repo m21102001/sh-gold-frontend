@@ -20,7 +20,7 @@ const BooksDash = () => {
         .then((response) => {
           setBookData(response.data);
           setLoading(false);
-          console.log("bookData", response.data);
+          // console.log("bookData", response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -104,7 +104,7 @@ const BooksDash = () => {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{item?.title}</td>
-                  <td>{item?.price}كويتى</td>
+                  <td>{item?.price} دينار كويتى</td>
                   <td>
                     <Link
                       to={`/dash/update-books/${item._id}`}

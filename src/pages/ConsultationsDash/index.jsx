@@ -14,11 +14,11 @@ const ConsultationsDash = () => {
         .then((response) => {
           setLoading(false)
           setConsultation(response.data)
-          console.log('consultation', response.data);
+          // console.log('consultation', response.data);
         })
         .catch((error) => {
           setLoading(false);
-          console.log(error);
+          // console.log(error);
         });
     }
   }, [])

@@ -7,54 +7,28 @@ import './GoldNews.scss'
 const GoldNews = () => {
   const [loading, setLoading] = useState(false)
   const [report, setReport] = useState([])
-  const [pageNum, setPageNum] = useState('1')
-
+  const [pageNum, setPageNum] = useState(1)
   useEffect(() => {
     setLoading(true)
     axios.get(
       // "https://newsapi.org/v2/everything?q=gold&from=2023-12-12&sortBy=publishedAt&apiKey=524b74b89f804f918385b51ac1adc506",
       // "https://newsapi.org/v2/everything?q=gold&from=2023-12-20&sortBy=publishedAt&apiKey=41838a71f20f42aab058839d1e995b8e",
       // `${import.meta.env.VITE_FILE_URL}news?pageNo=1&PageSize=10`,
-      `https://api.daralsabaek.com/api/news?pageNo=1&PageSize=10`,
-      // `https://api.daralsabaek.com/api/news?pageNo=${setPageNum}&PageSize=10`,
+      `https://api.daralsabaek.com/api/news?pageNo=${pageNum}&PageSize=10`,
       {
         withCredentials: false
       }
     )
       .then((response) => {
         setReport(response.data)
-        console.log('fffff', response.data);
+        // console.log('fffff', response.data);
         setLoading(false)
       })
       .catch((error) => {
         setLoading(false)
         console.log(error);
       });
-  }, [])
-
-  ////////////////pagination///////////
-  const [prev, setPrev] = useState(0)
-  const [next, setNext] = useState(11)
-
-  const handelprev = () => {
-    setPrev(count => count - 11)
-    setNext(count => count - 11)
-    if (prev <= 0) {
-      setPrev(0);
-      setNext(11)
-    }
-  }
-  const handelNext = () => {
-    setNext(count => count + 11);
-    setPrev(count => count + 11)
-    if (next < 11) {
-      setPrev(0);
-      setNext(11)
-
-    }
-  }
-  // console.log(report?.result?.newsCount, prev, next);
-
+  }, [pageNum])
   return (
     <div className='coursers-open goldNews py-5'>
       {loading && <div className='loading'></div>}
@@ -67,39 +41,38 @@ const GoldNews = () => {
         <>
           <div className="container">
             <div className={styles['home-grid']}>
-              {/* {report?.articles?.map((item, index) => ( */}
               {report?.result?.homeNewsModel.map((item, index) => (
-                index >= prev && index <= next ? (
-                  <Link
-                    key={index}
-                    to={`/club/details-news/${item?.id}`}
-                    state={{item}}
-                  >
-                    <div className={styles['gold-div']}>
-                      <div className='title-card'>
-                        <LazyLoadImage
-                          src={`https://stgaccountdals.blob.core.windows.net/prdcont/${item?.imageUrl?.url}`}
-                        />
-                        <div className="news-date">
-                          <label className="news-date-time mx-2"> {item?.createdOn?.slice(11, 16)}</label>
-                          /
-                          <label className="mx-2"> {item?.createdOn?.split('T', 1)}  </label>
-                        </div>
-                      </div>
-                      <div>
-                        <h4>{item?.titleAr}</h4>
+                <Link
+                  key={index}
+                  to={`/club/details-news/${item?.id}`}
+                  state={{ item }}
+                >
+                  <div className={styles['gold-div']}>
+                    <div className='title-card'>
+                      <LazyLoadImage
+                        src={`https://stgaccountdals.blob.core.windows.net/prdcont/${item?.imageUrl?.url}`}
+                      />
+                      <div className="news-date">
+                        <label className="news-date-time mx-2"> {item?.createdOn?.slice(11, 16)}</label>
+                        /
+                        <label className="mx-2"> {item?.createdOn?.split('T', 1)}  </label>
                       </div>
                     </div>
-                  </Link>
-                ) : (null)
+                    <div>
+                      <h4>{item?.titleAr}</h4>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
             < div className="pt-5 mt-5 d-flex justify-content-around " >
               <button
-                className={`btn btn-outline-info ${next >= report?.result?.newsCount ? ('disabled') : ('')}`}
-                onClick={handelNext }
+                className={`btn btn-outline-info ${pageNum == report?.result?.newsCount ? 'disabled' : ''}`}
+                onClick={() => setPageNum(e => e + 1)}
               > next</button>
-              <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
+              <button className={`btn btn-outline-info ${pageNum == 1 ? 'disabled' : ''}`}
+                onClick={() => setPageNum(e => e - 1)}
+              > prev</button>
             </div>
           </div>
         </>

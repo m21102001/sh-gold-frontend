@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
+import { MdOutlineArrowBack } from "react-icons/md";
 
 const UpdateClubDash = () => {
   const item = useLocation()?.state?.item
@@ -26,7 +27,7 @@ const UpdateClubDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response);
+          // console.log('created success', response);
           if (response?.status == 201) {
 
             alert('created successfully')
@@ -49,6 +50,10 @@ const UpdateClubDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>update message</h2>
         </div>
+        <Link to={'/dash/club'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="butto" className="fw-bold fs-5 back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
         <form
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"

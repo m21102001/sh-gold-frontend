@@ -14,7 +14,7 @@ const ClubDash = () => {
         .then((response) => {
           setLoading(false)
           setClub(response.data)
-          console.log('club', response.data);
+          // console.log('club', response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -35,7 +35,8 @@ const ClubDash = () => {
         axios.get(`/club/`).then((response) => {
           setClub(response.data);
           setLoading(false);
-          console.log(response.data);
+          // console.log(response.data);
+          alert('Delated Successfully')
         });
       })
       .catch((error) => {
@@ -71,14 +72,14 @@ const ClubDash = () => {
 
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Club dash</h2>
+          <h2 className='fs-1 fw-bold'>Club Advice dash</h2>
         </div>
         <Link to="/dash/create-club">
           <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه جديد</button>
         </Link>
         <table className="table table-striped table-hover">
           <thead>
-            <tr>
+            <tr className="text-end">
               <th scope="col">#</th>
               <th scope="col">الرساله</th>
               <th scope="col">الاحداث</th>
@@ -87,7 +88,7 @@ const ClubDash = () => {
           <tbody>
             {!loading && club?.messages?.map((item, index) => (
               index >= prev && index <= next ? (
-                <tr key={index}>
+                <tr key={index} className="text-end">
                   <td>{index + 1}</td>
                   <td>{item?.message}</td>
                   <td>

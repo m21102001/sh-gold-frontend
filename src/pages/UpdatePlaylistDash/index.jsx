@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from '@/layout';
 import axios from '@/api/axios';
+import { MdOutlineArrowBack } from 'react-icons/md';
 
 const UpdatePlaylistDash = () => {
   const item = useLocation()?.state?.item
@@ -33,15 +34,15 @@ const UpdatePlaylistDash = () => {
           }
         )
         .then((response) => {
-          console.log('updated success', response.data);
+          // console.log('updated success', response.data);
           alert("updated successfully")
           navigate('/dash/playlists')
         });
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      // console.log('response', err.response);
+      // console.log('message', err.message);
     }
   };
   return (
@@ -51,6 +52,10 @@ const UpdatePlaylistDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>update playlist Item</h2>
         </div>
+        <Link to={'/dash/playlists'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="butto" className="fw-bold fs-5 back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
         <form
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
@@ -77,20 +82,24 @@ const UpdatePlaylistDash = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form">اضف صوره*</div>
+          <div className="label-form">اضف صوره* (Choose image (.jpg, .png, ...))<span className='text-danger'>اختياري</span></div>
           <input
             type="file"
             name="image"
             className="form-control mb-3"
             id="image"
-            required
             placeholder="اضف صوره*"
             onChange={(e) => setImage(e.target.files[0])}
           />
-          {/* <label id="file-input-label" className="text-light" htmlFor='image'>
-            {image}
-            <FaImage size={30} />
-          </label> */}
+          <input
+            id="image"
+            type="image"
+            width="320"
+            height="250"
+            alt="Login"
+            disabled
+            src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+          />
           <div className="label-form">تعديل الوصف *</div>
           <textarea
             rows={5}

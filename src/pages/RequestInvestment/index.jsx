@@ -20,11 +20,11 @@ const RequestInvestment = () => {
         .then((response) => {
           setGoldData(response.data);
           setLoading(false);
-          console.log("goldData", response.data);
+          // console.log("goldData", response.data);
         })
         .catch((error) => {
           setLoading(false);
-          console.log(error);
+          // console.log(error);
         });
     }
   }, []);
@@ -46,7 +46,7 @@ const RequestInvestment = () => {
         axios.request(fetchGold).then((response) => {
           setGoldData(response.data);
           setLoading(false);
-          console.log(response);
+          // console.log(response);
         });
       })
       .catch((error) => {

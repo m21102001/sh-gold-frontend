@@ -2,17 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Footer, Navbar } from "@/layout";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-
-
 // import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
-
-
 import axios from '@/api/axios'
 import "./book.scss";
 import styles from '../../components/GoldCard/GoldCard.module.scss';
@@ -55,9 +50,6 @@ const Book = () => {
           disableOnInteraction: false,
         }}
         freeMode={true}
-        // pagination={{
-        //   clickable: true,
-        // }}
         modules={[FreeMode, Pagination]}
         className="mySwiper my-5"
       >
@@ -71,14 +63,13 @@ const Book = () => {
                 <div className={styles['gold-div']}>
                   <div className='title-card'>
                     <LazyLoadImage
-                      // src={item?.image}
-                      src={`https://m.media-amazon.com/images/I/71eK-rLRfjS._SY342_.jpg`}
-                      alt=""
+                      src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                      alt={item?.title}
                       loading="lazy"
                     />
                     <div className="news-date">
-                      <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>
-                      <label className="news-date-time mx-2"> 10:01 <span >ص</span></label>
+                      <label className="mx-2"> {item?.createdAt?.slice(0,10)} </label>/
+                      <label className="news-date-time mx-2">{item?.createdAt?.slice(11,16)}</label>
                     </div>
                   </div>
                   <div>

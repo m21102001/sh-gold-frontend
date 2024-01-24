@@ -10,22 +10,21 @@ const GoldStore = () => {
   const [bookData, setBookData] = useState([])
 
   const getInitialState = () => {
-    const value = item?.option;
+    let value = item?.option;
+    if (value == null) {
+      (value = 'selectAll')
+    }
+
     return value;
   };
   const [value, setValue] = useState(getInitialState);
-
   const handleChange = (e) => {
     setValue(e.target.value);
   };
 
-  let fetchBook = {
-    method: 'get',
-    url: '/gold-bars/',
-  };
   useEffect(() => {
     setLoading(true);
-    axios.request(fetchBook)
+    axios.get(`/gold-bars/`)
       .then((response) => {
         setBookData(response.data);
         setLoading(false);

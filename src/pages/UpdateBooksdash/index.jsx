@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
+import { MdOutlineArrowBack } from "react-icons/md";
+import { Viewer, Worker } from "@react-pdf-viewer/core";
 const UpdateBooksDash = () => {
   const item = useLocation()?.state?.item
   const navigate = useNavigate();
@@ -55,18 +57,22 @@ const UpdateBooksDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>update Book Item</h2>
         </div>
+        <Link to={'/dash/books'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="butto" className="fw-bold fs-5 back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
         <form
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
         >
-          <div className="label-form">ادخل اسم المنتج*</div>
+          <div className="label-form">عدل اسم الكتاب*</div>
           <input
             type="text"
             name="title"
             className="form-control mb-3"
             id="title"
             required
-            placeholder="ادخل اسم المنتج*"
+            placeholder="عدل اسم الكتاب*"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           // defaultValue="Some initial value"
@@ -82,42 +88,48 @@ const UpdateBooksDash = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form">اضف ملف بصيغه (Choose PDF)*</div>
+          <div className="label-form">اضف ملف بصيغه (Choose PDF) <span className='text-danger'>اختياري</span></div>
           <input
             type="file"
             name="pdf"
             className="form-control mb-3"
             id="pdf"
-            required
             placeholder="اختر ملف pdf"
             onChange={(e) => setpdf(e.target.files[0])}
           />
-          {/* <label id="file-input-label" className="text-light" htmlFor='pdf'>
-            {pdf} <FaFilePdf size={30} />
-          </label> */}
-
-          <div className="label-form">اضف صوره*(Choose image (.png, .jpg, ...))</div>
+          <div className="w-50" style={{height:"250px"}}>
+          <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
+            <Viewer
+              fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`}
+              />
+          </Worker>
+              </div>
+          <div className="label-form">اضف صوره*(Choose image (.png, .jpg, ...)) <span className='text-danger'>اختياري</span></div>
           <input
             type="file"
             name="image"
             className="form-control mb-3"
             id="image"
-            required
             placeholder="اضف صوره*"
             onChange={(e) => setImage(e.target.files[0])}
           />
-          {/* <label id="file-input-label" className="text-light" htmlFor='image'>
-            {image}
-            <FaImage size={30} />
-          </label> */}
-          <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
+          <input
+            id="image"
+            type="image"
+            width="320"
+            height="250"
+            alt="Login"
+            disabled
+            src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+          />
+          <div className="label-form">اكتب وصفا دقيقا الكتاب*</div>
           <textarea
             type="text"
             name="description"
             className="form-control mb-3"
             id="description"
-            required
-            placeholder="اكتب وصفا دقيقا للمنتج*"
+            rows={5}
+            placeholder="اكتب وصفا دقيقا الكتاب*"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />

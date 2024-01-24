@@ -639,23 +639,28 @@ export const metalType = [
     id: 1,
     name: 'الذهب',
     type: 'gold',
-    duration: 'اسبوع',
-    durationTime: new Date().setMonth()
   },
   {
     id: 2,
     name: 'الفضة',
     type: 'silver',
-    duration: 'شهر',
-    // durationTime:
   },
   {
     id: 3,
     name: 'البلاتينيوم',
     type: 'Platinum',
-    duration: 'سنه',
-    // durationTime:
   }
 
+]
+export const durationTime = [
+  {
+    id: 1,
+    duration: " بدايه الفتره الزمنيه",
+    time:new Date().toISOString().slice(0,10)
+  },
+  {
+    id: 2,
+    duration: " نهايه الفتره الزمنيه",
+  }
 ]
 // console.log(metalType.durationTime);

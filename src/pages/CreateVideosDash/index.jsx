@@ -1,16 +1,15 @@
 import { useState } from "react"
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 
 const CreateVideosDash = () => {
   const item = useLocation()?.state?.item
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [url, setUrl] = useState('')
-  const [image, setImage] = useState({})
 
 
   const hanelSubmit = async (e) => {
@@ -25,7 +24,6 @@ const CreateVideosDash = () => {
             playlist: item?._id,
             description: description,
             url: url,
-            image: image,
           },
           {
             headers: {
@@ -34,12 +32,11 @@ const CreateVideosDash = () => {
           }
         )
         .then((response) => {
-          console.log('created success', response);
+          // console.log('created success', response);
           alert("Video created successfully")
           setTitle('')
           setDescription('')
           setUrl('')
-          setImage('')
           // navigate(`/dash/details-playlist/${item?._id}`)
         });
       setIsPending(false);
@@ -55,7 +52,7 @@ const CreateVideosDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Create video Item</h2>
+          <h2 className='fs-1 fw-bold'>Add Video In Playlist</h2>
         </div>
         <form
           onSubmit={hanelSubmit}
@@ -72,17 +69,6 @@ const CreateVideosDash = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className="label-form">اضف صوره غلاف للفيديو</div>
-          <input
-            type="file"
-            name="image"
-            className="form-control  mb-4"
-            id="image"
-            required
-            placeholder="اضف صوره غلاف للفيديو*"
-            // value={url}
-            onChange={(e) => setImage(e.target.files[0])}
-          />
           <div className="label-form">اضف عنوان الفيديو(Url)</div>
           <input
             type="text"
@@ -97,6 +83,7 @@ const CreateVideosDash = () => {
           <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>
           <textarea
             type="text"
+            rows={5}
             name="description"
             className="form-control  mb-4"
             id="description"
@@ -105,7 +92,6 @@ const CreateVideosDash = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">
               اضافه فيديو جديد
