@@ -39,7 +39,7 @@ const EditProfile = () => {
         })
         .then((response) => {
           setIsPending(false)
-          console.log(response);
+          // console.log(response);
           // deleteCookie('role')
           // deleteCookie('token')
           navigate("/")
@@ -55,7 +55,6 @@ const EditProfile = () => {
       }
     }
     useCallback(handelSubmit,[])
-    // useEffect(()=>{},[handelSubmit])
     
     return (
     <>
