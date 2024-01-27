@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import book from "../../assets/img/kenzbook.png"
 import { FaArrowLeft } from "react-icons/fa";
 import axios from "@/api/axios";
@@ -34,21 +34,34 @@ const StartElectronicEcommerce = () => {
   return (
     <div className="StartElectronicEcommerce my-5 ">
       <div>
-        <h2 className="text-light text-center fw-semibold my-3 pt-4">افضل الكتب فى الاستثمار وبيع وشراء الذهب</h2>
+        <h2 className="text-center fw-bold mb-5 pt-5" style={{color:'var(--gold-color)'}}>افضل الكتب فى الاستثمار وبيع وشراء الذهب</h2>
         {!loading && bookData?.document?.map((item, index) => (
           index == 0 ? (
             <div key={index} className="Container">
               <div className="row align-items-center">
-                <div className="col-md-8 col-sm-12 px-5">
-                  <h2 className="mb-3 text-end text-light">{item?.title}</h2>
+                <div className="col-md-7 col-sm-12 px-5">
+                  <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
+                    <h2 className="mb-3 text-end" style={{color:"var(--gold-color)"}}>{item?.title}</h2>
+                  </Link>
                   <h3 className="text-end text-light fs-4 lh-lg">
-                    {showMore ? item?.description?.substring(400,800) : `${item?.description?.substring(0, 400)}`}
-                    <span onClick={() => setShowMore(!showMore)} className="mx-4 cursorPointer" style={{color: 'var(--gold-color)', cursor: 'pointer' }}>{showMore ? "Read less" : "Read more..."}</span>
-
+                    {showMore ? item?.description?.substring(400, 800) : `${item?.description?.substring(0, 400)}`}
+                    <span
+                      onClick={() => setShowMore(!showMore)}
+                      className="mx-4 cursorPointer"
+                      style={{ color: 'var(--gold-color)', cursor: 'pointer', transitionTimingFunction: "ease" }}>{showMore ? "Read less" : "Read more..."}
+                    </span>
                   </h3>
                 </div>
+                <div className="col-md-1 col-sm-12"></div>
                 <div className="col-md-4 col-sm-12">
-                  <LazyLoadImage src={`${book}`} alt="Kenz book" className="kenzbook" />
+                <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                    alt={item?.title}
+                    className="kenzbook"
+                    lazy
+                  />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -59,14 +72,30 @@ const StartElectronicEcommerce = () => {
             <div key={index} className="Container">
               <div className="row align-items-center">
                 <div className="col-md-4 col-sm-12">
-                  <LazyLoadImage src={book} alt="Kenz book" className="kenzbook" />
+                <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                    alt={item?.title}
+                    className="kenzbook"
+                    lazy
+                  />
+                  </Link>
                 </div>
-                <div className="col-md-8 col-sm-12 px-5">
-                  <h2 className="mb-3 text-end text-light">{item?.title}</h2>
-                  <h3 className="text-end text-light fs-4 lh-lg">
-                    {showMore2 ? item?.description?.substring(400,800) : `${item?.description?.substring(0, 400)}`}
-                    <span onClick={() => setShowMore2(!showMore2)} className="mx-4 cursorPointer" style={{color: 'var(--gold-color)', cursor: 'pointer' }}>{showMore2 ? "Read less" : "Read more..."}</span>
 
+                <div className="col-md-1 col-sm-12"></div>
+                <div className="col-md-7 col-sm-12 px-5">
+                  <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
+                    <h2 className="mb-3 text-end" style={{color:"var(--gold-color)"}}>{item?.title}</h2>
+                  </Link>
+                  <h3 className="text-end text-light fs-4 lh-lg">
+                    {showMore2 ? item?.description?.substring(400, 800) : `${item?.description?.substring(0, 400)}`}
+                    <span
+                      onClick={() => setShowMore2(!showMore2)}
+                      className="mx-4 cursorPointer"
+                      style={{ color: 'var(--gold-color)', cursor: 'pointer' }}
+                    >
+                      {showMore2 ? "Read less" : "Read more..."}
+                    </span>
                   </h3>
                 </div>
               </div>

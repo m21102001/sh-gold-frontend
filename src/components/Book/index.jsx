@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import { courses } from "@/db/data";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Book = () => {
   return (

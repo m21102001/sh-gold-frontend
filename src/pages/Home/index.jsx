@@ -1,5 +1,10 @@
-import { Footer, Header, Navbar } from '@/layout'
-
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import {
+  Footer,
+  Header,
+  Navbar
+} from '@/layout'
 import {
   AboutThat,
   CoursesOpen,
@@ -10,10 +15,7 @@ import {
   StartElectronicEcommerce,
   WhyKambridage
 } from '@/components'
-import { useState } from 'react'
 import { GoldChart } from '@/pages'
-import { Link } from 'react-router-dom'
-import { RiDashboardFill } from "react-icons/ri";
 import { getCookie } from 'cookies-next'
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -24,7 +26,7 @@ const Home = () => {
         {/* <PdfToText /> */}
         <Navbar />
         <Header />
-        <GoldChart />
+        {/* <GoldChart /> */}
         {/* category gold */}
         <CoursesOpen />
         {/* investment */}
@@ -39,7 +41,7 @@ const Home = () => {
         <PricePlannig />
         <Footer />
       </div>
-      { getCookie('role') == 'admin' || getCookie('role') == 'manager' ? (
+      {getCookie('role') == 'admin' || getCookie('role') == 'manager' ? (
         <Link className="editIcon" to="/dash/dashboard">
           D
         </Link>

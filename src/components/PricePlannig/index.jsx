@@ -4,6 +4,7 @@ import { planning } from "@/db/data"
 const PricePlannig = () => {
   return (
     <div className="container-fluid planing" style={{ background: "linear-gradient(90deg, var(--main-color) 0%, var(--darkblue-color) 100%)" }}>
+      <h3 className="text-center py-5 fw-bold" style={{wordSpacing:'2px',fontSize:'3rem',color:'var(--gold-color)'}}>عضوية نادى كامبردج</h3>
       <div className="container p-5">
         <div className="row">
           {planning?.map((item, index) => (

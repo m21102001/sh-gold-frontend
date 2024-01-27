@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
         if (typeof data === "object") {
           setuser(data);
           setRole(data.data.role)
-          console.log('from auth', data.data);
+          // console.log('from auth', data.data);
           setLoggedin(true)
         }
       } finally {
@@ -31,9 +31,9 @@ export const AuthProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    console.log('loggedin', Loggedin)
+    // console.log('loggedin', Loggedin)
     console.log("user", user);
-    console.log("fetch", Fetched);
+    // console.log("fetch", Fetched);
     console.log("role", role);
 
   }, [Loggedin, user, Fetched, role])

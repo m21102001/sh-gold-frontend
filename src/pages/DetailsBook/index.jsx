@@ -6,32 +6,48 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import styles from '@/components/GoldCard/GoldCard.module.scss';
-import { FaShoppingCart } from "react-icons/fa";
 const DetailsBook = () => {
   const navigate = useNavigate();
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
-  const [counter, setCounter] = useState(1);
+  const [payment, setPayment] = useState([])
+  const [bookData, setBookData] = useState([])
+  const [bayBook, setBayBook] = useState([])
 
-  const increase = () => {
-    setCounter(count => count + 1);
-  };
-  const decrease = () => {
-    if (counter > 1) {
-      setCounter(count => count - 1);
-    }
-  };
 
-  let fetchBook = {
-    method: 'get',
-    url: '/books',
-  };
+  
   useEffect(() => {
-    setLoading(true);
-    axios.request(fetchBook)
+    async ()=> {
+      setLoading(true);
+      await axios.get(`books/${item?._id}`)
       .then((response) => {
-        setGoldData(response.data);
+          console.log(item?._id);
+          setGoldData(response.data);
+          console.log('get by is', response)
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+          setBayBook(error.response.status)
+          console.log(error.response.status);
+        });
+    }
+    setLoading(true);
+    axios.get(`books/pay/${item?._id}`)
+      .then((response) => {
+        setPayment(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+
+    setLoading(true);
+    axios.get(`/books`)
+      .then((response) => {
+        setBookData(response.data);
         setLoading(false);
         // console.log("bookData", response);
       })
@@ -39,7 +55,40 @@ const DetailsBook = () => {
         setLoading(false);
         console.log(error);
       });
-  }, []);
+
+  }, [item?._id]);
+
+  // console.log(goldData);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios.get(`books/pay/${item?._id}`)
+  //     .then((response) => {
+  //       setPayment(response.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       setLoading(false);
+  //       console.log(error);
+  //     });
+
+  // }, [])
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios.get(`/books`)
+  //     .then((response) => {
+  //       setBookData(response.data);
+  //       setLoading(false);
+  //       // console.log("bookData", response);
+  //     })
+  //     .catch((error) => {
+  //       setLoading(false);
+  //       console.log(error);
+  //     });
+  // }, []);
+
+  // console.log('item', item?._id);
 
   let id = item?._id
   return (
@@ -106,12 +155,25 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold"> قرأه الكتاب</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" >
-                            <Link
-                              to={`/view-more-details/${item?._id}`}
-                              state={{ item }}
-                            >
-                              <button className="text-muted fw-bold mb-0">الكتاب</button>
-                            </Link>
+                            {bayBook == 401 ? (
+                              <button className="text-muted fw-bold mb-0">
+                                <a
+                                  className="text-light px-2"
+                                  href={payment?.data}
+                                  target="_blank"
+                                  rel="noreferrer">
+                                  شراء الكتاب
+                                </a>
+                              </button>
+                            ) : (
+                              // user.user.data._id == ?
+                              <Link
+                                to={`/view-more-details/${goldData?.document?._id}`}
+                                state={{ item: goldData?.document }}
+                              >
+                                <button className="text-muted fw-bold mb-0">الكتاب</button>
+                              </Link>
+                            )}
                           </div>
                         </div>
                         <hr />
@@ -125,14 +187,7 @@ const DetailsBook = () => {
                         </div>
                         <div className="row align-items-center mt-5">
                           <div className="col-sm-4">
-                            <Link
-                              to={`/auth/shop`}
-                            >
-                              <button type="button" className="btn btn-primary mx-2 shopping-btn">اضف الى السله <FaShoppingCart /></button>
-                            </Link>
-                          </div>
-                          <div className="col-sm-4">
-                            <button onClick={() => navigate('/book')} type="button" className="btn btn-outline-primary mx-2">استمرار التسوق</button>
+                            <button onClick={() => navigate('/book')} type="button" className="btn btn-primary mx-2">استمرار التسوق</button>
                           </div>
                         </div>
                       </div>
@@ -154,13 +209,17 @@ const DetailsBook = () => {
           <>
             <div className="container">
               <div className={styles['home-grid']}>
-                {!loading && goldData?.document?.map((item, index) => (
+                {!loading && bookData?.document?.map((item, index) => (
                   index < 6 && item?._id !== id ? (
                     <Link
                       key={index}
                       to={`/book/detalis-book/${item._id}`}
                       state={{ item: item }}
-                      onClick={window.scrollTo(0, 0)}
+                      onClick={
+                        () => {
+                          window.scrollTo(0, 0)
+                          // click()
+                        }}
                     >
                       <div className={styles['gold-div']}>
                         <div className='title-card'>
@@ -170,7 +229,7 @@ const DetailsBook = () => {
                             loading="lazy"
                           />
                           <div className="news-date">
-                            <label className="mx-2"> {item?.createdAt?.split('T', '1')} </label>/
+                            <label className="mx-2"> {item?.createdAt?.slice(0, 10)} </label>/
                             <label className="news-date-time mx-2">{item?.createdAt?.slice(11, 16)} </label>
                           </div>
                         </div>

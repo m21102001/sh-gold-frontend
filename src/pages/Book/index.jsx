@@ -17,17 +17,13 @@ const Book = () => {
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
 
-  let fetchBook = {
-    method: 'get',
-    url: '/books',
-  };
   useEffect(() => {
     setLoading(true);
-    axios.request(fetchBook)
+    axios.get(`/books`)
       .then((response) => {
         setBookData(response.data);
         setLoading(false);
-        console.log("bookData", response);
+        // console.log("bookData", response);
       })
       .catch((error) => {
         setLoading(false);

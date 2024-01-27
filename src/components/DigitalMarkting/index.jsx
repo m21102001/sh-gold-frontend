@@ -2,24 +2,20 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "@/api/axios"
 import styles from '../GoldCard/GoldCard.module.scss';
-import ReactPlayer from 'react-player/lazy'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
 const DigitalMarkting = () => {
   const [loading, setLoading] = useState(false);
-  const [getvideos, setGetvideos] = useState([])
+  const [getPlayList, setGetPlayList] = useState([])
 
-  let fetchBook = {
-    method: 'get',
-    url: '/videos/',
-  };
   useEffect(() => {
     setLoading(true);
-    axios.request(fetchBook)
+    axios.get(`/playlists`)
       .then((response) => {
-        setGetvideos(response.data);
+        setGetPlayList(response.data);
         setLoading(false);
-        console.log("getvideos", response);
+        // console.log("getPlayList", response);
       })
       .catch((error) => {
         setLoading(false);
@@ -38,30 +34,19 @@ const DigitalMarkting = () => {
         <>
           <div className="container gold-dash">
             <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', gap: '90px' }}>
-              {!loading && getvideos?.document?.map((item, index) => (
+              {!loading && getPlayList?.document?.map((item, index) => (
                 index < 3 ? (
                   <div key={index} className={styles['gold-div']} >
                     <div>
-                      <ReactPlayer
-                        url={item?.url}
-                        config={{
-                          youtube: {
-                            playerVars: { showinfo: 1 }
-                          },
-                        }}
-                        width='100%'
-                        height='360px'
-                        style={{
-                          //   position: "absolute",
-                          //   top: "0",
-                          //   left: "0",
-                        }}
+                      <LazyLoadImage
+                        src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                        alt={item?.title}
                       />
                     </div>
                     <div className=''>
                       <h3 className=' fw-700'>{item.title}</h3>
                       <Link
-                        to={`/development/details-video/${item?._id}`}
+                        to={`/development/details-playlist/${item?._id}`}
                         state={{ item: item }}
                       >
                         <button>تفاصيل اضافيه</button>

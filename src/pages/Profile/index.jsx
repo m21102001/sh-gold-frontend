@@ -7,7 +7,7 @@ const Profile = () => {
   const user = useAuth();
   const userInfo = user.user.data
   // useCallback(userInfo,[userInfo])
-  // console.log(userInfo);
+  console.log(userInfo);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
