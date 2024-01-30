@@ -1,10 +1,27 @@
 import { Fragment } from "react"
 import "./PricePlannig.scss"
+import axios from '@/api/axios'
 import { planning } from "@/db/data"
 const PricePlannig = () => {
+  // const subscribe = () => {
+  //   console.log('hi')
+  //   try {
+  //     axios.post(`/users/gold/`).then((response) => {
+  //       console.log(response.status, response.data.token);
+  //     });
+  //   } catch ((error) => console.log(error);)
+  // }
+  const subscribe = async () => {
+    try {
+      const response = await axios.post(`/users/gold/`);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container-fluid planing" style={{ background: "linear-gradient(90deg, var(--main-color) 0%, var(--darkblue-color) 100%)" }}>
-      <h3 className="text-center py-5 fw-bold" style={{wordSpacing:'2px',fontSize:'3rem',color:'var(--gold-color)'}}>عضوية نادى كامبردج</h3>
+      <h3 className="text-center py-5 fw-bold" style={{ wordSpacing: '2px', fontSize: '3rem', color: 'var(--gold-color)' }}>عضوية نادى كامبردج</h3>
       <div className="container p-5">
         <div className="row">
           {planning?.map((item, index) => (
@@ -18,7 +35,6 @@ const PricePlannig = () => {
                     <span className="h2">{item?.price}</span>
                     <br /><br />
                   </div>
-                  {/* <p className="card-text text-end fs-5">{item?.description}</p> */}
                 </div>
                 {item?.features.map((item, index) => (
                   <Fragment key={index}>
@@ -34,7 +50,7 @@ const PricePlannig = () => {
                   </ Fragment>
                 ))}
                 <div className="card-body text-center">
-                  <button className="" style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                  <button className="" onClick={subscribe} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
                 </div>
               </div>
             </div>

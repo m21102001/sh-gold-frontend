@@ -15,20 +15,11 @@ const Header = () => {
           delay: 3500,
           disableOnInteraction: false,
         }}
-        //  pagination={{
-        //    clickable: true,
-        //  }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         slidesPerView={1}
         loop={true}
-      // spaceBetween={30}
-      // pagination={{
-      //   clickable: true,
-      // }}
-      // modules={[Pagination]}
-      // className="mySwiper"
       >
         {image?.map((item, index) => (
           <SwiperSlide key={index}>
@@ -40,7 +31,6 @@ const Header = () => {
             </div>
           </SwiperSlide>
         ))}
-
       </Swiper>
     </div>
   )

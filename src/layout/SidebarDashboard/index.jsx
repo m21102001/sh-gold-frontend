@@ -10,19 +10,25 @@ import { FaCodePullRequest, FaMessage } from "react-icons/fa6";
 import { GrProjects } from "react-icons/gr";
 import { FaTicketAlt, FaUsers } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { deleteCookie } from "cookies-next";
-
+import axios from '@/api/axios'
 import "./sidebarDashboard.scss";
 
 function SidebarDashboard() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-
-  const handelLogout = () => {
-    deleteCookie('token')
-    deleteCookie('role')
-    navigate('/auth/login')
+  const handelLogout = async () => {
+    try {
+      await await axios.post('/auth/logout', {
+        withCredentials: true
+      })
+        .then(response => {
+          console.log(response);
+          navigate('/auth/login')
+        })
+    } catch (error) {
+      console.log(error.response);
+    }
   }
   return (
     <div className="main-div">

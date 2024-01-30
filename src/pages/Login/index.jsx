@@ -10,9 +10,9 @@ import './login.scss'
 const Login = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
-  const notify = () => toast.error("sorry, please check email or password!", {
+  const notify = () => toast.error("sorry, please check phone or password!", {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -28,7 +28,7 @@ const Login = () => {
     setIsPending(true)
     try {
       await axios.post('/auth/login', {
-        email: email,
+        phone: phone,
         password: password,
       },
         {
@@ -70,20 +70,20 @@ const Login = () => {
               <form className='pb-5 pt-2' onSubmit={handelSubmit}>
                 <div className="mb-3">
                   <label
-                    htmlFor="exampleInputEmail1"
+                    htmlFor="exampleInputPhone1"
                     className="form-label fs-4 fw-bold"
                   >
-                    البريد الالكترونى*
+                     رقم الهاتف*
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    id="exampleInputPhone1"
+                    aria-describedby="PhoneHelp"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
                   />
-                  <div id="emailHelp" className="form-text fw-bold">لن نشارك بريدك الإلكتروني أبدًا مع أي شخص آخر. </div>
+                  <div id="phoneHelp" className="form-text fw-bold">لن نشارك  رقم هاتفك أبدًا مع أي شخص آخر. </div>
                 </div>
                 <div className="mb-3">
                   <label

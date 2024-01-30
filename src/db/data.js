@@ -1,5 +1,3 @@
-import app from '../assets/img/app.jpeg';
-import kinz from '../assets/img/kinz.jpeg';
 import brainstorming from '@/assets/brainstorming.webp';
 import income from '@/assets/income.webp';
 import investor from '@/assets/investor.webp';
@@ -7,87 +5,27 @@ import investor from '@/assets/investor.webp';
 export const image = [
   {
     id: 1,
-    img: 'https://i.ibb.co/m6k8DrS/angel-Photo-Sh.jpg',
+    img: 'https://i.ibb.co/wSHfW1n/consultation.jpg',
     src: 'info',
   },
   {
     id: 2,
-    img: ' https://i.ibb.co/rvzx2V5/Bitcoin-Sh.jpg',
+    img: ' https://i.ibb.co/3vz66dd/investment.jpg',
     src: 'info',
   },
   {
     id: 3,
-    img: ' https://i.ibb.co/c1qRk8B/Contract-Agreement.jpg',
+    img: ' https://i.ibb.co/8rMc1sf/library.jpg',
     src: 'info',
   },
   {
     id: 4,
-    img: ' https://i.ibb.co/dpbsryY/Council-Channel.jpg',
+    img: ' https://i.ibb.co/JKRQ7BK/training-And-Grow.jpg',
     src: 'info',
   },
   {
     id: 5,
-    img: ' https://i.ibb.co/7rQGCyr/creative.jpg',
-    src: 'info',
-  },
-  {
-    id: 6,
-    img: ' https://i.ibb.co/vv3JKYW/profile-Photo.jpg',
-    src: 'info',
-  },
-  {
-    id: 7,
-    img: ' https://i.ibb.co/s1NV05y/rezk-Company.jpg ',
-    src: 'info',
-  },
-  {
-    id: 8,
-    img: 'https://i.ibb.co/7pVRJZK/professional-Poto.jpg ',
-    src: 'info',
-  },
-  {
-    id: 9,
-    img: 'https://i.ibb.co/LDyNL5t/Peshawar-Bayda.jpg',
-    src: 'info',
-  },
-  {
-    id: 10,
-    img: 'https://i.ibb.co/BtTsbMS/Personal-Studio-Sh.jpg ',
-    src: 'info',
-  },
-  {
-    id: 11,
-    img: ' https://i.ibb.co/3hdjDBn/personal4x6.jpg ',
-    src: 'info',
-  },
-  {
-    id: 12,
-    img: ' https://i.ibb.co/DDxJbkD/papper-Promise-Sh.jpg',
-    src: 'info',
-  },
-  {
-    id: 13,
-    img: ' https://i.ibb.co/ZByZ87y/Kuwait-Conference.jpg',
-    src: 'info',
-  },
-  {
-    id: 14,
-    img: ' https://i.ibb.co/nfKZTQV/instructor-Sh.jpg',
-    src: 'info',
-  },
-  {
-    id: 15,
-    img: ' https://i.ibb.co/w6TzcS8/instructor-Kuwait-Conference.jpg',
-    src: 'info',
-  },
-  {
-    id: 16,
-    img: ' https://i.ibb.co/8ch2rJw/instractor-Board.jpg',
-    src: 'info',
-  },
-  {
-    id: 17,
-    img: ' https://i.ibb.co/Bffbfp4/explain-Sh-And3-Mans.jpg',
+    img: ' https://i.ibb.co/WyZZ5CL/support-Projects.jpg',
     src: 'info',
   },
 ];
@@ -101,7 +39,7 @@ export const consalting = [
       {
         id: 1,
         image: `https://goldtodayprices.com/wp-content/uploads/2022/09/how-invest-in-gold-investors-guide.jpg`,
-        alt: `alt`,
+        alt: ` قطاع الاستثمار في الذهب`,
         title: ` قطاع الاستثمار في الذهب`,
         desc: `تقدم خدمة االستشارات المالية في مجال االستثمار في الذهب نصائح متخصصة تتيح 
         للمستثمرين تحليل األسواق بشكل دقيق واتخاذ قرارات مستنيرة في شراء وبيع الذهب 
@@ -110,7 +48,7 @@ export const consalting = [
       {
         id: 2,
         image: `https://fifreedomtoday.com/wp-content/uploads/2023/06/3rsvHgsdAoiCkX6VNVdBGU.jpg`,
-        alt: `alt`,
+        alt: `قطاع المال والاستثمار`,
         title: ` قطاع المال والاستثمار`,
         desc: `نوفر استشارات مالية تساعد األفراد والمؤسسات في فهم األسواق واتخاذ قرارات 
         استثمارية مستنيرة، مما يحد من المخاطر ويزيد من الفرص لتحقيق العائد المرجو . تقديم 
@@ -121,7 +59,7 @@ export const consalting = [
       {
         id: 3,
         image: `https://misc-eg.com/wp-content/uploads/2022/02/%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%85%D8%A7%D9%84%D9%8A%D8%A9-750x458.jpg`,
-        alt: `alt`,
+        alt: `قطاع الاعمال التجارية`,
         title: ` قطاع الاعمال التجارية`,
         desc: `تقديم استشارات تجارية تساعد المؤسسات في تطوير استراتيجياتها وتحسين أدائها 
         التشغيلي، مما يؤدي إلى تحقيق المزيد من الربحية. مواجهة التحديات التجارية بشكل فعال 
@@ -132,7 +70,7 @@ export const consalting = [
       {
         id: 4,
         image: `https://madarej.sa/wp-content/uploads/2022/09/%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D9%85%D8%A7%D9%84%D9%8A%D8%A9.jpg`,
-        alt: `alt`,
+        alt: `الاستشارات المالية الاسرية`,
         title: `الاستشارات المالية الاسرية`,
         desc: `تركز الخدمة على توجيه األفراد واألسر نحو إدارة األموال الشخصية بشكل فعال، خطط 
         مالية مستدامة، وتحقيق األهداف المالية الشخصية وتعزيز االستقرار ووضع المالي لألسرة`,
@@ -162,161 +100,6 @@ export const consalting = [
         اسبوع.`,
       },
     ],
-  },
-];
-export const courses = [
-  {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'minning',
-    rating: 3.4,
-    img: `https://goldtodayprices.com/wp-content/uploads/2022/09/how-invest-in-gold-investors-guide.jpg`,
-  },
-  {
-    id: 2,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'minning',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/ECOM/Default/2022/4/CY/EE/NJ/11885699/ch-991-1-1000x1000.jpg`,
-  },
-  {
-    id: 3,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'minning',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/ECOM/Default/2022/11/HI/VI/JG/11885699/linkeduniquedesignpremium-gradequalitygoldplatedchainformen-125x125.jpg`,
-  },
-  {
-    id: 4,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'minning',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/ECOM/Default/2022/4/FB/RZ/XY/11885699/ch-9a-991-125x125.jpg`,
-  },
-  {
-    id: 5,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'programming',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/SELLER/Default/2022/6/SA/RG/TF/2929620/ds-chain-1604-250x250.JPG`,
-  },
-  {
-    id: 6,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'programming',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/SELLER/Default/2023/9/343557208/SV/BE/JX/41236899/soku-7459-500x500.jpeg`,
-  },
-  {
-    id: 7,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'programming',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/RM/BY/NL/SELLER-20789525/100-original-rudraksha-wear-synthetic-navratan-rhodium-gold-plated-pendant-charm-250x250.jpg`,
-  },
-  {
-    id: 8,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'programming',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/SELLER/Default/2021/9/PZ/TT/KN/136645234/gold-plated-brass-chain-250x250.jpg`,
-  },
-  {
-    id: 9,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'programming',
-    rating: 3.4,
-    img: `https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`,
-  },
-  {
-    id: 10,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'lang',
-    rating: 3.4,
-    img: kinz,
-  },
-  {
-    id: 11,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'lang',
-    rating: 3.4,
-    img: kinz,
-  },
-  {
-    id: 12,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'digitalMarkiting',
-    rating: 3.4,
-    img: app,
-  },
-  {
-    id: 13,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'digitalMarkiting',
-    rating: 3.4,
-    img: app,
-  },
-  {
-    id: 14,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'digitalMarkiting',
-    rating: 3.4,
-    img: app,
-  },
-  {
-    id: 15,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'digitalMarkiting',
-    rating: 3.4,
-    img: app,
-  },
-  {
-    id: 16,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'digitalMarkiting',
-    rating: 3.4,
-    img: app,
-  },
-  {
-    id: 17,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 ',
-    price: 150,
-    desc: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-    catigory: 'digitalMarkiting',
-    rating: 3.4,
-    img: app,
   },
 ];
 export const services = [

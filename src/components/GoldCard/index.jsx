@@ -19,7 +19,7 @@ const GoldCard = () => {
       .then((response) => {
         setGetInvestment(response.data);
         setLoading(false);
-        console.log("GetInvestment", response);
+        // console.log("GetInvestment", response.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -42,8 +42,8 @@ const GoldCard = () => {
                   <div key={index} className={styles['gold-div']}>
                     <div>
                       <LazyLoadImage
-                        src={`https://5.imimg.com/data5/SELLER/Default/2020/12/FJ/BD/OR/33493776/trendy-fancy-gold-plated-plated-brass-chain-250x250.jpg`}
-                        alt=""
+                        src={`${import.meta.env.VITE_IMAGE_URL}${item.images[0]}`}
+                        alt={item?.title}
                         loading="lazy"
                         style={{height:'318px'}}
                         // height={'318px'}
@@ -52,7 +52,6 @@ const GoldCard = () => {
                     </div>
                     <div className=''>
                       <h3 className=' fw-700'>{item.title}</h3>
-                      {/* <p className='text-end fs-4 mb-0'>{item?.price} دينار كويتى</p> */}
                       <Link
                         to={`/club/project-idea/${item?._id}`}
                         state={{ item: item }}
@@ -68,7 +67,7 @@ const GoldCard = () => {
         </>
       </div>
       <Link to="/investment">
-        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip">شاهد جميع الانواع </h4>
+        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip"> المزيذ من الافكار  </h4>
       </Link>
     </div >
   )

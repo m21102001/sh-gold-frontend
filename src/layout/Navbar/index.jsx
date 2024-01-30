@@ -6,15 +6,16 @@ import { useAuth } from "@/context/Auth";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import axios from '@/api/axios'
 import { getCookie, deleteCookie } from 'cookies-next';
+import { Authenticated } from "@/context/Auth";
 const Navbar = () => {
-  const { setRole, setFetched, setuser, setLoggedin } = useAuth();
-
+  const { setRole, setFetched, setuser, setLoggedin, user } = useAuth();
+  const loggedIn = Authenticated()
+  // console.log('user', user);
+  console.log('user', loggedIn);
   const handelLogout = async () => {
     try {
       await axios.post('/auth/logout')
         .then(response => {
-          deleteCookie('token');
-          deleteCookie('role')
           setLoggedin(false)
           setRole(null)
           setFetched(false)

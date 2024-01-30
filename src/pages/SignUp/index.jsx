@@ -37,7 +37,7 @@ const Signup = () => {
         })
         .then((response) => {
           console.log(response);
-          navigate('/auth/login')
+          navigate('/auth/verifyphoneCode')
         })
 
     } catch (err) {
@@ -113,7 +113,7 @@ const Signup = () => {
                     htmlFor="exampleInputPhone"
                     className="form-label fs-5 fw-bold"> رقم الهاتف*</label>
                   <input
-                    type="number"
+                    type="text"
                     className="form-control"
                     id="exampleInputPhone"
                     placeholder=' رقم الهاتف*'

@@ -39,6 +39,7 @@ export { default as CreateGoldDahs } from './CreateGoldDash';
 export { default as CreateClubDash } from './CreateClubDash';
 export { default as UpdateGoldDash } from './UpdateGoldDash';
 export { default as CreateBookDash } from './CreateBooksDash';
+export { default as VerifyPhoneCode } from './VerifyPhoneCode';
 export { default as ContactFormDash } from './ContactFormDash';
 export { default as UpdateBooksDash } from './UpdateBooksdash';
 export { default as DetailsGoldDash } from './DetailsGoldDash';

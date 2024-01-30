@@ -4,7 +4,6 @@ import axios from "@/api/axios"
 import styles from '../GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-
 const DigitalMarkting = () => {
   const [loading, setLoading] = useState(false);
   const [getPlayList, setGetPlayList] = useState([])
@@ -15,14 +14,13 @@ const DigitalMarkting = () => {
       .then((response) => {
         setGetPlayList(response.data);
         setLoading(false);
-        // console.log("getPlayList", response);
+        // console.log("getPlayLists", response);
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error);
+        // console.log(error);
       });
   }, []);
-
   return (
     <div className='coursers-open'>
       <div className='m-auto d-flex justify-content-center my-5'>
@@ -59,8 +57,11 @@ const DigitalMarkting = () => {
           </div>
         </>
       </div>
+        {getPlayList?.length == 0 ? (
+          <h3 className={`text-center fs-2 alert alert-danger`} role="alert">please <Link to={'/auth/login'}>Login</Link> for show it here</h3>
+        ) : ('')}
       <Link to="/development">
-        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip">شاهد جميع الانواع </h4>
+        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip"> المزيد من القوائم  </h4>
       </Link>
     </div >
   )

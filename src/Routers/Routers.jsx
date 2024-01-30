@@ -68,6 +68,7 @@ import {
   UpdatePlaylistDash,
   UpdateRoleUsersDash,
   UpdateVideosDash,
+  VerifyPhoneCode,
   VerifyRestCode,
   VideosDash,
   ViewPdf
@@ -172,6 +173,14 @@ const Routers = () => {
             element={
               <Protect>
                 <VerifyRestCode />
+              </Protect>
+            }
+          />
+          <Route
+            path="/auth/verifyphoneCode"
+            element={
+              <Protect>
+                <VerifyPhoneCode />
               </Protect>
             }
           />

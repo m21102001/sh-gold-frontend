@@ -6,10 +6,10 @@ import { getCookie } from 'cookies-next';
 export const Auth = createContext();
 export const AuthProvider = ({ children }) => {
 
-  const [Loggedin, setLoggedin] = useState(false);
+  const [Loggedin, setLoggedin] = useState('false');
   const [role, setRole] = useState("");
 
-  const [user, setuser] = useState({})
+  const [user, setuser] = useState()
   const [Fetched, setFetched] = useState(Boolean())
   useEffect(() => {
     const CheckUser = async () => {
@@ -25,16 +25,16 @@ export const AuthProvider = ({ children }) => {
         setFetched(true);
       }
     }
-    if (getCookie('token')) {
+   
       CheckUser();
-    }
+    
   }, [])
 
   useEffect(() => {
     // console.log('loggedin', Loggedin)
-    console.log("user", user);
+    // console.log("user", user);
     // console.log("fetch", Fetched);
-    console.log("role", role);
+    // console.log("role", role);
 
   }, [Loggedin, user, Fetched, role])
 
@@ -45,4 +45,4 @@ export const AuthProvider = ({ children }) => {
 }
 
 export const useAuth = () => useContext(Auth);
-
+export const Authenticated = () => useAuth().user != null;
