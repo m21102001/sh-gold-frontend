@@ -78,24 +78,25 @@ import { Suspense, lazy } from 'react';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
 
 function Protect({ children, protect = false, path = '' }) {
-  const { user } = useAuth();
-  console.log(user != null);
-  const authed = authenticated();
-  console.log(authed);
-  const allowedAdmin =
-    user?.role == 'admin' ||
-    user?.role == 'godAdmin' ||
-    user?.role == 'manager';
-  if (allowedAdmin && authed && path === 'dash') {
-    return children;
-  }
-  if (!allowedAdmin && authed && path !== 'dash') {
-    return children;
-  }
-  if (authed === protect && !authed) return children;
-  if (!authed && protect) {
-    return <Navigate to="/auth/login" />;
-  }
+  // const { user } = useAuth();
+  // console.log(user != null);
+  // const authed = authenticated();
+  // console.log(authed);
+  // const allowedAdmin =
+  //   user?.role == 'admin' ||
+  //   user?.role == 'godAdmin' ||
+  //   user?.role == 'manager';
+  // if (allowedAdmin && authed && path === 'dash') {
+  //   return children;
+  // }
+  // if (!allowedAdmin && authed && path !== 'dash') {
+  //   return children;
+  // }
+  // if (authed === protect && !authed) return children;
+  // if (!authed && protect) {
+  //   return <Navigate to="/auth/login" />;
+  // }
+  return children;
   // const allowedUser = user.role == 'user';
   // if (authed === protect)
   //   return <Navigate to={protect ? '/auth/login' : '/'} />;

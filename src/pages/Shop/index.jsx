@@ -1,4 +1,5 @@
-import { Footer, Navbar } from "@/layout"
+import { Footer, Navbar } from '@/layout';
+import { useLocation } from 'react-router';
 
 // import useLocation from 'react-router-dom';
 const index = () => {
@@ -10,7 +11,7 @@ const index = () => {
       Shop
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default index;
