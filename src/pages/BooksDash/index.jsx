@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios";
-import { getCookie } from "cookies-next";
+import { useAuth } from "@/context/Auth";
 
 const BooksDash = () => {
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
+  const { user } = useAuth();
+  // console.log(user.role);
 
   let fetchBook = {
     method: 'get',
@@ -14,7 +16,7 @@ const BooksDash = () => {
   };
   useEffect(() => {
     setLoading(true);
-    if (getCookie('token')) {
+    if (user.role =='manager') {
       axios
         .request(fetchBook)
         .then((response) => {
@@ -79,7 +81,7 @@ const BooksDash = () => {
 
   return (
     <div className="dashboard d-flex flex-row">
-      {getCookie('role') == 'user' && <div className="loading"></div>}
+      {user.role !='manager' && <div className="loading"></div>}
       <SidebarDashboard />
 
       <div className="container text-center">
@@ -127,7 +129,7 @@ const BooksDash = () => {
 
           </tbody>
         </table>
-        {!getCookie('token') ? (
+        {user.role !='manager'? (
           <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
         }

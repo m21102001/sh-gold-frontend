@@ -2,15 +2,16 @@ import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import { getCookie } from "cookies-next";
+import { useAuth } from "@/context/Auth";
 
 const PlaylistsDash = () => {
   const [loading, setLoading] = useState(false)
   const [playlists, setPlaylists] = useState([])
-
+  const { user } = useAuth();
+  // console.log(user.role);
   useEffect(() => {
     setLoading(true);
-    if (getCookie('token')) {
+    if (user.role =='manager') {
       axios.get('/playlists')
         .then((response) => {
           setLoading(false)
@@ -67,7 +68,7 @@ const PlaylistsDash = () => {
   }
   return (
     <div className="dashboard d-flex flex-row">
-      {getCookie('role') == 'user' && <div className="loading"></div>}
+      {user.role !='manager' && <div className="loading"></div>}
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
@@ -113,7 +114,7 @@ const PlaylistsDash = () => {
             ))}
           </tbody>
         </table>
-        {!getCookie('token') ? (
+        {user.role !='manager' ? (
           <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
         }

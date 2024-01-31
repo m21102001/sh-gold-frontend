@@ -113,7 +113,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            {getCookie('token') == null ? (
+            {loggedIn == false ? (
               <div>
                 <Link to="/auth/login">
                   <button className={`login-btn`}>Login</button>

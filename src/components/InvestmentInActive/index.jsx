@@ -2,14 +2,16 @@ import { useEffect, useState } from "react"
 import axios from '@/api/axios'
 import { Link } from "react-router-dom"
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import { getCookie } from "cookies-next"
+import { useAuth } from "@/context/Auth"
 
 const InvestmentInActive = () => {
   const [loading, setLoading] = useState(false)
   const [investment, setInvestment] = useState([])
+  const { user } = useAuth();
+  // console.log(user.role);
   useEffect(() => {
     setLoading(true)
-    if (getCookie('token')) {
+    if (user.role =='manager') {
       axios.get(`/invest/inactive`)
         .then((response) => {
           setInvestment(response.data)
@@ -133,7 +135,7 @@ const InvestmentInActive = () => {
             </Link>
           ) : null
         ))}
-        {!getCookie('token') ? (
+        {user.role !='manager' ? (
           <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
         }

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Footer, Navbar } from "@/layout"
 import { FaClock, FaMoneyBillAlt } from "react-icons/fa";
 import { MdTimer } from "react-icons/md";
 import { ImLocation2 } from "react-icons/im";
 import axios from "@/api/axios";
 import './reservation.scss'
-import { Link } from "react-router-dom";
 const ReservationTicket = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
+  // const [payment, setPayment] = useState([])
 
   useEffect(() => {
     setLoading(true);
@@ -25,13 +26,25 @@ const ReservationTicket = () => {
 
   }, [])
 
+  // useEffect(() => {
+  //   axios.get(`books/pay/${item?._id}`)
+  //     .then((response) => {
+  //       setPayment(response.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       setLoading(false);
+  //       console.log(error);
+  //     });
+  // }, [])
+
   return (
-    <div style={{color:'var(--darkblue-color)'}}>
+    <div style={{ color: 'var(--darkblue-color)' }}>
       <Navbar />
       <div className="container text-center pt-5">
         {!loading && consultation?.data?.map((item, index) => (
           <Link
-            to={''}
+            to={`/auth/shop`}
             state={{ item }}
             key={index}
             className="row row-striped shadow-lg p-3 mb-5 bg-body rounded">

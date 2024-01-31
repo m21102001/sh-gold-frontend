@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios";
 import { getCookie } from "cookies-next";
+import { useAuth } from "@/context/Auth";
 const GoldDash = () => {
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
+  const { user } = useAuth();
+  // console.log(user.role);
 
   let fetchGold = {
     method: 'get',
@@ -13,7 +16,7 @@ const GoldDash = () => {
   };
   useEffect(() => {
     setLoading(true);
-    if (getCookie('token')) {
+    if (user.role =='manager') {
       axios
         .request(fetchGold)
         .then((response) => {
@@ -37,7 +40,7 @@ const GoldDash = () => {
       },
     };
     setLoading(true);
-    if (getCookie('token')) {
+    if (user.role =='manager') {
       await axios
         .request(config, {
         })
@@ -130,7 +133,7 @@ const GoldDash = () => {
               ))}
             </tbody>
           </table>
-          {!getCookie('token') ? (
+          {user.role !='manager' ? (
             <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
           ) : null
           }

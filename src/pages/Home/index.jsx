@@ -15,10 +15,10 @@ import {
   StartElectronicEcommerce,
   WhyKambridage
 } from '@/components'
-import { GoldChart } from '@/pages'
-import { getCookie } from 'cookies-next'
+import { useAuth } from '@/context/Auth'
 const Home = () => {
   const [loading, setLoading] = useState(false);
+  const { user } = useAuth();  
   return (
     <>
       {loading && <div className="loading"></div>}
@@ -41,7 +41,7 @@ const Home = () => {
         <PricePlannig />
         <Footer />
       </div>
-      {getCookie('role') == 'admin' || getCookie('role') == 'manager' ? (
+      {user?.role == 'manager' ? (
         <Link className="editIcon" to="/dash/dashboard">
           D
         </Link>

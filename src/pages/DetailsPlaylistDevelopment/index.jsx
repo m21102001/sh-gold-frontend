@@ -4,6 +4,7 @@ import { Footer, Navbar } from "@/layout"
 import ReactPlayer from 'react-player/lazy'
 import axios from "@/api/axios";
 import styles from '@/components/GoldCard/GoldCard.module.scss';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DetailsPlaylistDevelopment = () => {
   const navigate = useNavigate()
@@ -83,6 +84,11 @@ const DetailsPlaylistDevelopment = () => {
               </div>
               {!loading && getvideos.length == 0 || btnPayment == 401 ? (
                 <div className="text-center">
+                  <LazyLoadImage
+                    // src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
+                    alt={item?.title}
+                    loading="lazy"
+                  />
                   <button>
                     <a
                       className="text-light fs-3 px-2"

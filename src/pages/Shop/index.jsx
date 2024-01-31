@@ -1,17 +1,38 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from "react-router-dom"
 import { Footer, Navbar } from '@/layout';
-import { useLocation } from 'react-router';
+import axios from '@/api/axios';
 
-// import useLocation from 'react-router-dom';
-const index = () => {
-  // const item = useLocation()?.state?.item;
+const Shop = () => {
+  const item = useLocation()?.state?.item;
+  const [payment, setPayment] = useState([])
+console.log(item);
+  useEffect(() => {
+    axios.get(`consultation/tickets/pay/${item?._id}`)
+      .then((response) => {
+        setPayment(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [])
   return (
-    <div>
+    <div style={{ backgroundColor: 'var(--darkblue-color)' }}>
       <Navbar />
-      {/* {item._id} */}
-      Shop
+      <div className='text-center pt-5'>
+        <button className="text-muted fs-2 fw-bold mb-0 text-center">
+          <a
+            className="text-light px-3"
+            href={payment?.data}
+            target="_blank"
+            rel="noreferrer">
+            ادفع الان
+          </a>
+        </button>
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default index;
+export default Shop;

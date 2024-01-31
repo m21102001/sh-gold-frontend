@@ -3,19 +3,19 @@ import { Link } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useAuth } from "@/context/Auth";
-const ConsultationsDash = () => {
+const ConsultationsTicketDash = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
   const { user } = useAuth();
   // console.log(user.role);
   useEffect(() => {
     setLoading(true);
-    if (user.role =='manager') {
-      axios.get('/consultation/tickets/available')
+    if (user.role == 'manager') {
+      axios.get('/consultation/requests')
         .then((response) => {
           setLoading(false)
           setConsultation(response.data)
-          // console.log('consultation', response.data);
+          // console.log('consultation',s response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -24,28 +24,6 @@ const ConsultationsDash = () => {
     }
   }, [])
 
-  const handelDelete = async (id) => {
-    setLoading(true);
-    await axios
-      .delete(`/consultation/tickets/${id}`, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then((response) => {
-        axios.get('/consultation/tickets/available')
-          .then((response) => {
-            setConsultation(response.data);
-            setLoading(false);
-            console.log(response.data);
-          });
-        console.log(response);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  };
   //////////////////pagination///////////////////
   const [prev, setPrev] = useState(0)
   const [next, setNext] = useState(10)
@@ -67,6 +45,7 @@ const ConsultationsDash = () => {
 
     }
   }
+  console.log(consultation?.data);
   return (
     <div className="dashboard d-flex flex-row">
       {/* {!getCookie('role') && <div className="loading"></div>} */}
@@ -82,10 +61,8 @@ const ConsultationsDash = () => {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">العنوان</th>
-              <th scope="col"> الوقت</th>
-              <th scope="col">السعر </th>
-              <th scope="col">اليوم</th>
+              <th scope="col">الاسم</th>
+              <th scope="col">النوع</th>
               <th scope="col">الاحداث</th>
             </tr>
           </thead>
@@ -94,31 +71,25 @@ const ConsultationsDash = () => {
               index >= prev && index <= next ? (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{item?.title}</td>
-                  <td>{item?.startDate}</td>
-                  <td>{item?.price}</td>
-                  <td>{item?.day?.split('T', 1)}</td>
-                  <td>
-                    {/* <Link
-                    to={`/dash/details-playlist/${item._id}`}
-                    state={{ item: item }}
+                  <td>{item?.ticket.title}</td>
+                  <td>{item?.type}</td>
+                  <Link
+                    to={`/dash/consultations-ticket/details/${item._id}`}
+                    state={{ item }}
                   >
-                    <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
-                  </Link> */}
-                    <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
-
-                  </td>
+                    <button className="btn btn-outline-success mx-2 px-4">التفاصيل</button>
+                  </Link>
                 </tr>
               ) : null
             ))}
           </tbody>
         </table>
-        {user.role !='manager' ? (
+        {user.role != 'manager' ? (
           <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
         }
         <div className="d-flex justify-content-around">
-          <button className={`btn btn-outline-info ${next >= consultation?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${next >= consultation?.data?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>
@@ -126,4 +97,4 @@ const ConsultationsDash = () => {
   )
 }
 
-export default ConsultationsDash
+export default ConsultationsTicketDash

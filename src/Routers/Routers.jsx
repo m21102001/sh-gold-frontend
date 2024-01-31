@@ -14,6 +14,7 @@ import {
   Club,
   ClubDash,
   ConsultationsDash,
+  ConsultationsTicketDash,
   Consulting,
   ContactFormDash,
   ContactUS,
@@ -28,6 +29,7 @@ import {
   DetailsAllUsersDash,
   DetailsBook,
   DetailsBooksDash,
+  DetailsConsultationsTicketDash,
   DetailsGoldDash,
   DetailsGoldNewsClub,
   DetailsIdeaRequestInvestment,
@@ -72,64 +74,38 @@ import {
   VideosDash,
   ViewPdf,
 } from '@/pages';
-import { getCookie } from 'cookies-next';
 import { useAuth, authenticated } from '@/context/Auth';
 import { Suspense, lazy } from 'react';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
 
 function Protect({ children, protect = false, path = '' }) {
-  // const { user } = useAuth();
-  // console.log(user != null);
-  // const authed = authenticated();
-  // console.log(authed);
-  // const allowedAdmin =
-  //   user?.role == 'admin' ||
-  //   user?.role == 'godAdmin' ||
-  //   user?.role == 'manager';
-  // if (allowedAdmin && authed && path === 'dash') {
-  //   return children;
-  // }
-  // if (!allowedAdmin && authed && path !== 'dash') {
-  //   return children;
-  // }
-  // if (authed === protect && !authed) return children;
-  // if (!authed && protect) {
-  //   return <Navigate to="/auth/login" />;
-  // }
-  return children;
+  const { user } = useAuth();
+  console.log(user != null);
+  const authed = authenticated();
+  console.log(authed);
+  const allowedAdmin =
+    user?.role == 'admin' ||
+    user?.role == 'godAdmin' ||
+    user?.role == 'manager';
+  if (allowedAdmin && authed && path === 'dash') {
+    return children;
+  }
+  if (!allowedAdmin && authed && path !== 'dash') {
+    return children;
+  }
+  if (authed === protect && !authed) return children;
+  if (!authed && protect) {
+    return <Navigate to="/auth/login" />;
+  }
+  // return children;
   // const allowedUser = user.role == 'user';
   // if (authed === protect)
   //   return <Navigate to={protect ? '/auth/login' : '/'} />;
   // if (!authed && protect) {
-  //   return <Navigate to={'/auth/login'} />;
+  //   return <Navigate to="/auth/login" />;
   // }
 }
 const Routers = () => {
-  // const navigate = useNavigate();
-  // const { Loggedin, role } = useAuth();
-  // console.log(getCookie('role'));
-
-  // const AdminPrivate = ({ children }) => {
-  //   useEffect(() => {
-  //     if (role == "admin" || role == "manager" || role == "manager") {
-  //       <Navigate to='/dash/dashboard' />
-  //     }
-  //   }, [role]);
-  //   return children;
-  // };
-  // const AuthRoute = () => {
-  //   const location = useLocation()
-  //   getCookie('token') !== null ? (
-  //     (getCookie('role') == "admin" || getCookie('role') == "godAdmin" || getCookie('role') == "manager") ? (
-  //       <Navigate to="/dash/dashboard" replace state={{ from: location }} />
-  //     ) : (getCookie('role') == 'user' ? (
-  //       <Navigate to="/" />
-  //     ) : (''))
-  //   ) : (""
-  //     //  <Navigate to="/auth/login" replace/>
-  //   )
-  // }
-
   return (
     <div className="conatiner">
       <Suspense fallback="loading..">
@@ -274,7 +250,7 @@ const Routers = () => {
             <Route
               path="/dash/gold"
               element={
-                <Protect path="dash">
+                <Protect path="dash" protect>
                   <GoldDash />
                 </Protect>
               }
@@ -282,7 +258,7 @@ const Routers = () => {
             <Route
               path="/dash/details-gold/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsGoldDash />
                 </Protect>
               }
@@ -290,7 +266,7 @@ const Routers = () => {
             <Route
               path="/dash/create-gold-item"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreateGoldDahs />
                 </Protect>
               }
@@ -298,7 +274,7 @@ const Routers = () => {
             <Route
               path="/dash/update-gold/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdateGoldDash />
                 </Protect>
               }
@@ -306,7 +282,7 @@ const Routers = () => {
             <Route
               path="/dash/books"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <BooksDash />
                 </Protect>
               }
@@ -314,7 +290,7 @@ const Routers = () => {
             <Route
               path="/dash/create-books"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreateBookDash />
                 </Protect>
               }
@@ -322,7 +298,7 @@ const Routers = () => {
             <Route
               path="/dash/update-books/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdateBooksDash />
                 </Protect>
               }
@@ -330,7 +306,7 @@ const Routers = () => {
             <Route
               path="/dash/details-books/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsBooksDash />
                 </Protect>
               }
@@ -338,7 +314,7 @@ const Routers = () => {
             <Route
               path="/dash/investment"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <InvesmentDash />
                 </Protect>
               }
@@ -346,7 +322,7 @@ const Routers = () => {
             <Route
               path="/dash/create-investment-item"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreateInvesmentDash />
                 </Protect>
               }
@@ -354,7 +330,7 @@ const Routers = () => {
             <Route
               path="dash/details-investment/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsInvesmentDash />
                 </Protect>
               }
@@ -362,7 +338,7 @@ const Routers = () => {
             <Route
               path="/investment/inactive/details-investment/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsInactiveInvesmentDash />
                 </Protect>
               }
@@ -370,7 +346,7 @@ const Routers = () => {
             <Route
               path="/investment/inactive/update-investment/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdateInactiveInvesmentDash />
                 </Protect>
               }
@@ -378,7 +354,7 @@ const Routers = () => {
             <Route
               path="/dash/requests-investment"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <RequestInvestment />
                 </Protect>
               }
@@ -386,7 +362,7 @@ const Routers = () => {
             <Route
               path="/dash/details-requests-investment/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsRequestInvestment />
                 </Protect>
               }
@@ -394,7 +370,7 @@ const Routers = () => {
             <Route
               path="/dash/details-idea-requests-investment/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsIdeaRequestInvestment />
                 </Protect>
               }
@@ -402,7 +378,7 @@ const Routers = () => {
             <Route
               path="/dash/club"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <ClubDash />
                 </Protect>
               }
@@ -410,7 +386,7 @@ const Routers = () => {
             <Route
               path="/dash/create-club"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreateClubDash />
                 </Protect>
               }
@@ -418,7 +394,7 @@ const Routers = () => {
             <Route
               path="/dash/update-club/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdateClubDash />
                 </Protect>
               }
@@ -426,7 +402,7 @@ const Routers = () => {
             <Route
               path="/dash/contact-form"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <ContactFormDash />
                 </Protect>
               }
@@ -434,7 +410,7 @@ const Routers = () => {
             <Route
               path="/dash/details-contact-form/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DeatilsContactFormDash />
                 </Protect>
               }
@@ -442,7 +418,7 @@ const Routers = () => {
             <Route
               path="/dash/all-users"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <AllUsersDash />
                 </Protect>
               }
@@ -450,7 +426,7 @@ const Routers = () => {
             <Route
               path="/dash/all-users/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsAllUsersDash />
                 </Protect>
               }
@@ -458,7 +434,7 @@ const Routers = () => {
             <Route
               path="/dash/update-role-user/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdateRoleUsersDash />
                 </Protect>
               }
@@ -466,7 +442,7 @@ const Routers = () => {
             <Route
               path="/dash/playlists"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <PlaylistsDash />
                 </Protect>
               }
@@ -474,7 +450,7 @@ const Routers = () => {
             <Route
               path="/dash/create-playlist-item"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreatePlaylistDash />
                 </Protect>
               }
@@ -482,7 +458,7 @@ const Routers = () => {
             <Route
               path="/dash/update-playlist/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdatePlaylistDash />
                 </Protect>
               }
@@ -490,7 +466,7 @@ const Routers = () => {
             <Route
               path="/dash/details-playlist/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsPlaylistDash />
                 </Protect>
               }
@@ -498,7 +474,7 @@ const Routers = () => {
             <Route
               path="/dash/videos"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <VideosDash />
                 </Protect>
               }
@@ -506,7 +482,7 @@ const Routers = () => {
             <Route
               path="/dash/create-video-item"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreateVideosDash />
                 </Protect>
               }
@@ -514,7 +490,7 @@ const Routers = () => {
             <Route
               path="/dash/update-videos/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <UpdateVideosDash />
                 </Protect>
               }
@@ -522,7 +498,7 @@ const Routers = () => {
             <Route
               path="/dash/details-videos/:id"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <DetailsVideosDash />
                 </Protect>
               }
@@ -530,15 +506,31 @@ const Routers = () => {
             <Route
               path="/dash/consultations"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <ConsultationsDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/consultations-ticket"
+              element={
+                <Protect path="dash" protect>
+                  <ConsultationsTicketDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/consultations-ticket/details/:id"
+              element={
+                <Protect path="dash" protect>
+                  <DetailsConsultationsTicketDash />
                 </Protect>
               }
             />
             <Route
               path="/dash/create-consultation-item"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <CreateConsultationsDash />
                 </Protect>
               }
@@ -547,7 +539,7 @@ const Routers = () => {
             <Route
               path="/dash/profile"
               element={
-                <Protect>
+                <Protect path="dash" protect>
                   <ProfileDash />
                 </Protect>
               }

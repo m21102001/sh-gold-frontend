@@ -74,6 +74,9 @@ function SidebarDashboard() {
           <NavLink to="/dash/books ">
             <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>
           </NavLink>
+          <NavLink to="/dash/books/requests ">
+            <IoBookSharp /> <p className="fs-5 fw-bold me-4">طلبات شراء الكتب</p>
+          </NavLink>
           <NavLink to="/dash/club ">
             <PiFlagFill /> <p className="fs-5 fw-bold me-4">نصايح النادى</p>
           </NavLink>
@@ -91,7 +94,10 @@ function SidebarDashboard() {
             <FaMessage /> <p className="fs-5 fw-bold me-4">الرسائل</p>
           </NavLink>
           <NavLink to="/dash/consultations ">
-            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">الحجوزات</p>
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">التذاكر</p>
+          </NavLink>
+          <NavLink to="/dash/consultations-ticket ">
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">التذاكر المحجوزه</p>
           </NavLink>
           <NavLink to="/dash/all-users ">
             <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>

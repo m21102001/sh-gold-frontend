@@ -15,26 +15,37 @@ const DetailsBook = () => {
   const [bookData, setBookData] = useState([])
   const [bayBook, setBayBook] = useState([])
 
+  const getInitialState = () => {
+    let value = item?.option;
+    if (value == null) {
+      (value = 'online')
+    }
 
-  
+    return value;
+  };
+  const [value, setValue] = useState(getInitialState);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
   useEffect(() => {
-    async ()=> {
+    async () => {
       setLoading(true);
       await axios.get(`books/${item?._id}`)
-      .then((response) => {
-          console.log(item?._id);
+        .then((response) => {
           setGoldData(response.data);
-          console.log('get by is', response)
           setLoading(false);
         })
         .catch((error) => {
           setLoading(false);
           setBayBook(error.response.status)
-          console.log(error.response.status);
         });
     }
+  }, []);
+
+  useEffect(() => {
     setLoading(true);
-    axios.get(`books/pay/${item?._id}`)
+    axios.get(`books/pay/${item?._id}?type=${value}`)
       .then((response) => {
         setPayment(response.data);
         setLoading(false);
@@ -43,13 +54,15 @@ const DetailsBook = () => {
         setLoading(false);
         console.log(error);
       });
+  }, []);
 
+  useEffect(() => {
+    console.log(bayBook);
     setLoading(true);
     axios.get(`/books`)
       .then((response) => {
         setBookData(response.data);
         setLoading(false);
-        // console.log("bookData", response);
       })
       .catch((error) => {
         setLoading(false);
@@ -57,38 +70,6 @@ const DetailsBook = () => {
       });
 
   }, [item?._id]);
-
-  // console.log(goldData);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios.get(`books/pay/${item?._id}`)
-  //     .then((response) => {
-  //       setPayment(response.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       setLoading(false);
-  //       console.log(error);
-  //     });
-
-  // }, [])
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios.get(`/books`)
-  //     .then((response) => {
-  //       setBookData(response.data);
-  //       setLoading(false);
-  //       // console.log("bookData", response);
-  //     })
-  //     .catch((error) => {
-  //       setLoading(false);
-  //       console.log(error);
-  //     });
-  // }, []);
-
-  // console.log('item', item?._id);
 
   let id = item?._id
   return (
@@ -155,16 +136,30 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold"> قرأه الكتاب</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" >
-                            {bayBook == 401 ? (
-                              <button className="text-muted fw-bold mb-0">
-                                <a
-                                  className="text-light px-2"
-                                  href={payment?.data}
-                                  target="_blank"
-                                  rel="noreferrer">
-                                  شراء الكتاب
-                                </a>
-                              </button>
+                            {bayBook == 401 || bayBook.length == 0 ? (
+                              <div className="d-flex flex-row flex-wrap justify-content-around">
+                                <button className="text-muted fw-bold mb-0">
+                                  <a
+                                    className="text-light px-2"
+                                    href={payment?.data}
+                                    target="_blank"
+                                    rel="noreferrer">
+                                    شراء الكتاب
+                                  </a>
+                                </button>
+                                <div className="col-md-3 d-flex">
+                                  <select
+                                    className="form-select mb-3"
+                                    aria-label="Default select example"
+                                    value={value}
+                                    onChange={handleChange}
+                                  >
+                                    <option defaultValue selected value="online">online</option>
+                                    <option value="offline">offline</option>
+                                    <option value="onlocation">on Location</option>
+                                  </select>
+                                </div>
+                              </div>
                             ) : (
                               // user.user.data._id == ?
                               <Link
