@@ -1,6 +1,5 @@
 import axios from "@/api/axios";
 import { Footer, Navbar } from "@/layout";
-import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { AiFillGolden } from "react-icons/ai";
@@ -12,20 +11,62 @@ const MyWallet = () => {
 
   useEffect(() => {
     setLoading(true);
-    if (getCookie('token')) {
-      axios.get('/users/wallet/')
-        .then((response) => {
-          setLoading(false)
-          setWallet(response.data)
-          console.log('wallet', response.data);
-        })
-        .catch((error) => {
-          setLoading(false);
-          console.log(error);
-        });
-    }
-
+    axios.get('/users/wallet/')
+      .then((response) => {
+        setLoading(false)
+        setWallet(response.data)
+        // console.log('wallet', response.data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
   }, [])
+  
+  // const handelSubmit = (id) => {
+  //   setLoading(true);
+  //    axios
+  //     .post('gold-bars/sell/', {
+  //       goldbarId: id,
+  //     }, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       }
+  //     })
+  //     .then((response) => {
+  //       // alert('Deleted Success');
+  //       // axios.get('/users/wallet/').then((response) => {
+  //       //   setWallet(response.data);
+  //       //   setLoading(false);
+  //         console.log(response);
+  //       // });
+  //     })
+  //     .catch((error) => {
+  //       setLoading(false);
+  //       console.log(error);
+  //     });
+  // };
+
+  const handelSubmit = async (e) => {
+    try {
+      await axios.post('gold-bars/sell/', {
+        goldbarId: wallet?._id,
+      },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        .then((response) => {
+          console.log(response);
+        })
+
+    } catch (err) {
+      console.log('response', err.response);
+      console.log('message', err.message);
+    }
+  }
+console.log(wallet?.wallet?._id);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
@@ -50,7 +91,10 @@ const MyWallet = () => {
               />
             </div>
             <div className="col-10 fs-4 text-end" >
-              <h3 className="text-uppercase"><strong>{item?.title}</strong></h3>
+              <h3 className="text-uppercase d-flex flex-row align-items-center justify-content-between">
+                <strong>{item?.title}</strong>
+                <button type="button" onClick={handelSubmit} className="btn btn-success px-5">طلب بيع</button>
+              </h3>
               <ul className="list-inline">
                 <li className="list-inline-item mx-3"><AiFillGolden color="gold" size={30} /> {item?.size} جرام</li>
                 <li className="list-inline-item mx-3"> <BiCategory size={30} />{item?.category}</li>

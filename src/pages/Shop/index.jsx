@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom"
 import { Footer, Navbar } from '@/layout';
-import axios from '@/api/axios';
-
+import  axios from "@/api/axios";
 const Shop = () => {
   const item = useLocation()?.state?.item;
   const [payment, setPayment] = useState([])
-console.log(item);
   useEffect(() => {
     axios.get(`consultation/tickets/pay/${item?._id}`)
       .then((response) => {
@@ -16,6 +14,7 @@ console.log(item);
         console.log(error);
       });
   }, [])
+
   return (
     <div style={{ backgroundColor: 'var(--darkblue-color)' }}>
       <Navbar />

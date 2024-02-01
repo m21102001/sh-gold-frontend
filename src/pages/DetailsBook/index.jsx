@@ -6,7 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import styles from '@/components/GoldCard/GoldCard.module.scss';
+import { authenticated, useAuth } from "@/context/Auth";
 const DetailsBook = () => {
+  const user = useAuth()
+  const authed = authenticated();
   const navigate = useNavigate();
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false);
@@ -29,18 +32,16 @@ const DetailsBook = () => {
   };
 
   useEffect(() => {
-    async () => {
-      setLoading(true);
-      await axios.get(`books/${item?._id}`)
-        .then((response) => {
-          setGoldData(response.data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          setLoading(false);
-          setBayBook(error.response.status)
-        });
-    }
+    setLoading(true);
+    axios.get(`books/${item?._id}`)
+      .then((response) => {
+        setGoldData(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setBayBook(error.response.status)
+      });
   }, []);
 
   useEffect(() => {
@@ -52,12 +53,11 @@ const DetailsBook = () => {
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
   useEffect(() => {
-    console.log(bayBook);
     setLoading(true);
     axios.get(`/books`)
       .then((response) => {
@@ -72,6 +72,10 @@ const DetailsBook = () => {
   }, [item?._id]);
 
   let id = item?._id
+  // const userId = goldData?.document?.paidUsers?.map(item=>(
+  // <div>{item}</div>
+  // ))
+  // console.log('fff', goldData?.document?._id)
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -136,7 +140,14 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold"> قرأه الكتاب</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" >
-                            {bayBook == 401 || bayBook.length == 0 ? (
+                            {authed == true && goldData?.document?._id != null ? (
+                              <Link
+                                to={`/view-more-details/${goldData?.document?._id}`}
+                                state={{ item: goldData?.document }}
+                              >
+                                <button className="text-muted fw-bold mb-0">الكتاب</button>
+                              </Link>
+                            ) : (
                               <div className="d-flex flex-row flex-wrap justify-content-around">
                                 <button className="text-muted fw-bold mb-0">
                                   <a
@@ -160,14 +171,6 @@ const DetailsBook = () => {
                                   </select>
                                 </div>
                               </div>
-                            ) : (
-                              // user.user.data._id == ?
-                              <Link
-                                to={`/view-more-details/${goldData?.document?._id}`}
-                                state={{ item: goldData?.document }}
-                              >
-                                <button className="text-muted fw-bold mb-0">الكتاب</button>
-                              </Link>
                             )}
                           </div>
                         </div>

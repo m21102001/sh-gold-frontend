@@ -2,15 +2,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { RxAvatar } from 'react-icons/rx';
 import logo from '@/assets/Cambridge-logo-.svg';
 import './navbar.module.scss';
-import { useAuth } from '@/context/Auth';
+import { useAuth, authenticated } from '@/context/Auth';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from '@/api/axios';
-import { getCookie, deleteCookie } from 'cookies-next';
-import { authenticated } from '@/context/Auth';
 const Navbar = () => {
-  const { setRole, setFetched, setuser, setLoggedin, user } = useAuth();
+  const { setRole, setFetched, setuser, setLoggedin } = useAuth();
   const loggedIn = authenticated();
-  // console.log('user', user);
   console.log('user', loggedIn);
   const handelLogout = async () => {
     try {

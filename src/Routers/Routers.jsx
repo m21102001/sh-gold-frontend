@@ -37,6 +37,8 @@ import {
   DetailsInvesmentDash,
   DetailsPlaylistDash,
   DetailsPlaylistDevelopment,
+  DetailsRequestBuyBooksDash,
+  DetailsRequestGoldDash,
   DetailsRequestInvestment,
   DetailsVideoDevelopment,
   DetailsVideosDash,
@@ -55,6 +57,8 @@ import {
   Profile,
   ProfileDash,
   ProjectIdea,
+  RequestBuyBooksDash,
+  RequestGoldDash,
   RequestInvestment,
   ReservationTicket,
   ResetPassword,
@@ -142,7 +146,7 @@ const Routers = () => {
             <Route
               path="/auth/shop"
               element={
-                <Protect>
+                <Protect >
                   <Shop />
                 </Protect>
               }
@@ -150,7 +154,7 @@ const Routers = () => {
             <Route
               path="/auth/sign-up"
               element={
-                <Protect>
+                <Protect >
                   <SignUp />
                 </Protect>
               }
@@ -159,7 +163,7 @@ const Routers = () => {
             <Route
               path="/auth/login"
               element={
-                <Protect>
+                <Protect >
                   <Login />
                 </Protect>
               }
@@ -167,7 +171,7 @@ const Routers = () => {
             <Route
               path="/auth/verifyCode"
               element={
-                <Protect>
+                <Protect >
                   <VerifyRestCode />
                 </Protect>
               }
@@ -175,7 +179,7 @@ const Routers = () => {
             <Route
               path="/auth/verifyphoneCode"
               element={
-                <Protect>
+                <Protect >
                   <VerifyPhoneCode />
                 </Protect>
               }
@@ -183,7 +187,7 @@ const Routers = () => {
             <Route
               path="/auth/update-password"
               element={
-                <Protect>
+                <Protect >
                   <UpdatePassword />
                 </Protect>
               }
@@ -191,7 +195,7 @@ const Routers = () => {
             <Route
               path="/auth/edit-profile"
               element={
-                <Protect>
+                <Protect >
                   <EditProfile />
                 </Protect>
               }
@@ -199,7 +203,7 @@ const Routers = () => {
             <Route
               path="/auth/resetPassword"
               element={
-                <Protect>
+                <Protect >
                   <ResetPassword />
                 </Protect>
               }
@@ -207,7 +211,7 @@ const Routers = () => {
             <Route
               path="/auth/resetPasswordOtp"
               element={
-                <Protect>
+                <Protect >
                   <ResetPasswordOtp />
                 </Protect>
               }
@@ -215,7 +219,7 @@ const Routers = () => {
             <Route
               path="/auth/reservation-ticket"
               element={
-                <Protect>
+                <Protect >
                   <ReservationTicket />
                 </Protect>
               }
@@ -223,7 +227,7 @@ const Routers = () => {
             <Route
               path="/auth/my-wallet"
               element={
-                <Protect>
+                <Protect >
                   <MyWallet />
                 </Protect>
               }
@@ -242,7 +246,6 @@ const Routers = () => {
               path="/dash/dashboard"
               element={
                 <Protect path="dash" protect>
-                  {' '}
                   <Dashboard />
                 </Protect>
               }
@@ -252,6 +255,22 @@ const Routers = () => {
               element={
                 <Protect path="dash" protect>
                   <GoldDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/gold/request"
+              element={
+                <Protect path="dash" protect>
+                  <RequestGoldDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/gold/request/details/:id"
+              element={
+                <Protect path="dash" protect>
+                  <DetailsRequestGoldDash />
                 </Protect>
               }
             />
@@ -284,6 +303,22 @@ const Routers = () => {
               element={
                 <Protect path="dash" protect>
                   <BooksDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/books/requests"
+              element={
+                <Protect path="dash" protect>
+                  <RequestBuyBooksDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/books/requests/details/:id"
+              element={
+                <Protect path="dash" protect>
+                  <DetailsRequestBuyBooksDash />
                 </Protect>
               }
             />
