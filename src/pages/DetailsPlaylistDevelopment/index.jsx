@@ -40,7 +40,7 @@ const DetailsPlaylistDevelopment = () => {
   }, []);
 
   // console.log(btnPayment);
-  console.log('fff', payment);
+  console.log('fff', getvideos);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />

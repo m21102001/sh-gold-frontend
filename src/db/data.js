@@ -447,6 +447,7 @@ export const durationTime = [
   {
     id: 2,
     duration: " نهايه الفتره الزمنيه",
+    time: new Date().toISOString().slice(0, 10)
   }
 ]
 // console.log(metalType.durationTime);
