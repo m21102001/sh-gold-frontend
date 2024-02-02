@@ -12,7 +12,7 @@ const GoldNews = () => {
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
   const [payment, setPayment] = useState([])
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(10)
 
   const getInitialState = () => {
     let value = item?.option;
