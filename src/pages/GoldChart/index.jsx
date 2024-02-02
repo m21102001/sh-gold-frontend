@@ -50,7 +50,7 @@ const GoldChart = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://api.metalpriceapi.com/v1/latest?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=KWD&currencies=XAU,XAG,XPT`, {
+    axios.get(`https://api.metalpriceapi.com/v1/latest?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=KWD&currencies=XAU,XAG,XPT&unit=kilo`, {
       withCredentials: false
     })
       .then((response) => {
@@ -59,14 +59,14 @@ const GoldChart = () => {
           ([key, value]) => (
             {
               name: key,
-              gold: ((1 / value.XAU) + 0.5 / 100),
-              silver: (value.XAG),
-              Platinum: ((1 / value.XPT) + 0.5 / 100)
+              gold: ((1/value.XAU) + 0.5 / 100),
+              silver: ((1/value.XAG) + 0.5/100),
+              Platinum: ((1/value.XPT) + 0.5 / 100)
             }
             ))
             setKeys(Object.keys(response?.data.rates))
             setValues(Object.values(response?.data.rates))
-            console.log('values', values);
+            // console.log('values', values);
         setLoading(false);
       })
       .catch((error) => {
@@ -74,6 +74,7 @@ const GoldChart = () => {
         console.log(error);
       });
   }, []);
+  console.log(1/values[0]);
   return (
     <>
       {/* {loading && <div className="loading"></div>} */}

@@ -7,7 +7,7 @@ import "./chart.scss"
 const AreaCharts = () => {
   const item=useLocation()?.state?.item
   // useEffect(()=>{
-    console.log('item',item);
+    // console.log('item',item);
   // },[])
   const [goldPrice, setGoldPrice] = useState([])
   const [data, setData] = useState([])
