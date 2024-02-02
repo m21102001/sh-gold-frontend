@@ -1,14 +1,16 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useAuth } from "@/context/Auth";
+import { authenticated, useAuth } from "@/context/Auth";
 import { Footer, Navbar } from "@/layout"
 
 const Profile = () => {
   const navigate = useNavigate()
-  const user = useAuth();
-  const userInfo = user.user.data
+  const authed = authenticated();
+  const { user } = useAuth();
+  // const userInfo = authed.user.data
   // useCallback(userInfo,[userInfo])
-  console.log(userInfo);
+  console.log('lklj', user);
   return (
+    
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
       <section style={{ backgroundColor: "var(--darkblue-color)" }} dir="ltr">
@@ -29,7 +31,7 @@ const Profile = () => {
                 <div className="card-body text-center">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                     className="rounded-circle img-fluid" style={{ width: "150px" }} />
-                  <h5 className="my-3">{userInfo?.name ?userInfo?.name:'الاسم غير موجود'} </h5>
+                  <h5 className="my-3">{user?.name ?user?.name:'الاسم غير موجود'} </h5>
                   <p className="text-muted mb-4">الكويت</p>
                   <div className="d-flex justify-content-center mb-2">
                     <button type="button" className="btn btn-primary" onClick={() => navigate('/auth/update-password')}>تغير الرقم السري</button>
@@ -46,7 +48,7 @@ const Profile = () => {
                       <p className="mb-0">الاسم بالكامل</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{userInfo?.name ?userInfo?.name:'الاسم غير موجود'}</p>
+                      <p className="text-muted mb-0">{user?.name ?user?.name:'الاسم غير موجود'}</p>
                     </div>
                   </div>
                   <hr />
@@ -55,7 +57,7 @@ const Profile = () => {
                       <p className="mb-0">البريد الالكترونى</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{userInfo?.email? userInfo?.email :'البريد الالكترونى غير موجود'}</p>
+                      <p className="text-muted mb-0">{user?.email? user?.email :'البريد الالكترونى غير موجود'}</p>
                     </div>
                   </div>
                   <hr />
@@ -64,7 +66,7 @@ const Profile = () => {
                       <p className="mb-0">رقم الهاتف</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{userInfo?.phone ? userInfo?.phone :'رقم الهاتف غير موجود' }</p>
+                      <p className="text-muted mb-0">{user?.phone ? user?.phone :'رقم الهاتف غير موجود' }</p>
                     </div>
                   </div>
                   <hr />

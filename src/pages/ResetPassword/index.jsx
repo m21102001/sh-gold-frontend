@@ -28,8 +28,8 @@ const ResetPassword = () => {
           },
         }
       ).then(response => {
-        if (response?.status) {
-          navigate('./')
+        if (response?.status==200) {
+          navigate('./auth')
         }
       })
     } catch (err) {

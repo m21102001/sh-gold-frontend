@@ -60,6 +60,10 @@ import {
   RequestBuyBooksDash,
   RequestGoldDash,
   RequestInvestment,
+  RequsetPaymentBook,
+  RequsetPaymentGold,
+  RequsetPaymentPlan,
+  RequsetPaymentPlaylist,
   ReservationTicket,
   ResetPassword,
   ResetPasswordOtp,
@@ -80,6 +84,7 @@ import {
 } from '@/pages';
 import { useAuth, authenticated } from '@/context/Auth';
 import { Suspense, lazy } from 'react';
+import MyWalletRequsetSall from '@/pages/MyWalletRequsetSall';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
 
 function Protect({ children, protect = false, path = '' }) {
@@ -151,6 +156,38 @@ const Routers = () => {
                 </Protect>
               }
             />
+            <Route
+              path="/auth/request/payment/playlist"
+              element={
+                <Protect >
+                  <RequsetPaymentPlaylist />
+                </Protect>
+              }
+              />
+            <Route
+              path="/auth/request/payment/book"
+              element={
+                <Protect >
+                  <RequsetPaymentBook />
+                </Protect>
+              }
+              />
+            <Route
+              path="/auth/request/payment/gold"
+              element={
+                <Protect >
+                  <RequsetPaymentGold />
+                </Protect>
+              }
+              />
+            <Route
+              path="/auth/request/payment/plan"
+              element={
+                <Protect >
+                  <RequsetPaymentPlan />
+                </Protect>
+              }
+              />
             <Route
               path="/auth/sign-up"
               element={
@@ -229,6 +266,14 @@ const Routers = () => {
               element={
                 <Protect >
                   <MyWallet />
+                </Protect>
+              }
+            />
+            <Route
+              path="/auth/my-wallet/request/sall"
+              element={
+                <Protect >
+                  <MyWalletRequsetSall />
                 </Protect>
               }
             />

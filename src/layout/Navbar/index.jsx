@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { RxAvatar } from 'react-icons/rx';
-import logo from '@/assets/Cambridge-logo-.svg';
+import logo from '@/assets/cambradge.svg';
 import './navbar.module.scss';
 import { useAuth, authenticated } from '@/context/Auth';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -40,8 +40,8 @@ const Navbar = () => {
               alt=""
               style={{
                 width: '10rem',
-                height: '4rem',
-                background: '#e9ecef',
+                height: '6rem',
+                background: '#f1c40f54',
                 borderRadius: '10px',
               }}
             />
