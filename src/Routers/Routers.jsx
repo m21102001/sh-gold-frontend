@@ -41,6 +41,7 @@ import {
   DetailsRequestBuyBooksDash,
   DetailsRequestGoldDash,
   DetailsRequestInvestment,
+  DetailsSubscriberClubDash,
   DetailsVideoDevelopment,
   DetailsVideosDash,
   Development,
@@ -72,6 +73,7 @@ import {
   ResetPasswordOtp,
   Shop,
   SignUp,
+  SubscriberClubDash,
   UpdateBooksDash,
   UpdateClubDash,
   UpdateGoldDash,
@@ -490,6 +492,24 @@ const Routers = () => {
                 </Protect>
               }
             />
+
+            <Route
+              path="/dash/subscriber-club"
+              element={
+                <Protect path="dash" protect>
+                  <SubscriberClubDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/subscriber-club/details/:id"
+              element={
+                <Protect path="dash" protect>
+                  <DetailsSubscriberClubDash />
+                </Protect>
+              }
+            />
+
             <Route
               path="/dash/contact-form"
               element={

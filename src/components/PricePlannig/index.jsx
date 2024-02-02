@@ -1,8 +1,11 @@
 import { Fragment, useState } from "react"
 import "./PricePlannig.scss"
 import axios from '@/api/axios'
-import { planning,planninggolden } from "@/db/data"
+import { planning, planninggolden } from "@/db/data"
+import { authenticated } from "@/context/Auth"
+import { Link } from "react-router-dom"
 const PricePlannig = () => {
+  const loggedIn = authenticated();
   const [plannigPay, setPlanningPay] = useState([])
   const [plannigPayGold, setPlanningPayGold] = useState([])
   const subscribeSilver = async () => {
@@ -16,7 +19,7 @@ const PricePlannig = () => {
       console.log(error);
     }
   };
-  
+
   const subscribeGolden = async () => {
     try {
       await axios.post(`/users/pay/gold/`)
@@ -59,9 +62,15 @@ const PricePlannig = () => {
                   </ Fragment>
                 ))}
                 <div className="card-body text-center">
-                  <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
-                    <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                  </a>
+                  {loggedIn == false ? (
+                    <Link to={'/auth/login'}>
+                      <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                    </Link>
+                  ) : (
+                    <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
+                      <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -92,9 +101,15 @@ const PricePlannig = () => {
                   </ Fragment>
                 ))}
                 <div className="card-body text-center">
-                  <a href={plannigPayGold.data} target="_blank" rel="noopener noreferrer">
-                    <button className="" onClick={subscribeGolden} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                  </a>
+                  {loggedIn == false ? (
+                    <Link to={'/auth/login'}>
+                      <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                    </Link>
+                  ) : (
+                    <a href={plannigPayGold.data} target="_blank" rel="noopener noreferrer">
+                      <button className="" onClick={subscribeGolden} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

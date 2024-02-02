@@ -16,6 +16,7 @@ import {
   WhyKambridage
 } from '@/components'
 import { useAuth } from '@/context/Auth'
+import { GoldChart } from '..'
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();  
@@ -26,9 +27,9 @@ const Home = () => {
         {/* <PdfToText /> */}
         <Navbar />
         <Header />
-        {/* <GoldChart /> */}
+        <GoldChart />
         {/* category gold */}
-        <CoursesOpen />
+        {/* <CoursesOpen /> */}
         {/* investment */}
         <GoldCard />
         {/* videos */}

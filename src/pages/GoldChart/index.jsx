@@ -60,12 +60,13 @@ const GoldChart = () => {
             {
               name: key,
               gold: ((1 / value.XAU) + 0.5 / 100),
-              silver: ((1 / value.XAG) + 0.5 / 100),
+              silver: (value.XAG),
               Platinum: ((1 / value.XPT) + 0.5 / 100)
             }
-          ))
-        setKeys(Object.keys(response?.data.rates))
-        setValues(Object.values(response?.data.rates))
+            ))
+            setKeys(Object.keys(response?.data.rates))
+            setValues(Object.values(response?.data.rates))
+            console.log('values', values);
         setLoading(false);
       })
       .catch((error) => {
@@ -73,7 +74,6 @@ const GoldChart = () => {
         console.log(error);
       });
   }, []);
-  // console.log(values);
   return (
     <>
       {/* {loading && <div className="loading"></div>} */}

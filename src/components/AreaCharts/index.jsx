@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Legend } from 'recharts';
-import "./chart.scss"
-import axios from 'axios';
 import {  useLocation } from 'react-router-dom';
+import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Legend } from 'recharts';
+import axios from 'axios';
+import "./chart.scss"
 
 const AreaCharts = () => {
   const item=useLocation()?.state?.item
   // useEffect(()=>{
     console.log('item',item);
   // },[])
-  const [loading, setLoading] = useState(false);
   const [goldPrice, setGoldPrice] = useState([])
   const [data, setData] = useState([])
   const [keys, setKeys] = useState([])
@@ -17,7 +16,7 @@ const AreaCharts = () => {
   useEffect(() => {
     try {
       // axios.get(`${import.meta.env.VITE_GOLD_URL}timeframe?api_key=${import.meta.env.VITE_GOLD_SECRET}&start_date=2023-01-20&end_date=2024-01-21&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
-      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=2024-01-01&end_date=${new Date().toISOString().slice(0,10)}&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
+      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=2023-02-05&end_date=${new Date().toISOString().slice(0,10)}&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
         {
           withCredentials: false
         }
@@ -41,7 +40,7 @@ const AreaCharts = () => {
       console.log(error);
     }
 
-  }, [])
+  }, [item])
 
   // console.log(data,goldPrice);
 
