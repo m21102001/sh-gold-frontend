@@ -39,9 +39,8 @@ function SidebarDashboard() {
   return (
     <div className="main-div">
       <div
-        className={`sidebar-div ${
-          sidebarOpen ? 'sidebar-open' : 'sidebar-close'
-        }`}
+        className={`sidebar-div ${sidebarOpen ? 'sidebar-open' : 'sidebar-close'
+          }`}
       >
         <NavLink style={{ background: 'var(--darkblue-color)' }}>
           <button
@@ -73,6 +72,9 @@ function SidebarDashboard() {
           </NavLink>
           <NavLink to="/dash/gold/request ">
             <AiFillGold /> <p className="fs-5 fw-bold me-4">طلبات شراء الذهب</p>
+          </NavLink>
+          <NavLink to="/dash/gold-bars/sell ">
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4"> طلبات بيع السبايك</p>
           </NavLink>
           <NavLink to="/dash/books ">
             <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>

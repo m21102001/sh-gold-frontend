@@ -30,6 +30,7 @@ import {
   DetailsBook,
   DetailsBooksDash,
   DetailsConsultationsTicketDash,
+  DetailsGoldBarsSell,
   DetailsGoldDash,
   DetailsGoldNewsClub,
   DetailsIdeaRequestInvestment,
@@ -45,6 +46,7 @@ import {
   Development,
   EditProfile,
   ErrorPage,
+  GoldBarsSell,
   GoldDash,
   GoldNews,
   Home,
@@ -163,7 +165,7 @@ const Routers = () => {
                   <RequsetPaymentPlaylist />
                 </Protect>
               }
-              />
+            />
             <Route
               path="/auth/request/payment/book"
               element={
@@ -171,7 +173,7 @@ const Routers = () => {
                   <RequsetPaymentBook />
                 </Protect>
               }
-              />
+            />
             <Route
               path="/auth/request/payment/gold"
               element={
@@ -179,7 +181,7 @@ const Routers = () => {
                   <RequsetPaymentGold />
                 </Protect>
               }
-              />
+            />
             <Route
               path="/auth/request/payment/plan"
               element={
@@ -187,7 +189,7 @@ const Routers = () => {
                   <RequsetPaymentPlan />
                 </Protect>
               }
-              />
+            />
             <Route
               path="/auth/sign-up"
               element={
@@ -612,6 +614,22 @@ const Routers = () => {
               element={
                 <Protect path="dash" protect>
                   <CreateConsultationsDash />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/gold-bars/sell"
+              element={
+                <Protect path="dash" protect>
+                  <GoldBarsSell />
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/gold-bars/sell/details/:id"
+              element={
+                <Protect path="dash" protect>
+                  <DetailsGoldBarsSell />
                 </Protect>
               }
             />
