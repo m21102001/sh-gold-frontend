@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from "@/api/axios"
-const RequsetPaymentGold = () => {
+const RequsetPaymentPlanSilver = () => {
   const navigate = useNavigate();
   const item = useLocation()?.search
   const [isPending, setIsPending] = useState(false)
@@ -11,7 +11,7 @@ const RequsetPaymentGold = () => {
     try {
       await axios
         .post(
-          `gold-bars/pay-check/${item.slice(6)}`, {
+          `users/pay/check-silver/${item.slice(6)}`, {
           withCredentials: false
         },
           {
@@ -33,7 +33,7 @@ const RequsetPaymentGold = () => {
       console.log('response' + err);
     }
   };
-  // console.log(item.slice(6));
+  console.log(item.slice(6));
   return (
     <>
 
@@ -41,7 +41,7 @@ const RequsetPaymentGold = () => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header ">
-              <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب عرض المنتج للبيع</h1>
+              <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب اشتراك فى الباقه الفضيه</h1>
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -53,9 +53,9 @@ const RequsetPaymentGold = () => {
           </div>
         </div>
       </div>
-      <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> تأكيد عمليه الدفع لشراء المنتج  </a>
+      <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> تأكيد عمليه الدفع  </a>
     </>
   )
 }
 
-export default RequsetPaymentGold
+export default RequsetPaymentPlanSilver

@@ -65,6 +65,7 @@ import {
   RequsetPaymentBook,
   RequsetPaymentGold,
   RequsetPaymentPlan,
+  RequsetPaymentPlanSilver,
   RequsetPaymentPlaylist,
   ReservationTicket,
   ResetPassword,
@@ -183,10 +184,18 @@ const Routers = () => {
               }
             />
             <Route
-              path="/auth/request/payment/plan"
+              path="/auth/request/payment/plan/gold"
               element={
                 <Protect >
                   <RequsetPaymentPlan />
+                </Protect>
+              }
+            />
+            <Route
+              path="/auth/request/payment/plan/silver"
+              element={
+                <Protect >
+                  <RequsetPaymentPlanSilver />
                 </Protect>
               }
             />

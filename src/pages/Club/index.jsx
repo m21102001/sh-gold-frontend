@@ -11,7 +11,7 @@ const Club = () => {
         <TabList>
           <Tab>اخبار الذهب</Tab>
           <Tab>نصايح الاستاذ صلاح</Tab>
-          <Tab> التاب 3</Tab>
+          <Tab> اعضاء النادى</Tab>
         </TabList>
 
         <TabPanel>

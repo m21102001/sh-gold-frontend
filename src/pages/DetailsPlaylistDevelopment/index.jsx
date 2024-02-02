@@ -13,14 +13,14 @@ const DetailsPlaylistDevelopment = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`playlists/pay/${item?._id}`)
+    axios.get(`/playlists/pay/${item?._id}`)
       .then((response) => {
         setPayment(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        // console.log(error);
+        console.log(error);
       });
 
   }, [])

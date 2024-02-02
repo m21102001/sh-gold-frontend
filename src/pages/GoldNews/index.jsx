@@ -9,17 +9,28 @@ import { FaShoppingCart } from "react-icons/fa";
 const GoldNews = () => {
   const navigate = useNavigate();
   const item = useLocation()?.state?.item;
-
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
+  const [payment, setPayment] = useState([])
+  const [count, setCount] = useState(1)
 
-  let fetchBook = {
-    method: 'get',
-    url: '/gold-bars/',
+  const getInitialState = () => {
+    let value = item?.option;
+    if (value == null) {
+      (value = 'online')
+    }
+
+    return value;
   };
+  const [value, setValue] = useState(getInitialState);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+
   useEffect(() => {
     setLoading(true);
-    axios.request(fetchBook)
+    axios.get('/gold-bars/')
       .then((response) => {
         setGoldData(response.data);
         setLoading(false);
@@ -34,6 +45,20 @@ const GoldNews = () => {
   let id = item?._id
   let type = item?.category
 
+  useEffect(() => {
+    setLoading(true);
+    axios.get(`gold-bars/pay/${item?._id}?count=${count}&type=${value}`)
+      .then((response) => {
+        setPayment(response.data);
+        setLoading(false);
+        // console.log("bookData", response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }, []);
+  console.log(payment);
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -89,14 +114,31 @@ const GoldNews = () => {
             </div>
             <div className='row text-dark'>
               <div className='d-flex flex-row  shadow p-3 mb-5 bg-body rounded'>
-                <div>
-                  <Link
-                    to={`/auth/shop`}
-                  >
-                    <button onClick={() => { }} type="button" className="btn btn-primary mx-2">اضف الى السله <FaShoppingCart/></button>
-                  </Link>
-                  <button onClick={() => navigate('/bullion-store')} type="button" className="btn btn-outline-primary mx-2">استمرار التسوق</button>
+                <div className='d-flex '>
+                  <a href={payment?.data} target="_blank" rel="noopener noreferrer">
+                    <button type="button" className="btn btn-primary mx-2">شراء المنتج<FaShoppingCart /></button>
+                  </a>
+                  <div className="col-md-3 d-flex">
+                    <select
+                      className="form-select mb-3"
+                      aria-label="Default select example"
+                      value={value}
+                      onChange={handleChange}
+                    >
+                      <option defaultValue selected value="online">online</option>
+                      <option value="offline">offline</option>
+                      <option value="onlocation">on Location</option>
+                    </select>
+                  </div>
+                  <input
+                    type="number"
+                    min="1"
+                    defaultValue={1}
+                    value={count}
+                    onChange={(e) => setCount(e.target.value)}
+                  />
                 </div>
+                <button onClick={() => navigate('/bullion-store')} type="button" className="btn btn-outline-primary mx-2">استمرار التسوق</button>
               </div>
             </div>
 

@@ -74,6 +74,7 @@ export { default as DetailsVideoDevelopment } from './DetailsVideoDevelopment';
 export { default as CreateConsultationsDash } from './CreateConsultationsDash';
 export { default as ConsultationsTicketDash } from './ConsultationsTicketDash';
 export { default as DetailsRequestInvestment } from './DetailsRequestInvestment';
+export { default as RequsetPaymentPlanSilver } from './RequsetPaymentPlanSilver';
 export { default as DetailsPlaylistDevelopment } from './DetailsPlaylistDevelopment';
 export { default as DetailsRequestBuyBooksDash } from './DetailsRequestBuyBooksDash';
 export { default as UpdateInactiveInvesmentDash } from './UpdateInactiveInvesmentDash';
