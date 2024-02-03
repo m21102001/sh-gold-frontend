@@ -6,7 +6,7 @@ const Shop = () => {
   const item = useLocation()?.state?.item;
   const [payment, setPayment] = useState([])
   useEffect(() => {
-    axios.get(`consultation/tickets/pay/${item?._id}`)
+    axios.post(`consultation/tickets/pay/${item?._id}`)
       .then((response) => {
         setPayment(response.data);
       })
@@ -14,7 +14,7 @@ const Shop = () => {
         console.log(error);
       });
   }, [])
-
+console.log(payment, item?._id);
   return (
     <div style={{ backgroundColor: 'var(--darkblue-color)' }}>
       <Navbar />

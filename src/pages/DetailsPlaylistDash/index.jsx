@@ -13,7 +13,7 @@ const DetailsPlaylistDash = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/playlists/${item?._id}/videos`)
+    axios.get(`playlists/videos/${item?._id}`)
       .then((response) => {
         setLoading(false)
         setVideosPlaylist(response.data)
@@ -25,7 +25,6 @@ const DetailsPlaylistDash = () => {
       });
 
   }, [])
-
   const handelDelete = async (id) => {
     setLoading(true);
     await axios
@@ -35,7 +34,7 @@ const DetailsPlaylistDash = () => {
         },
       })
       .then((response) => {
-        axios.get(`/playlists/${item?._id}/videos`)
+        axios.get(`playlists/videos/${item?._id}`)
         console.log(response)
       })
     alert('deleted success')
@@ -110,7 +109,7 @@ const DetailsPlaylistDash = () => {
           </div>
         </section>
         <div className="d-flex flex-wrap justify-content-evenly mt-5">
-          {!loading && videosPlaylist?.document?.map((item, index) => (
+          {!loading && videosPlaylist?.map((item, index) => (
             <Link
               key={index}
               className="card mb-5"

@@ -64,6 +64,7 @@ import {
   RequestGoldDash,
   RequestInvestment,
   RequsetPaymentBook,
+  RequsetPaymentConsultations,
   RequsetPaymentGold,
   RequsetPaymentPlan,
   RequsetPaymentPlanSilver,
@@ -198,6 +199,14 @@ const Routers = () => {
               element={
                 <Protect >
                   <RequsetPaymentPlanSilver />
+                </Protect>
+              }
+            />
+            <Route
+              path="/auth/request/payment/consultations"
+              element={
+                <Protect >
+                  <RequsetPaymentConsultations />
                 </Protect>
               }
             />

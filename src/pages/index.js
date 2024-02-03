@@ -80,6 +80,7 @@ export { default as DetailsSubscriberClubDash } from './DetailsSubscriberClubDas
 export { default as DetailsPlaylistDevelopment } from './DetailsPlaylistDevelopment';
 export { default as DetailsRequestBuyBooksDash } from './DetailsRequestBuyBooksDash';
 export { default as UpdateInactiveInvesmentDash } from './UpdateInactiveInvesmentDash';
+export { default as RequsetPaymentConsultations } from './RequsetPaymentConsultations';
 export { default as DetailsInactiveInvesmentDash } from './DetailsInactiveInvesmentDash';
 export { default as DetailsIdeaRequestInvestment } from './DetailsIdeaRequestInvestment';
 export { default as DetailsConsultationsTicketDash } from './DetailsConsultationsTicketDash';

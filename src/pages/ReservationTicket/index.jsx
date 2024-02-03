@@ -9,7 +9,6 @@ import './reservation.scss'
 const ReservationTicket = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
-  // const [payment, setPayment] = useState([])
 
   useEffect(() => {
     setLoading(true);
@@ -17,7 +16,7 @@ const ReservationTicket = () => {
       .then((response) => {
         setLoading(false)
         setConsultation(response.data)
-        console.log('consultation', response.data);
+        // console.log('consultation', response.data);
       })
       .catch((error) => {
         setLoading(false);
@@ -25,19 +24,6 @@ const ReservationTicket = () => {
       });
 
   }, [])
-
-  // useEffect(() => {
-  //   axios.get(`books/pay/${item?._id}`)
-  //     .then((response) => {
-  //       setPayment(response.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       setLoading(false);
-  //       console.log(error);
-  //     });
-  // }, [])
-
   return (
     <div style={{ color: 'var(--darkblue-color)' }}>
       <Navbar />

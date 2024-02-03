@@ -1,5 +1,5 @@
 import { Footer, Navbar } from "@/layout"
-import { GoldNews, TipsClub } from "@/components"
+import { ClubMembers, GoldNews, TipsClub } from "@/components"
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
 import './club.scss'
 
@@ -21,9 +21,7 @@ const Club = () => {
           <TipsClub />
         </TabPanel>
         <TabPanel>
-          <h2>hello</h2>
-          <h2>hello</h2>
-          <h2>hello</h2>
+          <ClubMembers/>
         </TabPanel>
       </Tabs>
       <Footer />

@@ -9,6 +9,7 @@ export { default as Investmant } from './Investmant';
 export { default as AreaCharts } from './AreaCharts';
 export { default as WidgetCart } from './WidgetCart';
 export { default as CoursesOpen } from './CoursesOpen';
+export { default as ClubMembers } from './ClubMembers';
 export { default as PricePlannig } from './PricePlannig';
 export { default as WhyKambridage } from './WhyKambridage';
 export { default as DigitalMarkting } from './DigitalMarkting';
