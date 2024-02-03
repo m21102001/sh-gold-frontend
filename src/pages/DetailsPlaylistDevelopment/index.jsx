@@ -40,7 +40,7 @@ const DetailsPlaylistDevelopment = () => {
   }, []);
 
   // console.log(btnPayment);
-  console.log('fff', getvideos);
+  console.log('fff', payment);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
@@ -97,7 +97,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             <div className="col-sm-9">
-                              {!loading && getvideos != null ?(
+                              {!loading && payment != null ?(
                                 <Link
                                 to={`/development/details-video/${item?._id}`}
                                 state={{item}}
