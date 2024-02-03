@@ -72,6 +72,15 @@ const Profile = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
+                      <p className="mb-0">العضويه </p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{user?.phone ? user?.plan :'رقم الهاتف غير موجود' }</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
                       <p className="mb-0">محفظتى</p>
                     </div>
                     <div className="col-sm-9">

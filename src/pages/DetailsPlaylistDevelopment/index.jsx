@@ -10,6 +10,7 @@ const DetailsPlaylistDevelopment = () => {
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
   const [payment, setPayment] = useState([])
+  const [pay, setPay] = useState([])
 
   useEffect(() => {
     setLoading(true);
@@ -35,12 +36,13 @@ const DetailsPlaylistDevelopment = () => {
       })
       .catch((error) => {
         setLoading(false);
+        setPay(error?.status)
         console.log(error);
       });
   }, []);
 
   // console.log(btnPayment);
-  console.log('fff', payment);
+  console.log('fff', getvideos);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
@@ -97,22 +99,22 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             <div className="col-sm-9">
-                              {!loading && payment != null ?(
+                              {!loading && pay != 401 ? (
                                 <Link
-                                to={`/development/details-video/${item?._id}`}
-                                state={{item}}
+                                  to={`/development/details-video/${item?._id}`}
+                                  state={{ item }}
                                 >مشاهده الفيديوهات</Link>
-                              ):(
+                              ) : (
                                 <button>
-                                <a
-                                className="text-light fs-3 px-2"
-                                href={payment?.data}
-                                target="_blank"
-                                rel="noreferrer">
-                                شراء الكورس
-                                </a>
+                                  <a
+                                    className="text-light fs-3 px-2"
+                                    href={payment?.data}
+                                    target="_blank"
+                                    rel="noreferrer">
+                                    شراء الكورس
+                                  </a>
                                 </button>
-                                )}
+                              )}
                             </div>
                           </div>
                         </div>
