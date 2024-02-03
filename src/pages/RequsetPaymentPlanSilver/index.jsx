@@ -24,7 +24,7 @@ const RequsetPaymentPlanSilver = () => {
           console.log('created success', response);
           if (response?.status == 201) {
             alert('created successfully')
-            return navigate('/')
+            return navigate('/club')
           }
         });
       setIsPending(false);
