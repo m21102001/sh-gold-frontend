@@ -35,8 +35,7 @@ const RequsetPaymentPlan = () => {
   };
   // console.log(item.slice(6));
   return (
-    <>
-
+    <div className="d-flex " style={{height:'100vh'}}>
       <div className="modal fade" id="exampleModalToggle" aria-hidden="false" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -54,7 +53,7 @@ const RequsetPaymentPlan = () => {
         </div>
       </div>
       <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> تأكيد عمليه الدفع    </a>
-    </>
+    </div>
   )
 }
 
