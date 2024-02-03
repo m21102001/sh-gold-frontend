@@ -20,7 +20,7 @@ const DetailsPlaylistDevelopment = () => {
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error);
+        // console.log(error);
       });
 
   }, [])
@@ -97,7 +97,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             <div className="col-sm-9">
-                              {!loading && getvideos?.document?._id != null ?(
+                              {!loading && getvideos != null ?(
                                 <Link
                                 to={`/development/details-video/${item?._id}`}
                                 state={{item}}

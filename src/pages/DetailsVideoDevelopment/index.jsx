@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player/lazy'
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { useEffect, useState } from "react";
 import axios from "@/api/axios";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DetailsVideoDevelopment = () => {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ const DetailsVideoDevelopment = () => {
 
   let fetchBook = {
     method: 'get',
-    url: '/videos/',
+    url: `playlists/videos/${item?._id}`,
   };
   useEffect(() => {
     setLoading(true);
@@ -21,19 +22,19 @@ const DetailsVideoDevelopment = () => {
       .then((response) => {
         setGetvideos(response.data);
         setLoading(false);
-        console.log("getvideos", response);
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
       });
   }, []);
+  console.log("getvideos", item);
   return (
     <>
       <Navbar />
-      <section style={{ backgroundColor: "var(--darkblue-color)" ,paddingTop:'2rem'}}>
+      <section style={{ backgroundColor: "var(--darkblue-color)", paddingTop: '2rem' }}>
         <button onClick={() => navigate(`/development/details-playlist/${item?._id}`)} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
-        <div className="container py-5">
+        {/* <div className="container py-5">
           <div className="row">
             <div className="col-lg-12">
               <div className="card mb-4">
@@ -72,26 +73,26 @@ const DetailsVideoDevelopment = () => {
                       <p className="mb-0">تاريخ الاضافه </p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{item?.createdAt.split('T', 1)}</p>
+                      <p className="text-muted mb-0">{item?.createdAt?.split('T', 1)}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       <div className='coursers-open goldNews py-5'>
         <div className='m-auto d-flex justify-content-center mb-5'>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-          <h2 className='text-center comunation fs-1 fw-bold'>  فيدوهات  متشابهة </h2>
+          <h2 className='text-center comunation fs-1 fw-bold'>  فيدوهات  القائمه </h2>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         </div>
         <div className='m-auto d-flex justify-center'>
           <>
             <div className="container ">
               <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', padding: '0' }}>
-                {!loading && getvideos?.document?.map((item, index) => (
+                {!loading && getvideos?.map((item, index) => (
                   <div key={index} className={styles['gold-div']} style={{ height: '570px' }}>
                     <div className="p-0">
                       <ReactPlayer
