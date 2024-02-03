@@ -145,7 +145,7 @@ const Routers = () => {
             <Route path="/development" element={<Development />} />
             <Route
               path="/development/details-playlist/:id"
-              element={<DetailsPlaylistDevelopment />}
+              element={<DetailsPlaylistDevelopment />} 
             />
             <Route
               path="/development/details-video/:id"
