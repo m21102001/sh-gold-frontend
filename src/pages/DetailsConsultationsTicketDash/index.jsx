@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useAuth } from "@/context/Auth"
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
+import { MdOutlineArrowBack } from "react-icons/md"
 
 const DetailsConsultationsTicketDash = () => {
   const item = useLocation()?.state?.item
@@ -32,6 +33,10 @@ const DetailsConsultationsTicketDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>  Details Consultations Ticket Dash</h2>
         </div>
+        <Link to={'/dash/consultations-ticket'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="butto" className="fw-bold fs-5 back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
         <section style={{ backgroundColor: "#eee" }}>
           <div className="container py-5">
             <div className="row">

@@ -12,7 +12,7 @@ const GoldNews = () => {
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
   const [payment, setPayment] = useState([])
-  const [count, setCount] = useState(10)
+  const [count, setCount] = useState(1)
 
   const getInitialState = () => {
     let value = item?.option;
@@ -58,7 +58,7 @@ const GoldNews = () => {
         console.log(error);
       });
   }, []);
-  console.log(payment);
+  // console.log(payment);
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -130,13 +130,9 @@ const GoldNews = () => {
                       <option value="onlocation">on Location</option>
                     </select>
                   </div>
-                  <input
-                    type="number"
-                    min="1"
-                    defaultValue={1}
-                    value={count}
-                    onChange={(e) => setCount(e.target.value)}
-                  />
+                  <button className='btn btn-success px-3' onClick={() => setCount(count + 1)}>+</button>
+                  <p className='px-5 fw-bold'>Count: {count}</p>
+                  <button className='btn btn-success px-3' onClick={() => setCount(count - 1)}>-</button>
                 </div>
                 <button onClick={() => navigate('/bullion-store')} type="button" className="btn btn-outline-primary mx-2">استمرار التسوق</button>
               </div>

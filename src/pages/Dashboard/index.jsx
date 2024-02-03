@@ -10,7 +10,7 @@ const Dashboard = () => {
           <h2 className='fs-1 fw-bold'>DASHBOARD</h2>
         </div>
         <WidgetCart />
-        <ChartDash />
+        {/* <ChartDash /> */}
       </div>
 
     </div>

@@ -123,7 +123,7 @@ function Protect({ children, protect = false, path = '' }) {
 const Routers = () => {
   return (
     <div className="conatiner">
-      <Suspense fallback="loading..">
+      <Suspense fallback="loading....................">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -82,7 +82,7 @@ const AllUsersDash = () => {
                       to={`/dash/all-users/${item._id}`}
                       state={{ item: item }}
                     >
-                      <button className="btn btn-outline-success mx-2 px-4">التفاصيل</button>
+                      <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
                     </Link>
                     <Link
                       to={`/dash/update-role-user/${item._id}`}
