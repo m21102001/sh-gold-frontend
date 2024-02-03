@@ -1,6 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "@/api/axios";
 const MyWalletRequsetSall = () => {
+  const navigate = useNavigate();
   const item = useLocation()?.state?.item
   const handelSubmit = async () => {
     try {
@@ -13,6 +14,10 @@ const MyWalletRequsetSall = () => {
           }
         })
         .then((response) => {
+          if (response?.status == 201) {
+            alert('created successfully')
+            return navigate('/')
+          }
           console.log(response);
         })
     } catch (err) {
@@ -20,8 +25,7 @@ const MyWalletRequsetSall = () => {
     }
   }
   return (
-    <>
-
+    <div className="d-flex " style={{height:'100vh'}}>
       <div className="modal fade" id="exampleModalToggle" aria-hidden="false" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -32,14 +36,17 @@ const MyWalletRequsetSall = () => {
             <div className="modal-body">
               {item?.title}
             </div>
+            <div className="modal-body">
+              انت على بعد خطوه من تاكيد البيع
+            </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={handelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+              <button className="btn btn-primary" onClick={handelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> تاكيد </button>
             </div>
           </div>
         </div>
       </div>
-      <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> الطلب</a>
-    </>
+      <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button">تأكيد الطلب</a>
+    </div>
 
   )
 }
