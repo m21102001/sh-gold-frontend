@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [role, setRole] = useState('');
 
   const [user, setuser] = useState();
-  const [Fetched, setFetched] = useState(Boolean());
+  const [Fetched, setFetched] = useState(false);
   useEffect(() => {
     const CheckUser = async () => {
       try {

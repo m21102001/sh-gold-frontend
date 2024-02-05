@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { RxAvatar } from 'react-icons/rx';
 import logo from '@/assets/cambradge.svg';
 import './navbar.module.scss';
@@ -6,20 +6,21 @@ import { useAuth, authenticated } from '@/context/Auth';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from '@/api/axios';
 const Navbar = () => {
-  const { setRole, setFetched, setuser, setLoggedin } = useAuth();
-  const loggedIn = authenticated();
-  console.log('user', loggedIn);
+  const { setRole, setuser, setLoggedin, user } = useAuth();
+  const navigate = useNavigate();
+
   const handelLogout = async () => {
     try {
-      await axios.post('/auth/logout').then((response) => {
-        setLoggedin(false);
-        setRole(null);
-        setFetched(false);
-        setuser({});
-        // console.log("logout successfully", response);
+      await axios.post('/auth/logout', {
+        withCredentials: true,
       });
     } catch (error) {
       console.log(error.response);
+    } finally {
+      setLoggedin(false);
+      setRole(undefined);
+      setuser(undefined);
+      navigate('/auth/login');
     }
   };
 
@@ -110,13 +111,13 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            {loggedIn == false ? (
+            {user === undefined ? (
               <div>
                 <Link to="/auth/login">
                   <button className={`login-btn`}>تسجيل الدخول</button>
                 </Link>
                 <Link to="/auth/sign-up">
-                  <button className={`signup-btn`}>  انشاء حساب</button>
+                  <button className={`signup-btn`}> انشاء حساب</button>
                 </Link>
               </div>
             ) : (
@@ -125,9 +126,7 @@ const Navbar = () => {
                   <RxAvatar className="fs-1 avatar text-light" />
                 </Link>
                 <button
-                  onClick={() => {
-                    handelLogout();
-                  }}
+                  onClick={handelLogout}
                   className={`logout-btn mx-4 p-2 fs-5`}
                 >
                   تسجيل خروج

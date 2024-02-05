@@ -91,36 +91,61 @@ import {
 // import { useAuth, authenticated } from '@/context/Auth';
 import { Suspense, lazy } from 'react';
 import MyWalletRequsetSall from '@/pages/MyWalletRequsetSall';
+import { authenticated, useAuth } from '@/context/Auth';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
 
-// function Protect({ children, protect = false, path = '' }) {
-//   const { user } = useAuth();
-//   console.log(user != null);
-//   const authed = authenticated();
-//   console.log(authed);
-//   const allowedAdmin =
-//     user?.role == 'admin' ||
-//     user?.role == 'godAdmin' ||
-//     user?.role == 'manager';
-//   if (allowedAdmin && authed && path === 'dash') {
-//     return children;
-//   }
-//   if (!allowedAdmin && authed && path !== 'dash') {
-//     return children;
-//   }
-//   if (authed === protect && !authed) return children;
-//   if (!authed && protect) {
-//     return <Navigate to="/auth/login" />;
-//   }
-//   return children;
-//   // const allowedUser = user.role == 'user';
-//   // if (authed === protect)
-//   //   return <Navigate to={protect ? '/auth/login' : '/'} />;
-//   // if (!authed && protect) {
-//   //   return <Navigate to="/auth/login" />;
-//   // }
-// }
+function Protect({ children, protect = false, name = '', role = 'user' }) {
+  const { user } = useAuth();
+  const authed = authenticated();
+
+  if (authed === protect && role === 'admin') {
+    switch (name) {
+      case 'dash':
+        return <Dashboard />;
+
+      case 'goldDash':
+        return <GoldDash />;
+      //كمل الباقي بنفس الطريقه
+      default:
+        break;
+    }
+  }
+
+  if (
+    authed === protect &&
+    role === 'user' &&
+    authed !== true &&
+    name !== 'login'
+  )
+    return <Navigate to={'/'} />;
+  if (authed === protect) return children;
+  return <Navigate to={protect ? '/auth/login' : '/'} />;
+
+  // if (role && authed && name === 'dash') {
+  //   return children;
+  // }
+  // if (!role && authed && name !== 'dash') {
+  //   return <Navigate to={'/'} />;
+  // }
+  // if (authed === protect) return children;
+  // if (!authed && protect) {
+  //   return <Navigate to="/auth/login" />;
+  // }
+  // return (
+  //   <Navigate
+  //     to={protect ? '/auth/login' : allowedAdmin ? '/dash/dashboard' : '/'}
+  //   />
+  // );
+  // const allowedUser = user.role == 'user';
+  // if (authed === protect)
+  //   return <Navigate to={protect ? '/auth/login' : '/'} />;
+  // if (!authed && protect) {
+  //   return <Navigate to="/auth/login" />;
+  // }
+}
 const Routers = () => {
+  const allowed = useAuth().user;
+
   return (
     <div className="conatiner">
       <Suspense fallback="loading....................">
@@ -145,7 +170,7 @@ const Routers = () => {
             <Route path="/development" element={<Development />} />
             <Route
               path="/development/details-playlist/:id"
-              element={<DetailsPlaylistDevelopment />} 
+              element={<DetailsPlaylistDevelopment />}
             />
             <Route
               path="/development/details-video/:id"
@@ -158,7 +183,7 @@ const Routers = () => {
               path="/auth/shop"
               element={
                 // <Protect >
-                  <Shop />
+                <Shop />
                 // </Protect>
               }
             />
@@ -166,7 +191,7 @@ const Routers = () => {
               path="/auth/request/payment/playlist"
               element={
                 // <Protect >
-                  <RequsetPaymentPlaylist />
+                <RequsetPaymentPlaylist />
                 // </Protect>
               }
             />
@@ -174,7 +199,7 @@ const Routers = () => {
               path="/auth/request/payment/book"
               element={
                 // <Protect >
-                  <RequsetPaymentBook />
+                <RequsetPaymentBook />
                 // </Protect>
               }
             />
@@ -182,7 +207,7 @@ const Routers = () => {
               path="/auth/request/payment/gold"
               element={
                 // <Protect >
-                  <RequsetPaymentGold />
+                <RequsetPaymentGold />
                 // </Protect>
               }
             />
@@ -190,7 +215,7 @@ const Routers = () => {
               path="/auth/request/payment/plan/gold"
               element={
                 // <Protect >
-                  <RequsetPaymentPlan />
+                <RequsetPaymentPlan />
                 // </Protect>
               }
             />
@@ -198,7 +223,7 @@ const Routers = () => {
               path="/auth/request/payment/plan/silver"
               element={
                 // <Protect >
-                  <RequsetPaymentPlanSilver />
+                <RequsetPaymentPlanSilver />
                 // </Protect>
               }
             />
@@ -206,7 +231,7 @@ const Routers = () => {
               path="/auth/request/payment/consultations"
               element={
                 // <Protect >
-                  <RequsetPaymentConsultations />
+                <RequsetPaymentConsultations />
                 // </Protect>
               }
             />
@@ -214,7 +239,7 @@ const Routers = () => {
               path="/auth/sign-up"
               element={
                 // <Protect >
-                  <SignUp />
+                <SignUp />
                 // </Protect>
               }
             />
@@ -222,16 +247,16 @@ const Routers = () => {
             <Route
               path="/auth/login"
               element={
-                // <Protect >
+                <Protect name="login">
                   <Login />
-                // </Protect>
+                </Protect>
               }
             />
             <Route
               path="/auth/verifyCode"
               element={
                 // <Protect >
-                  <VerifyRestCode />
+                <VerifyRestCode />
                 // </Protect>
               }
             />
@@ -239,7 +264,7 @@ const Routers = () => {
               path="/auth/verifyphoneCode"
               element={
                 // <Protect >
-                  <VerifyPhoneCode />
+                <VerifyPhoneCode />
                 // </Protect>
               }
             />
@@ -247,7 +272,7 @@ const Routers = () => {
               path="/auth/update-password"
               element={
                 // <Protect >
-                  <UpdatePassword />
+                <UpdatePassword />
                 // </Protect>
               }
             />
@@ -255,7 +280,7 @@ const Routers = () => {
               path="/auth/edit-profile"
               element={
                 // <Protect >
-                  <EditProfile />
+                <EditProfile />
                 // </Protect>
               }
             />
@@ -263,7 +288,7 @@ const Routers = () => {
               path="/auth/resetPassword"
               element={
                 // <Protect >
-                  <ResetPassword />
+                <ResetPassword />
                 // </Protect>
               }
             />
@@ -271,7 +296,7 @@ const Routers = () => {
               path="/auth/resetPasswordOtp"
               element={
                 // <Protect >
-                  <ResetPasswordOtp />
+                <ResetPasswordOtp />
                 // </Protect>
               }
             />
@@ -279,7 +304,7 @@ const Routers = () => {
               path="/auth/reservation-ticket"
               element={
                 // <Protect >
-                  <ReservationTicket />
+                <ReservationTicket />
                 // </Protect>
               }
             />
@@ -287,7 +312,7 @@ const Routers = () => {
               path="/auth/my-wallet"
               element={
                 // <Protect >
-                  <MyWallet />
+                <MyWallet />
                 // </Protect>
               }
             />
@@ -295,7 +320,7 @@ const Routers = () => {
               path="/auth/my-wallet/request/sall"
               element={
                 // <Protect >
-                  <MyWalletRequsetSall />
+                <MyWalletRequsetSall />
                 // </Protect>
               }
             />
@@ -303,7 +328,7 @@ const Routers = () => {
               path="/auth/profile"
               element={
                 // <Protect>
-                  <Profile />
+                <Profile />
                 // </Protect>
               }
             />
@@ -312,24 +337,24 @@ const Routers = () => {
             <Route
               path="/dash/dashboard"
               element={
-                // <Protect path="dash" protect>
+                <Protect path="dash" protect>
                   <Dashboard />
-                // </Protect>
+                </Protect>
               }
             />
             <Route
               path="/dash/gold"
               element={
-                // <Protect path="dash" protect>
+                <Protect path="goldDash" protect>
                   <GoldDash />
-                // </Protect>
+                </Protect>
               }
             />
             <Route
               path="/dash/gold/request"
               element={
                 // <Protect path="dash" protect>
-                  <RequestGoldDash />
+                <RequestGoldDash />
                 // </Protect>
               }
             />
@@ -337,7 +362,7 @@ const Routers = () => {
               path="/dash/gold/request/details/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsRequestGoldDash />
+                <DetailsRequestGoldDash />
                 // </Protect>
               }
             />
@@ -345,7 +370,7 @@ const Routers = () => {
               path="/dash/details-gold/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsGoldDash />
+                <DetailsGoldDash />
                 // </Protect>
               }
             />
@@ -353,7 +378,7 @@ const Routers = () => {
               path="/dash/create-gold-item"
               element={
                 // <Protect path="dash" protect>
-                  <CreateGoldDahs />
+                <CreateGoldDahs />
                 // </Protect>
               }
             />
@@ -361,7 +386,7 @@ const Routers = () => {
               path="/dash/update-gold/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdateGoldDash />
+                <UpdateGoldDash />
                 // </Protect>
               }
             />
@@ -369,7 +394,7 @@ const Routers = () => {
               path="/dash/books"
               element={
                 // <Protect path="dash" protect>
-                  <BooksDash />
+                <BooksDash />
                 // </Protect>
               }
             />
@@ -377,7 +402,7 @@ const Routers = () => {
               path="/dash/books/requests"
               element={
                 // <Protect path="dash" protect>
-                  <RequestBuyBooksDash />
+                <RequestBuyBooksDash />
                 // </Protect>
               }
             />
@@ -385,7 +410,7 @@ const Routers = () => {
               path="/dash/books/requests/details/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsRequestBuyBooksDash />
+                <DetailsRequestBuyBooksDash />
                 // </Protect>
               }
             />
@@ -393,7 +418,7 @@ const Routers = () => {
               path="/dash/create-books"
               element={
                 // <Protect path="dash" protect>
-                  <CreateBookDash />
+                <CreateBookDash />
                 // </Protect>
               }
             />
@@ -401,7 +426,7 @@ const Routers = () => {
               path="/dash/update-books/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdateBooksDash />
+                <UpdateBooksDash />
                 // </Protect>
               }
             />
@@ -409,7 +434,7 @@ const Routers = () => {
               path="/dash/details-books/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsBooksDash />
+                <DetailsBooksDash />
                 // </Protect>
               }
             />
@@ -417,7 +442,7 @@ const Routers = () => {
               path="/dash/investment"
               element={
                 // <Protect path="dash" protect>
-                  <InvesmentDash />
+                <InvesmentDash />
                 // </Protect>
               }
             />
@@ -425,7 +450,7 @@ const Routers = () => {
               path="/dash/create-investment-item"
               element={
                 // <Protect path="dash" protect>
-                  <CreateInvesmentDash />
+                <CreateInvesmentDash />
                 // </Protect>
               }
             />
@@ -433,7 +458,7 @@ const Routers = () => {
               path="dash/details-investment/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsInvesmentDash />
+                <DetailsInvesmentDash />
                 // </Protect>
               }
             />
@@ -441,7 +466,7 @@ const Routers = () => {
               path="/investment/inactive/details-investment/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsInactiveInvesmentDash />
+                <DetailsInactiveInvesmentDash />
                 // </Protect>
               }
             />
@@ -449,7 +474,7 @@ const Routers = () => {
               path="/investment/inactive/update-investment/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdateInactiveInvesmentDash />
+                <UpdateInactiveInvesmentDash />
                 // </Protect>
               }
             />
@@ -457,7 +482,7 @@ const Routers = () => {
               path="/dash/requests-investment"
               element={
                 // <Protect path="dash" protect>
-                  <RequestInvestment />
+                <RequestInvestment />
                 // </Protect>
               }
             />
@@ -465,7 +490,7 @@ const Routers = () => {
               path="/dash/details-requests-investment/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsRequestInvestment />
+                <DetailsRequestInvestment />
                 // </Protect>
               }
             />
@@ -473,7 +498,7 @@ const Routers = () => {
               path="/dash/details-idea-requests-investment/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsIdeaRequestInvestment />
+                <DetailsIdeaRequestInvestment />
                 // </Protect>
               }
             />
@@ -481,7 +506,7 @@ const Routers = () => {
               path="/dash/club"
               element={
                 // <Protect path="dash" protect>
-                  <ClubDash />
+                <ClubDash />
                 // </Protect>
               }
             />
@@ -489,7 +514,7 @@ const Routers = () => {
               path="/dash/create-club"
               element={
                 // <Protect path="dash" protect>
-                  <CreateClubDash />
+                <CreateClubDash />
                 // </Protect>
               }
             />
@@ -497,7 +522,7 @@ const Routers = () => {
               path="/dash/update-club/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdateClubDash />
+                <UpdateClubDash />
                 // </Protect>
               }
             />
@@ -506,7 +531,7 @@ const Routers = () => {
               path="/dash/subscriber-club"
               element={
                 // <Protect path="dash" protect>
-                  <SubscriberClubDash />
+                <SubscriberClubDash />
                 // </Protect>
               }
             />
@@ -514,7 +539,7 @@ const Routers = () => {
               path="/dash/subscriber-club/details/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsSubscriberClubDash />
+                <DetailsSubscriberClubDash />
                 // </Protect>
               }
             />
@@ -523,7 +548,7 @@ const Routers = () => {
               path="/dash/contact-form"
               element={
                 // <Protect path="dash" protect>
-                  <ContactFormDash />
+                <ContactFormDash />
                 // </Protect>
               }
             />
@@ -531,7 +556,7 @@ const Routers = () => {
               path="/dash/details-contact-form/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DeatilsContactFormDash />
+                <DeatilsContactFormDash />
                 // </Protect>
               }
             />
@@ -539,7 +564,7 @@ const Routers = () => {
               path="/dash/all-users"
               element={
                 // <Protect path="dash" protect>
-                  <AllUsersDash />
+                <AllUsersDash />
                 // </Protect>
               }
             />
@@ -547,7 +572,7 @@ const Routers = () => {
               path="/dash/all-users/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsAllUsersDash />
+                <DetailsAllUsersDash />
                 // </Protect>
               }
             />
@@ -555,7 +580,7 @@ const Routers = () => {
               path="/dash/update-role-user/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdateRoleUsersDash />
+                <UpdateRoleUsersDash />
                 // </Protect>
               }
             />
@@ -563,7 +588,7 @@ const Routers = () => {
               path="/dash/playlists"
               element={
                 // <Protect path="dash" protect>
-                  <PlaylistsDash />
+                <PlaylistsDash />
                 // </Protect>
               }
             />
@@ -571,7 +596,7 @@ const Routers = () => {
               path="/dash/create-playlist-item"
               element={
                 // <Protect path="dash" protect>
-                  <CreatePlaylistDash />
+                <CreatePlaylistDash />
                 // </Protect>
               }
             />
@@ -579,7 +604,7 @@ const Routers = () => {
               path="/dash/update-playlist/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdatePlaylistDash />
+                <UpdatePlaylistDash />
                 // </Protect>
               }
             />
@@ -587,7 +612,7 @@ const Routers = () => {
               path="/dash/details-playlist/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsPlaylistDash />
+                <DetailsPlaylistDash />
                 // </Protect>
               }
             />
@@ -595,7 +620,7 @@ const Routers = () => {
               path="/dash/videos"
               element={
                 // <Protect path="dash" protect>
-                  <VideosDash />
+                <VideosDash />
                 // </Protect>
               }
             />
@@ -603,7 +628,7 @@ const Routers = () => {
               path="/dash/create-video-item"
               element={
                 // <Protect path="dash" protect>
-                  <CreateVideosDash />
+                <CreateVideosDash />
                 // </Protect>
               }
             />
@@ -611,7 +636,7 @@ const Routers = () => {
               path="/dash/update-videos/:id"
               element={
                 // <Protect path="dash" protect>
-                  <UpdateVideosDash />
+                <UpdateVideosDash />
                 // </Protect>
               }
             />
@@ -619,7 +644,7 @@ const Routers = () => {
               path="/dash/details-videos/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsVideosDash />
+                <DetailsVideosDash />
                 // </Protect>
               }
             />
@@ -627,7 +652,7 @@ const Routers = () => {
               path="/dash/consultations"
               element={
                 // <Protect path="dash" protect>
-                  <ConsultationsDash />
+                <ConsultationsDash />
                 // </Protect>
               }
             />
@@ -635,7 +660,7 @@ const Routers = () => {
               path="/dash/consultations-ticket"
               element={
                 // <Protect path="dash" protect>
-                  <ConsultationsTicketDash />
+                <ConsultationsTicketDash />
                 // </Protect>
               }
             />
@@ -643,7 +668,7 @@ const Routers = () => {
               path="/dash/consultations-ticket/details/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsConsultationsTicketDash />
+                <DetailsConsultationsTicketDash />
                 // </Protect>
               }
             />
@@ -651,7 +676,7 @@ const Routers = () => {
               path="/dash/create-consultation-item"
               element={
                 // <Protect path="dash" protect>
-                  <CreateConsultationsDash />
+                <CreateConsultationsDash />
                 // </Protect>
               }
             />
@@ -659,7 +684,7 @@ const Routers = () => {
               path="/dash/gold-bars/sell"
               element={
                 // <Protect path="dash" protect>
-                  <GoldBarsSell />
+                <GoldBarsSell />
                 // </Protect>
               }
             />
@@ -667,7 +692,7 @@ const Routers = () => {
               path="/dash/gold-bars/sell/details/:id"
               element={
                 // <Protect path="dash" protect>
-                  <DetailsGoldBarsSell />
+                <DetailsGoldBarsSell />
                 // </Protect>
               }
             />
@@ -676,7 +701,7 @@ const Routers = () => {
               path="/dash/profile"
               element={
                 // <Protect path="dash" protect>
-                  <ProfileDash />
+                <ProfileDash />
                 // </Protect>
               }
             />

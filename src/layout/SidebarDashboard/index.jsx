@@ -15,32 +15,31 @@ import './sidebarDashboard.scss';
 import { useAuth } from '@/context/Auth';
 
 function SidebarDashboard() {
-  const { user, setFetched } = useAuth();
+  const { user, setLoggedin, setRole, setuser } = useAuth();
 
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handelLogout = async () => {
     try {
-      await await axios
-        .post('/auth/logout', {
-          withCredentials: true,
-        })
-        .then((response) => {
-          setFetched(false);
-          console.log(response);
-        });
+      await axios.post('/auth/logout', {
+        withCredentials: true,
+      });
     } catch (error) {
       console.log(error.response);
     } finally {
+      setLoggedin(false);
+      setRole(undefined);
+      setuser(undefined);
       navigate('/auth/login');
     }
   };
   return (
     <div className="main-div">
       <div
-        className={`sidebar-div ${sidebarOpen ? 'sidebar-open' : 'sidebar-close'
-          }`}
+        className={`sidebar-div ${
+          sidebarOpen ? 'sidebar-open' : 'sidebar-close'
+        }`}
       >
         <NavLink style={{ background: 'var(--darkblue-color)' }}>
           <button
@@ -80,13 +79,15 @@ function SidebarDashboard() {
             <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>
           </NavLink>
           <NavLink to="/dash/books/requests ">
-            <IoBookSharp /> <p className="fs-5 fw-bold me-4">طلبات شراء الكتب</p>
+            <IoBookSharp />{' '}
+            <p className="fs-5 fw-bold me-4">طلبات شراء الكتب</p>
           </NavLink>
           <NavLink to="/dash/club ">
             <PiFlagFill /> <p className="fs-5 fw-bold me-4">نصايح النادى</p>
           </NavLink>
           <NavLink to="/dash/subscriber-club ">
-            <PiFlagFill /> <p className="fs-5 fw-bold me-4">الاعضاء المشتركين ف النادى </p>
+            <PiFlagFill />{' '}
+            <p className="fs-5 fw-bold me-4">الاعضاء المشتركين ف النادى </p>
           </NavLink>
           <NavLink to="/dash/investment ">
             <GrProjects /> <p className="fs-5 fw-bold me-4">مشاريع الاستثمار</p>
@@ -105,7 +106,8 @@ function SidebarDashboard() {
             <FaTicketAlt /> <p className="fs-5 fw-bold me-4">التذاكر</p>
           </NavLink>
           <NavLink to="/dash/consultations-ticket ">
-            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">التذاكر المحجوزه</p>
+            <FaTicketAlt />{' '}
+            <p className="fs-5 fw-bold me-4">التذاكر المحجوزه</p>
           </NavLink>
           <NavLink to="/dash/all-users ">
             <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>

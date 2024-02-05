@@ -9,7 +9,7 @@ import './login.scss';
 import { useAuth } from '@/context/Auth';
 
 const Login = () => {
-  const { user, setFetched, setuser } = useAuth();
+  const { user, setuser } = useAuth();
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
   const [phone, setPhone] = useState('');
@@ -30,24 +30,25 @@ const Login = () => {
     e.preventDefault();
     setIsPending(true);
     try {
-      await axios
-        .post(
-          '/auth/login',
-          {
-            phone: phone,
-            password: password,
+      const { data } = await axios.post(
+        '/auth/login',
+        {
+          phone: phone,
+          password: password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
           },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-          setFetched(true);
-          setIsPending(false);
-        });
+        }
+      );
+      setuser(data.data);
+      setIsPending(false);
+    } catch (err) {
+      setIsPending(false);
+      console.log('response', err.response);
+      console.log('message', err.message);
+    } finally {
       if (
         user?.role == 'admin' ||
         user?.role == 'godAdmin' ||
@@ -57,10 +58,6 @@ const Login = () => {
       } else {
         navigate('/');
       }
-    } catch (err) {
-      setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
     }
   };
   return (
