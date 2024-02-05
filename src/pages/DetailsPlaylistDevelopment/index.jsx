@@ -41,8 +41,7 @@ const DetailsPlaylistDevelopment = () => {
       });
   }, []);
 
-  // console.log(btnPayment);
-  console.log('fff', getvideos);
+  console.log('fff', payment.data);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
@@ -99,7 +98,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             <div className="col-sm-9">
-                              {!loading && pay != 401 ? (
+                              {!loading && payment.data == undefined && pay != 401 ? (
                                 <Link
                                   to={`/development/details-video/${item?._id}`}
                                   state={{ item }}

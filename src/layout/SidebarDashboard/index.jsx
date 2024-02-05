@@ -74,7 +74,7 @@ function SidebarDashboard() {
             <AiFillGold /> <p className="fs-5 fw-bold me-4">طلبات شراء الذهب</p>
           </NavLink>
           <NavLink to="/dash/gold-bars/sell ">
-            <FaTicketAlt /> <p className="fs-5 fw-bold me-4"> طلبات بيع السبايك</p>
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4"> الذهب المباع</p>
           </NavLink>
           <NavLink to="/dash/books ">
             <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>
@@ -96,7 +96,7 @@ function SidebarDashboard() {
             <p className="fs-5 fw-bold me-4">طلبات المستثمرين</p>
           </NavLink>
           <NavLink to="/dash/playlists ">
-            <CgPlayList /> <p className="fs-5 fw-bold me-4">الفيديوهات</p>
+            <CgPlayList /> <p className="fs-5 fw-bold me-4">الكورسات</p>
           </NavLink>
           <NavLink to="/dash/contact-form ">
             <FaMessage /> <p className="fs-5 fw-bold me-4">الرسائل</p>

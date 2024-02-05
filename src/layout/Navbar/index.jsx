@@ -41,7 +41,7 @@ const Navbar = () => {
               style={{
                 width: '10rem',
                 height: '6rem',
-                background: '#f1c40f54',
+                // background: '#f1c40f54',
                 borderRadius: '10px',
               }}
             />
@@ -65,7 +65,7 @@ const Navbar = () => {
                   aria-current="page"
                   to="/"
                 >
-                  الرئيسيه
+                  الرئيسية
                 </NavLink>
               </li>
               {/* <li className="nav-item ms-2 ">
@@ -113,10 +113,10 @@ const Navbar = () => {
             {loggedIn == false ? (
               <div>
                 <Link to="/auth/login">
-                  <button className={`login-btn`}>Login</button>
+                  <button className={`login-btn`}>تسجيل الدخول</button>
                 </Link>
                 <Link to="/auth/sign-up">
-                  <button className={`signup-btn`}> Sign Up</button>
+                  <button className={`signup-btn`}>  انشاء حساب</button>
                 </Link>
               </div>
             ) : (
@@ -130,7 +130,7 @@ const Navbar = () => {
                   }}
                   className={`logout-btn mx-4 p-2 fs-5`}
                 >
-                  Logout
+                  تسجيل خروج
                 </button>
               </>
             )}

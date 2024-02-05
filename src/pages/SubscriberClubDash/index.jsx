@@ -24,7 +24,6 @@ const SubscriberClubDash = () => {
         });
     }
   }, [])
-console.log(club);
   //////////////////pagination///////////////////
   const [prev, setPrev] = useState(0)
   const [next, setNext] = useState(10)

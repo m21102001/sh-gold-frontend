@@ -105,7 +105,7 @@ const ProjectIdea = () => {
                       <div className="card-body" >
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">نظره عامه على الفكره  </p>
+                            <p className="fs-4 mb-0 fw-bold">نظرة عامة على الفكرة  </p>
                           </div>
                           <div className="col-sm-9">
                             <p className="fs-4 m-auto mb-0" style={{ width: '306px', height: '420px', overflow: "auto" }}>
@@ -127,14 +127,14 @@ const ProjectIdea = () => {
                               to={`/view-more-details/${item?._id}`}
                               state={{ item }}
                             >
-                              <button className="fs-4 fw-bold mb-0">قرأه التفاصيل</button>
+                              <button className="fs-4 fw-bold mb-0">قرأة التفاصيل</button>
                             </Link>
                           </div>
                         </div>
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">تاريخ الاضافه</p>
+                            <p className="fs-4 mb-0 fw-bold">تاريخ الاضافة</p>
                           </div>
                           <div className="col-sm-9">
                             <p className="fs-4 fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>
@@ -143,7 +143,7 @@ const ProjectIdea = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">الوصف الكامل</p>
+                            <p className="fs-4 mb-0 fw-bold">وصف فكرة المشروع </p>
                           </div>
                           <div className="col-sm-9 overflow-auto" style={{ height: '5rem' }}>
                             <p className="fs-4 fw-bold mb-0">{item?.description}</p>
@@ -161,7 +161,7 @@ const ProjectIdea = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">نسبه الربح</p>
+                            <p className="fs-4 mb-0 fw-bold">العائد المتوقع من الاستثمار </p>
                           </div>
                           <div className="col-sm-9 ">
                             <p className="fs-4 fw-bold mb-0">{item?.profit}%</p>
@@ -180,7 +180,7 @@ const ProjectIdea = () => {
         <div className='Container'>
           <div className='m-auto d-flex justify-content-center my-5'>
             <span></span>
-            <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>قدم على الفكره  </h2>
+            <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>قدم على الفكرة  </h2>
             <span></span>
           </div>
           {/* ///////////////////////// contact us form ////////////////////////  */}

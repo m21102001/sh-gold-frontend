@@ -92,8 +92,6 @@ const PlaylistsDash = () => {
                 <td>{index + 1}</td>
                 <td>{item?.title}</td>
                 <td>{item?.price}دينار كويتى</td>
-                {/* <LazyLoadImage src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`} alt={item?.title}
-                  style={{ width: "50px" }} /> */}
                 <td>
                   <Link
                     to={`/dash/update-playlist/${item._id}`}

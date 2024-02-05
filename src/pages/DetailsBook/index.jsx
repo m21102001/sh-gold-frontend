@@ -137,7 +137,7 @@ const DetailsBook = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold"> قرأه الكتاب</p>
+                            <p className="mb-0 fw-bold"> قرأة الكتاب</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" >
                             {authed == true && goldData?.document?._id != null ? (
@@ -160,14 +160,15 @@ const DetailsBook = () => {
                                 </button>
                                 <div className="col-md-3 d-flex">
                                   <select
-                                    className="form-select mb-3"
+                                    className="form-select"
+                                    // style={{width:'10rem'}}
                                     aria-label="Default select example"
                                     value={value}
                                     onChange={handleChange}
                                   >
-                                    <option defaultValue selected value="online">online</option>
-                                    <option value="offline">offline</option>
-                                    <option value="onlocation">on Location</option>
+                                    <option defaultValue selected value="online">النسخة الاكترونية</option>
+                                    <option value="offline">النسخة الورقية (استلام من الشركة)</option>
+                                    <option value="onlocation">النسخة الورقية ( توصيل للبيت)</option>
                                   </select>
                                 </div>
                               </div>
@@ -177,7 +178,7 @@ const DetailsBook = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">تاريخ الاضافه</p>
+                            <p className="mb-0 fw-bold">تاريخ الاضافة</p>
                           </div>
                           <div className="col-sm-9">
                             <p className="text-muted fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>

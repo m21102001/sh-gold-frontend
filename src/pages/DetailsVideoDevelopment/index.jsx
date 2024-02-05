@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player/lazy'
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { useEffect, useState } from "react";
 import axios from "@/api/axios";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DetailsVideoDevelopment = () => {
   const navigate = useNavigate()
@@ -34,7 +33,7 @@ const DetailsVideoDevelopment = () => {
       <Navbar />
       <section style={{ backgroundColor: "var(--darkblue-color)", paddingTop: '2rem' }}>
         <button onClick={() => navigate(`/development/details-playlist/${item?._id}`)} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
-        {/* <div className="container py-5">
+        <div className="container py-5">
           <div className="row">
             <div className="col-lg-12">
               <div className="card mb-4">
@@ -80,7 +79,7 @@ const DetailsVideoDevelopment = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
       </section>
       <div className='coursers-open goldNews py-5'>
         <div className='m-auto d-flex justify-content-center mb-5'>

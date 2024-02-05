@@ -7,7 +7,6 @@ const ConsultationsTicketDash = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
   const { user } = useAuth();
-  // console.log(user.role);
   useEffect(() => {
     setLoading(true);
     if (user.role == 'manager') {
@@ -15,7 +14,6 @@ const ConsultationsTicketDash = () => {
         .then((response) => {
           setLoading(false)
           setConsultation(response.data)
-          // console.log('consultation',s response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -63,7 +61,7 @@ const ConsultationsTicketDash = () => {
               <th scope="col">#</th>
               <th scope="col">الاسم</th>
               <th scope="col">النوع</th>
-              <th scope="col">الاحداث</th>
+              <th scope="col" colSpan={2}>الاحداث</th>
             </tr>
           </thead>
           <tbody>
@@ -73,12 +71,15 @@ const ConsultationsTicketDash = () => {
                   <td>{index + 1}</td>
                   <td>{item?.ticket.title}</td>
                   <td>{item?.type}</td>
-                  <Link
-                    to={`/dash/consultations-ticket/details/${item._id}`}
-                    state={{ item }}
-                  >
-                    <button className="btn btn-outline-success mx-2 px-4">التفاصيل</button>
-                  </Link>
+                  <td>
+
+                    <Link
+                      to={`/dash/consultations-ticket/details/${item._id}`}
+                      state={{ item }}
+                    >
+                      <button className="btn btn-outline-success mx-2 px-4">التفاصيل</button>
+                    </Link>
+                  </td>
                 </tr>
               ) : null
             ))}

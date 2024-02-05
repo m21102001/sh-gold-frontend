@@ -88,38 +88,38 @@ import {
   VideosDash,
   ViewPdf,
 } from '@/pages';
-import { useAuth, authenticated } from '@/context/Auth';
+// import { useAuth, authenticated } from '@/context/Auth';
 import { Suspense, lazy } from 'react';
 import MyWalletRequsetSall from '@/pages/MyWalletRequsetSall';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
 
-function Protect({ children, protect = false, path = '' }) {
-  const { user } = useAuth();
-  console.log(user != null);
-  const authed = authenticated();
-  console.log(authed);
-  const allowedAdmin =
-    user?.role == 'admin' ||
-    user?.role == 'godAdmin' ||
-    user?.role == 'manager';
-  if (allowedAdmin && authed && path === 'dash') {
-    return children;
-  }
-  if (!allowedAdmin && authed && path !== 'dash') {
-    return children;
-  }
-  if (authed === protect && !authed) return children;
-  if (!authed && protect) {
-    return <Navigate to="/auth/login" />;
-  }
-  // return children;
-  // const allowedUser = user.role == 'user';
-  // if (authed === protect)
-  //   return <Navigate to={protect ? '/auth/login' : '/'} />;
-  // if (!authed && protect) {
-  //   return <Navigate to="/auth/login" />;
-  // }
-}
+// function Protect({ children, protect = false, path = '' }) {
+//   const { user } = useAuth();
+//   console.log(user != null);
+//   const authed = authenticated();
+//   console.log(authed);
+//   const allowedAdmin =
+//     user?.role == 'admin' ||
+//     user?.role == 'godAdmin' ||
+//     user?.role == 'manager';
+//   if (allowedAdmin && authed && path === 'dash') {
+//     return children;
+//   }
+//   if (!allowedAdmin && authed && path !== 'dash') {
+//     return children;
+//   }
+//   if (authed === protect && !authed) return children;
+//   if (!authed && protect) {
+//     return <Navigate to="/auth/login" />;
+//   }
+//   return children;
+//   // const allowedUser = user.role == 'user';
+//   // if (authed === protect)
+//   //   return <Navigate to={protect ? '/auth/login' : '/'} />;
+//   // if (!authed && protect) {
+//   //   return <Navigate to="/auth/login" />;
+//   // }
+// }
 const Routers = () => {
   return (
     <div className="conatiner">
@@ -157,154 +157,154 @@ const Routers = () => {
             <Route
               path="/auth/shop"
               element={
-                <Protect >
+                // <Protect >
                   <Shop />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/request/payment/playlist"
               element={
-                <Protect >
+                // <Protect >
                   <RequsetPaymentPlaylist />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/request/payment/book"
               element={
-                <Protect >
+                // <Protect >
                   <RequsetPaymentBook />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/request/payment/gold"
               element={
-                <Protect >
+                // <Protect >
                   <RequsetPaymentGold />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/request/payment/plan/gold"
               element={
-                <Protect >
+                // <Protect >
                   <RequsetPaymentPlan />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/request/payment/plan/silver"
               element={
-                <Protect >
+                // <Protect >
                   <RequsetPaymentPlanSilver />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/request/payment/consultations"
               element={
-                <Protect >
+                // <Protect >
                   <RequsetPaymentConsultations />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/sign-up"
               element={
-                <Protect >
+                // <Protect >
                   <SignUp />
-                </Protect>
+                // </Protect>
               }
             />
             <Route path="/auth/payment" element={<Payment />} />
             <Route
               path="/auth/login"
               element={
-                <Protect >
+                // <Protect >
                   <Login />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/verifyCode"
               element={
-                <Protect >
+                // <Protect >
                   <VerifyRestCode />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/verifyphoneCode"
               element={
-                <Protect >
+                // <Protect >
                   <VerifyPhoneCode />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/update-password"
               element={
-                <Protect >
+                // <Protect >
                   <UpdatePassword />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/edit-profile"
               element={
-                <Protect >
+                // <Protect >
                   <EditProfile />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/resetPassword"
               element={
-                <Protect >
+                // <Protect >
                   <ResetPassword />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/resetPasswordOtp"
               element={
-                <Protect >
+                // <Protect >
                   <ResetPasswordOtp />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/reservation-ticket"
               element={
-                <Protect >
+                // <Protect >
                   <ReservationTicket />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/my-wallet"
               element={
-                <Protect >
+                // <Protect >
                   <MyWallet />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/my-wallet/request/sall"
               element={
-                <Protect >
+                // <Protect >
                   <MyWalletRequsetSall />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/auth/profile"
               element={
-                <Protect>
+                // <Protect>
                   <Profile />
-                </Protect>
+                // </Protect>
               }
             />
 
@@ -312,372 +312,372 @@ const Routers = () => {
             <Route
               path="/dash/dashboard"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <Dashboard />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/gold"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <GoldDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/gold/request"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <RequestGoldDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/gold/request/details/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsRequestGoldDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-gold/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsGoldDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-gold-item"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreateGoldDahs />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/update-gold/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdateGoldDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/books"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <BooksDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/books/requests"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <RequestBuyBooksDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/books/requests/details/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsRequestBuyBooksDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-books"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreateBookDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/update-books/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdateBooksDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-books/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsBooksDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/investment"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <InvesmentDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-investment-item"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreateInvesmentDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="dash/details-investment/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsInvesmentDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/investment/inactive/details-investment/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsInactiveInvesmentDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/investment/inactive/update-investment/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdateInactiveInvesmentDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/requests-investment"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <RequestInvestment />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-requests-investment/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsRequestInvestment />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-idea-requests-investment/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsIdeaRequestInvestment />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/club"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <ClubDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-club"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreateClubDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/update-club/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdateClubDash />
-                </Protect>
+                // </Protect>
               }
             />
 
             <Route
               path="/dash/subscriber-club"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <SubscriberClubDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/subscriber-club/details/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsSubscriberClubDash />
-                </Protect>
+                // </Protect>
               }
             />
 
             <Route
               path="/dash/contact-form"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <ContactFormDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-contact-form/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DeatilsContactFormDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/all-users"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <AllUsersDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/all-users/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsAllUsersDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/update-role-user/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdateRoleUsersDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/playlists"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <PlaylistsDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-playlist-item"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreatePlaylistDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/update-playlist/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdatePlaylistDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-playlist/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsPlaylistDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/videos"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <VideosDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-video-item"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreateVideosDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/update-videos/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <UpdateVideosDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/details-videos/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsVideosDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/consultations"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <ConsultationsDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/consultations-ticket"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <ConsultationsTicketDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/consultations-ticket/details/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsConsultationsTicketDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/create-consultation-item"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <CreateConsultationsDash />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/gold-bars/sell"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <GoldBarsSell />
-                </Protect>
+                // </Protect>
               }
             />
             <Route
               path="/dash/gold-bars/sell/details/:id"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <DetailsGoldBarsSell />
-                </Protect>
+                // </Protect>
               }
             />
 
             <Route
               path="/dash/profile"
               element={
-                <Protect path="dash" protect>
+                // <Protect path="dash" protect>
                   <ProfileDash />
-                </Protect>
+                // </Protect>
               }
             />
 

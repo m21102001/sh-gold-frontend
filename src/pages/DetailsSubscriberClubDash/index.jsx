@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom'
 
 const DetailsSubscriberClubDash = () => {
   const item = useLocation()?.state?.item
-  console.log(item);
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard /> 
@@ -69,7 +68,7 @@ const DetailsSubscriberClubDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">بدايه معاد الاشتراك</p>
+                        <p className="mb-0">بدايه الاشتراك</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.planStartDate?.slice(0,10)}</p>
@@ -78,7 +77,7 @@ const DetailsSubscriberClubDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">نهايه معاد الاشتراك</p>
+                        <p className="mb-0">نهايه الاشتراك</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.planEndDate?.slice(0,10)}</p>

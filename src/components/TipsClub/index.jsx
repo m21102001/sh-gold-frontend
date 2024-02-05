@@ -11,15 +11,15 @@ const GoldStore = () => {
     axios.get(`/club`)
       .then((response) => {
         setMessage(response.data)
-        // console.log('ffff',response.data);
         setLoading(false)
       })
       .catch((error) => {
         setLoading(false)
         console.log(error);
       });
-  }, [])
-
+    }, [])
+    
+    // console.log('ffff',message);
   ////////////////pagination///////////
   const [prev, setPrev] = useState(0)
   const [next, setNext] = useState(10)
