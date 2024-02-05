@@ -94,31 +94,26 @@ import MyWalletRequsetSall from '@/pages/MyWalletRequsetSall';
 import { authenticated, useAuth } from '@/context/Auth';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
 
-function Protect({ children, protect = false, name = '', role = 'user' }) {
+function Protect({ children, protect = false, path = '', role = 'user' }) {
   const { user } = useAuth();
   const authed = authenticated();
 
-  if (authed === protect && role === 'admin') {
-    switch (name) {
-      case 'dash':
-        return <Dashboard />;
-
-      case 'goldDash':
-        return <GoldDash />;
-      //كمل الباقي بنفس الطريقه
-      default:
-        break;
-    }
+  if (
+    authed === protect &&
+    (role === 'admin' || role === 'godAdmin' || role === 'manager') &&
+    path === 'dash'
+  ) {
+    return children;
   }
 
   if (
     authed === protect &&
     role === 'user' &&
     authed !== true &&
-    name !== 'login'
+    path !== 'login'
   )
     return <Navigate to={'/'} />;
-  if (authed === protect) return children;
+  if (authed === protect && path !== 'dash') return children;
   return <Navigate to={protect ? '/auth/login' : '/'} />;
 
   // if (role && authed && name === 'dash') {
@@ -247,7 +242,7 @@ const Routers = () => {
             <Route
               path="/auth/login"
               element={
-                <Protect name="login">
+                <Protect path="login">
                   <Login />
                 </Protect>
               }
@@ -337,7 +332,7 @@ const Routers = () => {
             <Route
               path="/dash/dashboard"
               element={
-                <Protect path="dash" protect>
+                <Protect path="dash" protect role={allowed?.role}>
                   <Dashboard />
                 </Protect>
               }
@@ -345,7 +340,7 @@ const Routers = () => {
             <Route
               path="/dash/gold"
               element={
-                <Protect path="goldDash" protect>
+                <Protect path="dash" protect role={allowed?.role}>
                   <GoldDash />
                 </Protect>
               }
@@ -353,356 +348,356 @@ const Routers = () => {
             <Route
               path="/dash/gold/request"
               element={
-                // <Protect path="dash" protect>
-                <RequestGoldDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <RequestGoldDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/gold/request/details/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsRequestGoldDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsRequestGoldDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-gold/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsGoldDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsGoldDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-gold-item"
               element={
-                // <Protect path="dash" protect>
-                <CreateGoldDahs />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreateGoldDahs />
+                </Protect>
               }
             />
             <Route
               path="/dash/update-gold/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdateGoldDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdateGoldDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/books"
               element={
-                // <Protect path="dash" protect>
-                <BooksDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <BooksDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/books/requests"
               element={
-                // <Protect path="dash" protect>
-                <RequestBuyBooksDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <RequestBuyBooksDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/books/requests/details/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsRequestBuyBooksDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsRequestBuyBooksDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-books"
               element={
-                // <Protect path="dash" protect>
-                <CreateBookDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreateBookDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/update-books/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdateBooksDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdateBooksDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-books/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsBooksDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsBooksDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/investment"
               element={
-                // <Protect path="dash" protect>
-                <InvesmentDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <InvesmentDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-investment-item"
               element={
-                // <Protect path="dash" protect>
-                <CreateInvesmentDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreateInvesmentDash />
+                </Protect>
               }
             />
             <Route
               path="dash/details-investment/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsInvesmentDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsInvesmentDash />
+                </Protect>
               }
             />
             <Route
               path="/investment/inactive/details-investment/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsInactiveInvesmentDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsInactiveInvesmentDash />
+                </Protect>
               }
             />
             <Route
               path="/investment/inactive/update-investment/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdateInactiveInvesmentDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdateInactiveInvesmentDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/requests-investment"
               element={
-                // <Protect path="dash" protect>
-                <RequestInvestment />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <RequestInvestment />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-requests-investment/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsRequestInvestment />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsRequestInvestment />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-idea-requests-investment/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsIdeaRequestInvestment />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsIdeaRequestInvestment />
+                </Protect>
               }
             />
             <Route
               path="/dash/club"
               element={
-                // <Protect path="dash" protect>
-                <ClubDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <ClubDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-club"
               element={
-                // <Protect path="dash" protect>
-                <CreateClubDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreateClubDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/update-club/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdateClubDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdateClubDash />
+                </Protect>
               }
             />
 
             <Route
               path="/dash/subscriber-club"
               element={
-                // <Protect path="dash" protect>
-                <SubscriberClubDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <SubscriberClubDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/subscriber-club/details/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsSubscriberClubDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsSubscriberClubDash />
+                </Protect>
               }
             />
 
             <Route
               path="/dash/contact-form"
               element={
-                // <Protect path="dash" protect>
-                <ContactFormDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <ContactFormDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-contact-form/:id"
               element={
-                // <Protect path="dash" protect>
-                <DeatilsContactFormDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DeatilsContactFormDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/all-users"
               element={
-                // <Protect path="dash" protect>
-                <AllUsersDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <AllUsersDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/all-users/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsAllUsersDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsAllUsersDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/update-role-user/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdateRoleUsersDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdateRoleUsersDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/playlists"
               element={
-                // <Protect path="dash" protect>
-                <PlaylistsDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <PlaylistsDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-playlist-item"
               element={
-                // <Protect path="dash" protect>
-                <CreatePlaylistDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreatePlaylistDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/update-playlist/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdatePlaylistDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdatePlaylistDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-playlist/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsPlaylistDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsPlaylistDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/videos"
               element={
-                // <Protect path="dash" protect>
-                <VideosDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <VideosDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-video-item"
               element={
-                // <Protect path="dash" protect>
-                <CreateVideosDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreateVideosDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/update-videos/:id"
               element={
-                // <Protect path="dash" protect>
-                <UpdateVideosDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <UpdateVideosDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/details-videos/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsVideosDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsVideosDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/consultations"
               element={
-                // <Protect path="dash" protect>
-                <ConsultationsDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <ConsultationsDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/consultations-ticket"
               element={
-                // <Protect path="dash" protect>
-                <ConsultationsTicketDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <ConsultationsTicketDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/consultations-ticket/details/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsConsultationsTicketDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsConsultationsTicketDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/create-consultation-item"
               element={
-                // <Protect path="dash" protect>
-                <CreateConsultationsDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <CreateConsultationsDash />
+                </Protect>
               }
             />
             <Route
               path="/dash/gold-bars/sell"
               element={
-                // <Protect path="dash" protect>
-                <GoldBarsSell />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <GoldBarsSell />
+                </Protect>
               }
             />
             <Route
               path="/dash/gold-bars/sell/details/:id"
               element={
-                // <Protect path="dash" protect>
-                <DetailsGoldBarsSell />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsGoldBarsSell />
+                </Protect>
               }
             />
 
             <Route
               path="/dash/profile"
               element={
-                // <Protect path="dash" protect>
-                <ProfileDash />
-                // </Protect>
+                <Protect path="dash" protect role={allowed?.role}>
+                  <ProfileDash />
+                </Protect>
               }
             />
 
