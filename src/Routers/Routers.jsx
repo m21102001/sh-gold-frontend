@@ -177,9 +177,9 @@ const Routers = () => {
             <Route
               path="/auth/shop"
               element={
-                // <Protect >
-                <Shop />
-                // </Protect>
+                <Protect protect>
+                  <Shop />
+                </Protect>
               }
             />
             <Route
