@@ -101,7 +101,7 @@ const GoldBarsSell = () => {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">اسم السبيكه</th>
+              <th scope="col">اسم السبيكة</th>
               <th scope="col"> اسم المالك</th>
               <th scope="col">الاحداث</th>
             </tr>

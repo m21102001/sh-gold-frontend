@@ -52,7 +52,7 @@ const SubscriberClubDash = () => {
 
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Club Subscriber dash</h2>
+          <h2 className='fs-1 fw-bold'> المشتركين فى النادى</h2>
         </div>
         <table className="table table-striped table-hover">
           <thead>
@@ -60,7 +60,7 @@ const SubscriberClubDash = () => {
               <th scope="col">#</th>
               <th scope="col">الاسم</th>
               <th scope="col">رقم الهاتف</th>
-              <th scope="col">الخطه</th>
+              <th scope="col">الخطة</th>
               <th scope="col">الاحداث</th>
             </tr>
           </thead>

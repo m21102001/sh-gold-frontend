@@ -1,4 +1,4 @@
-import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logo from '@/assets/Cambridge-logo-.svg'
 import './footer.module.scss';
@@ -8,25 +8,7 @@ const Footer = () => {
   return (
     <footer className="text-center text-lg-start tex-light "  >
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        {/* <div>
-          <a href="https://github.com/m21102001" className="me-4 text-reset">
-            <FaFacebook />
-          </a>
-          <a href="https://github.com/m21102001" className="me-4 text-reset">
-            <FaXTwitter />
-          </a>
-          <a href="https://github.com/m21102001" className="me-4 text-reset">
-            <FaGoogle />
-          </a>
-          <a href="https://github.com/m21102001" className="me-4 text-reset">
-            <FaInstagram />
-          </a>
-        </div>
-        <div className="me-5 d-none d-lg-block">
-          <span>Get connected with us on social networks:</span>
-        </div> */}
       </section>
-
       <section className="">
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3 text-end">
@@ -99,7 +81,7 @@ const Footer = () => {
               data-mdb-ripple-init
               className="btn text-white btn-floating m-1"
               style={{ backgroundColor: " #3b5998" }}
-              href="https://github.com/m21102001"
+              href="https://facebook.com"
               role="button"
             ><FaFacebook /></a>
 
@@ -107,7 +89,7 @@ const Footer = () => {
               data-mdb-ripple-init
               className="btn text-white btn-floating m-1"
               style={{ backgroundColor: " #55acee" }}
-              href="https://github.com/m21102001"
+              href="https://x.com/"
               role="button"
             ><FaXTwitter /></a>
 
@@ -115,15 +97,15 @@ const Footer = () => {
               data-mdb-ripple-init
               className="btn text-white btn-floating m-1"
               style={{ backgroundColor: " #dd4b39" }}
-              href="https://github.com/m21102001"
+              href="https://www.tiktok.com/@cambridgeclub1?_t=8jWzYlPpHe6&_r=1"
               role="button"
-            ><FaGoogle /></a>
+            ><FaTiktok /></a>
 
             <a
               data-mdb-ripple-init
               className="btn text-white btn-floating m-1"
               style={{ backgroundColor: " #ac2bac" }}
-              href="https://github.com/m21102001"
+              href="https://www.instagram.com/kanz.sabaek/"
               role="button"
             ><FaInstagram /></a>
           </section>
@@ -131,7 +113,9 @@ const Footer = () => {
 
         <div className=" copyRight text-center p-3" style={{ backgroundColor: "rgb(133 133 133 / 5%)" }}>
           © 2023 Copyright:
-          <a className="love" href="https://github.com/m21102001"> make by Love</a>
+          {/* <a className="love" href="https://google.com/"> 
+          </a> */}
+          make by Love
         </div>
       </footer>
     </footer>

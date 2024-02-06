@@ -106,7 +106,7 @@ const ContactFormDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Contact Form Dashboard</h2>
+          <h2 className='fs-1 fw-bold'>طلبات التواصل مع الاستاذ صلاح</h2>
         </div>
 
         <button onClick={() => handelDeleteAll()} type="button" className="btn btn-danger d-block m-3" style={{ padding: "7px 6rem" }}>حذف الكل</button>
@@ -116,7 +116,7 @@ const ContactFormDash = () => {
               <th scope="col">#</th>
               <th scope="col">الاسم بالكامل</th>
               <th scope="col">البريد الالكترونى</th>
-              <th scope="col">اسم المؤسسه</th>
+              <th scope="col">اسم المؤسسة</th>
               <th scope="col">الاحداث</th>
             </tr>
           </thead>

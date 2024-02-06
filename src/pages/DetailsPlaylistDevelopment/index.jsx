@@ -41,7 +41,7 @@ const DetailsPlaylistDevelopment = () => {
       });
   }, []);
 
-  console.log('fff', payment.data);
+  // console.log('fff', payment.data);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />

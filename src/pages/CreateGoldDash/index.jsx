@@ -64,7 +64,7 @@ const CreateGoldDahs = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Create Gold Item</h2>
+          <h2 className='fs-1 fw-bold'>  اضافة منتج جديد</h2>
         </div>
         <Link to={'/dash/gold'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
@@ -107,7 +107,7 @@ const CreateGoldDahs = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form">اضافه االى قائمه *</div>
+          <div className="label-form">اضافة االى قائمة *</div>
           <select
             className="form-select"
             aria-label="Default select example"
@@ -153,12 +153,12 @@ const CreateGoldDahs = () => {
 
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mt-3">
-              اضافه جديد
+              اضافة جديد
             </button>
           )}
           {isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mt-3">
-              جاري الاضافه ...
+              جاري الاضافة ...
             </button>
           )}
           <button onClick={() => navigate('/dash/gold')} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mt-3">

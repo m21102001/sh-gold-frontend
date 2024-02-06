@@ -64,7 +64,7 @@ function SidebarDashboard() {
             </div>
           </NavLink>
           <NavLink to="/dash/dashboard ">
-            <AiFillHome /> <p className="fs-5 fw-bold me-4">الرئيسيه</p>
+            <AiFillHome /> <p className="fs-5 fw-bold me-4">الرئيسية</p>
           </NavLink>
           <NavLink to="/dash/gold ">
             <AiFillGold /> <p className="fs-5 fw-bold me-4">الذهب</p>
@@ -107,7 +107,7 @@ function SidebarDashboard() {
           </NavLink>
           <NavLink to="/dash/consultations-ticket ">
             <FaTicketAlt />{' '}
-            <p className="fs-5 fw-bold me-4">التذاكر المحجوزه</p>
+            <p className="fs-5 fw-bold me-4">التذاكر المحجوزة</p>
           </NavLink>
           <NavLink to="/dash/all-users ">
             <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>

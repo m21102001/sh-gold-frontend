@@ -9,7 +9,7 @@ const DetailsAllUsersDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Deatils For One User</h2>
+          <h2 className='fs-1 fw-bold'>تفاصيل المستخدم </h2>
         </div>
         <Link to={'/dash/all-users'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"

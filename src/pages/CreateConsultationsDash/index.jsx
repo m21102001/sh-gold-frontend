@@ -67,7 +67,7 @@ const CreateConsultationsDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Create Ticket Item</h2>
+          <h2 className='fs-1 fw-bold'>اضافة تذكرة جديدة</h2>
         </div>
         <Link to={'/dash/consultations'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
@@ -77,43 +77,43 @@ const CreateConsultationsDash = () => {
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
         >
-          <div className="label-form">ادخل  عنوان التذكره</div>
+          <div className="label-form">ادخل  عنوان التذكرة</div>
           <input
             type="text"
             name="title"
             className="form-control  mb-4"
             id="title"
             required
-            placeholder="ادخل  عنوان التذكره*"
+            placeholder="ادخل  عنوان التذكرة*"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          <div className="label-form">ادخل سعر التذكره</div>
+          <div className="label-form">ادخل سعر التذكرة</div>
           <input
             type="number"
             name="title"
             className="form-control  mb-4"
             id="title"
             required
-            placeholder="ادخل  سعر التذكره*"
+            placeholder="ادخل  سعر التذكرة*"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
 
-          <div className="label-form">ادخل مده التذكره (بالدقايق)</div>
+          <div className="label-form">ادخل مده التذكرة (بالدقايق)</div>
           <input
             type="number"
             name="title"
             className="form-control  mb-4"
             id="title"
             required
-            placeholder="ادخل وقت التذكره   *"
+            placeholder="ادخل وقت التذكرة   *"
             value={period}
             onChange={(e) => setPeriod(e.target.value)}
           />
 
-          <div className="label-form">تحديد نوع التذكره   *</div>
+          <div className="label-form">تحديد نوع التذكرة   *</div>
           <select
             className="form-select mb-4"
             aria-label="Default select example"
@@ -149,12 +149,12 @@ const CreateConsultationsDash = () => {
           />
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">
-              اضافه تذكره جديد
+              اضافة تذكرة جديد
             </button>
           )}
           {isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mb-4">
-              جاري الاضافه ...
+              جاري الاضافة ...
             </button>
           )}
           <button onClick={() => navigate(`/dash/consultations`)} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mb-4">

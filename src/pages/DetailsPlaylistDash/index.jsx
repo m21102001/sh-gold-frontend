@@ -35,7 +35,7 @@ const DetailsPlaylistDash = () => {
       })
       .then((response) => {
         axios.get(`playlists/videos/${item?._id}`)
-        console.log(response)
+        // console.log('bb',response)
       })
     alert('deleted success')
       .catch((error) => {
@@ -50,7 +50,7 @@ const DetailsPlaylistDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Deatils Playlist Item</h2>
+          <h2 className='fs-1 fw-bold'>تفاصيل الكورس</h2>
         </div>
         <div className='d-flex justify-content-between align-items-center'>
           <Link
@@ -58,7 +58,7 @@ const DetailsPlaylistDash = () => {
             to="/dash/create-video-item"
             state={{ item: item }}
           >
-            <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه فيديو جديد</button>
+            <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافة فيديو جديد</button>
           </Link>
           <Link to={'/dash/playlists'} className='mb-3 d-flex flex-row-reverse'>
             <button type="butto" className="fw-bold fs-5 back-details-button"

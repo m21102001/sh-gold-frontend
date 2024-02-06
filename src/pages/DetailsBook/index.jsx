@@ -56,7 +56,7 @@ const DetailsBook = () => {
         // console.log(error);
       });
   }, []);
-
+console.log('bbbb',payment);
   useEffect(() => {
     setLoading(true);
     axios.get(`/books`)

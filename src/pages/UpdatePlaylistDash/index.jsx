@@ -50,7 +50,7 @@ const UpdatePlaylistDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>update playlist Item</h2>
+          <h2 className='fs-1 fw-bold'>تعديل فى تفاصبل الكورس</h2>
         </div>
         <Link to={'/dash/playlists'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
@@ -114,12 +114,12 @@ const UpdatePlaylistDash = () => {
           />
           {!isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mt-3">
-              اضافه جديد
+              اضافة جديد
             </button>
           )}
           {isPending && (
             <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mt-3">
-              جاري الاضافه ...
+              جاري الاضافة ...
             </button>
           )}
           <button onClick={() => navigate('/dash/playlists')} className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-danger mt-3">

@@ -22,13 +22,13 @@ const WidgetCart = () => {
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FaEye/> عدد التذاكر المباعه </h5>
+            <h5 className="card-title"> <FaEye/> عدد التذاكر المباعة </h5>
             <p className="card-text fs-3 fw-semibold text-center">2 </p>
           </div>
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FaEye/> عدد التذاكر المتاحه </h5>
+            <h5 className="card-title"> <FaEye/> عدد التذاكر المتاحة </h5>
             <p className="card-text fs-3 fw-semibold text-center">1 </p>
           </div>
         </div>
@@ -58,13 +58,13 @@ const WidgetCart = () => {
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FaChartSimple/> عدد الافكار المتاحه </h5>
+            <h5 className="card-title"> <FaChartSimple/> عدد الافكار المتاحة </h5>
             <p className="card-text fs-3 fw-semibold text-center">13 </p>
           </div>
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FaChartSimple/> طلبات المثتسمرين  </h5>
+            <h5 className="card-title"> <FaChartSimple/> طلبات المستثمرين  </h5>
             <p className="card-text fs-3 fw-semibold text-center">22 </p>
           </div>
         </div>

@@ -8,7 +8,8 @@ const UpdateClubDash = () => {
   const item = useLocation()?.state?.item
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [message, setMessage] = useState(item?.message)
+  const [title, setTitle] = useState(item?.title)
+  const [message, setMessage] = useState(item?.description)
 
   const hanelSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,8 @@ const UpdateClubDash = () => {
         .put(
           `/club/${item?._id}`,
           {
-            message: message,
+            title: title,
+            description: message,
           },
           {
             headers: {
@@ -29,17 +31,16 @@ const UpdateClubDash = () => {
         .then((response) => {
           // console.log('created success', response);
           if (response?.status == 201) {
-
+            setIsPending(false);
             alert('created successfully')
             return navigate('/dash/club')
           }
 
         });
-      setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      // console.log('response', err.response);
+      console.log('message', err);
     }
   };
 
@@ -48,7 +49,7 @@ const UpdateClubDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>update message</h2>
+          <h2 className='fs-1 fw-bold'> تعديل نصيحة النادى</h2>
         </div>
         <Link to={'/dash/club'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
@@ -58,6 +59,17 @@ const UpdateClubDash = () => {
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
         >
+          <div className="label-form">غير ف عنوان الرسالة *</div>
+          <textarea
+            type="text"
+            name="title"
+            className="form-control  mb-4"
+            id="title"
+            required
+            placeholder="غير ف عنوان الرسالة*"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
           <div className="label-form">اكتب وصفا دقيقا للرساله*</div>
           <textarea
             type="text"

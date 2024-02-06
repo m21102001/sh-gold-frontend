@@ -59,7 +59,7 @@ const AddNewIdea = () => {
       <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
         <div className='m-auto d-flex justify-content-center my-5'>
           <span></span>
-          <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافه فكره جديده</h2>
+          <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافة فكره جديده</h2>
           <span></span>
         </div>
 
@@ -214,14 +214,14 @@ const AddNewIdea = () => {
             </div>
             {!isPending && (
               <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-primary  mb-4">
-                اضافه
+                اضافة
               </button>
             )}
             {isPending && (
               <button className="d-grid col-3 py-3 fs-4 fw-bold align-content-center mx-auto btn btn-outline-primary mb-4"
                 disabled
               >
-                جاري الاضافه ...
+                جاري الاضافة ...
               </button>
             )}
           </form>

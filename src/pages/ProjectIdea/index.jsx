@@ -152,10 +152,10 @@ const ProjectIdea = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="fs-4 mb-0 fw-bold">السعر </p>
+                            <p className="fs-4 mb-0 fw-bold">المبلغ المطلوب للاستثمار</p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="fs-4 fw-bold mb-0">{item?.price}دينار كويتى</p>
+                            <p className="fs-4 fw-bold mb-0">{item?.price} دينار كويتى</p>
                           </div>
                         </div>
                         <hr />

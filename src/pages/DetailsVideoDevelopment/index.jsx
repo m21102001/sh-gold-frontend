@@ -69,7 +69,7 @@ const DetailsVideoDevelopment = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <p className="mb-0">تاريخ الاضافه </p>
+                      <p className="mb-0">تاريخ الاضافة </p>
                     </div>
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">{item?.createdAt?.split('T', 1)}</p>
@@ -84,7 +84,7 @@ const DetailsVideoDevelopment = () => {
       <div className='coursers-open goldNews py-5'>
         <div className='m-auto d-flex justify-content-center mb-5'>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-          <h2 className='text-center comunation fs-1 fw-bold'>  فيدوهات  القائمه </h2>
+          <h2 className='text-center comunation fs-1 fw-bold'>  فيدوهات  القائمة </h2>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         </div>
         <div className='m-auto d-flex justify-center'>

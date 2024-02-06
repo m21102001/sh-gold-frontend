@@ -8,7 +8,6 @@ const BooksDash = () => {
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
   const { user } = useAuth();
-  // console.log(user.role);
 
   let fetchBook = {
     method: 'get',
@@ -86,10 +85,10 @@ const BooksDash = () => {
 
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Books Dashboard</h2>
+          <h2 className='fs-1 fw-bold'>صفحة الكتب</h2>
         </div>
         <Link to="/dash/create-books">
-          <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافه جديد</button>
+          <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافة جديد</button>
         </Link>
         <table className="table table-striped table-hover">
           <thead>
