@@ -19,17 +19,14 @@ const DetailsBook = () => {
   const [bayBook, setBayBook] = useState([])
 
   const getInitialState = () => {
-    let value = item?.option;
-    if (value == null) {
-      (value = 'online')
-    }
-
-    return value;
+    const selectType = "online";
+    return selectType;
   };
-  const [value, setValue] = useState(getInitialState);
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const [type, setType] = useState(getInitialState);
+  const handleChangeType = (e) => {
+    setType(e.target.value);
   };
+  console.log('befor', type);
 
   useEffect(() => {
     setLoading(true);
@@ -46,7 +43,7 @@ const DetailsBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`books/pay/${item?._id}?type=${value}`)
+    axios.get(`books/pay/${item?._id}?type=${type}`)
       .then((response) => {
         setPayment(response.data);
         setLoading(false);
@@ -55,8 +52,8 @@ const DetailsBook = () => {
         setLoading(false);
         // console.log(error);
       });
-  }, []);
-console.log('bbbb',payment);
+  }, [type]);
+  console.log('after', type);
   useEffect(() => {
     setLoading(true);
     axios.get(`/books`)
@@ -72,10 +69,6 @@ console.log('bbbb',payment);
   }, [item?._id]);
 
   let id = item?._id
-  // const userId = goldData?.document?.paidUsers?.map(item=>(
-  // <div>{item}</div>
-  // ))
-  // console.log('fff', goldData?.document?._id)
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -163,10 +156,10 @@ console.log('bbbb',payment);
                                     className="form-select"
                                     // style={{width:'10rem'}}
                                     aria-label="Default select example"
-                                    value={value}
-                                    onChange={handleChange}
+                                    value={type}
+                                    onChange={handleChangeType}
                                   >
-                                    <option defaultValue selected value="online">النسخة الاكترونية</option>
+                                    <option selected value="online">النسخة الاكترونية</option>
                                     <option value="offline">النسخة الورقية (استلام من الشركة)</option>
                                     <option value="onlocation">النسخة الورقية ( توصيل للبيت)</option>
                                   </select>

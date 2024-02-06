@@ -19,9 +19,9 @@ const GoldNews = () => {
     if (value == null) {
       (value = 'online')
     }
-
     return value;
   };
+  console.log(item?.option);
   const [value, setValue] = useState(getInitialState);
   const handleChange = (e) => {
     setValue(e.target.value);
