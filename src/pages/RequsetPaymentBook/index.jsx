@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from "@/api/axios"
+import { useAuth } from "@/context/Auth";
 const RequsetPaymentBook = () => {
   const navigate = useNavigate();
   const item = useLocation()?.search
+  const { user } = useAuth();
   const [isPending, setIsPending] = useState(false)
   const hanelSubmit = async (e) => {
     e.preventDefault();
@@ -28,11 +30,11 @@ const RequsetPaymentBook = () => {
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response' + err);
+      // console.log('response' + err);
     }
   };
   return (
-    <div className="d-flex " style={{height:'100vh'}}>
+    <div className="d-flex " style={{ height: '100vh' }}>
       <div className="modal fade" id="exampleModalToggle" aria-hidden="false" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -41,7 +43,11 @@ const RequsetPaymentBook = () => {
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              تهانينا تم شراء الكتاب بنجاح
+              <h4>
+                تهانينا تم شراء الكتاب بنجاح
+              </h4>
+              <p>فى حالة تم الشراء نسخه ورقية سيتم التواصل معك على الرقم التالى </p>
+              <h5 className="text-danger">{user?.phone}</h5>
             </div>
             <div className="modal-footer">
               <button className="btn btn-primary" onClick={hanelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">لقراءه الكتاب</button>

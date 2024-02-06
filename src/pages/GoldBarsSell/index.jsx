@@ -7,7 +7,6 @@ const GoldBarsSell = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
   const { user } = useAuth();
-  // console.log(user);
   useEffect(() => {
     setLoading(true);
     if (user.role == 'manager') {
@@ -15,7 +14,6 @@ const GoldBarsSell = () => {
         .then((response) => {
           setLoading(false)
           setConsultation(response.data)
-          // console.log('consultation', response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -95,7 +93,7 @@ const GoldBarsSell = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>Goldbars Sell Dash</h2>
+          <h2 className='fs-1 fw-bold'> طلبات بيع الذهب</h2>
         </div>
         <table className="table table-striped table-hover">
           <thead>

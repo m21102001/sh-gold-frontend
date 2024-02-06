@@ -73,7 +73,7 @@ function SidebarDashboard() {
             <AiFillGold /> <p className="fs-5 fw-bold me-4">طلبات شراء الذهب</p>
           </NavLink>
           <NavLink to="/dash/gold-bars/sell ">
-            <FaTicketAlt /> <p className="fs-5 fw-bold me-4"> الذهب المباع</p>
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4"> طلبات بيع الذهب </p>
           </NavLink>
           <NavLink to="/dash/books ">
             <IoBookSharp /> <p className="fs-5 fw-bold me-4">الكتب</p>

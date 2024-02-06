@@ -52,6 +52,7 @@ const DetailsBook = () => {
         // console.log(error);
       });
   }, [type]);
+  console.log(type);
   useEffect(() => {
     setLoading(true);
     axios.get(`/books`)
@@ -161,8 +162,8 @@ const DetailsBook = () => {
                                     onChange={handleChangeType}
                                   >
                                     <option selected value="online">النسخة الاكترونية</option>
-                                    <option value="offline">النسخة الورقية (استلام من الشركة)</option>
-                                    <option value="onlocation">النسخة الورقية ( توصيل للبيت)</option>
+                                    <option value="onlocation">النسخة الورقية (استلام من الشركة)</option>
+                                    <option value="offline">النسخة الورقية ( توصيل للبيت)</option>
                                   </select>
                                 </div>
                               </div>
