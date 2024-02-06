@@ -6,9 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import styles from '@/components/GoldCard/GoldCard.module.scss';
-import { authenticated, useAuth } from "@/context/Auth";
+import { authenticated} from "@/context/Auth";
 const DetailsBook = () => {
-  const user = useAuth()
+  // const user = useAuth()
   const authed = authenticated();
   const navigate = useNavigate();
   const item = useLocation()?.state?.item
@@ -26,7 +26,6 @@ const DetailsBook = () => {
   const handleChangeType = (e) => {
     setType(e.target.value);
   };
-  console.log('befor', type);
 
   useEffect(() => {
     setLoading(true);
@@ -53,7 +52,6 @@ const DetailsBook = () => {
         // console.log(error);
       });
   }, [type]);
-  console.log('after', type);
   useEffect(() => {
     setLoading(true);
     axios.get(`/books`)
@@ -142,7 +140,10 @@ const DetailsBook = () => {
                               </Link>
                             ) : (
                               <div className="d-flex flex-row flex-wrap justify-content-around">
+
                                 <button className="text-muted fw-bold mb-0">
+                                  {/* <Link to={'/auth/request/payment/book/delivary'} state={{item:type}}>a
+                                  </Link> */}
                                   <a
                                     className="text-light px-2"
                                     href={payment?.data}

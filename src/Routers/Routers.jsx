@@ -13,6 +13,7 @@ import {
   BullionStore,
   Club,
   ClubDash,
+  ConsaltationSubscriberClubDash,
   ConsultationsDash,
   ConsultationsTicketDash,
   Consulting,
@@ -63,6 +64,7 @@ import {
   RequestBuyBooksDash,
   RequestGoldDash,
   RequestInvestment,
+  RequsetDeliveryPaymentBook,
   RequsetPaymentBook,
   RequsetPaymentConsultations,
   RequsetPaymentGold,
@@ -160,7 +162,7 @@ const Routers = () => {
             <Route path="/view-more-details/:id" element={<ViewPdf />} />
             <Route path="/gold-news/:id" element={<GoldNews />} />
             <Route path="/book" element={<Book />} />
-            <Route path="/book/detalis-book/:id" element={<DetailsBook />} />
+            <Route path="/book/detalis-book/:id" element={<DetailsBook/>} />
             <Route path="/Consulting" element={<Consulting />} />
             <Route path="/development" element={<Development />} />
             <Route
@@ -195,6 +197,14 @@ const Routers = () => {
               element={
                 // <Protect >
                 <RequsetPaymentBook />
+                // </Protect>
+              }
+            />
+            <Route
+              path="/auth/request/payment/book/delivary"
+              element={
+                // <Protect >
+                <RequsetDeliveryPaymentBook />
                 // </Protect>
               }
             />
@@ -538,7 +548,14 @@ const Routers = () => {
                 </Protect>
               }
             />
-
+            <Route
+              path="/dash/subscriber-club/consaltation-ticket"
+              element={
+                <Protect path="dash" protect role={allowed?.role}>
+                  <ConsaltationSubscriberClubDash />
+                </Protect>
+              }
+            />
             <Route
               path="/dash/contact-form"
               element={

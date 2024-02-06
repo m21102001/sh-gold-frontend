@@ -15,7 +15,6 @@ const UpdateRoleUsersDash = () => {
   };
   const [value, setValue] = useState(getInitialState);
 
-  // const [role, setRole] = useState('')
   const handleChange = (e) => {
     setValue(e.target.value);
   };

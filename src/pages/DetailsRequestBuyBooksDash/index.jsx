@@ -18,7 +18,6 @@ const DetailsConsultationsTicketDash = () => {
         .then((response) => {
           setLoading(false)
           setConsultation(response.data)
-          console.log('ffff', response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -32,7 +31,7 @@ const DetailsConsultationsTicketDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>تفاصيل التذكرة المحجوزة</h2>
+          <h2 className='fs-1 fw-bold'>تفاصيل طلب الكتاب المباع </h2>
         </div>
         <Link to={'/dash/books/requests'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
@@ -75,6 +74,15 @@ const DetailsConsultationsTicketDash = () => {
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{consultation?.document?.user?.email}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0"> رقم الهاتف</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{consultation?.document?.user?.phone}</p>
                       </div>
                     </div>
                     <hr />

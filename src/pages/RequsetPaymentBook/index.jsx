@@ -31,7 +31,6 @@ const RequsetPaymentBook = () => {
       console.log('response' + err);
     }
   };
-// console.log(item.slice(6));
   return (
     <div className="d-flex " style={{height:'100vh'}}>
       <div className="modal fade" id="exampleModalToggle" aria-hidden="false" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">

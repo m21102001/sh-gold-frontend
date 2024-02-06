@@ -77,6 +77,7 @@ export { default as ConsultationsTicketDash } from './ConsultationsTicketDash';
 export { default as DetailsRequestInvestment } from './DetailsRequestInvestment';
 export { default as RequsetPaymentPlanSilver } from './RequsetPaymentPlanSilver';
 export { default as DetailsSubscriberClubDash } from './DetailsSubscriberClubDash';
+export { default as RequsetDeliveryPaymentBook } from './RequsetDeliveryPaymentBook';
 export { default as DetailsPlaylistDevelopment } from './DetailsPlaylistDevelopment';
 export { default as DetailsRequestBuyBooksDash } from './DetailsRequestBuyBooksDash';
 export { default as UpdateInactiveInvesmentDash } from './UpdateInactiveInvesmentDash';
@@ -84,3 +85,4 @@ export { default as RequsetPaymentConsultations } from './RequsetPaymentConsulta
 export { default as DetailsInactiveInvesmentDash } from './DetailsInactiveInvesmentDash';
 export { default as DetailsIdeaRequestInvestment } from './DetailsIdeaRequestInvestment';
 export { default as DetailsConsultationsTicketDash } from './DetailsConsultationsTicketDash';
+export { default as ConsaltationSubscriberClubDash } from './ConsaltationSubscriberClubDash';

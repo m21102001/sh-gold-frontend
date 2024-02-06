@@ -50,7 +50,7 @@ const DetailsSubscriberClubDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">عدد الاستشارات المحجوزه (online)</p>
+                        <p className="mb-0">عدد الاستشارات المتاحة للحجز (online)</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.freeOnlineConsultations}</p>
@@ -59,7 +59,7 @@ const DetailsSubscriberClubDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0"> عدد الاستشارات المحجوزه (offline)</p>
+                        <p className="mb-0"> عدد الاستشارات المتاحة للحجز (offline)</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.freeOflineConsultations}</p>
