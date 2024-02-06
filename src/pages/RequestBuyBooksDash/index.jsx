@@ -76,7 +76,7 @@ const RequestBuyBooksDash = () => {
 
     }
   }
-
+console.log(bookData);
 
   return (
     <div className="dashboard d-flex flex-row">
@@ -91,6 +91,7 @@ const RequestBuyBooksDash = () => {
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">رقم عمليه الدفع</th>
               <th scope="col">اسم الكتاب</th>
               <th scope="col">التوصيل</th>
               <th scope="col" colSpan={2}>الاحداث</th>
@@ -101,6 +102,7 @@ const RequestBuyBooksDash = () => {
               index >= prev && index <= next ? (
                 <tr key={index}>
                   <td>{index + 1}</td>
+                  <td>{item?.paymentId}</td>
                   <td>{item?.book?.title}</td>
                   <td>{item?.type}</td>
                   <td>

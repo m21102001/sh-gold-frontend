@@ -52,6 +52,15 @@ const DetailsConsultationsTicketDash = () => {
                     </div>
                     <div className="row pt-5">
                       <div className="col-sm-3">
+                        <p className="mb-0"> رقم عمليه الدفع </p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{consultation?.document?.paymentId}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row pt-5">
+                      <div className="col-sm-3">
                         <p className="mb-0"> اسم الكتاب</p>
                       </div>
                       <div className="col-sm-9">
