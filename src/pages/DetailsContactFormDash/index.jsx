@@ -59,7 +59,7 @@ const DeatilsContactFormDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">اسم الشركه</p>
+                        <p className="mb-0">اسم الشركة</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.company}</p>
@@ -68,7 +68,7 @@ const DeatilsContactFormDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">محتوى الرساله</p>
+                        <p className="mb-0">محتوى الرسالة</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{item?.message}</p>

@@ -1,16 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
-import { authenticated, useAuth } from "@/context/Auth";
+import { useAuth } from "@/context/Auth";
 import { Footer, Navbar } from "@/layout"
 
 const Profile = () => {
   const navigate = useNavigate()
-  const authed = authenticated();
   const { user } = useAuth();
-  // const userInfo = authed.user.data
-  // useCallback(userInfo,[userInfo])
-  console.log('lklj', user);
   return (
-
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
       <section style={{ backgroundColor: "var(--darkblue-color)" }} dir="ltr">

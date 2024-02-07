@@ -124,7 +124,7 @@ const ContactUs = () => {
                 <label
                   htmlFor="inputEmail"
                   className="form-label"
-                > اسم الشركه</label>
+                > اسم الشركة</label>
                 <input
                   name="inputCname"
                   type="text"
@@ -133,14 +133,14 @@ const ContactUs = () => {
                   required
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
-                  placeholder=" اسم الشركه*"
+                  placeholder=" اسم الشركة*"
                 />
               </div>
               <div className="col-12">
                 <label
                   htmlFor="inputAddress2"
                   className="form-label"
-                >محتوى الرساله</label>
+                >محتوى الرسالة</label>
                 <textarea
                   name='exampleFormControlTextarea1'
                   className="form-control"

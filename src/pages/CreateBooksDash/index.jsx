@@ -114,7 +114,7 @@ const CreateBookDash = () => {
             placeholder="اكتب السعر*"
             onChange={(e) => setpdf(e.target.files[0])}
           />
-          <div className="label-form">اضف صوره* (Choose image (.png, .jpg, ...))</div>
+          <div className="label-form">اضف صورة* (Choose image (.png, .jpg, ...))</div>
           <input
             type="file"
             name="image"
@@ -123,7 +123,7 @@ const CreateBookDash = () => {
             accept="image/*"
             multiple
             required
-            placeholder="اضف صوره*"
+            placeholder="اضف صورة*"
             onChange={(e) => setImage(e.target.files[0])}
           />
           <div className="label-form">اكتب وصفا دقيقا للمنتج*</div>

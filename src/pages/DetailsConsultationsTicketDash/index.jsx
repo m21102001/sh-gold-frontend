@@ -63,7 +63,7 @@ const DetailsConsultationsTicketDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0">نوع الاستشاره  </p>
+                        <p className="mb-0">نوع الاستشارة  </p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{consultation.document?.type}</p>
@@ -117,7 +117,7 @@ const DetailsConsultationsTicketDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0"> موعد بدايه التذكرة  </p>
+                        <p className="mb-0"> موعد بداية التذكرة  </p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{consultation.document?.ticket?.startDate}</p>
@@ -126,10 +126,10 @@ const DetailsConsultationsTicketDash = () => {
                     <hr />
                     <div className="row">
                       <div className="col-sm-3">
-                        <p className="mb-0"> مده التذكرة  </p>
+                        <p className="mb-0"> مدة التذكرة  </p>
                       </div>
                       <div className="col-sm-9">
-                        <p className="text-muted mb-0">{consultation.document?.ticket?.duration} دقيقه</p>
+                        <p className="text-muted mb-0">{consultation.document?.ticket?.duration} دقيقة</p>
                       </div>
                     </div>
                   </div>

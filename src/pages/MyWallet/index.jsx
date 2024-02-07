@@ -21,7 +21,7 @@ const MyWallet = () => {
         console.log(error);
       });
   }, [])
-  console.log(wallet);
+  // console.log(wallet);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />

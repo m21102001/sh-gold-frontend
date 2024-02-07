@@ -128,7 +128,7 @@ const CreateGoldDahs = () => {
             <option value="Sets">Sets</option>
             <option value="Rremium products">Rremium products</option>
           </select>
-          <div className="label-form mt-3">اضف صوره للذهب (Choose image (.png, .jpg, ...))</div>
+          <div className="label-form mt-3">اضف صورة للذةب (Choose image (.png, .jpg, ...))</div>
           <input
             type="file"
             name="image"

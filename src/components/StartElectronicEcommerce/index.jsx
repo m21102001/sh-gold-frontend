@@ -104,7 +104,7 @@ const StartElectronicEcommerce = () => {
         {bookData?.length == 0 ? (
           <h3 className={`text-center fs-2 alert alert-danger`} role="alert">please <Link to={'/auth/login'}>Login</Link> for show it here</h3>
         ) : ('')}
-        <button onClick={() => navigate('/book')} className="d-flex m-auto"> لقرأه المزيد <FaArrowLeft color="var(--darkblue-color)" size={30} pointsAtX={2} /></button>
+        <button onClick={() => navigate('/book')} className="d-flex m-auto"> لقرأة المزيد <FaArrowLeft color="var(--darkblue-color)" size={30} pointsAtX={2} /></button>
       </div>
     </div >
   )

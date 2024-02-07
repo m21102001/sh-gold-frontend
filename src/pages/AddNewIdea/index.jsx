@@ -59,7 +59,7 @@ const AddNewIdea = () => {
       <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
         <div className='m-auto d-flex justify-content-center my-5'>
           <span></span>
-          <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافة فكره جديده</h2>
+          <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافة فكرة جديدة</h2>
           <span></span>
         </div>
 

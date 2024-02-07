@@ -56,7 +56,7 @@ const GoldCard = () => {
                         to={`/club/project-idea/${item?._id}`}
                         state={{ item: item }}
                       >
-                        <button>تفاصيل اضافيه</button>
+                        <button>تفاصيل اضافية</button>
                       </Link>
                     </div>
                   </div>

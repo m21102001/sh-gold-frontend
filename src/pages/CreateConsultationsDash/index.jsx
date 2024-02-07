@@ -101,7 +101,7 @@ const CreateConsultationsDash = () => {
             onChange={(e) => setPrice(e.target.value)}
           />
 
-          <div className="label-form">ادخل مده التذكرة (بالدقايق)</div>
+          <div className="label-form">ادخل مدة التذكرة (بالدقايق)</div>
           <input
             type="number"
             name="title"
@@ -120,11 +120,11 @@ const CreateConsultationsDash = () => {
             value={type}
             onChange={handleChangeType}
           >
-            <option selected value="online">هاتفيه</option>
-            <option value="offline">حضوريه</option>
+            <option selected value="online">ةاتفية</option>
+            <option value="offline">حضورية</option>
           </select>
 
-          <div className="label-form">حدد معاد بدايه الحجز</div>
+          <div className="label-form">حدد معاد بداية الحجز</div>
           <input
             type="time"
             name="title"

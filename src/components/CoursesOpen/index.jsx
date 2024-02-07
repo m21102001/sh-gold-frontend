@@ -30,7 +30,7 @@ const CoursesOpen = () => {
                         to={`/bullion-store`}
                         state={{ item: item }}
                       >
-                        <button>تفاصيل اضافيه</button>
+                        <button>تفاصيل اضافية</button>
                       </Link>
                     </div>
                   </div>

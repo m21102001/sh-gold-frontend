@@ -32,7 +32,7 @@ const CreatePlaylistDash = () => {
         )
         .then((response) => {
           console.log('created success', response.data);
-          alert('تم اضافة قائمة جديده بنجاح')
+          alert('تم اضافة قائمة جديدة بنجاح')
           navigate('/dash/playlists')
         });
       setIsPending(false);
@@ -74,14 +74,14 @@ const CreatePlaylistDash = () => {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form">اضف صوره </div>
+          <div className="label-form">اضف صورة </div>
           <input
             type="file"
             name="image"
             className="form-control  mb-4"
             id="image"
             required
-            placeholder="اضف صوره *"
+            placeholder="اضف صورة *"
             // value={image}
             onChange={(e) => setImage(e.target.files[0])}
           />

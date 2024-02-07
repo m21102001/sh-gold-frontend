@@ -26,7 +26,7 @@ const Footer = () => {
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                روابط رئسيه
+                روابط رئسية
               </h6>
               <p>
                 <a href="#!" className="text-reset"> الرئيسية</a>
@@ -44,7 +44,7 @@ const Footer = () => {
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                 روابط هامه
+                 روابط هامة
               </h6>
               <p>
                 <a href="#!" className="text-reset">الاستشارات</a>

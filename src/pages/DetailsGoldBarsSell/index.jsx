@@ -52,7 +52,7 @@ const DetailsGoldBarsSell = () => {
                     </div>
                     <div className="row pt-5">
                       <div className="col-sm-3">
-                        <p className="mb-0"> اسم القطعه الذهبيه</p>
+                        <p className="mb-0"> اسم القطعة الذهبيه</p>
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{consultation?.document?.goldbar?.title}</p>

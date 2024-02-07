@@ -68,14 +68,14 @@ const CreateClubDash = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className="label-form">اكتب وصفا دقيقا للرساله*</div>
+          <div className="label-form">اكتب وصفا دقيقا للرسالة*</div>
           <textarea
             type="text"
             name="message"
             className="form-control  mb-4"
             id="message"
             required
-            placeholder="اكتب وصفا دقيقا للرساله*"
+            placeholder="اكتب وصفا دقيقا للرسالة*"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />

@@ -36,13 +36,13 @@ const ClubMembers = () => {
     <div className='coursers-open goldNews py-5'>
       <div className='m-auto d-flex justify-content-center mb-5'>
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-        <h2 className='text-center comunation fs-1 fw-bold'>حجز استشاره مجانيه  </h2>
+        <h2 className='text-center comunation fs-1 fw-bold'>حجز استشارة مجانية  </h2>
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
       </div>
       <div className='m-auto d-flex justify-content-center'>
         {user?.plan == "silver" || user?.plan == "gold" ? (
           <form className="row g-3" onSubmit={hanelSubmit}>
-            <h3 className='text-light text-center pb-5'>احجز استشارتك المجانيه </h3>
+            <h3 className='text-light text-center pb-5'>احجز استشارتك المجانية </h3>
             <div className="label-form">تحديد نوع الحجز   *</div>
             <select
               className="form-select mb-4"
@@ -50,13 +50,13 @@ const ClubMembers = () => {
               value={type}
               onChange={handleChangeType}
             >
-              <option selected value="online">هاتفيه</option>
-              <option value="offline">حضوريه</option>
+              <option selected value="online">هاتفية</option>
+              <option value="offline">حضورية</option>
             </select>
             <div className="col-12">
               {!loading && (
                 <button className='d-flex m-auto px-5 fs-4 send'>
-                  حجز استشاره
+                  حجز استشارة
                 </button>
               )}
               {loading && (
@@ -68,9 +68,9 @@ const ClubMembers = () => {
           </form>
         ) : (
           <div>
-            <h3 className='text-light text-center pb-5'>احجز استشارتك المجانيه </h3>
+            <h3 className='text-light text-center pb-5'>احجز استشارتك المجانية </h3>
             <p className='text-center text-light'>
-              لحصول على خدمة استشارة مجانية، قم بالإشتراك في الباقه الفضيه او الباقه الذهبيه
+              لحصول على خدمة استشارة مجانية، قم بالإشتراك في الباقة الفضية او الباقة الذهبية
             </p>
             <Link to={'/'} className='d-flex justify-content-center pt-4'>
             <button type="button" className='px-5'>اشترك الآن</button>
