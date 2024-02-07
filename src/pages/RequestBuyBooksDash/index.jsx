@@ -76,7 +76,6 @@ const RequestBuyBooksDash = () => {
 
     }
   }
-console.log(bookData);
 
   return (
     <div className="dashboard d-flex flex-row">

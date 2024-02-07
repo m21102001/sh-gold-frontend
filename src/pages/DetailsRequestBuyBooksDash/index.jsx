@@ -25,7 +25,7 @@ const DetailsConsultationsTicketDash = () => {
         });
     }
   }, [])
-  console.log(consultation.document);
+  // console.log(consultation.document);
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />

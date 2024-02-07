@@ -39,7 +39,10 @@ const ReservationTicket = () => {
               <h2>{item?.day?.slice(5, 7)}</h2>
             </div>
             <div className="col-10 fs-4 text-end" >
+              <div className="mb-3 d-flex justify-content-between align-items-start">
               <h3 className="text-uppercase"><strong>{item?.title}</strong></h3>
+              <button type="button" className="btn btn-success">ادفع الان</button>
+              </div>
               <ul className="list-inline">
                 <li className="list-inline-item mx-3"><FaClock size={30} color={'var(--gold-color)'} />{item?.startDate}</li>
                 <li className="list-inline-item mx-3"><MdTimer size={30} color={'var(--gold-color)'} />{item?.duration}  دقيقه</li>
@@ -47,7 +50,6 @@ const ReservationTicket = () => {
               </ul>
               <ul className="list-inline">
                 <li className="list-inline-item mx-3"><FaMoneyBillAlt size={30} color={'#198754'} /> {item?.price}دينار كويتى</li>
-                {/* <li className="list-inline-item mx-3"><FaClock size={30} color={'var(--gold-color)'} />12:30 PM - 2:00 PM</li> */}
               </ul>
             </div>
           </Link>

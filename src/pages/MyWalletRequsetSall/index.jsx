@@ -14,18 +14,19 @@ const MyWalletRequsetSall = () => {
           }
         })
         .then((response) => {
-          if (response?.status == 201) {
-            alert('created successfully')
-            return navigate('/')
-          }
           console.log(response);
+          if (response?.status == 201) {
+            alert('تم ارسال طلب للبيع')
+            return navigate('/')
+
+          }
         })
     } catch (err) {
       console.log('response', err.response);
     }
   }
   return (
-    <div className="d-flex " style={{height:'100vh'}}>
+    <div className="d-flex " style={{ height: '100vh' }}>
       <div className="modal fade" id="exampleModalToggle" aria-hidden="false" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -33,10 +34,10 @@ const MyWalletRequsetSall = () => {
               <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب عرض المنتج للبيع</h1>
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body text-end">
               {item?.title}
             </div>
-            <div className="modal-body">
+            <div className="modal-body text-end">
               انت على بعد خطوه من تاكيد البيع
             </div>
             <div className="modal-footer">

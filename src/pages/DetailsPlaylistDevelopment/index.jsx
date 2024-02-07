@@ -7,8 +7,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const DetailsPlaylistDevelopment = () => {
   const navigate = useNavigate()
   const item = useLocation()?.state?.item
+  // console.log('item',item);
   const id = useParams().id;
-  console.log(id)
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
   const [payment, setPayment] = useState([])
@@ -122,7 +122,7 @@ const DetailsPlaylistDevelopment = () => {
                               {!loading && payment.data == undefined && pay != 401 ? (
                                 <Link
                                   to={`/development/details-video/${course?._id}`}
-                                  state={{ course }}
+                                  state={{ course ,item }}
                                 >مشاهده الفيديوهات</Link>
                               ) : (
                                 <button>

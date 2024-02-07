@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useAuth } from "@/context/Auth";
 const GoldBarsSell = () => {
+  const item=useParams().state
+  console.log('first',item)
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
-  const { user } = useAuth();
+  const { user } = useAuth(); 
   useEffect(() => {
     setLoading(true);
     if (user.role == 'manager') {
@@ -21,7 +23,6 @@ const GoldBarsSell = () => {
         });
       }
     }, [])
-    // console.log('consultation', consultation);
     
   const handelDelete = async (id) => {
     setLoading(true);
@@ -48,7 +49,8 @@ const GoldBarsSell = () => {
   const handelSell = async (e) => {
     setLoading(true);
     await axios
-      .post(`/users/update-wallet/${user?._id}/${consultation?.data?.goldbar?._id}`, {
+      // .post(`/users/update-wallet/${user?._id}/${consultation?.data?.goldbar?._id}`, {
+      .post(`/users/update-wallet/${user?._id}/658bf41c889e73a73390c59d`, {
         headers: {
           'Content-Type': 'application/json'
         },

@@ -4,11 +4,12 @@ import ReactPlayer from 'react-player/lazy'
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { useEffect, useState } from "react";
 import axios from "@/api/axios";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DetailsVideoDevelopment = () => {
   const navigate = useNavigate()
-  const item = useLocation()?.state.course
-  console.log(item)
+  const item = useLocation()?.state.item
+  console.log('first', item)
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
 
@@ -38,17 +39,24 @@ const DetailsVideoDevelopment = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="card mb-4">
-                <ReactPlayer
-                  url={item?.url}
-                  config={{
-                    youtube: {
-                      playerVars: { showinfo: 1 }
-                    },
-                  }}
-                  controls
-                  width='100%'
-                  height='70vh'
-                />
+                {item?.url == null ? (
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                    alt={item?.title}
+                  />
+                ) : (
+                  <ReactPlayer
+                    url={item?.url}
+                    config={{
+                      youtube: {
+                        playerVars: { showinfo: 1 }
+                      },
+                    }}
+                    controls
+                    width='100%'
+                    height='70vh'
+                  />
+                )}
                 <div className="card-body text-end">
                   <div className="row">
                     <div className="col-sm-3">
@@ -85,7 +93,7 @@ const DetailsVideoDevelopment = () => {
       <div className='coursers-open goldNews py-5'>
         <div className='m-auto d-flex justify-content-center mb-5'>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-          <h2 className='text-center comunation fs-1 fw-bold'>  فيدوهات  القائمة </h2>
+          <h2 className='text-center comunation fs-1 fw-bold'>  فديوهات  القائمة </h2>
           <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
         </div>
         <div className='m-auto d-flex justify-center'>

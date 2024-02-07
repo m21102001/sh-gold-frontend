@@ -48,7 +48,7 @@ const GoldStore = () => {
     <div className='coursers-open goldNews py-5'>
       <div className='m-auto d-flex justify-content-center mb-5'>
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-        <h2 className='text-center comunation fs-1 fw-bold'> نصايح الاستاذ صلاح  </h2>
+        <h2 className='text-center comunation fs-1 fw-bold'> توصيات الاستاذ صلاح  </h2>
         <span style={{ zIndex: "0", backgroundColor: "#f8d25c", width: "50px", height: "3px", margin: "auto 20px" }}></span>
       </div>
       <div className='m-auto d-flex justify-center'>

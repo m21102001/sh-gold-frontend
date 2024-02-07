@@ -42,15 +42,16 @@ const RequsetPaymentBook = () => {
               <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب عرض المنتج للبيع</h1>
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body text-end">
               <h4>
                 تهانينا تم شراء الكتاب بنجاح
               </h4>
-              <p>فى حالة تم الشراء نسخه ورقية سيتم التواصل معك على الرقم التالى </p>
+              <p>فى حالة تم الشراء نسخة ورقية سيتم التواصل معك على الرقم التالى </p>
               <h5 className="text-danger">{user?.phone}</h5>
+              <p className="text-danger">من فضلك احتفظ برسالة البريد الالكترونى لاستلام الكتاب من خلال رقم عملية الدفع</p>
             </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={hanelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">لقراءه الكتاب</button>
+              <button className="btn btn-primary" onClick={hanelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> العودة للكتاب</button>
             </div>
           </div>
         </div>

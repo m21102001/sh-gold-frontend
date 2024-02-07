@@ -41,7 +41,7 @@ const RequsetPaymentPlaylist = () => {
               <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب شراء الكورس </h1>
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body text-end">
               انت على بعد خطوه من شراء الكورس
             </div>
             <div className="modal-footer">

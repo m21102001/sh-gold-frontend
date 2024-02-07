@@ -117,28 +117,6 @@ function Protect({ children, protect = false, path = '', role = 'user' }) {
     return <Navigate to={'/'} />;
   if (authed === protect && path !== 'dash') return children;
   return <Navigate to={protect ? '/auth/login' : '/'} />;
-
-  // if (role && authed && name === 'dash') {
-  //   return children;
-  // }
-  // if (!role && authed && name !== 'dash') {
-  //   return <Navigate to={'/'} />;
-  // }
-  // if (authed === protect) return children;
-  // if (!authed && protect) {
-  //   return <Navigate to="/auth/login" />;
-  // }
-  // return (
-  //   <Navigate
-  //     to={protect ? '/auth/login' : allowedAdmin ? '/dash/dashboard' : '/'}
-  //   />
-  // );
-  // const allowedUser = user.role == 'user';
-  // if (authed === protect)
-  //   return <Navigate to={protect ? '/auth/login' : '/'} />;
-  // if (!authed && protect) {
-  //   return <Navigate to="/auth/login" />;
-  // }
 }
 const Routers = () => {
   const allowed = useAuth().user;
