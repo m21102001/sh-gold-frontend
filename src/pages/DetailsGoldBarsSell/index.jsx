@@ -25,6 +25,52 @@ const DetailsGoldBarsSell = () => {
         });
     }
   }, [])
+
+  const handelDelete = async (id) => {
+    setLoading(true);
+    await axios
+      .delete(`gold-bars/sell/${id}`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then((response) => {
+        axios.get('gold-bars/sell/')
+          .then((response) => {
+            setConsultation(response.data);
+            setLoading(false);
+            console.log(response.data);
+          });
+        console.log(response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
+
+  const handelSell = async (id) => {
+    setLoading(true);
+    await axios
+      .post(`/users/update-wallet/${user?._id}/${id}`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then((response) => {
+        axios.get('gold-bars/sell/')
+          .then((response) => {
+            setConsultation(response.data);
+            setLoading(false);
+            console.log(response.data);
+          });
+        console.log(response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -92,6 +138,24 @@ const DetailsGoldBarsSell = () => {
                       </div>
                       <div className="col-sm-9">
                         <p className="text-muted mb-0">{consultation?.document?.goldbar?.price}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">  تأكيد الشراء</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <button type="button" onClick={() => handelSell(item._id)} className="btn btn-outline-success">تاكيد الشراء</button>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">الغاء الطلب</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
                       </div>
                     </div>
                   </div>

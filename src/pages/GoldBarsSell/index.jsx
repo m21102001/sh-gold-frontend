@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
 import { useAuth } from "@/context/Auth";
 const GoldBarsSell = () => {
-  const item=useParams().state
-  console.log('first',item)
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
   const { user } = useAuth(); 
@@ -23,34 +21,11 @@ const GoldBarsSell = () => {
         });
       }
     }, [])
-    
+console.log(consultation);    
   const handelDelete = async (id) => {
     setLoading(true);
     await axios
       .delete(`gold-bars/sell/${id}`, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      })
-      .then((response) => {
-        axios.get('gold-bars/sell/')
-          .then((response) => {
-            setConsultation(response.data);
-            setLoading(false);
-            console.log(response.data);
-          });
-        console.log(response);
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  };
-  const handelSell = async (e) => {
-    setLoading(true);
-    await axios
-      // .post(`/users/update-wallet/${user?._id}/${consultation?.data?.goldbar?._id}`, {
-      .post(`/users/update-wallet/${user?._id}/658bf41c889e73a73390c59d`, {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -120,7 +95,6 @@ const GoldBarsSell = () => {
                     >
                       <button className="btn btn-outline-info mx-2 px-4">التفاصيل</button>
                     </Link>
-                    <button onClick={() => handelSell(item._id)} className="btn btn-outline-success mx-2 px-4">تاكيد الشراء</button>
                     <button onClick={() => handelDelete(item._id)} className="btn btn-outline-danger mx-2 px-4">حذف</button>
 
                   </td>
