@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // console.log('loggedin', Loggedin)
-    console.log('user', user);
+    // console.log('user', user);
     // console.log("fetch", Fetched);
     // console.log("role", role);
   }, [Loggedin, user, Fetched, role]);

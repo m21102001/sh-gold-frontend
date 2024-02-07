@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Footer, Navbar } from "@/layout"
 import axios from "@/api/axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -7,28 +7,32 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const DetailsPlaylistDevelopment = () => {
   const navigate = useNavigate()
   const item = useLocation()?.state?.item
+  const id = useParams().id;
+  console.log(id)
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
   const [payment, setPayment] = useState([])
   const [pay, setPay] = useState([])
+  const [course, setcourse] = useState()
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/playlists/pay/${item?._id}`)
+    axios.get(`/playlists/pay/${id}`)
       .then((response) => {
         setPayment(response.data);
+        console.log(response)
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        // console.log(error);
+        console.log(error);
       });
 
   }, [])
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`/playlists/${item?._id}/videos`)
+    axios.get(`/playlists/${id}/videos`)
       .then((response) => {
         setGetvideos(response.data);
         console.log(response.data);
@@ -40,6 +44,23 @@ const DetailsPlaylistDevelopment = () => {
         console.log(error);
       });
   }, []);
+  useEffect(() => {
+    axios.get(`/playlists/${id}`)
+      .then((response) => {
+        setcourse(response.data.document);
+        console.log(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setPay(error?.status)
+        console.log(error);
+      });
+  
+   
+  }, [id])
+  console.log(course)
+  
 
   // console.log('fff', payment.data);
   return (
@@ -60,8 +81,8 @@ const DetailsPlaylistDevelopment = () => {
                         <div className="card-body">
                           <div className="row">
                             <LazyLoadImage
-                              src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
-                              alt={item?.title}
+                              src={`${import.meta.env.VITE_IMAGE_URL}${course?.image}`}
+                              alt={course?.title}
                               loading="lazy"
                               style={{ width: 'web' }}
                             />
@@ -71,7 +92,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  الاسم </p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{item?.title}</p>
+                              <p className="text-muted mb-0">{course?.title}</p>
                             </div>
                           </div>
                           <hr />
@@ -80,7 +101,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0"> السعر</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{item?.price}</p>
+                              <p className="text-muted mb-0">{course?.price}</p>
                             </div>
                           </div>
                           <hr />
@@ -89,7 +110,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0"> الوصف الكامل</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{item?.description}</p>
+                              <p className="text-muted mb-0">{course?.description}</p>
                             </div>
                           </div>
                           <hr />
@@ -100,8 +121,8 @@ const DetailsPlaylistDevelopment = () => {
                             <div className="col-sm-9">
                               {!loading && payment.data == undefined && pay != 401 ? (
                                 <Link
-                                  to={`/development/details-video/${item?._id}`}
-                                  state={{ item }}
+                                  to={`/development/details-video/${course?._id}`}
+                                  state={{ course }}
                                 >مشاهده الفيديوهات</Link>
                               ) : (
                                 <button>

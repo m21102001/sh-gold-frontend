@@ -7,7 +7,8 @@ import axios from "@/api/axios";
 
 const DetailsVideoDevelopment = () => {
   const navigate = useNavigate()
-  const item = useLocation()?.state?.item
+  const item = useLocation()?.state.course
+  console.log(item)
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
 
@@ -128,3 +129,5 @@ const DetailsVideoDevelopment = () => {
 }
 
 export default DetailsVideoDevelopment
+
+//https://goldshop.onrender.com/api/playlists/65914f3c5aeb8be7673df3ca

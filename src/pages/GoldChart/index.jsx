@@ -14,9 +14,11 @@ const GoldChart = () => {
   const [carat, setCarat] = useState([])
   const [keys, setKeys] = useState([])
   const [values, setValues] = useState([])
+  const [startDate, setstartDate] = useState("");
+  const [endDate, setendDate] = useState("");
 
   const [gold, setGold] = useState('gold')
-
+ 
   // useEffect(() => {
   setInterval(() => setTime(new Date), 59000)
   setInterval(() => counter, 1000)
@@ -45,6 +47,9 @@ const GoldChart = () => {
         console.log(error);
       });
   }, [])
+  console.log(startDate)
+  console.log("end date",endDate)
+
 
   // console.log(carat.data.value);
 
@@ -227,19 +232,20 @@ const GoldChart = () => {
                 <div className='d-flex flex-column'>
 
                   {durationTime?.map((item, index) => (
-                    <Link
+                    <div
                       className='d-flex flex-row align-items-center mb-3'
                       key={index}
                       // to={'/'}
-                      state={{ item: item }}
                     >
                       <label htmlFor="datefrom" className='text-light ms-4'>{item?.duration}</label>
                       <input
                         type="date"
                       id="datefrom"
                       name="datefrom"
+                      value={item.id == 1 ? startDate : endDate}
+                      onChange={item.id == 1 ?(e)=>setstartDate(e.target.value) :(e)=>setendDate(e.target.value) }
                       />
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -247,7 +253,7 @@ const GoldChart = () => {
               <div className="card mb-4 px-0">
                 <div className="card-body px-1 text-end">
                   <div dir='ltr' className='coursers-open'>
-                    <AreaCharts />
+                    <AreaCharts startDate={startDate} endDate={endDate} />
                   </div>
                 </div>
               </div>

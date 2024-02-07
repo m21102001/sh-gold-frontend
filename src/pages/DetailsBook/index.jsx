@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom"
 import { Footer, Navbar } from "@/layout"
 import axios from "@/api/axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,7 +11,8 @@ const DetailsBook = () => {
   // const user = useAuth()
   const authed = authenticated();
   const navigate = useNavigate();
-  const item = useLocation()?.state?.item
+  const itemId = useParams().id
+  const dataUseLocation = useLocation().state.item;
   const [loading, setLoading] = useState(false);
   const [goldData, setGoldData] = useState([])
   const [payment, setPayment] = useState([])
@@ -29,20 +30,20 @@ const DetailsBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`books/${item?._id}`)
+    axios.get(`books/${itemId}`)
       .then((response) => {
-        setGoldData(response.data);
+        setGoldData(response.data.document);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
         setBayBook(error.response.status)
       });
-  }, []);
+  }, [itemId]);
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`books/pay/${item?._id}?type=${type}`)
+    axios.get(`books/pay/${itemId}?type=${type}`)
       .then((response) => {
         setPayment(response.data);
         setLoading(false);
@@ -52,7 +53,6 @@ const DetailsBook = () => {
         // console.log(error);
       });
   }, [type]);
-  console.log(type);
   useEffect(() => {
     setLoading(true);
     axios.get(`/books`)
@@ -65,9 +65,8 @@ const DetailsBook = () => {
         console.log(error);
       });
 
-  }, [item?._id]);
+  }, [itemId]);
 
-  let id = item?._id
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -85,8 +84,8 @@ const DetailsBook = () => {
             >
               <SwiperSlide>
                 <LazyLoadImage
-                  src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
-                  alt={item?.title}
+                  src={`${import.meta.env.VITE_IMAGE_URL}${dataUseLocation?.image}`}
+                  alt={dataUseLocation?.title}
                   loading="lazy"
                   style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
                 />
@@ -105,7 +104,7 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold">اسم الكتاب  </p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.title}</p>
+                            <p className="text-muted fw-bold mb-0">{dataUseLocation?.title}</p>
                           </div>
                         </div>
                         <hr />
@@ -114,7 +113,7 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold">السعر</p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.price} دينار كويتى</p>
+                            <p className="text-muted fw-bold mb-0">{dataUseLocation?.price} دينار كويتى</p>
                           </div>
                         </div>
                         <hr />
@@ -123,7 +122,7 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold">الوصف الكامل</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" style={{ height: '20rem' }}>
-                            <p className="text-muted fw-bold mb-0">{item?.description}</p>
+                            <p className="text-muted fw-bold mb-0">{dataUseLocation?.description}</p>
                           </div>
                         </div>
                         <hr />
@@ -132,10 +131,10 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold"> قرأة الكتاب</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" >
-                            {authed == true && goldData?.document?._id != null ? (
+                            {authed == true && goldData?._id != null ? (
                               <Link
-                                to={`/view-more-details/${goldData?.document?._id}`}
-                                state={{ item: goldData?.document }}
+                                to={`/view-more-details/${goldData?._id}`}
+                                state={{ item: dataUseLocation }}
                               >
                                 <button className="text-muted fw-bold mb-0">الكتاب</button>
                               </Link>
@@ -176,7 +175,7 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold">تاريخ الاضافة</p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{item?.createdAt?.split('T', '1')}</p>
+                            <p className="text-muted fw-bold mb-0">{goldData?.createdAt?.split('T', '1')}</p>
                           </div>
                         </div>
                         <div className="row align-items-center mt-5">
@@ -204,7 +203,7 @@ const DetailsBook = () => {
             <div className="container">
               <div className={styles['home-grid']}>
                 {!loading && bookData?.document?.map((item, index) => (
-                  index < 6 && item?._id !== id ? (
+                  index < 6 && itemId != item._id ? (
                     <Link
                       key={index}
                       to={`/book/detalis-book/${item._id}`}
