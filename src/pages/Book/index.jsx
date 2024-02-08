@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination,Navigation,Mousewheel, Keyboard } from 'swiper/modules';
 import axios from '@/api/axios'
 import "./book.scss";
 import styles from '../../components/GoldCard/GoldCard.module.scss';
@@ -45,8 +45,9 @@ const Book = () => {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        navigation={true}
         freeMode={true}
-        modules={[FreeMode, Pagination]}
+        modules={[FreeMode,  Navigation]}
         className="mySwiper my-5"
       >
         <div className={styles['container home-grid']}>
@@ -64,8 +65,8 @@ const Book = () => {
                       loading="lazy"
                     />
                     <div className="news-date">
-                      <label className="mx-2"> {item?.createdAt?.slice(0,10)} </label>/
-                      <label className="news-date-time mx-2">{item?.createdAt?.slice(11,16)}</label>
+                      <label className="mx-2"> {item?.createdAt?.slice(0, 10)} </label>/
+                      <label className="news-date-time mx-2">{item?.createdAt?.slice(11, 16)}</label>
                     </div>
                   </div>
                   <div>

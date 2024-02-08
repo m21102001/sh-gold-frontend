@@ -49,6 +49,7 @@ const MyWallet = () => {
         console.log(error);
       });
   }, [])
+  console.log('object', book);
 
   return (
     <div style={{ background: 'var(--darkblue-color)' }}>
@@ -109,9 +110,11 @@ const MyWallet = () => {
           <div className="container text-center pt-5">
             {playlist?.playlists?.length != 0 ? (
               !loading && playlist?.playlists?.map((item, index) => (
-                <div
+                <Link
+                  to={`/development/details-playlist/${item._id}`}
+                  state={{ item }}
                   key={index}
-                  className="row row-striped shadow-lg p-3 mb-5 bg-body rounded">
+                  className="row row-striped text-dark shadow-lg p-3 mb-5 bg-body rounded">
                   <div className="col-2 text-right">
                     <LazyLoadImage
                       src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
@@ -125,13 +128,16 @@ const MyWallet = () => {
                   <div className="col-10 fs-4 text-end" >
                     <h3 className="text-uppercase d-flex flex-row align-items-center justify-content-between">
                       <strong>{item?.title}</strong>
+                      <button type="button" className="btn btn-info px-5">
+                      الذهاب الي الكورس
+                      </button>
                     </h3>
                     <ul className="list-inline">
                       <li className="list-inline-item mx-3"> <FaMoneyBillAlt size={30} style={{ margin: '0 10px' }} />{item?.price}</li>
                     </ul>
                     <p>{item?.description}</p>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (<h2 className="text-light">لا يوجد كورسات تم شرائها</h2>)}
           </div>
@@ -140,9 +146,11 @@ const MyWallet = () => {
           <div className="container text-center pt-5">
             {book?.books?.length != 0 ? (
               !loading && book?.books?.map((item, index) => (
-                <div
+                <Link
+                  to={`/book/detalis-book/${item._id}`}
+                  state={{ item }}
                   key={index}
-                  className="row row-striped shadow-lg p-3 mb-5 bg-body rounded">
+                  className="row row-striped shadow-lg p-3 text-dark mb-5 bg-body rounded">
                   <div className="col-2 text-right">
                     <LazyLoadImage
                       src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
@@ -156,13 +164,16 @@ const MyWallet = () => {
                   <div className="col-10 fs-4 text-end" >
                     <h3 className="text-uppercase d-flex flex-row align-items-center justify-content-between">
                       <strong>{item?.title}</strong>
+                      <button type="button" className="btn btn-info px-5">
+                        الذهاب الي الكتاب
+                      </button>
                     </h3>
                     <ul className="list-inline">
                       <li className="list-inline-item mx-3"> <FaMoneyBillAlt size={30} style={{ margin: '0 10px' }} />{item?.price}</li>
                     </ul>
                     <p>{item?.description}</p>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (<h2 className="text-light">لا يوجد كتب تم شرائها</h2>)}
           </div>

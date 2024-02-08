@@ -55,6 +55,7 @@ const RequestBuyBooksDash = () => {
         console.log(error);
       });
   };
+  console.log('first', bookData.length)
   //////////////////////////////////////
   const [prev, setPrev] = useState(0)
   const [next, setNext] = useState(10)
@@ -125,7 +126,8 @@ const RequestBuyBooksDash = () => {
         ) : null
         }
         <div className="d-flex justify-content-around">
-          <button className={`btn btn-outline-info ${next >= bookData?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${next >= bookData?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          {next }
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

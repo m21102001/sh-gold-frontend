@@ -5,6 +5,7 @@ import { Footer, Navbar } from "@/layout"
 const Profile = () => {
   const navigate = useNavigate()
   const { user } = useAuth();
+  console.log('object', user);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
@@ -21,13 +22,13 @@ const Profile = () => {
             </div>
           </div>
           <div className="row">
-          <div className="col-lg-4">
+            <div className="col-lg-4">
               <div className="card mb-4">
                 <div className="card-body text-center">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                     className="rounded-circle img-fluid" style={{ width: "150px" }} />
                   <h5 className="my-3">{user?.name ? user?.name : 'الاسم غير موجود'} </h5>
-                  <p className="text-muted mb-4">الكويت</p>
+                  {/* <p className="text-muted mb-4">الكويت</p> */}
                   <div className="d-flex justify-content-center mb-2">
                     <button type="button" className="btn btn-primary" onClick={() => navigate('/auth/update-password')}>تغير الرقم السري</button>
                     <button type="button" className="btn btn-outline-primary ms-1" onClick={() => navigate('/auth/edit-profile')} >تعديل البيانات</button>
@@ -73,6 +74,46 @@ const Profile = () => {
                       <p className="text-muted mb-0">{user?.plan ? user?.plan == "basic" ? "لا يوجد عضويه " : user.plan : 'قم بتسجيل الدخول'}</p>
                     </div>
                   </div>
+                  <hr />
+                  {user?.plan != 'basic' ? (
+                    <>
+                      <div className="row">
+                        <div className="col-sm-3">
+                          <p className="mb-0">الاستشارات الحضورية المتاحة مجانا </p>
+                        </div>
+                        <div className="col-sm-9">
+                          <p className="text-muted mb-0">{user?.freeOflineConsultations}</p>
+                        </div>
+                      </div>
+                      <hr />
+                      <div className="row">
+                        <div className="col-sm-3">
+                          <p className="mb-0">الاستشارات الهاتفية المتاحة مجانا  </p>
+                        </div>
+                        <div className="col-sm-9">
+                          <p className="text-muted mb-0">{user?.freeOnlineConsultations}</p>
+                        </div>
+                      </div>
+                      <hr />
+                      <div className="row">
+                        <div className="col-sm-3">
+                          <p className="mb-0">تاريخ بداية الاشتراك  </p>
+                        </div>
+                        <div className="col-sm-9">
+                          <p className="text-muted mb-0">{user?.planStartDate?.slice(0,10)}</p>
+                        </div>
+                      </div>
+                      <hr />
+                      <div className="row">
+                        <div className="col-sm-3">
+                          <p className="mb-0">تاريخ نهاية الاشتراك </p>
+                        </div>
+                        <div className="col-sm-9">
+                          <p className="text-muted mb-0">{user?.planEndDate?.slice(0,10)}</p>
+                        </div>
+                      </div>
+                    </>
+                  ) : null}
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
