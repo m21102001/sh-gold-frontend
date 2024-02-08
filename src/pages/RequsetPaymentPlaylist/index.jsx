@@ -21,7 +21,7 @@ const RequsetPaymentPlaylist = () => {
         .then((response) => {
           console.log('created success', response);
           if (response?.status == 201) {
-            alert('created successfully')
+            alert('مبروك تم شراء الكورس بنجاح')
             return navigate('/development')
           }
         });
@@ -34,6 +34,7 @@ const RequsetPaymentPlaylist = () => {
   // console.log(item.slice(6));
   return (
     <div className="d-flex " style={{ height: '100vh' }}>
+      {isPending && <div className="loading"></div>}
       <div className="modal fade" id="exampleModalToggle" aria-hidden="false" aria-labelledby="exampleModalToggleLabel" tabIndex="-1">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">

@@ -9,7 +9,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const DetailsVideoDevelopment = () => {
   const navigate = useNavigate()
   const item = useLocation()?.state.item
-  console.log('first', item)
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
 
@@ -29,12 +28,12 @@ const DetailsVideoDevelopment = () => {
         console.log(error);
       });
   }, []);
-  console.log("getvideos", item);
+  console.log("getvideos", getvideos);
   return (
     <>
       <Navbar />
       <section style={{ backgroundColor: "var(--darkblue-color)", paddingTop: '2rem' }}>
-        <button onClick={() => navigate(`/development/details-playlist/${item?._id}`)} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
+        {/* <button onClick={() => navigate(`/development/details-playlist/${item?._id}`)} type="button" className="btn btn-primary px-5 ms-5">رجوع </button> */}
         <div className="container py-5">
           <div className="row">
             <div className="col-lg-12">
@@ -100,7 +99,7 @@ const DetailsVideoDevelopment = () => {
           <>
             <div className="container ">
               <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', padding: '0' }}>
-                {!loading && getvideos?.map((item, index) => (
+                {!loading && getvideos?.videos?.map((item, index) => (
                   <div key={index} className={styles['gold-div']} style={{ height: '570px' }}>
                     <div className="p-0">
                       <ReactPlayer
@@ -137,5 +136,3 @@ const DetailsVideoDevelopment = () => {
 }
 
 export default DetailsVideoDevelopment
-
-//https://goldshop.onrender.com/api/playlists/65914f3c5aeb8be7673df3ca

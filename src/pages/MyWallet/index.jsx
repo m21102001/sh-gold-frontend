@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 const MyWallet = () => {
   const [loading, setLoading] = useState(false)
   const [wallet, setWallet] = useState([])
+  const [playlist, setPlaylist] = useState([])
+  const [book, setBook] = useState([])
   useEffect(() => {
     setLoading(true);
     axios.get('/users/wallet/')
@@ -21,6 +23,32 @@ const MyWallet = () => {
         console.log(error);
       });
   }, [])
+
+  useEffect(() => {
+    setLoading(true);
+    axios.get('users/myplaylists')
+      .then((response) => {
+        setPlaylist(response.data)
+        setLoading(false)
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }, [])
+  useEffect(() => {
+    setLoading(true);
+    axios.get('/users/mybooks')
+      .then((response) => {
+        setBook(response.data)
+        setLoading(false)
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }, [])
+
   // console.log(wallet);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
