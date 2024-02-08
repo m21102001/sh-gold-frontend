@@ -44,7 +44,6 @@ const DetailsPlaylistDash = () => {
       });
   };
 
-
   return (
     <div className="dashboard d-flex flex-row">
       <SidebarDashboard />
@@ -109,7 +108,7 @@ const DetailsPlaylistDash = () => {
           </div>
         </section>
         <div className="d-flex flex-wrap justify-content-evenly mt-5">
-          {!loading && videosPlaylist?.map((item, index) => (
+          {!loading && videosPlaylist?.videos?.map((item, index) => (
             <Link
               key={index}
               className="card mb-5"
