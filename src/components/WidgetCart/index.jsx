@@ -75,7 +75,7 @@ const WidgetCart = () => {
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FcIdea /> عدد الافكار الاستثمارية المتاحة </h5>
+            <h5 className="card-title"> <FcIdea /> عدد الفرص الاستثمارية المتاحة </h5>
             <p className="card-text fs-3 fw-semibold text-center">{analysis?.Invest} </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Fragment } from "react"
 import { Footer, Navbar } from "@/layout"
 import { FaMoneyBill1Wave } from "react-icons/fa6";
+import { TiTicket } from "react-icons/ti";
 import { consalting } from "@/db/data"
 
 import './consalting.scss'
@@ -26,12 +27,13 @@ const Consulting = () => {
                     <h2 className="text-center text-light fw-bold mb-5">{item?.conslatedType}</h2>
                     {item?.type?.map((item, index) => (
                       <Link
-                      to={'/auth/reservation-ticket'}
-                      key={index} className="col-md-5 col-sm-12 mx-3 mb-5 p-0 card">
+                        to={'/auth/reservation-ticket'}
+                        key={index} className="col-md-5 col-sm-12 mx-3 mb-5 p-0 card">
                         <LazyLoadImage src={item?.image} className="card-img-top" alt={item?.alt} />
                         <div className="card-body">
                           <h5 className="card-title">{item?.title}</h5>
                           <p className="card-text">{item?.desc}</p>
+                          <button type="button" className="btn btn-outline-success"><TiTicket /> احجز استشارة</button>
                         </div>
                       </Link>
                     ))}

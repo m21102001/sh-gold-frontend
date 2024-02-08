@@ -1,10 +1,11 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Footer, Navbar } from '@/layout'
 import './detailsGoldNewsClub.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useEffect, useState } from 'react'
 import axios from '@/api/axios'
 const DetailsGoldNewsClub = () => {
+  const navigate = useNavigate()
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false)
   const [report, setReport] = useState([])
@@ -33,6 +34,9 @@ const DetailsGoldNewsClub = () => {
   return (
     <div style={{ background: 'var(--darkblue-color)' }}>
       <Navbar />
+        <div className="pt-5">
+          <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
+        </div>
       <div className='container mt-5'>
         <div className=' p-3 mb-5 '>
           <div className="row">
@@ -40,9 +44,9 @@ const DetailsGoldNewsClub = () => {
               <h2 className="fw-bold text-center text-uppercase mb-4" style={{ color: 'var(--main-color)' }}> أخبار ذات صلة</h2>
               {!loading && report?.result?.homeNewsModel.map((item, index) => (
                 <Link
-                key={index}
-                to={`/club/details-news/${item?.id}`}
-                state={{item}}
+                  key={index}
+                  to={`/club/details-news/${item?.id}`}
+                  state={{ item }}
                   className="card mb-3"
                 >
                   <div className="row g-0 container">
@@ -58,7 +62,7 @@ const DetailsGoldNewsClub = () => {
                         <h5 className="card-title" style={{ color: 'var(--main-color)', fontWeight: "700" }}>{item?.titleAr}</h5>
 
                         <p className="card-text">
-                      التاريخ : <span>{item?.createdOn?.split("T",1)}</span>
+                          التاريخ : <span>{item?.createdOn?.split("T", 1)}</span>
                         </p>
                       </div>
                     </div>

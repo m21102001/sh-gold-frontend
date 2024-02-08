@@ -29,16 +29,16 @@ const Footer = () => {
                 روابط رئسية
               </h6>
               <p>
-                <a href="#!" className="text-reset"> الرئيسية</a>
+                <a href="#home" className="text-reset"> الرئيسية</a>
+              </p>
+              {/* <p>
+                <a href="#gold" className="text-reset">متجر سبائك </a>
+              </p> */}
+              <p>
+                <a href="#club" className="text-reset"> نادي كامبردج</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">متجر سبائك </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset"> نادي كامبردج</a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">التدريب والتطوير </a>
+                <a href="#playlist" className="text-reset">التدريب والتطوير </a>
               </p>
             </div>
 
@@ -47,13 +47,13 @@ const Footer = () => {
                  روابط هامة
               </h6>
               <p>
-                <a href="#!" className="text-reset">الاستشارات</a>
+                <a href="#consalt" className="text-reset">الاستشارات</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">من نحن</a>
+                <a href="#about-us" className="text-reset">من نحن</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">تواصل معنا</a>
+                <a href="#contact-us" className="text-reset">تواصل معنا</a>
               </p>
               <p>
                 <a href="#!" className="text-reset">خدمة التوصيل</a>
