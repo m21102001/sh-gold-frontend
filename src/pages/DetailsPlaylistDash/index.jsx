@@ -17,13 +17,13 @@ const DetailsPlaylistDash = () => {
       .then((response) => {
         setLoading(false)
         setVideosPlaylist(response.data)
-        console.log('setVideosPlaylist', response);
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
       });
-
+      
+      console.log('setVideosPlaylist', videosPlaylist);
   }, [])
   const handelDelete = async (id) => {
     setLoading(true);
@@ -108,7 +108,7 @@ const DetailsPlaylistDash = () => {
           </div>
         </section>
         <div className="d-flex flex-wrap justify-content-evenly mt-5">
-          {!loading && videosPlaylist?.data?.map((item, index) => (
+          {!loading && videosPlaylist?.map((item, index) => (
             <Link
               key={index}
               className="card mb-5"
