@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "@/api/axios";
 const MyWalletRequsetSall = () => {
   const navigate = useNavigate();
@@ -14,10 +14,9 @@ const MyWalletRequsetSall = () => {
           }
         })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           if (response?.status == 201) {
             alert('تم ارسال طلب للبيع')
-            return navigate('/')
 
           }
         })
@@ -34,19 +33,21 @@ const MyWalletRequsetSall = () => {
               <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب عرض المنتج للبيع</h1>
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body text-end">
+            <div className="modal-body text-end fw-bold fs-3">
               {item?.title}
             </div>
             <div className="modal-body text-end">
-              انت على بعد خطوه من تاكيد البيع
+              تم التأكيد من طلب البيع بنجاح
             </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={handelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> تاكيد </button>
+              <Link to={'/auth/my-wallet'}>
+              <button className="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> تصفح محفظتك </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button">تأكيد الطلب</a>
+      <a className="btn btn-primary m-auto" onClick={handelSubmit} data-bs-toggle="modal" href="#exampleModalToggle" role="button">تأكيد الطلب</a>
     </div>
 
   )

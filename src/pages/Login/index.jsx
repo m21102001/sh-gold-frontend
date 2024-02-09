@@ -46,18 +46,19 @@ const Login = () => {
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      <ToastContainer />
+      console.log('response', err);
     } finally {
       if (
         user?.role == 'admin' ||
         user?.role == 'godAdmin' ||
         user?.role == 'manager'
-      ) {
-        navigate('/dash/dashboard');
-      } else {
-        navigate('/');
-      }
+        ) {
+          navigate('/dash/dashboard');
+        } 
+        // else {
+        // <ToastContainer />
+      // }
     }
   };
   return (
@@ -80,6 +81,7 @@ const Login = () => {
                     رقم الهاتف*
                   </label>
                   <input
+                  required
                     type="text"
                     className="form-control"
                     id="exampleInputPhone1"
@@ -99,6 +101,7 @@ const Login = () => {
                     كلمه المرور*
                   </label>
                   <input
+                    required
                     type="password"
                     className="form-control fw-bold"
                     id="exampleInputPassword1"

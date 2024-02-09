@@ -112,10 +112,10 @@ const Footer = () => {
         </div>
 
         <div className=" copyRight text-center p-3" style={{ backgroundColor: "rgb(133 133 133 / 5%)" }}>
-          © 2023 Copyright:
+           Copyright © 2024 
           {/* <a className="love" href="https://google.com/"> 
           </a> */}
-          make by Love
+          {/* make by Love */}
         </div>
       </footer>
     </footer>

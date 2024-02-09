@@ -87,7 +87,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/investment">
-                  فرص استثمارية
+                  الفرص الاستثمارية
                 </NavLink>
               </li>
               <li className="nav-item ms-2 ">

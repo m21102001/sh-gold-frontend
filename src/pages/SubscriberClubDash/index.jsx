@@ -60,7 +60,7 @@ const SubscriberClubDash = () => {
               <th scope="col">#</th>
               <th scope="col">الاسم</th>
               <th scope="col">رقم الهاتف</th>
-              <th scope="col">الخطة</th>
+              <th scope="col">الباقة</th>
               <th scope="col">الاحداث</th>
             </tr>
           </thead>

@@ -42,7 +42,7 @@ const Development = () => {
           <div className="col-md-3 col-sm-12">
             <div className="card mb-4 mb-lg-0">
               <div className="card-body p-0">
-                <h5 className="card-title text-center fs-4 fw-bold pt-2 mb-4">الاكثر مشاهده</h5>
+                <h5 className="card-title text-center fs-4 fw-bold pt-2 mb-4">الاكثر مشاهدة</h5>
                 <ul className="list-group list-group-flush rounded-3">
                   {!loading && getPlaylist?.document?.map((item, index) => (
                     <Link

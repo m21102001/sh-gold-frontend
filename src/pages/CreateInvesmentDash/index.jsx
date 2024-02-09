@@ -116,29 +116,29 @@ const CreateInvesmentDash = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <div className="label-form"> السعر </div>
+          <div className="label-form"> المبلغ المطلوب للاستثمار </div>
           <input
             type="number"
             name="price"
             className="form-control mb-4"
             id="price"
             required
-            placeholder=" السعر*"
+            placeholder=" المبلغ المطلوب للاستثمار*"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div className="label-form"> الربح </div>
+          <div className="label-form"> العائد المتوقع من الاستثمار </div>
           <input
             type="text"
             name="profit"
             className="form-control mb-4"
             id="profit"
             required
-            placeholder=" الربح*"
+            placeholder=" العائد المتوقع من الاستثمار*"
             value={profit}
             onChange={(e) => setProfit(e.target.value)}
           />
-          <div className="label-form"> ارفع غلاف للمشروع </div>
+          <div className="label-form">  ارفع صورة للمشروع  </div>
           <input
             name="cover"
             type="file"
@@ -161,13 +161,13 @@ const CreateInvesmentDash = () => {
             // value={}
             required
           />
-          <div className="label-form">اكتب وصف مختصر للمشروع</div>
+          <div className="label-form"> وصف فكرة المشروع</div>
           <textarea
             type="text"
             name='description'
             className="form-control mb-4"
             id="description"
-            placeholder="اكتب وصف مختصر للمشروع*"
+            placeholder="وصف فكرة المشروع *"
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             rows="3"

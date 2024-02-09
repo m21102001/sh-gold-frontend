@@ -127,7 +127,7 @@ const ProjectIdea = () => {
                               to={`/view-more-details/${item?._id}`}
                               state={{ item }}
                             >
-                              <button className="fs-4 fw-bold mb-0">قرأة التفاصيل</button>
+                              <button className="fs-4 fw-bold mb-0">قراءة التفاصيل</button>
                             </Link>
                           </div>
                         </div>

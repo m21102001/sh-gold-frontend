@@ -1,8 +1,7 @@
 import { useState } from "react"
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from "@/api/axios"
 const RequsetPaymentPlaylist = () => {
-  const navigate = useNavigate();
   const item = useLocation()?.search
   const [isPending, setIsPending] = useState(false)
   const hanelSubmit = async (e) => {
@@ -22,7 +21,6 @@ const RequsetPaymentPlaylist = () => {
           console.log('created success', response);
           if (response?.status == 201) {
             alert('مبروك تم شراء الكورس بنجاح')
-            return navigate('/development')
           }
         });
       setIsPending(false);
@@ -43,15 +41,17 @@ const RequsetPaymentPlaylist = () => {
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body text-end">
-              انت على بعد خطوه من شراء الكورس
+            تهانينا تم شراء الكورس بنجاح
             </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={hanelSubmit} data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">تأكيد الدفع </button>
+              <Link to={'/development'}>
+              <button className="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"> تصفح باقى الكورسات </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <a className="btn btn-primary m-auto" data-bs-toggle="modal" href="#exampleModalToggle" role="button"> تأكيد عمليه الدفع لفتح الكورس </a>
+      <a className="btn btn-primary m-auto" onClick={hanelSubmit} data-bs-toggle="modal" href="#exampleModalToggle" role="button"> تأكيد عمليه الدفع لفتح الكورس </a>
     </div>
   )
 }

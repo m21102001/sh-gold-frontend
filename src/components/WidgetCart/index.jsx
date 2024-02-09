@@ -1,5 +1,5 @@
 import { FaAngellist, FaBook, FaListAlt, FaMountain, FaSortAmountUp, FaTicketAlt } from "react-icons/fa";
-import { FaChartSimple, FaCodePullRequest, FaMountainCity } from "react-icons/fa6";
+import { FaChartSimple, FaCodePullRequest } from "react-icons/fa6";
 import { BsPersonFillAdd, BsTicket } from "react-icons/bs";
 import { FcIdea } from "react-icons/fc";
 import { RxAvatar } from "react-icons/rx";
@@ -63,13 +63,13 @@ const WidgetCart = () => {
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FaMountain />طلبات شراء الدهب </h5>
+            <h5 className="card-title"> <FaMountain />طلبات شراء الذهب </h5>
             <p className="card-text fs-3 fw-semibold text-center">{analysis?.GoldBarRequest} </p>
           </div>
         </div>
         <div className="col card mx-3 text-end">
           <div className="p-3 bg-light">
-            <h5 className="card-title"> <FaSortAmountUp /> عمليات بيع الدهب</h5>
+            <h5 className="card-title"> <FaSortAmountUp /> عمليات بيع الذهب</h5>
             <p className="card-text fs-3 fw-semibold text-center">{analysis?.SellGoldBarRequest} </p>
           </div>
         </div>

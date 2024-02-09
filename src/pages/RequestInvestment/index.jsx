@@ -93,7 +93,7 @@ const RequestInvestment = () => {
                 <th scope="col">#</th>
                 <th scope="col">الاسم</th>
                 <th scope="col">الهاتف</th>
-                <th scope="col">السعر</th>
+                <th scope="col">المبلغ المطلوب للاستثمار</th>
                 <th scope="col" colSpan={2}>الاحداث</th>
               </tr>
             </thead>
@@ -104,7 +104,7 @@ const RequestInvestment = () => {
                     <td>{index + 1}</td>
                     <td>{item?.name}</td>
                     <td>{item?.phone}</td>
-                    <td>{item?.price}كويتى</td>
+                    <td>{item?.price} دينار</td>
                     <td>
                       <Link
                         to={`/dash/details-requests-investment/${item._id}`}

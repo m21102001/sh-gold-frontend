@@ -70,7 +70,7 @@ const ClubMembers = () => {
           <div>
             <h3 className='text-light text-center pb-5'>احجز استشارتك المجانية </h3>
             <p className='text-center text-light'>
-              لحصول على خدمة استشارة مجانية، قم بالإشتراك في الباقة الفضية او الباقة الذهبية
+              للحصول على خدمة استشارة مجانية، قم بالإشتراك في الباقة الفضية او الباقة الذهبية
             </p>
             <Link to={'/'} className='d-flex justify-content-center pt-4'>
             <button type="button" className='px-5'>اشترك الآن</button>

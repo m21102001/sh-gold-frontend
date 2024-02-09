@@ -17,7 +17,7 @@ const DetailsPlaylistDash = () => {
       .then((response) => {
         setLoading(false)
         setVideosPlaylist(response.data)
-        // console.log('setVideosPlaylist', response);
+        console.log('setVideosPlaylist', response);
       })
       .catch((error) => {
         setLoading(false);
@@ -108,7 +108,7 @@ const DetailsPlaylistDash = () => {
           </div>
         </section>
         <div className="d-flex flex-wrap justify-content-evenly mt-5">
-          {!loading && videosPlaylist?.videos?.map((item, index) => (
+          {!loading && videosPlaylist?.data?.map((item, index) => (
             <Link
               key={index}
               className="card mb-5"

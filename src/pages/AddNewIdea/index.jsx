@@ -41,7 +41,7 @@ const AddNewIdea = () => {
         )
         .then((response) => {
           console.log('created success', response.data);
-          alert('Add successfully')
+          alert('تم اضافة فكرة استثمارية بنجاح')
           navigate('/investment')
         });
       setIsPending(false);
@@ -56,7 +56,7 @@ const AddNewIdea = () => {
     <div className='contactUs'>
       <Navbar />
       <div className='Container'>
-      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
+      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" style={{top:'18%',left:'2%',zIndex:'2'}}>رجوع </button>
         <div className='m-auto d-flex justify-content-center my-5'>
           <span></span>
           <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافة فكرة جديدة</h2>
@@ -117,7 +117,7 @@ const AddNewIdea = () => {
               <label
                 htmlFor="inputtitle"
                 className="form-label"
-              >وصف مختصر</label>
+              > عنوان المشروع</label>
               <input
                 name="inputtitle"
                 type="text"
@@ -126,14 +126,14 @@ const AddNewIdea = () => {
                 required
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder='وصف مختصر*'
+                placeholder='عنوان المشروع *'
               />
             </div>
             <div className="col-md-6 col-sm-12">
               <label
                 htmlFor="inputprice"
                 className="form-label"
-              >السعر</label>
+              >المبلغ المطلوب للاستثمار</label>
               <input
                 name="inputprice"
                 type="number"
@@ -149,7 +149,7 @@ const AddNewIdea = () => {
               <label
                 htmlFor="inputprofit"
                 className="form-label"
-              >النسبة</label>
+              >العائد المتوقع من الاستثمار</label>
               <input
                 name="inputprofit"
                 type="number"
@@ -166,13 +166,13 @@ const AddNewIdea = () => {
               <label
                 htmlFor="photoinput"
                 className="form-label"
-              > ارفع صور توضح المشروع</label>
+              > ارفع صور للمشروع <span className="text-danger bg-transparent fs-4">(.jgp, .png, ...)</span></label>
               <input
                 name="cover"
                 type="file"
                 className="form-control"
                 id="cover"
-                placeholder="ارفع غلاف للمشروع"
+                placeholder="* ارفع صور للمشروع"
                 onChange={(e) => setCover(e.target.files[0])}
                 multiple
                 // value={cover}
@@ -183,7 +183,7 @@ const AddNewIdea = () => {
               <label
                 htmlFor="inputEmail"
                 className="form-label"
-              > ارفع ملف لتفاصيل المشروع</label>
+              > ارفع ملف لتفاصيل المشروع <span className="text-danger bg-transparent fs-4">(PDF)</span></label>
               <input
                 name="inputCname"
                 type="file"

@@ -23,13 +23,13 @@ const InvesmentDash = () => {
             <h2 className='fs-1 fw-bold'>صفحة الافكار</h2>
           </div>
           <Link to="/dash/create-investment-item">
-            <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافة فكره جديده</button>
+            <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافة فكرة جديدة</button>
           </Link>
 
           <Tabs>
             <TabList>
-              <Tab>افكار تمت مراجعتها</Tab>
-              <Tab>افكار تنتظر المراجعة</Tab>
+              <Tab> افكار تم تفعيلها</Tab>
+              <Tab>افكار لم يتم تفعيلها  </Tab>
             </TabList>
 
             <TabPanel>

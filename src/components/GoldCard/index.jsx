@@ -30,7 +30,7 @@ const GoldCard = () => {
     <div className='coursers-open'>
       <div className='m-auto d-flex justify-content-center my-5'>
         <span style={{ zIndex: "0", backgroundColor: "#000", width: "50px", height: "3px", margin: "auto 20px" }}></span>
-        <h2 className='text-center comunation fs-1 fw-bold' style={{ color: "var(--gold-color2)" }}> فرص استثمارية   </h2>
+        <h2 className='text-center comunation fs-1 fw-bold' style={{ color: "var(--gold-color2)" }}> الفرص الاستثمارية   </h2>
         <span style={{ zIndex: "0", backgroundColor: "#000", width: "50px", height: "3px", margin: "auto 20px" }}></span>
       </div>
       <div className='m-auto d-flex justify-center'>
@@ -67,7 +67,7 @@ const GoldCard = () => {
         </>
       </div>
       <Link to="/investment">
-        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip"> المزيذ من الافكار  </h4>
+        <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip"> المزيذ</h4>
       </Link>
     </div >
   )

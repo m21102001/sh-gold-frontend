@@ -154,12 +154,12 @@ const ContactUs = () => {
               <div className="col-12">
                 {!loading && (
                   <button className='d-flex m-auto fs-4 send'>
-                    sent
+                    ارسال
                   </button>
                 )}
                 {loading && (
                   <button className='d-flex m-auto send' disabled>
-                    sending  ...
+                    ارسال  ...
                   </button>
                 )}
 

@@ -20,7 +20,7 @@ const DetailsPlaylistDevelopment = () => {
     axios.get(`/playlists/pay/${id}`)
       .then((response) => {
         setPayment(response.data);
-        console.log(response)
+        // console.log(response)
         setLoading(false);
       })
       .catch((error) => {
@@ -35,7 +35,7 @@ const DetailsPlaylistDevelopment = () => {
     axios.get(`/playlists/${id}/videos`)
       .then((response) => {
         setGetvideos(response.data);
-        console.log(response.data);
+        // console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -48,7 +48,7 @@ const DetailsPlaylistDevelopment = () => {
     axios.get(`/playlists/${id}`)
       .then((response) => {
         setcourse(response.data.document);
-        console.log(response.data);
+        // console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {

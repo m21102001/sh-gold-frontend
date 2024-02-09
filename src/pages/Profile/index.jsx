@@ -5,7 +5,7 @@ import { Footer, Navbar } from "@/layout"
 const Profile = () => {
   const navigate = useNavigate()
   const { user } = useAuth();
-  console.log('object', user);
+  // console.log('object', user);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
@@ -68,14 +68,14 @@ const Profile = () => {
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
-                      <p className="mb-0">العضويه </p>
+                      <p className="mb-0">العضوية </p>
                     </div>
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">{user?.plan ? user?.plan == "basic" ? "لا يوجد عضويه " : user.plan : 'قم بتسجيل الدخول'}</p>
                     </div>
                   </div>
                   <hr />
-                  {user?.plan != 'basic' ? (
+                  {user?.plan != "basic" ? (
                     <>
                       <div className="row">
                         <div className="col-sm-3">
@@ -112,9 +112,9 @@ const Profile = () => {
                           <p className="text-muted mb-0">{user?.planEndDate?.slice(0,10)}</p>
                         </div>
                       </div>
+                      <hr />
                     </>
                   ) : null}
-                  <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <p className="mb-0">محفظتى</p>

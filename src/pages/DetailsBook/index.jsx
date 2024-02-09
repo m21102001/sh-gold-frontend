@@ -128,7 +128,7 @@ const DetailsBook = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold"> قرأة الكتاب</p>
+                            <p className="mb-0 fw-bold"> قراءة الكتاب</p>
                           </div>
                           <div className="col-sm-9 overflow-auto" >
                             {authed == true && goldData?._id != null ? (

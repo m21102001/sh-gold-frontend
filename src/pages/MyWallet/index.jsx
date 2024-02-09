@@ -49,7 +49,7 @@ const MyWallet = () => {
         console.log(error);
       });
   }, [])
-  console.log('object', book);
+  // console.log('object', book);
 
   return (
     <div style={{ background: 'var(--darkblue-color)' }}>
@@ -68,7 +68,7 @@ const MyWallet = () => {
 
         <TabPanel>
           <div className="container text-center pt-5">
-            {wallet?.length != 0 ? (
+            {wallet?.message != 'Your wallet is empty' ? (
               !loading && wallet?.map((item, index) => (
                 <div
                   key={index}
@@ -129,7 +129,7 @@ const MyWallet = () => {
                     <h3 className="text-uppercase d-flex flex-row align-items-center justify-content-between">
                       <strong>{item?.title}</strong>
                       <button type="button" className="btn btn-info px-5">
-                      الذهاب الي الكورس
+                        الذهاب الي الكورس
                       </button>
                     </h3>
                     <ul className="list-inline">
