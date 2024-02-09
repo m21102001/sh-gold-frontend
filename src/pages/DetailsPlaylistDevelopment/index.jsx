@@ -81,8 +81,8 @@ const DetailsPlaylistDevelopment = () => {
                         <div className="card-body">
                           <div className="row">
                             <LazyLoadImage
-                              src={`${import.meta.env.VITE_IMAGE_URL}${course?.image}`}
-                              alt={course?.title}
+                              src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
+                              alt={item?.title}
                               loading="lazy"
                               style={{ width: 'web' }}
                             />
@@ -92,7 +92,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  الاسم </p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{course?.title}</p>
+                              <p className="text-muted mb-0">{item?.title}</p>
                             </div>
                           </div>
                           <hr />
@@ -101,7 +101,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0"> السعر</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{course?.price}</p>
+                              <p className="text-muted mb-0">{item?.price}</p>
                             </div>
                           </div>
                           <hr />
@@ -110,7 +110,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0"> الوصف الكامل</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{course?.description}</p>
+                              <p className="text-muted mb-0">{item?.description}</p>
                             </div>
                           </div>
                           <hr />

@@ -5,7 +5,7 @@ import { aboutthats } from "@/db/data";
 const AboutThat = () => {
 
   return (
-    <div className="StartElectronicEcommerce mt-5 ">
+    <div className="StartElectronicEcommerce mt-5" id="about-us">
       <div>
         <div className="Container">
           <div className="row align-items-start">

@@ -3,6 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import logo from '@/assets/Cambridge-logo-.svg'
 import './footer.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -29,31 +30,43 @@ const Footer = () => {
                 روابط رئسية
               </h6>
               <p>
-                <a href="#home" className="text-reset"> الرئيسية</a>
+                <Link className="text-light" to={'/'}>
+                  <a href="#home" className="text-reset"> الرئيسية</a>
+                </Link>
               </p>
               {/* <p>
                 <a href="#gold" className="text-reset">متجر سبائك </a>
               </p> */}
               <p>
-                <a href="#club" className="text-reset"> نادي كامبردج</a>
+                <Link className="text-light" to={'/club'}>
+                  <a href="#club" className="text-reset"> نادي كامبردج</a>
+                </Link>
               </p>
               <p>
-                <a href="#playlist" className="text-reset">التدريب والتطوير </a>
+                <Link className="text-light" to={'/development'}>
+                  <a href="#playlist" className="text-reset">التدريب والتطوير </a>
+                </Link>
               </p>
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                 روابط هامة
+                روابط هامة
               </h6>
               <p>
-                <a href="#consalt" className="text-reset">الاستشارات</a>
+                <Link className="text-light" to={'/Consulting'}>
+                  <a href="#consalt" className="text-reset">الاستشارات</a>
+                </Link>
               </p>
               <p>
-                <a href="#about-us" className="text-reset">من نحن</a>
+                <Link className="text-light" to={'/about-us'}>
+                  <a href="#about-us" className="text-reset">من نحن</a>
+                </Link>
               </p>
               <p>
-                <a href="#contact-us" className="text-reset">تواصل معنا</a>
+                <Link className="text-light" to={'/contactUS'}>
+                  <a href="#contact-us" className="text-light text-reset">تواصل معنا</a>
+                </Link>
               </p>
               <p>
                 <a href="#!" className="text-reset">خدمة التوصيل</a>
@@ -62,10 +75,10 @@ const Footer = () => {
 
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">طرق التواصل</h6>
-              <p><i className="fas fa-home me-3"></i>حولي شارع ابن خلدون مجمع مركز العثمان - الدور الخامس - مكتب (64) </p>
+              <p><i className="fas fa-home me-3"></i>حولي شارع ابن خلدون مجمع مركز العثمان - الدور الخامس - مكتب (53) </p>
               <p>
                 <i className="fas fa-envelope me-3"></i>
-                info@example.com
+                cambridge time@gmail.com
               </p>
               <p><i className="fas fa-phone me-3"></i> (+965) 95559682</p>
               {/* <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p> */}
@@ -112,7 +125,7 @@ const Footer = () => {
         </div>
 
         <div className=" copyRight text-center p-3" style={{ backgroundColor: "rgb(133 133 133 / 5%)" }}>
-           Copyright © 2024 
+          Copyright © 2024
           {/* <a className="love" href="https://google.com/"> 
           </a> */}
           {/* make by Love */}

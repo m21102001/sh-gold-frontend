@@ -99,7 +99,7 @@ const DetailsVideoDevelopment = () => {
           <>
             <div className="container ">
               <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', padding: '0' }}>
-                {!loading && getvideos?.videos?.map((item, index) => (
+                {!loading && getvideos?.map((item, index) => (
                   <div key={index} className={styles['gold-div']} style={{ height: '570px' }}>
                     <div className="p-0">
                       <ReactPlayer

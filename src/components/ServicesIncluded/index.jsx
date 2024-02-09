@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 const ServicesIncluded = () => {
   const navigate =useNavigate()
   return (
-    <div className="Container ServicesIncluded">
+    <div className="Container ServicesIncluded" id="consalt">
       <h2 className="services ">خدماتنا :</h2>
       <div className="services-card d-flex flex-column flex-wrap ">
       {services?.map((item, index) => (
