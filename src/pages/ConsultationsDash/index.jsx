@@ -7,7 +7,6 @@ const ConsultationsDash = () => {
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
   const { user } = useAuth();
-  // console.log(user.role);
   useEffect(() => {
     setLoading(true);
     if (user.role =='manager') {
@@ -15,11 +14,10 @@ const ConsultationsDash = () => {
         .then((response) => {
           setLoading(false)
           setConsultation(response.data)
-          // console.log('consultation', response.data);
         })
         .catch((error) => {
           setLoading(false);
-          // console.log(error);
+          console.log(error);
         });
     }
   }, [])
@@ -119,6 +117,7 @@ const ConsultationsDash = () => {
         }
         <div className="d-flex justify-content-around">
           <button className={`btn btn-outline-info ${next >= consultation?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {consultation?.length}/ {prev} </h3>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

@@ -8,15 +8,13 @@ const PlaylistsDash = () => {
   const [loading, setLoading] = useState(false)
   const [playlists, setPlaylists] = useState([])
   const { user } = useAuth();
-  // console.log(user.role);
   useEffect(() => {
     setLoading(true);
-    if (user.role =='manager') {
+    if (user.role == 'manager') {
       axios.get('/playlists')
         .then((response) => {
           setLoading(false)
           setPlaylists(response.data)
-          // console.log('playlist', response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -68,7 +66,7 @@ const PlaylistsDash = () => {
   }
   return (
     <div className="dashboard d-flex flex-row">
-      {user.role !='manager' && <div className="loading"></div>}
+      {user.role != 'manager' && <div className="loading"></div>}
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
@@ -112,12 +110,13 @@ const PlaylistsDash = () => {
             ))}
           </tbody>
         </table>
-        {user.role !='manager' ? (
+        {user.role != 'manager' ? (
           <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
         }
         <div className="d-flex justify-content-around">
-          <button className={`btn btn-outline-info ${next >= playlists?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${next >= playlists?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {playlists?.length}/ {prev} </h3>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

@@ -91,6 +91,7 @@ const SubscriberClubDash = () => {
         }
         <div className="d-flex justify-content-around">
           <button className={`btn btn-outline-info ${next >= club?.users?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {club?.length}/ {prev} </h3> 
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

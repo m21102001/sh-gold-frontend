@@ -66,7 +66,6 @@ const DetailsBook = () => {
       });
 
   }, [itemId]);
-
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
@@ -176,7 +175,7 @@ const DetailsBook = () => {
                             <p className="mb-0 fw-bold">تاريخ الاضافة</p>
                           </div>
                           <div className="col-sm-9">
-                            <p className="text-muted fw-bold mb-0">{goldData?.createdAt?.split('T', '1')}</p>
+                            <p className="text-muted fw-bold mb-0">{dataUseLocation?.createdAt?.split('T', '1')}</p>
                           </div>
                         </div>
                         <div className="row align-items-center mt-5">

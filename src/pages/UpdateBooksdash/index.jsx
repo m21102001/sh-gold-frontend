@@ -55,7 +55,7 @@ const UpdateBooksDash = () => {
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
-          <h2 className='fs-1 fw-bold'>تعديل فى تفاصبل الكتاب</h2>
+          <h2 className='fs-1 fw-bold'>تعديل فى تفاصيل الكتاب</h2>
         </div>
         <Link to={'/dash/books'} className='mb-3 d-flex flex-row-reverse'>
           <button type="butto" className="fw-bold fs-5 back-details-button"
@@ -65,14 +65,14 @@ const UpdateBooksDash = () => {
           onSubmit={hanelSubmit}
           className="container d-flex flex-row justify-content-center align-content-center flex-wrap my-4"
         >
-          <div className="label-form">عدل اسم الكتاب*</div>
+          <div className="label-form">تعديل اسم الكتاب*</div>
           <input
             type="text"
             name="title"
             className="form-control mb-3"
             id="title"
             required
-            placeholder="عدل اسم الكتاب*"
+            placeholder="تعديل اسم الكتاب*"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           // defaultValue="Some initial value"

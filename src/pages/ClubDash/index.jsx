@@ -16,7 +16,6 @@ const ClubDash = () => {
         .then((response) => {
           setLoading(false)
           setClub(response.data)
-          // console.log('club', response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -38,7 +37,7 @@ const ClubDash = () => {
           setClub(response.data);
           setLoading(false);
           // console.log(response.data);
-          alert('Delated Successfully')
+          alert(' تم مسح العنصر بنجاح')
         });
       })
       .catch((error) => {
@@ -115,6 +114,7 @@ const ClubDash = () => {
         }
         <div className="d-flex justify-content-around">
           <button className={`btn btn-outline-info ${next >= club?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {club?.length}/ {prev} </h3> 
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

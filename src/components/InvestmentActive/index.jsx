@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import axios from '@/api/axios'
 import { Link } from "react-router-dom"
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import { getCookie } from "cookies-next";
 import { useAuth } from "@/context/Auth";
 
 const InvestmentActive = () => {
@@ -12,11 +11,10 @@ const InvestmentActive = () => {
   // console.log(user.role);
   useEffect(() => {
     setLoading(true)
-    if (user.role =='manager') {
+    if (user.role == 'manager') {
       axios.get(`/invest/active`)
         .then((response) => {
           setInvestment(response.data)
-          // console.log("ffff", response.data);
           setLoading(false)
         })
         .catch((error) => {
@@ -42,7 +40,6 @@ const InvestmentActive = () => {
         axios.request(`/invest/active`).then((response) => {
           setInvestment(response.data);
           setLoading(false);
-          console.log(response.data);
         });
       })
       .catch((error) => {
@@ -67,7 +64,6 @@ const InvestmentActive = () => {
         axios.request(`/invest/active`).then((response) => {
           setInvestment(response.data);
           setLoading(false);
-          console.log(response.data);
         });
       })
       .catch((error) => {
@@ -142,12 +138,13 @@ const InvestmentActive = () => {
           ) : null
         ))}
       </div>
-        {user.role !='manager' ? (
-          <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
-        ) : null
-        }
+      {user.role != 'manager' ? (
+        <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
+      ) : null
+      }
       <div className="d-flex justify-content-around">
-        <button className={`btn btn-outline-info ${next >= investment?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+        <button className={`btn btn-outline-info ${next >= investment?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+        <h3 className="text-light"> {investment?.length}/ {prev} </h3>
         <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
       </div>
     </>

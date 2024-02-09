@@ -8,14 +8,12 @@ const InvestmentInActive = () => {
   const [loading, setLoading] = useState(false)
   const [investment, setInvestment] = useState([])
   const { user } = useAuth();
-  // console.log(user.role);
   useEffect(() => {
     setLoading(true)
     if (user.role =='manager') {
       axios.get(`/invest/inactive`)
         .then((response) => {
           setInvestment(response.data)
-          // console.log(response.data);
           setLoading(false)
         })
         .catch((error) => {
@@ -41,7 +39,6 @@ const InvestmentInActive = () => {
         axios.request(`/invest/inactive`).then((response) => {
           setInvestment(response.data);
           setLoading(false);
-          console.log(response.data);
         });
       })
       .catch((error) => {
@@ -66,7 +63,6 @@ const InvestmentInActive = () => {
         axios.request(`/invest/inactive`).then((response) => {
           setInvestment(response.data);
           setLoading(false);
-          console.log(response.data);
         });
       })
       .catch((error) => {
@@ -141,7 +137,8 @@ const InvestmentInActive = () => {
         }
       </div>
       <div className="d-flex justify-content-around">
-        <button className={`btn btn-outline-info ${next >= investment?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+        <button className={`btn btn-outline-info ${next >= investment?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+        <h3 className="text-light"> {investment?.length}/ {prev} </h3>
         <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
       </div>
     </>

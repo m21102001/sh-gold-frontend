@@ -43,7 +43,6 @@ const ConsultationsTicketDash = () => {
 
     }
   }
-  console.log(consultation?.data);
   return (
     <div className="dashboard d-flex flex-row">
       {/* {!getCookie('role') && <div className="loading"></div>} */}
@@ -91,6 +90,7 @@ const ConsultationsTicketDash = () => {
         }
         <div className="d-flex justify-content-around">
           <button className={`btn btn-outline-info ${next >= consultation?.data?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {consultation?.data?.length}/ {prev} </h3>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

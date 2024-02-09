@@ -8,7 +8,6 @@ const ContactFormDash = () => {
   const [loading, setLoading] = useState(false);
   const [contactForm, setContactForm] = useState([])
   const { user } = useAuth();
-  // console.log(user.role);
   let fetchContactForm = {
     method: 'get',
     url: '/contact',
@@ -21,7 +20,6 @@ const ContactFormDash = () => {
         .then((response) => {
           setContactForm(response.data);
           setLoading(false);
-          // console.log("contactForm", response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -147,7 +145,8 @@ const ContactFormDash = () => {
         ) : null
         }
         <div className="d-flex justify-content-around">
-          <button className={`btn btn-outline-info ${next >= contactForm?.results ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <button className={`btn btn-outline-info ${next >= contactForm?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {contactForm?.length}/ {prev} </h3>
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>

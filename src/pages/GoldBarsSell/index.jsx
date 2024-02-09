@@ -21,7 +21,6 @@ const GoldBarsSell = () => {
         });
       }
     }, [])
-console.log(consultation);    
   const handelDelete = async (id) => {
     setLoading(true);
     await axios
@@ -35,9 +34,7 @@ console.log(consultation);
           .then((response) => {
             setConsultation(response.data);
             setLoading(false);
-            console.log(response.data);
           });
-        console.log(response);
       })
       .catch((error) => {
         setLoading(false);
@@ -109,6 +106,7 @@ console.log(consultation);
         }
         <div className="d-flex justify-content-around">
           <button className={`btn btn-outline-info ${next >= consultation?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
+          <h3 className="text-light"> {consultation?.length}/ {prev} </h3> 
           <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>
         </div>
       </div>
