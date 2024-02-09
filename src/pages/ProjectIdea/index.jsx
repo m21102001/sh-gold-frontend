@@ -67,7 +67,9 @@ const ProjectIdea = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 mt-3 ms-5 ">رجوع </button>
+      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 mt-3 ms-5 position-fixed" 
+      style={{top: "18%",left: "2%",zIndex: "2"}}
+      >رجوع </button>
       <div className="text-center shadow-lg p-3 mx-3 mb-5 rounded" >
 
         <div className="row align-items-center mt-5">
@@ -284,7 +286,7 @@ const ProjectIdea = () => {
         </div >
       </div >
       <Footer />
-    </div>
+    </div >
   )
 }
 

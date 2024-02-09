@@ -35,7 +35,9 @@ const DetailsGoldNewsClub = () => {
     <div style={{ background: 'var(--darkblue-color)' }}>
       <Navbar />
         <div className="pt-5">
-          <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
+          <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" 
+          style={{top: "18%",left: "2%",zIndex: "2"}}
+          >رجوع </button>
         </div>
       <div className='container mt-5'>
         <div className=' p-3 mb-5 '>

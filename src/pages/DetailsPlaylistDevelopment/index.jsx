@@ -56,18 +56,23 @@ const DetailsPlaylistDevelopment = () => {
         setPay(error?.status)
         console.log(error);
       });
-  
-   
+
+
   }, [id])
   console.log(course)
-  
+
 
   // console.log('fff', payment.data);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
       <div className="pt-5">
-        <button onClick={() => navigate('/development')} type="button" className="btn btn-primary px-5 ms-5">رجوع </button>
+        <button
+          onClick={() => navigate('/development')}
+          type="button"
+          className="btn btn-primary px-5 ms-5 position-fixed"
+          style={{ top: "18%", left: "2%", zIndex: '2' }}
+        >رجوع </button>
       </div>
       <div className="row pt-5 align-items-start m-auto" style={{ backgroundColor: "var(--darkblue-color)" }}>
         <div className='m-auto d-flex justify-center'>
@@ -122,7 +127,7 @@ const DetailsPlaylistDevelopment = () => {
                               {!loading && payment.data == undefined && pay != 401 ? (
                                 <Link
                                   to={`/development/details-video/${course?._id}`}
-                                  state={{ course ,item }}
+                                  state={{ course, item }}
                                 >مشاهده الفيديوهات</Link>
                               ) : (
                                 <button>
