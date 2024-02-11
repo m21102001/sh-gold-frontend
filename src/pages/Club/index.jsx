@@ -64,10 +64,10 @@ const Club = () => {
                     ))}
                     <h2 className="text-center text-light fw-bold mb-5">{item?.conslated}</h2>
                     <div className="container p-5">
-                      <div className="row">
+                      <div className="row planing">
                         {planning?.map((item, index) => (
                           < div key={index} className="col-lg-6 col-md-12 mb-4" >
-                            <div className="card h-100 shadow-lg px-3  card-transmation">
+                            <div className="card h-100 shadow-lg px-5  card-transmation">
                               <div className="card-body">
                                 <div className="text-center p-3">
                                   <h5 className="card-title">{item?.title}</h5>
@@ -106,7 +106,7 @@ const Club = () => {
                         ))}
                         {planninggolden?.map((item, index) => (
                           < div key={index} className="col-lg-6 col-md-12 mb-4" >
-                            <div className="card h-100 px-3 shadow-lg card-transmation">
+                            <div className="card h-100 px-5 shadow-lg card-transmation">
                               <div className="card-body">
                                 <div className="text-center p-3">
                                   <h5 className="card-title">{item?.title}</h5>
