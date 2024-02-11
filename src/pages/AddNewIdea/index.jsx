@@ -56,7 +56,7 @@ const AddNewIdea = () => {
     <div className='contactUs'>
       <Navbar />
       <div className='Container'>
-      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" style={{top:'18%',left:'2%',zIndex:'2'}}>رجوع </button>
+      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" style={{top:'22%',left:'2%',zIndex:'2'}}>رجوع </button>
         <div className='m-auto d-flex justify-content-center my-5'>
           <span></span>
           <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافة فكرة جديدة</h2>

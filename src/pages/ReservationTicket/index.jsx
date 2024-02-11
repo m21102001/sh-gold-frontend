@@ -30,7 +30,7 @@ const ReservationTicket = () => {
       <Navbar />
       <div className="pt-5">
           <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" 
-          style={{top: "18%",left: "2%",zIndex: "2"}}
+          style={{top: "22%",left: "2%",zIndex: "2"}}
           >رجوع </button>
         </div>
       <div className="container text-center pt-5">

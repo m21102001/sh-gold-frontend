@@ -70,7 +70,7 @@ const DetailsBook = () => {
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
       <button onClick={() => navigate('/book')} type="button" className="btn btn-primary px-5 my-3 ms-5 position-fixed" 
-      style={{top: "18%",left: "2%",zIndex: "2"}}>رجوع </button>
+      style={{top: "22%",left: "2%",zIndex: "2"}}>رجوع </button>
       <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">
