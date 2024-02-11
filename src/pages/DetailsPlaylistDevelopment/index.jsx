@@ -71,7 +71,7 @@ const DetailsPlaylistDevelopment = () => {
           onClick={() => navigate('/development')}
           type="button"
           className="btn btn-primary px-5 ms-5 position-fixed"
-          style={{ top: "18%", left: "2%", zIndex: '2' }}
+          style={{ top: "22%", left: "2%", zIndex: '2' }}
         >رجوع </button>
       </div>
       <div className="row pt-5 align-items-start m-auto" style={{ backgroundColor: "var(--darkblue-color)" }}>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "@/layout"
 import { FaClock, FaMoneyBillAlt } from "react-icons/fa";
 import { MdTimer } from "react-icons/md";
@@ -7,6 +7,7 @@ import { ImLocation2 } from "react-icons/im";
 import axios from "@/api/axios";
 import './reservation.scss'
 const ReservationTicket = () => {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [consultation, setConsultation] = useState([])
 
@@ -23,10 +24,15 @@ const ReservationTicket = () => {
         console.log(error);
       });
 
-  }, [])
+  }, []) 
   return (
     <div style={{ color: 'var(--darkblue-color)' }}>
       <Navbar />
+      <div className="pt-5">
+          <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" 
+          style={{top: "18%",left: "2%",zIndex: "2"}}
+          >رجوع </button>
+        </div>
       <div className="container text-center pt-5">
         {!loading && consultation?.data?.map((item, index) => (
           <Link
