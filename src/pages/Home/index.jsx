@@ -13,10 +13,11 @@ import {
   PricePlannig,
   ServicesIncluded,
   StartElectronicEcommerce,
-  WhyKambridage
+  WhyKambridage,
+  // GoldChart
 } from '@/components'
 import { useAuth } from '@/context/Auth'
-import { GoldChart } from '..'
+import { GoldChart } from '@/pages'
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();  

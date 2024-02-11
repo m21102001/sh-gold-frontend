@@ -434,4 +434,67 @@ export const durationTime = [
     time: new Date().toISOString().slice(0, 10)
   }
 ]
+export const clubCambridge=[
+  {
+    id: 1,
+    welcome:'اهداف النادي :',
+    define:'هو رفع الوعي المالي لدى الأعضاء في التعامل والتفاعل مع الذهب والفضة ورفع معدل الفائدة لأعضاء النادي لأكبر عدد ممكن',
+    desc: `اشترك ويانا واحصل على العديد من الفوائد التى تساهم فى تطوير عميلة استثمارك فى الذهب لاتفوت الفرصة.`,
+    secterm: `باختصار، إدارة الأموال واستشارات الأعمال تعزز القدرة على اتخاذ قرارات مستنيرة والتكيف مع التحولات الاقتصادية، مما يساهم في تعزيز الاستدامة وتحقيق نجاح الأعمال.`,
+    benfits: `فوائد نادى كامبردج`,
+    type: [
+      {
+        id: 1,
+        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        alt: `خصم خاص لمشتريات المجوهرات `,
+        title: `خصم خاص لمشتريات المجوهرات `,
+      },
+      {
+        id: 2,
+        image: `https://www.elfagr.org/UploadCache/libfiles/493/2/600x338o/269.jpeg`,
+        alt: ` خصومات خاصة على المشتريات من الذهب من المحل لأعضاء النادي فقط.`,
+        title: ` خصومات خاصة على المشتريات من الذهب من المحل لأعضاء النادي فقط.`,
+      },
+      {
+        id: 3,
+        image: `https://images.ecestaticos.com/-Nbj_LoHtNEvzJSi7aJF2xjb_dU=/0x0:991x743/600x450/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F3d5%2F83a%2F966%2F3d583a9663bc3aed4784c1d9e6d0a38a.jpg`,
+        alt: ` توفير قيمة تخزين الذهب ونقلة والتأمين عليه.`,
+        title: ` توفير قيمة تخزين الذهب ونقلة والتأمين عليه.`,
+      },
+      {
+        id: 4,
+        image: `https://png.pngtree.com/png-clipart/20210314/original/pngtree-gold-coin-economy-gold-bar-bounty-money-pile-png-image_6083218.jpg`,
+        alt: `جوائز شهرية خاصة من نادي كامبردج.`,
+        title: `جوائز شهرية خاصة من نادي كامبردج.`,
+      },
+      {
+        id: 5,
+        image: `https://cdn.al-ain.com/lg/images/2023/10/09/206-164359-e7c8362614_700x400.jpg`,
+        alt: ` خدمة الارشادات الخاصة`,
+        title: ` خدمة الارشادات الخاصة`,
+      },
+      {
+        id: 6,
+        image: `https://taker.io/wp-content/uploads/2022/06/16.jpg`,
+        alt: `  يحصل المشترك على خصم في التوصيل`,
+        title: `  يحصل المشترك على خصم في التوصيل`,
+      },
+    ],
+    conslated: ` مميزات عضوية النادى`,
+    book: [
+      {
+        id: 1,
+        name: 'عضوية فضية',
+        title: `اشتراك- 3 شهور`,
+        price: `35 دينار`,
+      },
+      {
+        id: 2,
+        name: 'عضوية ذهبية',
+        title: `اشتراك- 12 شهور`,
+        price: `65 دينار`,
+      },
+    ],
+  },
+]
 // console.log(metalType.durationTime);
