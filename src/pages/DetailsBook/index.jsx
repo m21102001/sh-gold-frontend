@@ -178,11 +178,6 @@ const DetailsBook = () => {
                             <p className="text-muted fw-bold mb-0">{dataUseLocation?.createdAt?.split('T', '1')}</p>
                           </div>
                         </div>
-                        <div className="row align-items-center mt-5">
-                          <div className="col-sm-4">
-                            <button onClick={() => navigate('/book')} type="button" className="btn btn-primary mx-2">استمرار التسوق</button>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
