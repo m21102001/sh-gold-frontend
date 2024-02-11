@@ -36,7 +36,7 @@ const PricePlannig = () => {
       <h3 className="text-center py-5 fw-bold" style={{ wordSpacing: '2px', fontSize: '3rem', color: 'var(--gold-color)' }}> نادى كامبردج</h3>
      <h4 className="text-center text-light fw-bold">ياهلا ومرحبا</h4>
      <p className="text-center text-light fw-bold">نادى كامبردج هو مساحتك الشخصية للاستثمار ف الذهب</p>
-     <p className="text-center text-light fw-bold">اشترك معانا واحصل على العديد من الفوائد التى تساهم فى تطوير عميلة استثمارك فى الذهب لاتفوت الفرصة <Link to={'/club'}> <span className="text-danger fs-4 cursour-pointer">واشترك الان!</span></Link></p>
+     <p className="text-center text-light fw-bold">اشترك معنا واحصل على العديد من الفوائد التى تساهم فى تطوير عميلة استثمارك فى الذهب لاتفوت الفرصة <Link to={'/club'}> <span className="text-danger fs-4 cursour-pointer">واشترك الان!</span></Link></p>
       <div className="container p-5">
         <div className="row">
           {planning?.map((item, index) => (
