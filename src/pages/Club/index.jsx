@@ -53,14 +53,14 @@ const Club = () => {
                   <div className="row justify-content-center mt-5 card-style text-end">
                     <h2 className="text-center text-light fw-bold mb-5">{item?.benfits}</h2>
                     {item?.type?.map((item, index) => (
-                      <Link
-                        to={'/auth/reservation-ticket'}
+                      <div
+                        
                         key={index} className="col-md-5 col-sm-12 mx-3 mb-5 p-0 card">
                         <LazyLoadImage src={item?.image} className="card-img-top" alt={item?.alt} />
                         <div className="card-body">
                           <h5 className="card-title">{item?.title}</h5>
                         </div>
-                      </Link>
+                      </div>
                     ))}
                     <h2 className="text-center text-light fw-bold mb-5">{item?.conslated}</h2>
                     <div className="container p-5">

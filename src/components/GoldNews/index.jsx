@@ -14,14 +14,13 @@ const GoldNews = () => {
       // "https://newsapi.org/v2/everything?q=gold&from=2023-12-12&sortBy=publishedAt&apiKey=524b74b89f804f918385b51ac1adc506",
       // "https://newsapi.org/v2/everything?q=gold&from=2023-12-20&sortBy=publishedAt&apiKey=41838a71f20f42aab058839d1e995b8e",
       // `${import.meta.env.VITE_FILE_URL}news?pageNo=1&PageSize=10`,
-      `https://api.daralsabaek.com/api/news?pageNo=${pageNum}&PageSize=10`,
+      `https://api.daralsabaek.com/api/news?pageNo=${pageNum}&PageSize=9`,
       {
         withCredentials: false
       }
     )
       .then((response) => {
         setReport(response.data)
-        // console.log('fffff', response.data);
         setLoading(false)
       })
       .catch((error) => {
@@ -70,6 +69,7 @@ const GoldNews = () => {
                 className={`btn btn-outline-info ${pageNum == report?.result?.newsCount ? 'disabled' : ''}`}
                 onClick={() => setPageNum(e => e + 1)}
               > next</button>
+              <h3 className="text-light"> صفحة رقم : {pageNum} </h3>
               <button className={`btn btn-outline-info ${pageNum == 1 ? 'disabled' : ''}`}
                 onClick={() => setPageNum(e => e - 1)}
               > prev</button>
