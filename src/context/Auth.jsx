@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { useContext, useEffect } from 'react';
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import axios from '@/api/axios';
 export const Auth = createContext();
 export const AuthProvider = ({ children }) => {
   const [Loggedin, setLoggedin] = useState(false);
   const [role, setRole] = useState('');
+  const [plan, setPlan] = useState('');
 
   const [user, setuser] = useState();
   const [Fetched, setFetched] = useState(false);
@@ -18,7 +18,8 @@ export const AuthProvider = ({ children }) => {
         if (typeof data === 'object') {
           setuser(data.data);
           setRole(data.data.role);
-          // console.log('from auth', data.data);
+          setRole(data.data.plan);
+          console.log('from auth', data.data);
           setLoggedin(true);
         }
       } finally {
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     // console.log('user', user);
     // console.log("fetch", Fetched);
     // console.log("role", role);
-  }, [Loggedin, user, Fetched, role]);
+  }, [Loggedin, user, Fetched, role,plan]);
 
   return (
     <Auth.Provider
@@ -44,6 +45,7 @@ export const AuthProvider = ({ children }) => {
         setRole,
         role,
         user,
+        plan,
         setuser,
         setFetched,
       }}

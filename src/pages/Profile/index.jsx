@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "@/context/Auth";
 import { Footer, Navbar } from "@/layout"
+import { RxAvatar } from "react-icons/rx";
 
 const Profile = () => {
   const navigate = useNavigate()
-  const { user } = useAuth();
-  // console.log('object', user);
+  const { user } = useAuth(); 
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
@@ -25,8 +25,7 @@ const Profile = () => {
             <div className="col-lg-4">
               <div className="card mb-4">
                 <div className="card-body text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                    className="rounded-circle img-fluid" style={{ width: "150px" }} />
+                  <RxAvatar size={128} round={"true"} color="#000" />
                   <h5 className="my-3">{user?.name ? user?.name : 'الاسم غير موجود'} </h5>
                   {/* <p className="text-muted mb-4">الكويت</p> */}
                   <div className="d-flex justify-content-center mb-2">
