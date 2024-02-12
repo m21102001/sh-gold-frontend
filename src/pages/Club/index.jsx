@@ -1,17 +1,19 @@
-import { Footer, Navbar } from "@/layout"
-import { ClubMembers, GoldNews, TipsClub } from "@/components"
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
-import './club.scss'
-import { clubCambridge, planning, planninggolden } from "@/db/data"
 import { Fragment, useState } from "react"
 import { Link } from "react-router-dom"
-import { LazyLoadImage } from "react-lazy-load-image-component"
+import { authenticated, useAuth } from "@/context/Auth"
+import { ClubMembers, GoldNews, TipsClub } from "@/components"
+import { Footer, Navbar } from "@/layout"
 import axios from '@/api/axios'
-import { authenticated } from "@/context/Auth"
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import { clubCambridge, planning, planninggolden } from "@/db/data"
+import './club.scss'
 const Club = () => {
+  const { user } = useAuth()
   const loggedIn = authenticated();
   const [plannigPay, setPlanningPay] = useState([])
   const [plannigPayGold, setPlanningPayGold] = useState([])
+
   const subscribeSilver = async () => {
     try {
       await axios.post(`/users/pay/silver/`)
@@ -54,7 +56,6 @@ const Club = () => {
                     <h2 className="text-center text-light fw-bold mb-5">{item?.benfits}</h2>
                     {item?.type?.map((item, index) => (
                       <div
-                        
                         key={index} className="col-md-5 col-sm-12 mx-3 mb-5 p-0 card">
                         <LazyLoadImage src={item?.image} className="card-img-top" alt={item?.alt} />
                         <div className="card-body">
@@ -93,12 +94,14 @@ const Club = () => {
                               <div className="card-body text-center">
                                 {loggedIn == false ? (
                                   <Link to={'/auth/login'}>
-                                    <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                                    <button style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
                                   </Link>
                                 ) : (
+                                  user?.plan == 'basic' ? (
                                   <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
-                                    <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                                    <button onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
                                   </a>
+                                  ) : null
                                 )}
                               </div>
                             </div>
@@ -130,16 +133,18 @@ const Club = () => {
                                 </ Fragment>
                               ))}
                               <div className="card-body text-center">
-                  {loggedIn == false ? (
-                    <Link to={'/auth/login'}>
-                      <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                    </Link>
-                  ) : (
-                    <a href={plannigPayGold.data} target="_blank" rel="noopener noreferrer">
-                      <button className="" onClick={subscribeGolden} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                    </a>
-                  )}
-                </div>
+                                {loggedIn == false ? (
+                                  <Link to={'/auth/login'}>
+                                    <button style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                                  </Link>
+                                ) : (
+                                  user?.plan == 'basic' ? (
+                                    <a href={plannigPayGold.data} target="_blank" rel="noopener noreferrer">
+                                      <button onClick={subscribeGolden} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                                    </a>
+                                  ) : null
+                                )}
+                              </div>
                             </div>
                           </div>
                         ))}

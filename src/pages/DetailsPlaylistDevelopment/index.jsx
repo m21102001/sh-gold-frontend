@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Footer, Navbar } from "@/layout"
 import axios from "@/api/axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { authenticated } from "@/context/Auth";
 
 const DetailsPlaylistDevelopment = () => {
+  const authed = authenticated()
   const navigate = useNavigate()
   const item = useLocation()?.state?.item
   // console.log('item',item);
@@ -124,7 +126,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             <div className="col-sm-9">
-                              {!loading && payment.data == undefined && pay != 401 ? (
+                              {!loading && payment.data == undefined && pay != 401 || authed == true ? (
                                 <Link
                                   to={`/development/details-video/${course?._id}`}
                                   state={{ course, item }}

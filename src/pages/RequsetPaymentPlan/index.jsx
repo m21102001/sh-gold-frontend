@@ -47,7 +47,7 @@ const RequsetPaymentPlan = () => {
             </div>
             <div className="modal-footer">
               <Link to={'/club'}>
-              <button className="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">تصفح باقى الاشتراكات </button>
+              <button className="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">الذهاب الى النادى</button>
               </Link>
             </div>
           </div>

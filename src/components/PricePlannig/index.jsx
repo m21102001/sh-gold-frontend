@@ -2,9 +2,10 @@ import { Fragment, useState } from "react"
 import "./PricePlannig.scss"
 import axios from '@/api/axios'
 import { planning, planninggolden } from "@/db/data"
-import { authenticated } from "@/context/Auth"
+import { authenticated, useAuth } from "@/context/Auth"
 import { Link } from "react-router-dom"
 const PricePlannig = () => {
+  const {user}=useAuth()
   const loggedIn = authenticated();
   const [plannigPay, setPlanningPay] = useState([])
   const [plannigPayGold, setPlanningPayGold] = useState([])
@@ -34,9 +35,9 @@ const PricePlannig = () => {
   return (
     <div className="container-fluid planing" style={{ background: "linear-gradient(90deg, var(--main-color) 0%, var(--darkblue-color) 100%)" }}>
       <h3 className="text-center py-5 fw-bold" style={{ wordSpacing: '2px', fontSize: '3rem', color: 'var(--gold-color)' }}> نادى كامبردج</h3>
-     <h4 className="text-center text-light fw-bold">ياهلا ومرحبا</h4>
-     <p className="text-center text-light fw-bold">نادى كامبردج هو مساحتك الشخصية للاستثمار ف الذهب</p>
-     <p className="text-center text-light fw-bold">اشترك معنا واحصل على العديد من الفوائد التى تساهم فى تطوير عميلة استثمارك فى الذهب لاتفوت الفرصة <Link to={'/club'}> <span className="text-danger fs-4 cursour-pointer">واشترك الان!</span></Link></p>
+      <h4 className="text-center text-light fw-bold">ياهلا ومرحبا</h4>
+      <p className="text-center text-light fw-bold">نادى كامبردج هو مساحتك الشخصية للاستثمار ف الذهب</p>
+      <p className="text-center text-light fw-bold">اشترك معنا واحصل على العديد من الفوائد التى تساهم فى تطوير عميلة استثمارك فى الذهب لاتفوت الفرصة <Link to={'/club'}> <span className="text-danger fs-4 cursour-pointer">واشترك الان!</span></Link></p>
       <div className="container p-5">
         <div className="row">
           {planning?.map((item, index) => (
@@ -70,9 +71,11 @@ const PricePlannig = () => {
                       <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
                     </Link>
                   ) : (
-                    <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
-                      <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                    </a>
+                    user?.plan == 'basic' ? (
+                      <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
+                        <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                      </a>
+                    ) : null
                   )}
                 </div>
               </div>
@@ -109,9 +112,11 @@ const PricePlannig = () => {
                       <button className="" onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
                     </Link>
                   ) : (
-                    <a href={plannigPayGold.data} target="_blank" rel="noopener noreferrer">
-                      <button className="" onClick={subscribeGolden} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                    </a>
+                    user?.plan == 'basic' ? (
+                      <a href={plannigPayGold.data} target="_blank" rel="noopener noreferrer">
+                        <button className="" onClick={subscribeGolden} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                      </a>
+                    ) : null
                   )}
                 </div>
               </div>
