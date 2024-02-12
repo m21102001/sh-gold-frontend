@@ -126,7 +126,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             <div className="col-sm-9">
-                              {!loading && payment.data == undefined && pay != 401 || authed == true ? (
+                              {!loading && payment.data == undefined && pay != 401 && authed == true ? (
                                 <Link
                                   to={`/development/details-video/${course?._id}`}
                                   state={{ course, item }}
