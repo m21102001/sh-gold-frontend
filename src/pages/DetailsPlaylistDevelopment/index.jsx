@@ -4,6 +4,7 @@ import { Footer, Navbar } from "@/layout"
 import axios from "@/api/axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { authenticated } from "@/context/Auth";
+import { MdOutlineArrowBack } from "react-icons/md";
 
 const DetailsPlaylistDevelopment = () => {
   const authed = authenticated()
@@ -68,14 +69,18 @@ const DetailsPlaylistDevelopment = () => {
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
-      <div className="pt-5">
+      <Link to={'/development'} className='mb-3 d-flex flex-row-reverse'>
+        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        ><MdOutlineArrowBack size={30} /></button>
+      </Link>
+      {/* <div className="pt-5">
         <button
           onClick={() => navigate('/development')}
           type="button"
           className="btn btn-primary px-5 ms-5 position-fixed"
           style={{ top: "22%", left: "2%", zIndex: '2' }}
         >رجوع </button>
-      </div>
+      </div> */}
       <div className="row pt-5 align-items-start m-auto" style={{ backgroundColor: "var(--darkblue-color)" }}>
         <div className='m-auto d-flex justify-center'>
           <>

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Footer, Navbar } from "@/layout";
 import axios from "@/api/axios";
+import { MdOutlineArrowBack } from "react-icons/md";
 const AddNewIdea = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
@@ -56,7 +57,11 @@ const AddNewIdea = () => {
     <div className='contactUs'>
       <Navbar />
       <div className='Container'>
-      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" style={{top:'22%',left:'2%',zIndex:'2'}}>رجوع </button>
+      <Link to={'/investment'} className='mb-3 d-flex flex-row-reverse'>
+        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        ><MdOutlineArrowBack size={30} /></button>
+      </Link>
+      {/* <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" style={{top:'22%',left:'2%',zIndex:'2'}}>رجوع </button> */}
         <div className='m-auto d-flex justify-content-center my-5'>
           <span></span>
           <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اضافة فكرة جديدة</h2>

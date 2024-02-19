@@ -7,6 +7,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { authenticated } from "@/context/Auth";
+import { MdOutlineArrowBack } from "react-icons/md";
 const DetailsBook = () => {
   // const user = useAuth()
   const authed = authenticated();
@@ -69,8 +70,12 @@ const DetailsBook = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <button onClick={() => navigate('/book')} type="button" className="btn btn-primary px-5 my-3 ms-5 position-fixed" 
-      style={{top: "22%",left: "2%",zIndex: "2"}}>رجوع </button>
+      <Link to={'/book'} className='mb-3 d-flex flex-row-reverse'>
+        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        ><MdOutlineArrowBack size={30} /></button>
+      </Link>
+      {/* <button onClick={() => navigate('/book')} type="button" className="btn btn-primary px-5 my-3 ms-5 position-fixed"
+        style={{ top: "22%", left: "2%", zIndex: "2" }}>رجوع </button> */}
       <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">

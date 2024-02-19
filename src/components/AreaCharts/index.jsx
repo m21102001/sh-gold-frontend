@@ -6,7 +6,7 @@ import "./chart.scss"
 
 const AreaCharts = ({startDate,endDate}) => {
   const item=useLocation()?.state?.item
-  console.log(item)
+  // console.log(item)
   const date = new Date();
 
 let day = date.getDate();
@@ -42,7 +42,7 @@ let year = date.getFullYear();
         setData(data)
         setKeys(Object.keys(response?.data.rates))
         setValues(Object.values(response?.data.rates))
-        console.log(data);
+        // console.log(data);
       })
 
     } catch (error) {

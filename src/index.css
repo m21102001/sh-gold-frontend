@@ -130,6 +130,10 @@ button {
 
 }
 
+.bacground-color-darkblue {
+  background-color: var(--darkblue-color);
+}
+
 
 @media (max-width: 700px) {
   .Container {

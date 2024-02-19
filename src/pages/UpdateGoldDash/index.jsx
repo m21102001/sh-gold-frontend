@@ -54,7 +54,7 @@ const UpdateGoldDash = () => {
       setIsPending(false);
     } catch (err) {
       setIsPending(false);
-      console.log('response' + err.response.data.errors?.map((item) => item.msg));
+      // console.log('response' + err.response.data.errors?.map((item) => item.msg));
       alert('error message: ' + err?.response?.data?.errors?.map((item) => item.msg));
 
     }

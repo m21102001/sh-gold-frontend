@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Footer, Navbar } from '@/layout'
 import './detailsGoldNewsClub.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { useEffect, useState } from 'react'
 import axios from '@/api/axios'
+import { MdOutlineArrowBack } from 'react-icons/md'
 const DetailsGoldNewsClub = () => {
   const navigate = useNavigate()
   const item = useLocation()?.state?.item
@@ -34,11 +35,15 @@ const DetailsGoldNewsClub = () => {
   return (
     <div style={{ background: 'var(--darkblue-color)' }}>
       <Navbar />
-        <div className="pt-5">
-          <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" 
-          style={{top: "22%",left: "2%",zIndex: "2"}}
-          >رجوع </button>
-        </div>
+      <div className="pt-5">
+        <Link to={'/club'} className='mb-3 d-flex flex-row-reverse'>
+          <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+          ><MdOutlineArrowBack size={30} /></button>
+        </Link>
+        {/* <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed"
+          style={{ top: "22%", left: "2%", zIndex: "2" }}
+        >رجوع </button> */}
+      </div>
       <div className='container mt-5'>
         <div className=' p-3 mb-5 '>
           <div className="row">

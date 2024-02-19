@@ -86,7 +86,7 @@ const GoldChart = () => {
         setkeratDar(response.data);
       })
   }, [])
-  // console.log('first', keratDar)
+  // console.log('first', (keratDar?.result?.purchaseSilverPrice)*1000)
 
   return (
     <>
@@ -126,7 +126,6 @@ const GoldChart = () => {
                     <p className="col text-light fs-6">عيار 22 (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase22GoldPrice}</span>
-                      {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">20.260</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
@@ -137,7 +136,6 @@ const GoldChart = () => {
                     <p className="col text-light fs-6">عيار 21 (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase21GoldPrice}</span>
-                      {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">20.260</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
@@ -157,9 +155,9 @@ const GoldChart = () => {
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
-                    <p className="col text-light fs-6"> الفضة (جرام)</p>
+                    <p className="col text-light fs-6"> الفضة (كيلو)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchaseSilverPrice}</span>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{(keratDar?.result?.purchaseSilverPrice) * 1000}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[1]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
@@ -179,22 +177,6 @@ const GoldChart = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className=" card mb-4 p-1">
-                <div className="card-body p-0">
-                  <ul className="list-group list-group-flush rounded-3 overflow-auto" style={{ height: '24.3rem' }}>
-                    <h5 className='px-2 pt-2 text-center' style={{ color: "#f8d25c" }}>انواع السبائك</h5>
-                    {goldCategory?.map((item, index) => (
-                      <Link
-                        to={'/bullion-store'}
-                        state={{ item }}
-                        key={index}
-                        className="list-group-item d-flex justify-content-start align-items-center p-3">
-                        <p className="mb-0">{item?.name}</p>
-                      </Link>
-                    ))}
-                  </ul>
-                </div>
-              </div> */}
             </div>
             <div className="col-lg-9 col-md-12">
               <div className="shadow-none p-3 rounded d-flex justify-content-between flex-wrap">

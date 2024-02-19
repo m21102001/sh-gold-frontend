@@ -6,6 +6,7 @@ import axios from '@/api/axios'
 import { FaLocationDot } from "react-icons/fa6";
 import styles from '@/components/GoldCard/GoldCard.module.scss';
 import { FaShoppingCart } from "react-icons/fa";
+import { MdOutlineArrowBack } from 'react-icons/md';
 const GoldNews = () => {
   const navigate = useNavigate();
   const item = useLocation()?.state?.item;
@@ -62,7 +63,11 @@ const GoldNews = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <button onClick={() => navigate('/bullion-store')} type="button" className="btn btn-primary px-5 my-3 ms-5">رجوع </button>
+      <Link to={'/bullion-store'} className='mb-3 d-flex flex-row-reverse'>
+        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        ><MdOutlineArrowBack size={30} /></button>
+      </Link>
+      {/* <button onClick={() => navigate('/bullion-store')} type="button" className="btn btn-primary px-5 my-3 ms-5">رجوع </button> */}
       <div className="text-center shadow-lg px-3 mx-3 mt-3 mb-5 bg-body rounded">
         <h2 className='p-3 fs-1 fw-bold' style={{ color: 'var(--main-color)' }}>{item?.title}</h2>
         <div className="row align-items-center" style={{ margin: '0 -16px 0 -16px' }}>
