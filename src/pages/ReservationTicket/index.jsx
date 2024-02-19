@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "@/layout"
 import { FaClock, FaMoneyBillAlt } from "react-icons/fa";
-import { MdTimer } from "react-icons/md";
+import { MdOutlineArrowBack, MdTimer } from "react-icons/md";
 import { ImLocation2 } from "react-icons/im";
 import axios from "@/api/axios";
 import './reservation.scss'
@@ -27,12 +27,16 @@ const ReservationTicket = () => {
   }, []) 
   return (
     <div style={{ color: 'var(--darkblue-color)' }}>
-      <Navbar />
-      <div className="pt-5">
+      <Navbar /> 
+      <Link to={'/club'} className='mb-3 d-flex flex-row-reverse'>
+        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        ><MdOutlineArrowBack size={30} /></button>
+      </Link> 
+      {/* <div className="pt-5">
           <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" 
           style={{top: "22%",left: "2%",zIndex: "2"}}
           >رجوع </button>
-        </div>
+        </div> */}
       <div className="container text-center pt-5">
         {!loading && consultation?.data?.map((item, index) => (
           <Link

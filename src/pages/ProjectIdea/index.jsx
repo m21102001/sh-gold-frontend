@@ -17,6 +17,7 @@ import { Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 
 import './projectIdea.scss'
+import { MdOutlineArrowBack } from 'react-icons/md';
 const ProjectIdea = () => {
   const navigate = useNavigate()
   const item = useLocation()?.state?.item;
@@ -67,9 +68,13 @@ const ProjectIdea = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 mt-3 ms-5 position-fixed" 
+      <Link to={'/investment'} className='mb-3 d-flex flex-row-reverse'>
+        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        ><MdOutlineArrowBack size={30} /></button>
+      </Link> 
+      {/* <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 mt-3 ms-5 position-fixed" 
       style={{top: "22%",left: "2%",zIndex: "2"}}
-      >رجوع </button>
+      >رجوع </button> */}
       <div className="text-center shadow-lg p-3 mx-3 mb-5 rounded" >
 
         <div className="row align-items-center mt-5">
