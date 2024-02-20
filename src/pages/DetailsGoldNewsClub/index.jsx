@@ -1,28 +1,25 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation} from 'react-router-dom'
 import { Footer, Navbar } from '@/layout'
 import './detailsGoldNewsClub.scss'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import axios from '@/api/axios'
 import { MdOutlineArrowBack } from 'react-icons/md'
 const DetailsGoldNewsClub = () => {
-  const navigate = useNavigate()
   const item = useLocation()?.state?.item
   const [loading, setLoading] = useState(false)
   const [report, setReport] = useState([])
-  // const [pageNum, setPageNum] = useState('1')
 
   useEffect(() => {
     setLoading(true)
     axios.get(
-      `https://api.daralsabaek.com/api/news`,
+      `${import.meta.env.VITE_GOLD_NEWS}news`,
       {
         withCredentials: false
       }
     )
       .then((response) => {
         setReport(response.data)
-        // console.log('fffff', response.data);
         setLoading(false)
       })
       .catch((error) => {

@@ -11,10 +11,7 @@ const GoldNews = () => {
   useEffect(() => {
     setLoading(true)
     axios.get(
-      // "https://newsapi.org/v2/everything?q=gold&from=2023-12-12&sortBy=publishedAt&apiKey=524b74b89f804f918385b51ac1adc506",
-      // "https://newsapi.org/v2/everything?q=gold&from=2023-12-20&sortBy=publishedAt&apiKey=41838a71f20f42aab058839d1e995b8e",
-      // `${import.meta.env.VITE_FILE_URL}news?pageNo=1&PageSize=10`,
-      `https://api.daralsabaek.com/api/news?pageNo=${pageNum}&PageSize=9`,
+      `${import.meta.env.VITE_GOLD_NEWS}news?pageNo=${pageNum}&PageSize=9`,
       {
         withCredentials: false
       }
@@ -25,7 +22,7 @@ const GoldNews = () => {
       })
       .catch((error) => {
         setLoading(false)
-        console.log(error);
+        // console.log(error);
       });
   }, [pageNum])
   return (

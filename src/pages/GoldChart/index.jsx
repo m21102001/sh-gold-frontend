@@ -9,21 +9,14 @@ const GoldChart = () => {
   const [loading, setLoading] = useState(false);
   const [time, setTime] = useState(new Date())
   const [counter, setCounter] = useState(60)
-  // const [price, setPrice] = useState([])
-  // const [data, setData] = useState([])
-  // const [carat, setCarat] = useState([])
-  // const [keys, setKeys] = useState([])
-  // const [values, setValues] = useState([])
   const [startDate, setstartDate] = useState("");
   const [endDate, setendDate] = useState("");
   const [keratDar, setkeratDar] = useState([])
 
-  // const [gold, setGold] = useState('gold')
-
   setInterval(() => setTime(new Date), 59000)
   setInterval(() => counter, 1000)
   // useEffect(() => {
-  //   axios.get(`https://api.metalpriceapi.com/v1/carat?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=KWD`,
+  //   axios.get(`${import.meta.env.VITE_GOLD_URL}carat?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=KWD`,
   //     {
   //       withCredentials: false
   //     })
@@ -51,7 +44,7 @@ const GoldChart = () => {
 
   // useEffect(() => {
   //   setLoading(true);
-  //   axios.get(`https://api.metalpriceapi.com/v1/latest?api_key=5e07d6a8157ced4d13198dda0c05bc07&base=KWD&currencies=XAU,XAG,XPT&unit=kilo`, {
+  //   axios.get(`${import.meta.env.VITE_GOLD_URL}latest?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=KWD&currencies=XAU,XAG,XPT&unit=kilo`, {
   //     withCredentials: false
   //   })
   //     .then((response) => {
@@ -79,27 +72,26 @@ const GoldChart = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://api.daralsabaek.com/api/goldAndFundBalance/getMetalSellAndBuyPrices`, {
+    axios.get(`${import.meta.env.VITE_GOLD_NEWS}goldAndFundBalance/getMetalSellAndBuyPrices`, {
       withCredentials: false
     })
-      .then(response => {
-        setkeratDar(response.data);
+    .then(response => {
+      setkeratDar(response.data);
+      setLoading(false);
       })
   }, [])
-  // console.log('first', (keratDar?.result?.purchaseSilverPrice)*1000)
-
   return (
     <>
-      {/* {loading && <div className="loading"></div>} */}
+      {loading && <div className="loading"></div>}
       <section className="gold-chart">
         <div className="container py-5">
           <div className="row">
             <div className="col">
               <nav aria-label="breadcrumb" className="bg-light rounded-3 p-3 mb-4">
                 <ol className="breadcrumb mb-0">
-                  <li className="breadcrumb-item m-auto">Prices will be updated in
+                  <li className="breadcrumb-item m-auto">سيتم تحديث الأسعار خلال
                     <span className='mx-1' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{counter}</span>
-                    seconds according to international price
+                    ثانية حسب السعر العالمي
                     <span style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{time.toLocaleTimeString()}</span>
                   </li>
                 </ol>
@@ -151,7 +143,7 @@ const GoldChart = () => {
                   </div>
                 </div>
               </div>
-              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الفضه</div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الفضة</div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
@@ -193,19 +185,21 @@ const GoldChart = () => {
                   }
                 </div>
                 <div className='d-flex flex-column'>
-
                   {durationTime?.map((item, index) => (
                     <div
                       className='d-flex flex-row align-items-center mb-3'
                       key={index}
-                    // to={'/'}
                     >
                       <label htmlFor="datefrom" className='text-light ms-4'>{item?.duration}</label>
                       <input
                         type="date"
                         id="datefrom"
                         name="datefrom"
-                        value={item.id == 1 ? startDate : endDate}
+                        value={item.id == 1 ?
+                          (startDate == '' ? '2024-01-01' : startDate)
+                          :
+                          (endDate == '' ? (new Date().toJSON().slice(0, 10)) : endDate)
+                        }
                         onChange={item.id == 1 ? (e) => setstartDate(e.target.value) : (e) => setendDate(e.target.value)}
                       />
                     </div>

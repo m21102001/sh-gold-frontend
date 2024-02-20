@@ -426,7 +426,7 @@ export const durationTime = [
   {
     id: 1,
     duration: " بداية الفترة الزمنية",
-    time: new Date().toISOString().slice(0, 10)
+    time: '2024-01-01'
   },
   {
     id: 2,
@@ -497,4 +497,3 @@ export const clubCambridge=[
     ],
   },
 ]
-// console.log(metalType.durationTime);

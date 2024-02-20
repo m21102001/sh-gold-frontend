@@ -1,30 +1,28 @@
 import { useEffect, useState } from 'react';
-import {  useLocation } from 'react-router-dom';
-import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Legend } from 'recharts';
+import { useLocation } from 'react-router-dom';
+import { Area, XAxis, YAxis, CartesianGrid, Tooltip, AreaChart } from 'recharts';
 import axios from 'axios';
 import "./chart.scss"
 
-const AreaCharts = ({startDate,endDate}) => {
-  const item=useLocation()?.state?.item
+const AreaCharts = ({ startDate, endDate }) => {
+  const item = useLocation()?.state?.item
   // console.log(item)
   const date = new Date();
 
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
 
-// This arrangement can be altered based on how we want the date's format to appear.
-  // useEffect(()=>{
-    // console.log('item',item);
-  // },[])
+  if (month < 10) {
+    month = `0${month}`;
+  }
   const [goldPrice, setGoldPrice] = useState([])
   const [data, setData] = useState([])
   const [keys, setKeys] = useState([])
   const [values, setValues] = useState([])
+  // console.log('first', month);
   useEffect(() => {
     try {
-      // axios.get(`${import.meta.env.VITE_GOLD_URL}timeframe?api_key=${import.meta.env.VITE_GOLD_SECRET}&start_date=2023-01-20&end_date=2024-01-21&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
-      axios.get(`https://api.metalpriceapi.com/v1/timeframe?api_key=5e07d6a8157ced4d13198dda0c05bc07&start_date=${startDate == isNaN ? `01-${month -1}-${year}` : startDate }&end_date=${endDate == isNaN ? currentDate : endDate}&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
+      axios.get(`${import.meta.env.VITE_GOLD_URL}timeframe?api_key=${import.meta.env.VITE_GOLD_SECRET}&start_date=${startDate == '' ? `${year}-${month}-01` : startDate}&end_date=${endDate == '' ? new Date().toJSON().slice(0, 10) : endDate}&base=KWD&currencies=XAU,XAG,XPT&unit=gram`,
         {
           withCredentials: false
         }
@@ -49,7 +47,7 @@ let year = date.getFullYear();
       console.log(error);
     }
 
-  }, [startDate,endDate,item])
+  }, [startDate, endDate, item, year, month])
 
   // console.log(data,goldPrice);
 
