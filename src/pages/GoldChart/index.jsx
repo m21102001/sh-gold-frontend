@@ -4,17 +4,36 @@ import axios from 'axios';
 import { AreaCharts } from '@/components'
 import './goldChart.scss'
 import { durationTime, metalType } from '@/db/data';
+import { useCountdownTimer } from 'use-countdown-timer';
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);
   const [time, setTime] = useState(new Date())
-  const [counter, setCounter] = useState(60)
+  const [counter, setCounter] = useState("60")
   const [startDate, setstartDate] = useState("");
   const [endDate, setendDate] = useState("");
   const [keratDar, setkeratDar] = useState([])
-
   setInterval(() => setTime(new Date), 59000)
-  setInterval(() => counter, 1000)
+
+  const TIME_IN_MILISECONDS_TO_COUNTDOWN = 60 * 1000;
+  const INTERVAL_IN_MILISECONDS = 1000;
+  const [time1, setTime1] = useState(TIME_IN_MILISECONDS_TO_COUNTDOWN);
+
+  useEffect(() => {
+    let interval;
+
+    const countDownUntilZero = () => {
+      setTime1(prevTime => {
+        if (prevTime === 0) clearInterval(interval);
+        else return prevTime - INTERVAL_IN_MILISECONDS;
+      })
+    }
+
+    interval = setInterval(countDownUntilZero, INTERVAL_IN_MILISECONDS);
+    return () => clearInterval(interval);
+  }, []);
+
+
   // useEffect(() => {
   //   axios.get(`${import.meta.env.VITE_GOLD_URL}carat?api_key=${import.meta.env.VITE_GOLD_SECRET}&base=KWD`,
   //     {
@@ -75,9 +94,9 @@ const GoldChart = () => {
     axios.get(`${import.meta.env.VITE_GOLD_NEWS}goldAndFundBalance/getMetalSellAndBuyPrices`, {
       withCredentials: false
     })
-    .then(response => {
-      setkeratDar(response.data);
-      setLoading(false);
+      .then(response => {
+        setkeratDar(response.data);
+        setLoading(false);
       })
   }, [])
   return (
@@ -90,7 +109,7 @@ const GoldChart = () => {
               <nav aria-label="breadcrumb" className="bg-dark text-light rounded-3 p-3 mb-4">
                 <ol className="breadcrumb mb-0">
                   <li className="breadcrumb-item m-auto">سيتم تحديث الأسعار خلال
-                    <span className='mx-1' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{counter}</span>
+                    <span className='mx-1' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{(time1 / 1000)}</span>
                     ثانية حسب السعر العالمي
                     <span style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{time.toLocaleTimeString()}</span>
                   </li>
@@ -192,7 +211,7 @@ const GoldChart = () => {
                     >
                       <label htmlFor="datefrom" className='text-light ms-4'>{item?.duration}</label>
                       <input
-                      className='bg-dark text-light border-0'
+                        className='bg-dark text-light border-0'
                         type="date"
                         id="datefrom"
                         name="datefrom"
