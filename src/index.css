@@ -133,7 +133,9 @@ button {
 .bacground-color-darkblue {
   background-color: var(--darkblue-color);
 }
-
+.bacground-color-golden{
+  background-color: var(--gold-color);
+}
 
 @media (max-width: 700px) {
   .Container {

@@ -87,7 +87,7 @@ const GoldChart = () => {
         <div className="container py-5">
           <div className="row">
             <div className="col">
-              <nav aria-label="breadcrumb" className="bg-light rounded-3 p-3 mb-4">
+              <nav aria-label="breadcrumb" className="bg-dark text-light rounded-3 p-3 mb-4">
                 <ol className="breadcrumb mb-0">
                   <li className="breadcrumb-item m-auto">سيتم تحديث الأسعار خلال
                     <span className='mx-1' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{counter}</span>
@@ -100,12 +100,12 @@ const GoldChart = () => {
           </div>
           <div className="row mt-4">
             <div className="col-lg-3">
-              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الذهب</div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر الذهب</div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 24 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchaseGoldPrice}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[0]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
@@ -116,7 +116,7 @@ const GoldChart = () => {
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 22 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase22GoldPrice}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
@@ -126,7 +126,7 @@ const GoldChart = () => {
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 21 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase21GoldPrice}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
@@ -136,19 +136,19 @@ const GoldChart = () => {
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">عيار 18 (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase18GoldPrice}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر الفضة</div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر الفضة</div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6"> الفضة (كيلو)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{(keratDar?.result?.purchaseSilverPrice) * 1000}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[1]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
@@ -156,13 +156,13 @@ const GoldChart = () => {
                   </div>
                 </div>
               </div>
-              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#FFEB3B" }}>سعر البلاتينيوم </div>
+              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر البلاتينيوم </div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
                     <p className="col text-light fs-6">البلاتينيوم (جرام)</p>
-                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#FFC107' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchasePlatinumPrice}</span>
+                    <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
+                      <span className="mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchasePlatinumPrice}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[2]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
@@ -179,7 +179,7 @@ const GoldChart = () => {
                       to='/'
                       state={{ item: item.type }}
                     >
-                      <button type="button" className='btn btn-warning mx-2'>{item?.name}</button>
+                      <button type="button" className='btn btn-warning bacground-color-golden mx-2'>{item?.name}</button>
                     </Link>
                   ))
                   }
@@ -192,6 +192,7 @@ const GoldChart = () => {
                     >
                       <label htmlFor="datefrom" className='text-light ms-4'>{item?.duration}</label>
                       <input
+                      className='bg-dark text-light border-0'
                         type="date"
                         id="datefrom"
                         name="datefrom"
@@ -207,7 +208,7 @@ const GoldChart = () => {
                 </div>
               </div>
 
-              <div className="card mb-4 px-0">
+              <div className="card mb-4 px-0 bg-dark">
                 <div className="card-body px-1 text-end">
                   <div dir='ltr' className='coursers-open'>
                     <AreaCharts startDate={startDate} endDate={endDate} />
