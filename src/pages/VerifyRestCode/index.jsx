@@ -1,6 +1,7 @@
-import { Navbar } from "@/layout"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { Navbar } from "@/layout"
+import { ToastContainer, toast } from 'react-toastify';
 import axios from '@/api/axios'
 
 const VerifyRestCode = () => {
@@ -8,6 +9,17 @@ const VerifyRestCode = () => {
   const [isPending, setIsPending] = useState(false)
   const [resetCode, setResetCode] = useState('')
 
+  const notify = () =>
+    toast.error(' تأكد من كتابة الكود بشكل صحيح', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
   // Submit the form data to the server
   const handelSubmit = async (e) => {
     e.preventDefault()
@@ -31,12 +43,11 @@ const VerifyRestCode = () => {
 
     } catch (err) {
       setIsPending(false);
+      <ToastContainer />
       console.log('response', err.response);
-      // console.log('virfy code from catch' + err?.response?.status);
       if (err?.response?.status === 200) {
         navigate("/auth/resetPassword")
       }
-      // console.log('message', err.message);
     }
   }
 
@@ -60,11 +71,13 @@ const VerifyRestCode = () => {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     value={resetCode}
+                    required
                     onChange={e => setResetCode(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">
-                  <button >ارسال</button>
+                  <ToastContainer />
+                  <button onClick={notify}>ارسال</button>
                 </div>
               </form>
               <p id="create-account" className="my-15 text-center fs-6 fw-bold"> هل لديك حساب بالفعل ؟

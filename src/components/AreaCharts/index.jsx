@@ -63,12 +63,13 @@ const AreaCharts = ({ startDate, endDate }) => {
             <stop offset="5%" stopColor="#f8d25c" stopOpacity={0.8} />
             <stop offset="95%" stopColor="#f8d25c" stopOpacity={0} />
           </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+          {/* <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#f8d" stopOpacity={0.8} />
             <stop offset="95%" stopColor="#f8d" stopOpacity={0} />
           </linearGradient>
+        */}
         </defs>
-        <YAxis />
+        <YAxis/>
         <XAxis dataKey="name" />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />

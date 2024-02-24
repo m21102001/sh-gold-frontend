@@ -41,7 +41,7 @@ const Navbar = () => {
               alt=""
               style={{
                 width: '10rem',
-                height: '6rem',
+                height: '5rem',
                 // background: '#f1c40f54',
                 borderRadius: '10px',
               }}

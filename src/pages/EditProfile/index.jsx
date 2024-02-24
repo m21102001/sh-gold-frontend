@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { Navbar } from "@/layout";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "@/api/axios";
+import { useAuth } from "@/context/Auth";
 const EditProfile = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
-  const [fullName, setFullName] = useState('')
-  const [email, setEmail] = useState('')
+  const [fullName, setFullName] = useState(user?.name)
+  const [email, setEmail] = useState(user?.email)
 
   function tosts() {
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Footer, Navbar } from "@/layout"
 import axios from "@/api/axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -8,7 +8,6 @@ import { MdOutlineArrowBack } from "react-icons/md";
 
 const DetailsPlaylistDevelopment = () => {
   const authed = authenticated()
-  const navigate = useNavigate()
   const item = useLocation()?.state?.item
   // console.log('item',item);
   const id = useParams().id;
@@ -113,7 +112,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0"> السعر</p>
                             </div>
                             <div className="col-sm-9">
-                              <p className="text-muted mb-0">{item?.price}</p>
+                              <p className="text-muted mb-0">{item?.price} دينار كويتى</p>
                             </div>
                           </div>
                           <hr />

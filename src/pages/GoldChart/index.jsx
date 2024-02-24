@@ -4,12 +4,10 @@ import axios from 'axios';
 import { AreaCharts } from '@/components'
 import './goldChart.scss'
 import { durationTime, metalType } from '@/db/data';
-import { useCountdownTimer } from 'use-countdown-timer';
 
 const GoldChart = () => {
   const [loading, setLoading] = useState(false);
   const [time, setTime] = useState(new Date())
-  const [counter, setCounter] = useState("60")
   const [startDate, setstartDate] = useState("");
   const [endDate, setendDate] = useState("");
   const [keratDar, setkeratDar] = useState([])
@@ -30,6 +28,7 @@ const GoldChart = () => {
     }
 
     interval = setInterval(countDownUntilZero, INTERVAL_IN_MILISECONDS);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -99,6 +98,7 @@ const GoldChart = () => {
         setLoading(false);
       })
   }, [])
+  // console.log((time1 / 1000)=='');
   return (
     <>
       {loading && <div className="loading"></div>}
@@ -108,10 +108,10 @@ const GoldChart = () => {
             <div className="col">
               <nav aria-label="breadcrumb" className="bg-dark text-light rounded-3 p-3 mb-4">
                 <ol className="breadcrumb mb-0">
-                  <li className="breadcrumb-item m-auto">سيتم تحديث الأسعار خلال
-                    <span className='mx-1' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{(time1 / 1000)}</span>
+                  <li className="breadcrumb-item m-auto">سيتم تحديث الأسعار خلال 
+                    <span className='mx-2' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{(time1 / 1000) == isNaN ? ('jjj') : (time1 / 1000)}</span>
                     ثانية حسب السعر العالمي
-                    <span style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{time.toLocaleTimeString()}</span>
+                    <span className='mx-2' style={{ color: "var(--gold-color)", fontWeight: "bold" }}>{time.toLocaleTimeString()}</span>
                   </li>
                 </ol>
               </nav>
@@ -125,7 +125,7 @@ const GoldChart = () => {
                   <div className="row">
                     <p className="col text-light fs-6">عيار 24 (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchaseGoldPrice}</span>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchaseGoldPrice?.toFixed(3)}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[0]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
@@ -136,7 +136,7 @@ const GoldChart = () => {
                   <div className="row">
                     <p className="col text-light fs-6">عيار 22 (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase22GoldPrice}</span>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase22GoldPrice?.toFixed(3)}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
@@ -146,7 +146,7 @@ const GoldChart = () => {
                   <div className="row">
                     <p className="col text-light fs-6">عيار 21 (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase21GoldPrice}</span>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase21GoldPrice?.toFixed(3)}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
@@ -156,11 +156,12 @@ const GoldChart = () => {
                   <div className="row">
                     <p className="col text-light fs-6">عيار 18 (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase18GoldPrice}</span>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchase18GoldPrice?.toFixed(3)}</span>
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
+                <hr />
               </div>
               <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر الفضة</div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
@@ -168,12 +169,13 @@ const GoldChart = () => {
                   <div className="row">
                     <p className="col text-light fs-6"> الفضة (كيلو)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
-                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{(keratDar?.result?.purchaseSilverPrice) * 1000}</span>
+                      <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{(keratDar?.result?.purchaseSilverPrice?.toFixed(3)) * 1000}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[1]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
+              <hr />
               </div>
               <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر البلاتينيوم </div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
@@ -181,12 +183,13 @@ const GoldChart = () => {
                   <div className="row">
                     <p className="col text-light fs-6">البلاتينيوم (جرام)</p>
                     <div className="col  fs-5 mx-2 d-flex justify-content-end" style={{ color: '#de9012' }}>
-                      <span className="mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchasePlatinumPrice}</span>
+                      <span className="mx-2 fw-bold pb-1 fs-4 fw-bold">{keratDar?.result?.purchasePlatinumPrice?.toFixed(3)}</span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[2]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">د.ك</span>
                     </div>
                   </div>
                 </div>
+              <hr />
               </div>
             </div>
             <div className="col-lg-9 col-md-12">
@@ -198,7 +201,7 @@ const GoldChart = () => {
                       to='/'
                       state={{ item: item.type }}
                     >
-                      <button type="button" className='btn btn-warning bacground-color-golden mx-2'>{item?.name}</button>
+                      <button type="button" className='btn btn-warning bacground-color-golden fw-bold mx-2'>{item?.name}</button>
                     </Link>
                   ))
                   }

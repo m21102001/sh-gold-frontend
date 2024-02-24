@@ -70,7 +70,7 @@ const Profile = () => {
                       <p className="mb-0">العضوية </p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{user?.plan ? user?.plan == "basic" ? "لا يوجد عضويه " : user.plan : 'قم بتسجيل الدخول'}</p>
+                      <p className="text-muted mb-0">{user?.plan ? user?.plan == "basic" ? "لا يوجد عضوية " : user.plan : 'قم بتسجيل الدخول'}</p>
                     </div>
                   </div>
                   <hr />

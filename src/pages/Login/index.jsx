@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Navbar } from '@/layout';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '@/api/axios';
-import { getCookie, setCookie } from 'cookies-next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './login.scss';
@@ -15,7 +14,7 @@ const Login = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const notify = () =>
-    toast.error('sorry, please check phone or password!', {
+    toast.error('من فضلك تأكد من رقم الهاتف او الرقم السري', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -53,12 +52,9 @@ const Login = () => {
         user?.role == 'admin' ||
         user?.role == 'godAdmin' ||
         user?.role == 'manager'
-        ) {
-          navigate('/dash/dashboard');
-        } 
-        // else {
-        // <ToastContainer />
-      // }
+      ) {
+        navigate('/dash/dashboard');
+      }
     }
   };
   return (
@@ -81,7 +77,7 @@ const Login = () => {
                     رقم الهاتف*
                   </label>
                   <input
-                  required
+                    required
                     type="text"
                     className="form-control"
                     id="exampleInputPhone1"

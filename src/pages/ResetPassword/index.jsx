@@ -1,14 +1,24 @@
-import { Navbar } from "@/layout"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
+import { Navbar } from "@/layout"
 import axios from '@/api/axios'
+import { ToastContainer, toast } from 'react-toastify';
 const ResetPassword = () => {
   const navigate = useNavigate();
   const [pending, setPending] = useState(false)
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
-
+  const notify = () =>
+    toast.error(' تأكد من ان الرقمين السريين متطابقان', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
   const handelSubmit = async (e) => {
     e.preventDefault()
     if (password !== passwordConfirm) {
@@ -28,7 +38,7 @@ const ResetPassword = () => {
           },
         }
       ).then(response => {
-        if (response?.status==200) {
+        if (response?.status == 200) {
           navigate('/auth/login')
         }
       })
@@ -58,8 +68,9 @@ const ResetPassword = () => {
                     id="exampleInputPassword1"
                     placeholder='كلمه المرور*'
                     value={password}
+                    required
                     onChange={e => setPassword(e.target.value)}
-                  />
+                    />
                 </div>
                 <div className="mb-3">
                   <label
@@ -71,12 +82,14 @@ const ResetPassword = () => {
                     className="form-control fw-bold"
                     id="exampleInputPassword2"
                     placeholder='تأكيد كلمه المرور*'
+                    required
                     value={passwordConfirm}
                     onChange={e => setPasswordConfirm(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">
-                  <button >اعاده تعيين كلمه المرور</button>
+                  <ToastContainer />
+                  <button onClick={notify}>اعاده تعيين كلمه المرور</button>
                 </div>
               </form>
               <p id="create-account" className="my-15 text-center fs-6 fw-bold"> هل لديك حساب بالفعل ؟

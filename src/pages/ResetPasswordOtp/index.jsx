@@ -1,6 +1,7 @@
-import { Navbar } from "@/layout"
 import { useState } from "react"
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { Navbar } from "@/layout"
+import { ToastContainer, toast } from 'react-toastify';
 import axios from '@/api/axios'
 
 const ResetPasswordOtp = () => {
@@ -8,6 +9,17 @@ const ResetPasswordOtp = () => {
   const [isPending, setIsPending] = useState(false)
   const [phone, setPhone] = useState('')
 
+  const notify = () =>
+    toast.error(' لم يتم العثور على الحساب, من فضلك تأكد من رقم الهاتف', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
   // Submit the form data to the server
   const handelSubmit = async (e) => {
     e.preventDefault()
@@ -31,8 +43,8 @@ const ResetPasswordOtp = () => {
 
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      console.log('message', err.message);
+      console.log('response', err.message);
+      <ToastContainer />
     }
   }
 
@@ -61,7 +73,8 @@ const ResetPasswordOtp = () => {
                   />
                 </div>
                 <div className="d-grid gap-2">
-                  <button >ارسال كود</button>
+                  <ToastContainer />
+                  <button onClick={notify} >ارسال كود</button>
                 </div>
               </form>
               <p id="create-account" className="my-15 text-center fs-6 fw-bold"> هل لديك حساب بالفعل ؟
