@@ -3,15 +3,14 @@ import { SidebarDashboard } from "@/layout"
 import { InvestmentActive, InvestmentInActive } from "@/components";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
+import { useAuth } from "@/context/Auth";
 import './investment.scss'
-import { getCookie } from "cookies-next";
 
 const InvesmentDash = () => {
-
+  const { user } = useAuth();
   return (
     <>
-      {getCookie('role') == 'user' &&
+      {user?.role == 'user'&&
         <div className="m-auto loading">
           <h2>YOU ARE NOT PROVIDE</h2>
           <h2>PLEASE <span className="text-danger"><Link to={'auth/login'}> SINGIN</Link></span> AND BACK</h2>

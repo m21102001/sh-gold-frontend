@@ -20,7 +20,6 @@ const WidgetCart = () => {
         setLoading(false);
       });
   }, []);
-  console.log('first', analysis)
   return (
     <div className={`wordColor`}>
       {loading && <div className="loading"></div>}

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { Navbar } from "@/layout";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "@/api/axios";
-import { deleteCookie } from "cookies-next";
 const UpdatePassword = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
@@ -35,9 +34,7 @@ const UpdatePassword = () => {
         })
         .then((response) => {
           setIsPending(false)
-          console.log(response);
-          deleteCookie('role')
-          deleteCookie('token')
+          // console.log(response);
           navigate("/")
         })
 
@@ -55,7 +52,7 @@ const UpdatePassword = () => {
         <div className="Container pt-5 login">
           <div className="container text-end d-flex flex-column justify-content-center m-auto body-card" >
             <div className="shadow-lg p-3 mb-5 bg-body rounded">
-            <h3 className='text-center pt-3 fs-2 fw-bold'>تغيير الرقم السري</h3>
+              <h3 className='text-center pt-3 fs-2 fw-bold'>تغيير الرقم السري</h3>
               <form className='pb-5 pt-2' onSubmit={handelSubmit}>
                 <div className="mb-3">
                   <label
