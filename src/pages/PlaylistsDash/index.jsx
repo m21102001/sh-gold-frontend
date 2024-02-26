@@ -1,13 +1,14 @@
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom";
 import { useAuth } from "@/context/Auth";
-
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 const PlaylistsDash = () => {
   const [loading, setLoading] = useState(false)
   const [playlists, setPlaylists] = useState([])
   const { user } = useAuth();
+  const tableRef = useRef(null);
   useEffect(() => {
     setLoading(true);
     if (user.role == 'manager') {
@@ -72,10 +73,19 @@ const PlaylistsDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>الكورسات المتاحة</h2>
         </div>
+        <div className="d-flex flex-row justify-content-between">
         <Link to="/dash/create-playlist-item">
           <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافة قائمة جديد</button>
         </Link>
-        <table className="table table-striped table-hover">
+        <DownloadTableExcel
+          filename="users table"
+          sheet="users"
+          currentTableRef={tableRef.current}
+        >
+          <button type="button" className="btn btn-info m-3 ">  تحميل ملف اكسيل </button>
+        </DownloadTableExcel>
+        </div>
+        <table ref={tableRef} className="table table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>

@@ -9,9 +9,6 @@ const Dashboard = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>الصفحة الرئيسية</h2>
         </div>
-        {/* <button>
-          Download Report
-        </button> */}
         <WidgetCart />
         {/* <ChartDash /> */}
       </div>

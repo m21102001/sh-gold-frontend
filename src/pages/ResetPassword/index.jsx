@@ -9,7 +9,7 @@ const ResetPassword = () => {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const notify = () =>
-    toast.error(' تأكد من ان الرقمين السريين متطابقان', {
+    toast.error(' تأكد من ان كلمتى السر متطابقان', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,

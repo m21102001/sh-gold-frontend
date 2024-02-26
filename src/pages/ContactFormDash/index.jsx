@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios";
 import { useAuth } from "@/context/Auth";
-
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 const ContactFormDash = () => {
   const [loading, setLoading] = useState(false);
   const [contactForm, setContactForm] = useState([])
   const { user } = useAuth();
+  const tableRef = useRef(null);
   let fetchContactForm = {
     method: 'get',
     url: '/contact',
   };
   useEffect(() => {
     setLoading(true);
-    if (user.role =='manager') {
+    if (user.role == 'manager') {
       axios
         .request(fetchContactForm)
         .then((response) => {
@@ -100,15 +101,23 @@ const ContactFormDash = () => {
   }
   return (
     <div className="dashboard d-flex flex-row">
-      {user.role !='manager' && <div className="loading"></div>}
+      {user.role != 'manager' && <div className="loading"></div>}
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>طلبات التواصل مع الاستاذ صلاح</h2>
         </div>
-
-        <button onClick={() => handelDeleteAll()} type="button" className="btn btn-danger d-block m-3" style={{ padding: "7px 6rem" }}>حذف الكل</button>
-        <table className="table table-striped table-hover">
+        <div className="d-flex flex-row justify-content-between">
+          <button onClick={() => handelDeleteAll()} type="button" className="btn btn-danger d-block m-3" style={{ padding: "7px 6rem" }}>حذف الكل</button>
+          <DownloadTableExcel
+            filename="users table"
+            sheet="users"
+            currentTableRef={tableRef.current}
+          >
+            <button type="button" className="btn btn-info d-block m-3 ">  تحميل ملف اكسيل </button>
+          </DownloadTableExcel>
+        </div>
+        <table ref={tableRef} className="table table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -140,7 +149,7 @@ const ContactFormDash = () => {
             ))}
           </tbody>
         </table>
-        {user.role !='manager' ? (
+        {user.role != 'manager' ? (
           <h3 className="text-light"> YOU ARE NOT PROVIDE </h3>
         ) : null
         }

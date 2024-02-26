@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios";
 import { useAuth } from "@/context/Auth";
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 
 const BooksDash = () => {
   const [loading, setLoading] = useState(false);
   const [bookData, setBookData] = useState([])
   const { user } = useAuth();
-
+  const tableRef = useRef(null);
   let fetchBook = {
     method: 'get',
     url: '/books',
@@ -85,10 +86,19 @@ const BooksDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'>صفحة الكتب</h2>
         </div>
+        <div className="d-flex flex-row justify-content-between">
         <Link to="/dash/create-books">
           <button type="button" className="btn btn-primary d-block m-3" style={{ padding: "7px 6rem" }}>اضافة جديد</button>
         </Link>
-        <table className="table table-striped table-hover">
+        <DownloadTableExcel
+          filename="users table"
+          sheet="users"
+          currentTableRef={tableRef.current}
+        >
+          <button type="button" className="btn btn-info d-block m-3 ">  تحميل ملف اكسيل </button>
+        </DownloadTableExcel>
+        </div>
+        <table ref={tableRef} className="table table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>

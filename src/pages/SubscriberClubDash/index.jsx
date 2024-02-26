@@ -1,13 +1,15 @@
 import { SidebarDashboard } from "@/layout"
 import axios from "@/api/axios"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { useAuth } from "@/context/Auth"
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 
 const SubscriberClubDash = () => {
   const [loading, setLoading] = useState(false)
   const [club, setClub] = useState([])
   const { user } = useAuth();
+  const tableRef = useRef(null);
   // console.log(user.role);
   useEffect(() => {
     setLoading(true);
@@ -54,7 +56,14 @@ const SubscriberClubDash = () => {
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
           <h2 className='fs-1 fw-bold'> المشتركين فى النادى</h2>
         </div>
-        <table className="table table-striped table-hover">
+        <DownloadTableExcel
+          filename="users table"
+          sheet="users"
+          currentTableRef={tableRef.current}
+        >
+          <button type="button" className="btn btn-info d-block m-3 ">  تحميل ملف اكسيل </button>
+        </DownloadTableExcel>
+        <table ref={tableRef} className="table table-striped table-hover">
           <thead>
             <tr className="text-end">
               <th scope="col">#</th>
