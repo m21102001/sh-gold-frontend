@@ -163,7 +163,7 @@ const GoldChart = () => {
                 </div>
                 <hr />
               </div>
-              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر الفضة</div>
+              <div className=" py-1 mt-4 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر الفضة</div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">
@@ -177,7 +177,7 @@ const GoldChart = () => {
                 </div>
               <hr />
               </div>
-              <div className=" py-1 mt-1 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر البلاتينيوم </div>
+              <div className=" py-1 mt-4 mb-4 fs-6 fw-bold text-end" style={{ color: "#de9012" }}>سعر البلاتينيوم </div>
               <div className="d-flex flex-column align-items-center price-item mb-3 ng-star-inserted">
                 <div className="flex-grow-1">
                   <div className="row">

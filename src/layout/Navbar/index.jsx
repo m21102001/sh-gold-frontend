@@ -69,11 +69,11 @@ const Navbar = () => {
                   الرئيسية
                 </NavLink>
               </li>
-              {/* <li className="nav-item ms-2 ">
+              { <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/bullion-store">
                   متجر السبائك
                 </NavLink>
-              </li> */}
+              </li> }
               <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/book">
                   {' '}
