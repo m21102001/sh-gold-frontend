@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
           setuser(data.data);
           setRole(data.data.role);
           setRole(data.data.plan);
-          console.log('from auth', data.data);
+          // console.log('from auth', data.data);
           setLoggedin(true);
         }
       } finally {
