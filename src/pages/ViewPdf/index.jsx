@@ -13,7 +13,6 @@ const ViewPdf = () => {
       <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
         <Viewer
           fileUrl={`${import.meta.env.VITE_FILE_URL}${item?.pdf}`}
-          // fileUrl={`https://www.quran-pdf.com/arabic-quran.pdf`}
         />
       </Worker>
       <Footer />
