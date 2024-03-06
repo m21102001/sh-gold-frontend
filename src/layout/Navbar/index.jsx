@@ -1,10 +1,10 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { RxAvatar } from 'react-icons/rx';
 import logo from '@/assets/cambradge.svg';
-import './navbar.module.scss';
-import { useAuth, authenticated } from '@/context/Auth';
+import { useAuth } from '@/context/Auth';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from '@/api/axios';
+import './navbar.module.scss';
 const Navbar = () => {
   const { setRole, setuser, setLoggedin, user } = useAuth();
   const navigate = useNavigate();
@@ -41,14 +41,14 @@ const Navbar = () => {
               alt=""
               style={{
                 width: '10rem',
-                height: '5rem',
+                height: '4.5rem',
                 // background: '#f1c40f54',
                 borderRadius: '10px',
               }}
             />
           </NavLink>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border-2 border border-light"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -69,11 +69,11 @@ const Navbar = () => {
                   الرئيسية
                 </NavLink>
               </li>
-              { <li className="nav-item ms-2 ">
+              {/* <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/bullion-store">
                   متجر السبائك
                 </NavLink>
-              </li> }
+              </li> */}
               <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/book">
                   {' '}

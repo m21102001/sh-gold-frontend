@@ -46,7 +46,7 @@ const Consulting = () => {
                         </div>
                       </div>
                     ))}
-                    <h2 className="text-center text-light fw-bold mb-5">{item?.mechanism}</h2>
+                    {/* <h2 className="text-center text-light fw-bold mb-5">{item?.mechanism}</h2>
                     {item?.Reservation?.map((item, index) => (
                       <div key={index} className="col-sm-12 mx-3 mb-5 p-0 card">
                         <div className="card-body">
@@ -57,7 +57,7 @@ const Consulting = () => {
                           </ul>
                         </div>
                       </div>
-                    ))}
+                    ))} */}
                   </div>
                 </Fragment>
               ))}

@@ -107,11 +107,11 @@ function SidebarDashboard() {
             <FaMessage /> <p className="fs-5 fw-bold me-4">الرسائل</p>
           </NavLink>
           <NavLink to="/dash/consultations ">
-            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">التذاكر</p>
+            <FaTicketAlt /> <p className="fs-5 fw-bold me-4">الاستشارات</p>
           </NavLink>
           <NavLink to="/dash/consultations-ticket ">
             <FaTicketAlt />{' '}
-            <p className="fs-5 fw-bold me-4">التذاكر المحجوزة</p>
+            <p className="fs-5 fw-bold me-4">الاستشارات المحجوزة</p>
           </NavLink>
           <NavLink to="/dash/all-users ">
             <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>

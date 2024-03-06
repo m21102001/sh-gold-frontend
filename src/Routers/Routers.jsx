@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import {
   Routes,
   Route,
@@ -90,7 +91,6 @@ import {
   VideosDash,
   ViewPdf,
 } from '@/pages';
-import { Suspense, lazy } from 'react';
 import MyWalletRequsetSall from '@/pages/MyWalletRequsetSall';
 import { authenticated, useAuth } from '@/context/Auth';
 const Dashboard = lazy(() => import('../pages/Dashboard/index'));
