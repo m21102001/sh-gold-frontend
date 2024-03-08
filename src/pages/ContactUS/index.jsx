@@ -189,7 +189,7 @@ const ContactUs = () => {
                 </a>
               </div>
               <div className="col">
-                <a href="mailto:mohayoumy@gmail.com">
+                <a href="mailto:cambridgetime2024@gmail.com">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق البريد الإلكتروني :</h5>
