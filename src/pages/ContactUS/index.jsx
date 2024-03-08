@@ -193,7 +193,7 @@ const ContactUs = () => {
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق البريد الإلكتروني :</h5>
-                      <p className="card-text">mohaeumy@gmail.com</p>
+                      <p className="card-text">cambridgetime2024@gmail.com</p>
                     </div>
                   </div>
                 </a>
