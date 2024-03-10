@@ -24,20 +24,15 @@ const ReservationTicket = () => {
         console.log(error);
       });
 
-  }, []) 
+  }, [])
   return (
     <div style={{ color: 'var(--darkblue-color)' }}>
-      <Navbar /> 
-      <Link to={'/club'} className='mb-3 d-flex flex-row-reverse'>
-        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+      <Navbar />
+      <Link to={'/club'} className=' d-flex flex-row-reverse'>
+        <button type="button" className="fw-bold text-light bacground-color-darkblue fs-5 mt-3 ms-3 back-details-button"
         ><MdOutlineArrowBack size={30} /></button>
-      </Link> 
-      {/* <div className="pt-5">
-          <button onClick={() => navigate('/club')} type="button" className="btn btn-primary px-5 ms-5 position-fixed" 
-          style={{top: "22%",left: "2%",zIndex: "2"}}
-          >رجوع </button>
-        </div> */}
-      <div className="container text-center pt-5">
+      </Link>
+      <div className="container text-center pt-4">
         {!loading && consultation?.data?.map((item, index) => (
           <Link
             to={`/auth/shop`}
@@ -50,8 +45,8 @@ const ReservationTicket = () => {
             </div>
             <div className="col-10 fs-4 text-end" >
               <div className="mb-3 d-flex justify-content-between align-items-start">
-              <h3 className="text-uppercase"><strong>{item?.title}</strong></h3>
-              <button type="button" className="btn btn-success">ادفع الان</button>
+                <h3 className="text-uppercase"><strong>{item?.title}</strong></h3>
+                <button type="button" className="btn btn-success">ادفع الان</button>
               </div>
               <ul className="list-inline">
                 <li className="list-inline-item mx-3"><FaClock size={30} color={'var(--gold-color)'} />{item?.startDate}</li>

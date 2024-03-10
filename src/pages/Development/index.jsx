@@ -21,7 +21,6 @@ const Development = () => {
       .then((response) => {
         setGetPlaylist(response.data);
         setLoading(false);
-        console.log("getplaylist", response);
       })
       .catch((error) => {
         setLoading(false);

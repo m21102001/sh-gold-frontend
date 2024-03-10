@@ -69,12 +69,9 @@ const ProjectIdea = () => {
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
       <Link to={'/investment'} className='mb-3 d-flex flex-row-reverse'>
-        <button type="button" style={{ top: "22%", left: "2%", zIndex: "2" }} className="fw-bold text-light bacground-color-darkblue fs-5 position-fixed back-details-button"
+        <button type="button" className="fw-bold text-light bacground-color-darkblue fs-5 mt-3 ms-3 back-details-button"
         ><MdOutlineArrowBack size={30} /></button>
-      </Link> 
-      {/* <button onClick={() => navigate('/investment')} type="button" className="btn btn-primary px-5 mt-3 ms-5 position-fixed" 
-      style={{top: "22%",left: "2%",zIndex: "2"}}
-      >رجوع </button> */}
+      </Link>
       <div className="text-center shadow-lg p-3 mx-3 mb-5 rounded" >
 
         <div className="row align-items-center mt-5">
@@ -91,15 +88,15 @@ const ProjectIdea = () => {
               modules={[Pagination, Navigation]}
               className="mySwiper my-5"
             >
-              {item?.images.map((item,index)=>(
-              <SwiperSlide key={index}>
-                <LazyLoadImage
-                  src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
-                  alt={item?.title}
-                  loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
-                />
-              </SwiperSlide>
+              {item?.images.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <LazyLoadImage
+                    src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
+                    alt={item?.title}
+                    loading="lazy"
+                    style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
+                  />
+                </SwiperSlide>
               ))}
             </Swiper>
           </div>
