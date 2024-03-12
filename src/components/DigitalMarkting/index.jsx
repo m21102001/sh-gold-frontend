@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import axios from "@/api/axios"
 import styles from '../GoldCard/GoldCard.module.scss';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import './DigitalMarkting.scss'
 
 const DigitalMarkting = () => {
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,9 @@ const DigitalMarkting = () => {
       <div className='m-auto d-flex justify-center'>
         <>
           <div className="container gold-dash">
-            <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', gap: '90px' }}>
+            <div className={styles['home-grid']}
+              style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '90px' }}
+            >
               {!loading && getPlayList?.document?.map((item, index) => (
                 index < 3 ? (
                   <div key={index} className={styles['gold-div']} >
@@ -57,9 +60,9 @@ const DigitalMarkting = () => {
           </div>
         </>
       </div>
-        {getPlayList?.length == 0 ? (
-          <h3 className={`text-center fs-2 alert alert-danger`} role="alert">please <Link to={'/auth/login'}>Login</Link> for show it here</h3>
-        ) : ('')}
+      {getPlayList?.length == 0 ? (
+        <h3 className={`text-center fs-2 alert alert-danger`} role="alert">please <Link to={'/auth/login'}>Login</Link> for show it here</h3>
+      ) : ('')}
       <Link to="/development">
         <h4 className="fw-bold text-center my-5 text-decoration-underline text-opacity-75" data-bs-title="Another tooltip"> المزيد من القوائم  </h4>
       </Link>
