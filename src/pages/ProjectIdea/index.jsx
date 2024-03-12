@@ -3,12 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Footer, Navbar } from '@/layout';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from "@/api/axios";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
 import { Worker } from '@react-pdf-viewer/core';
 // Import the main component
 import { Viewer } from '@react-pdf-viewer/core';
@@ -76,39 +71,19 @@ const ProjectIdea = () => {
 
         <div className="row align-items-center mt-5">
           <h2 className='text-center text-light fs-1 fw-bold'>{item?.title}</h2>
-          <div className="col-md-10 col-sm-12 m-auto">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={30}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              breakpoints={{
-                640: {
-                  width: 640,
-                  slidesPerView: 1,
-                },
-                768: {
-                  width: 768,
-                  slidesPerView: 2,
-                },
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper my-5"
-            >
-              {item?.images.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <LazyLoadImage
-                    src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
-                    alt={item?.title}
-                    loading="lazy"
-                    style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: "auto", border: '3px solid white' }}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          <div className="col-md-10 col-sm-12 m-auto full-filed">
+            {item?.images.map((item, index) => (
+              <>
+                <LazyLoadImage
+                  key={index}
+                  className='img-bb my-5'
+                  src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
+                  alt={item?.title}
+                  loading="lazy"
+                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px', margin: "auto", border: '3px solid white' }}
+                />
+              </>
+            ))}
           </div>
           <div className="col-md-12 col-sm-12 m-0 p-0">
             <section className='text-light'>
