@@ -41,3 +41,9 @@
   }
 
 }
+
+@media (max-width: 600px) {
+  .book-landing .swiper-slide{
+    width: 320px !important;
+  }
+}

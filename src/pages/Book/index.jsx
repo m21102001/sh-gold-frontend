@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 // import required modules
-import { FreeMode, Pagination,Navigation,Mousewheel, Keyboard } from 'swiper/modules';
+import { FreeMode, Navigation } from 'swiper/modules';
 import axios from '@/api/axios'
 import "./book.scss";
 import styles from '../../components/GoldCard/GoldCard.module.scss';
@@ -45,9 +45,23 @@ const Book = () => {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        breakpoints={{
+          640: {
+            width: 640,
+            slidesPerView: 1,
+          },
+          320: {
+            width: 640,
+            slidesPerView: 1,
+          },
+          768: {
+            width: 768,
+            slidesPerView: 2,
+          },
+        }}
         navigation={true}
         freeMode={true}
-        modules={[FreeMode,  Navigation]}
+        modules={[FreeMode, Navigation]}
         className="mySwiper my-5"
       >
         <div className={styles['container home-grid']}>

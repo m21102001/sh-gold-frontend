@@ -134,8 +134,15 @@ button {
 .bacground-color-darkblue {
   background-color: var(--darkblue-color);
 }
-.bacground-color-golden{
+
+.bacground-color-golden {
   background-color: var(--gold-color);
+}
+
+@media (max-width: 700px) {
+  .responsive-home-grid {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr))
+  }
 }
 
 @media (max-width: 700px) {
