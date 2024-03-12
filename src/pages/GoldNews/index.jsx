@@ -71,7 +71,7 @@ const GoldNews = () => {
         <h2 className='p-3 fs-1 fw-bold' style={{ color: 'var(--main-color)' }}>{item?.title}</h2>
         <div className="row align-items-center" style={{ margin: '0 -16px 0 -16px' }}>
           <div className="col-md-6 col-sm-12 p-0">
-            <LazyLoadImage
+            <LazyLoadImage 
               src={`${import.meta.env.VITE_IMAGE_URL}${item.image}`}
               alt={item?.title}
               loading="lazy"

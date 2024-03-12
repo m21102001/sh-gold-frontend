@@ -445,37 +445,37 @@ export const clubCambridge=[
     type: [
       {
         id: 1,
-        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        image: `https://i.ibb.co/tKCSj4j/Whats-App-Image-2024-03-11-at-15-08-18-55d95c40.jpg`,
         alt: `خصم خاص لمشتريات المجوهرات `,
         title: `خصم خاص لمشتريات المجوهرات `,
       },
       {
         id: 2,
-        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        image: `https://i.ibb.co/8BF7t2n/Whats-App-Image-2024-03-11-at-15-08-19-6ac5e0ef.jpg`,
         alt: ` خصومات خاصة على المشتريات من الذهب من المحل لأعضاء النادي فقط.`,
         title: ` خصومات خاصة على المشتريات من الذهب من المحل لأعضاء النادي فقط.`,
       },
       {
         id: 3,
-        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        image: `https://i.ibb.co/SJG3Pjs/Whats-App-Image-2024-03-11-at-15-08-19-ed324247.jpg`,
         alt: ` توفير قيمة تخزين الذهب ونقلة والتأمين عليه.`,
         title: ` توفير قيمة تخزين الذهب ونقلة والتأمين عليه.`,
       },
       {
         id: 4,
-        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        image: `https://i.ibb.co/jWjtTMS/Whats-App-Image-2024-03-11-at-15-08-20-ee159f05.jpg`,
         alt: `جوائز شهرية خاصة من نادي كامبردج.`,
         title: `جوائز شهرية خاصة من نادي كامبردج.`,
       },
       {
         id: 5,
-        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        image: `https://i.ibb.co/CMcF9Ws/Whats-App-Image-2024-03-11-at-15-08-22-051bba37.jpg`,
         alt: ` خدمة الارشادات الخاصة`,
         title: ` خدمة الارشادات الخاصة`,
       },
       {
         id: 6,
-        image: `https://lazurde.com/_next/image?url=https%3A%2F%2Fcdn11.bigcommerce.com%2Fs-t4k1ukevvr%2Fimages%2Fstencil%2F1280w%2Fproducts%2F1388%2F4694%2F314021800102183-1__88712.1696491814.jpg&w=1920&q=100`,
+        image: `https://i.ibb.co/0sbv973/Whats-App-Image-2024-03-11-at-15-08-19-7e9505f8.jpg`,
         alt: `  يحصل المشترك على خصم في التوصيل`,
         title: `  يحصل المشترك على خصم في التوصيل`,
       },

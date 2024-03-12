@@ -46,18 +46,6 @@ const Consulting = () => {
                         </div>
                       </div>
                     ))}
-                    {/* <h2 className="text-center text-light fw-bold mb-5">{item?.mechanism}</h2>
-                    {item?.Reservation?.map((item, index) => (
-                      <div key={index} className="col-sm-12 mx-3 mb-5 p-0 card">
-                        <div className="card-body">
-                          <ul className="mx-3 fs-5 fw-bold">
-                            <li className="card-title">{item?.title}</li>
-                            <li className="card-title">{item?.title2}</li>
-                            <li className="card-title">{item?.title3}</li>
-                          </ul>
-                        </div>
-                      </div>
-                    ))} */}
                   </div>
                 </Fragment>
               ))}

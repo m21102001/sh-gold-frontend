@@ -81,6 +81,7 @@ button:hover {
   text-align: center;
   z-index: 1000000;
   place-content: center;
+  display: none;
 }
 
 .loading::before {
