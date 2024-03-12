@@ -12,7 +12,7 @@ const Header = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 3500000,
+          delay: 3500,
           disableOnInteraction: false,
         }}
 
