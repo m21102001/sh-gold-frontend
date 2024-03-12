@@ -94,7 +94,7 @@ const ProjectIdea = () => {
                     src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
                     alt={item?.title}
                     loading="lazy"
-                    style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: '0 8rem', border: '3px solid white' }}
+                    style={{ width: '-webkit-fill-available', height: '75vh', borderRadius: '10px', margin: "auto", border: '3px solid white' }}
                   />
                 </SwiperSlide>
               ))}

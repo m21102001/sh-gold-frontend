@@ -16,30 +16,34 @@ const ContactUs = () => {
   const hanelSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      await axios
-        .post(`/contact/`, {
-          name: name,
-          email: email,
-          address: address,
-          phone: phone,
-          message: message,
-          company: company,
-        })
-        .then((response) => {
-          // console.log('created successful', response.data);
-          setName('')
-          setEmail('')
-          setAddress('')
-          setPhone('')
-          setMessage('')
-          setCompany('')
-          alert("Your Message has been sent successfully")
-        });
-      setLoading(false);
-    } catch (err) {
-      setLoading(false);
-      console.log('message', err.message);
+    if ((phone.match('[0-9]{10}'))) {
+      alert('من فضلك ادخل رقم هاتف صحيح');
+    } else {
+      try {
+        await axios
+          .post(`/contact/`, {
+            name: name,
+            email: email,
+            address: address,
+            phone: phone,
+            message: message,
+            company: company,
+          })
+          .then((response) => {
+            // console.log('created successful', response.data);
+            setName('')
+            setEmail('')
+            setAddress('')
+            setPhone('')
+            setMessage('')
+            setCompany('')
+            alert("Your Message has been sent successfully")
+          });
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        console.log('message', err.message);
+      }
     }
   };
   return (

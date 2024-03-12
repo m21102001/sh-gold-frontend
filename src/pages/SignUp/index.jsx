@@ -18,6 +18,9 @@ const Signup = () => {
 
   const handelSubmit = async (e) => {
     e.preventDefault()
+    if (!(phone.match('[0-9]{10}'))) {
+      alert('من فضلك ادخل رقم هاتف صحيح');
+    }
     if (password !== passwordConfirm) {
       alert("Passwords do not match")
       return;

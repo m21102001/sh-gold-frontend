@@ -232,8 +232,8 @@ const GoldChart = () => {
                       style={{ color: '#de9012' }}
                     >
                       <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">
-                        {keratDar?.result?.purchaseSilverPrice?.toFixed(3) *
-                          1000}
+                        {keratDar?.result?.purchaseSilverPrice?.toFixed(6)
+                          *1000}
                       </span>
                       {/* <span className=" mx-2 fw-bold pb-1 fs-4 fw-bold">{values[1]}</span> */}
                       <span className="d-flex justify-content-center align-items-center pb-2 fs-7 fw-bold">
