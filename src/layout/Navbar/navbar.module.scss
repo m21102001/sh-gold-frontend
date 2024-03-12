@@ -1,17 +1,26 @@
-.mainNavbar{
-    background: var(--darkblue-color) !important;
+.mainNavbar {
+  background: var(--darkblue-color) !important;
 }
 
-ul{
-  li{
+ul {
+  li {
     margin-right: 3px;
-    a{
+
+    a {
       color: white !important;
-      font-size: clamp(1rem, 20vw, 1.1rem) ;
+      font-size: clamp(1rem, 20vw, 1.1rem);
     }
   }
 }
+
 .img-logo {
   width: 10rem !important;
   height: 4rem !important;
+}
+
+.navbar-toggler-icon-custom {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(255, 255, 255);
+  margin: 6px 0;
 }

@@ -1,9 +1,10 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { RxAvatar } from 'react-icons/rx';
-import logo from '@/assets/cambradge.svg';
+import logo from '@/assets/Cambridge-logo-.svg';
 import { useAuth } from '@/context/Auth';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import axios from '@/api/axios';
+import { CiMenuBurger } from "react-icons/ci";
 import './navbar.module.scss';
 const Navbar = () => {
   const { setRole, setuser, setLoggedin, user } = useAuth();
@@ -38,7 +39,7 @@ const Navbar = () => {
             <LazyLoadImage
               className="img-logo"
               src={logo}
-              alt=""
+              alt="مؤسسة كامبردج تايم لريادة الاعمال"
               style={{
                 width: '10rem',
                 height: '4.5rem',
@@ -48,7 +49,7 @@ const Navbar = () => {
             />
           </NavLink>
           <button
-            className="navbar-toggler border-2 border border-light"
+            className="navbar-toggler "
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -56,7 +57,8 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <CiMenuBurger color='white' size={30} />
+            {/* <span className="navbar-toggler-icon" style={{ backgroundImage: "url()" }}></span> */}
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

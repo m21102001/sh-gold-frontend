@@ -84,6 +84,16 @@ const ProjectIdea = () => {
                 delay: 2500,
                 disableOnInteraction: false,
               }}
+              breakpoints={{
+                640: {
+                  width: 640,
+                  slidesPerView: 1,
+                },
+                768: {
+                  width: 768,
+                  slidesPerView: 2,
+                },
+              }}
               navigation={true}
               modules={[Pagination, Navigation]}
               className="mySwiper my-5"
