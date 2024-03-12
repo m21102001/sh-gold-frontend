@@ -28,7 +28,7 @@ const Header = () => {
               <LazyLoadImage
                 src={item?.img}
                 alt={item?.src}
-                loading="lazy" />
+                 />
             </div>
           </SwiperSlide>
         ))}
