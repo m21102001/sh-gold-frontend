@@ -5,7 +5,7 @@ import investor from '@/assets/investor.webp';
 export const image = [
   {
     id: 1,
-    img: 'https://i.ibb.co/wSHfW1n/consultation.jpg',
+    img: 'https://i.ibb.co/SyGz68W/consultation-custom.jpg',
     src: 'info',
   },
   {

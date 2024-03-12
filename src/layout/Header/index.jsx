@@ -15,16 +15,7 @@ const Header = () => {
           delay: 3500000,
           disableOnInteraction: false,
         }}
-        // breakpoints={{
-        //   640: {
-        //     width: 640,
-        //     slidesPerView: 1,
-        //   },
-        //   768: {
-        //     width: 768,
-        //     slidesPerView: 1,
-        //   },
-        // }}
+
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
