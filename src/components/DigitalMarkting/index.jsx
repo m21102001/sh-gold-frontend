@@ -31,7 +31,7 @@ const DigitalMarkting = () => {
       <div className='m-auto d-flex justify-center'>
         <>
           <div className="container gold-dash">
-            <div className={styles['home-grid responsive-home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', gap: '90px' }}>
+            <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', gap: '90px' }}>
               {!loading && getPlayList?.document?.map((item, index) => (
                 index < 3 ? (
                   <div key={index} className={styles['gold-div']} >
