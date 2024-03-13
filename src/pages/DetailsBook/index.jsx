@@ -70,7 +70,6 @@ const DetailsBook = () => {
   return (
     <div style={{ background: "var(--darkblue-color)" }}>
       <Navbar />
-      <p className="fs-1 text-light">ppppppp {payment?.data}</p>
       <Link to={'/book'} className='mb-3 d-flex flex-row-reverse'>
         <button type="button" className="fw-bold text-light bacground-color-darkblue fs-5 mt-3 ms-3 back-details-button"
         ><MdOutlineArrowBack size={30} /></button>
@@ -127,6 +126,15 @@ const DetailsBook = () => {
                           </div>
                           <div className="col-sm-9 overflow-auto" style={{ height: '20rem' }}>
                             <p className="text-muted fw-bold mb-0">{dataUseLocation?.description}</p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                          <div className="col-sm-3">
+                            <p className="mb-0 fw-bold">لينك الدفع</p>
+                          </div>
+                          <div className="col-sm-9 overflow-auto" style={{ height: '20rem' }}>
+                            <p className="text-muted fw-bold mb-0">{payment?.data}</p>
                           </div>
                         </div>
                         <hr />

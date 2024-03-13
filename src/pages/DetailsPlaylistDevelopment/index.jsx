@@ -55,7 +55,6 @@ const DetailsPlaylistDevelopment = () => {
 
   }, [id])
 
-
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
@@ -110,10 +109,19 @@ const DetailsPlaylistDevelopment = () => {
                           <hr />
                           <div className="row">
                             <div className="col-sm-3">
+                              <p className="mb-0"> لينك الدفع</p>
+                            </div>
+                            <div className="col-sm-9">
+                              <p className="text-muted mb-0">{payment?.data}</p>
+                            </div>
+                          </div>
+                          <hr />
+                          <div className="row">
+                            <div className="col-sm-3">
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             {authed == false ? (
-                              <Link 
+                              <Link
                                 className="col-sm-9"
                                 to={`/auth/login`}
                               >
