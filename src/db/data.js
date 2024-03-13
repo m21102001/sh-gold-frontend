@@ -15,7 +15,7 @@ export const image = [
     // img: 'https://images.unsplash.com/photo-1531804055935-76f44d7c3621?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D',
     // img: ' https://i.ibb.co/3vz66dd/investment.jpg',
     // img: '  https://i.ibb.co/zFByLFK/IMG-20231128-WA0004.jpg',
-    img: 'https://i.ibb.co/mTqxLQq/Safeimagekit-resized-img-4.png',
+    img: 'https://i.ibb.co/WDLXSq2/consultation.jpg',
     src: 'info',
   },
   {
@@ -37,10 +37,10 @@ export const image = [
   {
     id: 5,
     // img: 'https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGhvdG98ZW58MHx8MHx8fDA%3D',
-    // img: ' https://i.ibb.co/WyZZ5CL/support-Projects.jpg',
+    img: ' https://i.ibb.co/WyZZ5CL/support-Projects.jpg',
     // img: 'https://i.ibb.co/SxxjVzp/IMG-20231128-WA0007.jpg',
     // img: 'https://i.ibb.co/wztrnBr/Safeimagekit-resized-img.png',
-    img: 'https://i.ibb.co/z4LQYZm/Safeimagekit-resized-img-1.png',
+    // img: 'https://i.ibb.co/z4LQYZm/Safeimagekit-resized-img-1.png',
 
     src: 'info',
   },

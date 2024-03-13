@@ -9,7 +9,7 @@ import { MdOutlineArrowBack } from "react-icons/md";
 const DetailsPlaylistDevelopment = () => {
   const authed = authenticated()
   const item = useLocation()?.state?.item
-  // console.log('item',item);
+  // console.log('item', authed);
   const id = useParams().id;
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
@@ -121,24 +121,34 @@ const DetailsPlaylistDevelopment = () => {
                             <div className="col-sm-3">
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
-                            <div className="col-sm-9">
-                              {!loading && payment.data == undefined && pay != 401 && authed == true ? (
-                                <Link
-                                  to={`/development/details-video/${course?._id}`}
-                                  state={{ course, item }}
-                                >مشاهده الفيديوهات</Link>
-                              ) : (
-                                <button>
-                                  <a
-                                    className="text-light fs-3 px-2"
-                                    href={payment?.data}
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    شراء الكورس
-                                  </a>
-                                </button>
-                              )}
-                            </div>
+                            {authed == false ? (
+                              <Link
+                                className="col-sm-9"
+                                to={`/auth/login`}
+                              >
+                                <button className="text-light fs-3 px-2">شراء الكورس</button>
+                              </Link>
+                            ) : (
+
+                              <div className="col-sm-9">
+                                {!loading && payment.data == undefined && pay != 401 && authed == true ? (
+                                  <Link
+                                    to={`/development/details-video/${course?._id}`}
+                                    state={{ course, item }}
+                                  >مشاهده الفيديوهات</Link>
+                                ) : (
+                                  <button>
+                                    <a
+                                      className="text-light fs-3 px-2"
+                                      href={payment?.data}
+                                      target="_blank"
+                                      rel="noreferrer">
+                                      شراء الكورس
+                                    </a>
+                                  </button>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
