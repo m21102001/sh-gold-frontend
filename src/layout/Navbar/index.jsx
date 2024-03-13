@@ -35,7 +35,7 @@ const Navbar = () => {
         }}
       >
         <div className="container-fluid">
-          <NavLink className="navbar-brand" href="/">
+          <NavLink className="navbar-brand" to="/">
             <LazyLoadImage
               className="img-logo"
               src={'https://i.ibb.co/Wz5VRWr/logo-cambridage-removebg-preview.png'}
