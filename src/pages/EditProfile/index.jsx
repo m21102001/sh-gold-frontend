@@ -89,8 +89,8 @@ const EditProfile = () => {
                     aria-describedby="emailHelp"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    required
                   />
+                  <p className="text-danger"> يجب تغير الايميل عند تغير البيانات</p>
                 </div>
                 <div className="d-grid gap-2">
                   <ToastContainer />

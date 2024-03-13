@@ -76,11 +76,11 @@ const ProjectIdea = () => {
               <>
                 <LazyLoadImage
                   key={index}
-                  className='img-bb my-5'
+                  className='img-bb my-5 imgbb-consulation'
                   src={`${import.meta.env.VITE_IMAGE_URL}${item}`}
                   alt={item?.title}
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px', margin: "auto", border: '3px solid white' }}
+                  style={{ height: '60vh', borderRadius: '10px', margin: "auto", border: '3px solid white' }}
                 />
               </>
             ))}
