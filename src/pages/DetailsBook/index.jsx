@@ -73,7 +73,7 @@ const DetailsBook = () => {
       <Link to={'/book'} className='mb-3 d-flex flex-row-reverse'>
         <button type="button" className="fw-bold text-light bacground-color-darkblue fs-5 mt-3 ms-3 back-details-button"
         ><MdOutlineArrowBack size={30} /></button>
-      </Link> 
+      </Link>
       <div className="text-center shadow-lg p-3 mx-3 mt-3 mb-5 rounded" style={{ background: "var(--main-color)" }}>
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-12">
@@ -133,44 +133,49 @@ const DetailsBook = () => {
                           <div className="col-sm-3">
                             <p className="mb-0 fw-bold"> قراءة الكتاب</p>
                           </div>
-                          <div className="col-sm-9 overflow-auto" >
-                            {authed == true && goldData?._id != null ? (
-                              <Link
-                                to={`/view-more-details/${goldData?._id}`}
-                                state={{ item: dataUseLocation }}
-                              >
-                                <button className="text-muted fw-bold mb-0">الكتاب</button>
-                              </Link>
-                            ) : (
-                              <div className="d-flex flex-row flex-wrap justify-content-around">
-
-                                <button className="text-muted fw-bold mb-0">
-                                  {/* <Link to={'/auth/request/payment/book/delivary'} state={{item:type}}>a
-                                  </Link> */}
-                                  <a
-                                    className="text-light px-2"
-                                    href={payment?.data}
-                                    target="_blank"
-                                    rel="noreferrer">
-                                    شراء الكتاب
-                                  </a>
-                                </button>
-                                <div className="col-md-3 d-flex">
-                                  <select
-                                    className="form-select"
-                                    // style={{width:'10rem'}}
-                                    aria-label="Default select example"
-                                    value={type}
-                                    onChange={handleChangeType}
-                                  >
-                                    <option selected value="online">النسخة الاكترونية</option>
-                                    <option value="onlocation">النسخة الورقية (استلام من الشركة)</option>
-                                    <option value="offline">النسخة الورقية ( توصيل للبيت)</option>
-                                  </select>
+                          {authed == false ? (
+                            <Link
+                              className="col-sm-9"
+                              to={`/auth/login`}
+                            >
+                              <button className="text-light fs-3 px-2">شراء الكتاب</button>
+                            </Link>
+                          ) : (
+                            <div className="col-sm-9 overflow-auto" >
+                              {authed == true && goldData?._id != null ? (
+                                <Link
+                                  to={`/view-more-details/${goldData?._id}`}
+                                  state={{ item: dataUseLocation }}
+                                >
+                                  <button className="text-muted fw-bold mb-0">الكتاب</button>
+                                </Link>
+                              ) : (
+                                <div className="d-flex flex-row flex-wrap justify-content-around">
+                                  <button className="text-muted fw-bold mb-0">
+                                    <a
+                                      className="text-light px-2"
+                                      href={payment?.data}
+                                      target="_blank"
+                                      rel="noreferrer">
+                                      شراء الكتاب
+                                    </a>
+                                  </button>
+                                  <div className="col-md-3 d-flex">
+                                    <select
+                                      className="form-select"
+                                      aria-label="Default select example"
+                                      value={type}
+                                      onChange={handleChangeType}
+                                    >
+                                      <option selected value="online">النسخة الاكترونية</option>
+                                      <option value="onlocation">النسخة الورقية (استلام من الشركة)</option>
+                                      <option value="offline">النسخة الورقية ( توصيل للبيت)</option>
+                                    </select>
+                                  </div>
                                 </div>
-                              </div>
-                            )}
-                          </div>
+                              )}
+                            </div>
+                          )}
                         </div>
                         <hr />
                         <div className="row">

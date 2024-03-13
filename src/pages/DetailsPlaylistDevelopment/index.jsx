@@ -9,7 +9,6 @@ import { MdOutlineArrowBack } from "react-icons/md";
 const DetailsPlaylistDevelopment = () => {
   const authed = authenticated()
   const item = useLocation()?.state?.item
-  // console.log('item', authed);
   const id = useParams().id;
   const [loading, setLoading] = useState(false);
   const [getvideos, setGetvideos] = useState([])
@@ -22,12 +21,10 @@ const DetailsPlaylistDevelopment = () => {
     axios.get(`/playlists/pay/${id}`)
       .then((response) => {
         setPayment(response.data);
-        // console.log(response)
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error);
       });
 
   }, [])
@@ -37,34 +34,28 @@ const DetailsPlaylistDevelopment = () => {
     axios.get(`/playlists/${id}/videos`)
       .then((response) => {
         setGetvideos(response.data);
-        // console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
         setPay(error?.status)
-        console.log(error);
       });
   }, []);
   useEffect(() => {
     axios.get(`/playlists/${id}`)
       .then((response) => {
         setcourse(response.data.document);
-        // console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
         setPay(error?.status)
-        console.log(error);
       });
 
 
   }, [id])
-  console.log(course)
 
 
-  // console.log('fff', payment.data);
   return (
     <div style={{ backgroundColor: "var(--darkblue-color)" }}>
       <Navbar />
