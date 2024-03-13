@@ -11,6 +11,7 @@ const Header = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        removeClippedSubviews={false}
         autoplay={{
           delay: 3500,
           disableOnInteraction: false,
@@ -28,7 +29,7 @@ const Header = () => {
               <LazyLoadImage
                 src={item?.img}
                 alt={item?.src}
-                 />
+              />
             </div>
           </SwiperSlide>
         ))}

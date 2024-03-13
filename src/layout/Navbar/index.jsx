@@ -38,7 +38,7 @@ const Navbar = () => {
           <NavLink className="navbar-brand" href="/">
             <LazyLoadImage
               className="img-logo"
-              src={logo}
+              src={'https://i.ibb.co/Wz5VRWr/logo-cambridage-removebg-preview.png'}
               alt="مؤسسة كامبردج تايم لريادة الاعمال"
               style={{
                 width: '10rem',
