@@ -6,28 +6,32 @@ export const image = [
   {
     id: 1,
     // img: 'https://i.ibb.co/SyGz68W/consultation-custom.jpg',
-    img: 'https://images.unsplash.com/photo-1554080353-a576cf803bda?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D',
+    // img: 'https://images.unsplash.com/photo-1554080353-a576cf803bda?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG98ZW58MHx8MHx8fDA%3D',
+    img: 'https://i.ibb.co/d5tQF6L/Safeimagekit-resized-img-3.png',
     src: 'info',
   },
   {
     id: 2,
     // img: 'https://images.unsplash.com/photo-1531804055935-76f44d7c3621?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG98ZW58MHx8MHx8fDA%3D',
     // img: ' https://i.ibb.co/3vz66dd/investment.jpg',
-    img: '  https://i.ibb.co/zFByLFK/IMG-20231128-WA0004.jpg',
+    // img: '  https://i.ibb.co/zFByLFK/IMG-20231128-WA0004.jpg',
+    img: 'https://i.ibb.co/mTqxLQq/Safeimagekit-resized-img-4.png',
     src: 'info',
   },
   {
     id: 3,
     // img: 'https://images.unsplash.com/photo-1566275529824-cca6d008f3da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG98ZW58MHx8MHx8fDA%3D',
     // img: ' https://i.ibb.co/8rMc1sf/library.jpg',
-    img: ' https://i.ibb.co/jhNr1Tz/IMG-20231128-WA0005.jpg',
+    // img: ' https://i.ibb.co/jhNr1Tz/IMG-20231128-WA0005.jpg',
+    img: 'https://i.ibb.co/YQ9WtdF/Safeimagekit-resized-img-5.png',
     src: 'info',
   },
   {
     id: 4,
     // img: 'https://images.unsplash.com/photo-1495231916356-a86217efff12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGhvdG98ZW58MHx8MHx8fDA%3D',
     // img: ' https://i.ibb.co/JKRQ7BK/training-And-Grow.jpg',
-    img: 'https://i.ibb.co/sCgRsdt/IMG-20231128-WA0006.jpg',
+    // img: 'https://i.ibb.co/sCgRsdt/IMG-20231128-WA0006.jpg',
+    img: 'https://i.ibb.co/rFNYNBL/Safeimagekit-resized-img-2.png',
     src: 'info',
   },
   {
@@ -511,5 +515,3 @@ export const clubCambridge = [
     ],
   },
 ]
-
-
