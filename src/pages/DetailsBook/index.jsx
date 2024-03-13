@@ -132,15 +132,6 @@ const DetailsBook = () => {
                         <hr />
                         <div className="row">
                           <div className="col-sm-3">
-                            <p className="mb-0 fw-bold">لينك الدفع</p>
-                          </div>
-                          <div className="col-sm-9 overflow-auto" style={{ height: '20rem' }}>
-                            <p className="text-muted fw-bold mb-0">{payment?.data}</p>
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                          <div className="col-sm-3">
                             <p className="mb-0 fw-bold"> قراءة الكتاب</p>
                           </div>
                           {authed == false ? (
