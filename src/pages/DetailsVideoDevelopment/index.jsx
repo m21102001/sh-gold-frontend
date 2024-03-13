@@ -98,7 +98,7 @@ const DetailsVideoDevelopment = () => {
         <div className='m-auto d-flex justify-center'>
           <>
             <div className="container ">
-              <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(370px, 1fr))', padding: '0' }}>
+              <div className={styles['home-grid']} style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', padding: '0' }}>
                 {!loading && getvideos?.map((item, index) => (
                   <div key={index} className={styles['gold-div']} style={{ height: '570px' }}>
                     <div className="p-0">

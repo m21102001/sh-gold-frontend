@@ -87,6 +87,7 @@ const DetailsBook = () => {
             >
               <SwiperSlide>
                 <LazyLoadImage
+                className="imgbb-consulationb"
                   src={`${import.meta.env.VITE_IMAGE_URL}${dataUseLocation?.image}`}
                   alt={dataUseLocation?.title}
                   loading="lazy"
