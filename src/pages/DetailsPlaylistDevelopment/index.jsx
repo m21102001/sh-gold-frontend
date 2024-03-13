@@ -113,7 +113,7 @@ const DetailsPlaylistDevelopment = () => {
                               <p className="mb-0">  مشاهده الفيديوهات</p>
                             </div>
                             {authed == false ? (
-                              <Link
+                              <Link 
                                 className="col-sm-9"
                                 to={`/auth/login`}
                               >
