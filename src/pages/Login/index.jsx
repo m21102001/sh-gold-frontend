@@ -13,17 +13,17 @@ const Login = () => {
   const [isPending, setIsPending] = useState(false);
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-  const notify = () =>
-    toast.error('من فضلك تأكد من رقم الهاتف او الرقم السري', {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'colored',
-    });
+  // const notify = () =>
+  //   toast.error('من فضلك تأكد من رقم الهاتف او الرقم السري', {
+  //     position: 'top-right',
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: 'colored',
+  //   });
 
   const handelSubmit = async (e) => {
     e.preventDefault();
@@ -40,12 +40,16 @@ const Login = () => {
             'Content-Type': 'application/json',
           },
         }
-      );
+      )
+      toast.success('تم تسجيل الدخول بنجاح')
       setuser(data.data);
+      // console.log(data);
       setIsPending(false);
+
     } catch (err) {
       setIsPending(false);
-      <ToastContainer />
+      toast.error('من فضلك تأكد من رقم الهاتف او الرقم السري')
+      // < ToastContainer />
       console.log('response', err);
     } finally {
       if (
@@ -116,7 +120,7 @@ const Login = () => {
                 </Link>
                 <div className="d-grid gap-2">
                   <ToastContainer />
-                  <button onClick={notify}>تسجيل الدخول</button>
+                  <button >تسجيل الدخول</button>
                 </div>
               </form>
               <p id="create-account" className="my-15 text-center fs-6 fw-bold">

@@ -42,7 +42,7 @@ const StartElectronicEcommerce = () => {
                   <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
                     <h2 className="mb-3 text-end" style={{ color: "var(--gold-color)" }}>{item?.title}</h2>
                   </Link>
-                  <h3 className="text-end text-light fs-4 lh-lg">
+                  <h3 className="text-end text-light fs-5 lh-lg">
                     {showMore ? item?.description?.substring(400, 800) : `${item?.description?.substring(0, 400)}`}
                     <span
                       onClick={() => setShowMore(!showMore)}
@@ -52,7 +52,7 @@ const StartElectronicEcommerce = () => {
                   </h3>
                 </div>
                 <div className="col-md-1 col-sm-12"></div>
-                <div className="col-md-4 col-sm-12">
+                <div className="col-md-4 col-sm-12 my-4">
                   <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
                     <LazyLoadImage
                       src={`${import.meta.env.VITE_IMAGE_URL}${item?.image}`}
@@ -82,11 +82,11 @@ const StartElectronicEcommerce = () => {
                 </div>
 
                 <div className="col-md-1 col-sm-12"></div>
-                <div className="col-md-7 col-sm-12 px-5">
+                <div className="col-md-7 col-sm-12 px-5 my-4">
                   <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
                     <h2 className="mb-3 text-end" style={{ color: "var(--gold-color)" }}>{item?.title}</h2>
                   </Link>
-                  <h3 className="text-end text-light fs-4 lh-lg">
+                  <h3 className="text-end text-light fs-5 lh-lg">
                     {showMore2 ? item?.description?.substring(400, 800) : `${item?.description?.substring(0, 400)}`}
                     <span
                       onClick={() => setShowMore2(!showMore2)}
