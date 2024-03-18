@@ -215,7 +215,7 @@ export const planning = [
   {
     id: 1,
     title: 'عضوية 3 شهور (silver) ',
-    price: '30 دينار كويتى',
+    price: '65 دينار كويتى',
     description: 'عضوية لمدة 3 شهور يستفيد من خلالها المشترك بالخدمات التالية',
     type: 'silver',
     features: [
@@ -274,7 +274,7 @@ export const planning = [
 export const planninggolden = [{
   id: 2,
   title: 'عضوية سنوية  (golden)',
-  price: '50 دينار كويتى',
+  price: '150 دينار كويتى',
   description: 'عضوية لمدة سنة يستفيد من خلالها المشترك بالخدمات التالية',
   type: 'gold',
   features: [
