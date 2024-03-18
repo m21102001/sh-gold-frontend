@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ClubMembers = () => {
   const { user } = useAuth();
-  console.log(user);
+  // console.log(user);
   const [loading, setLoading] = useState(false)
   const getInitialState = () => {
     const selectType = "online";
@@ -23,13 +23,13 @@ const ClubMembers = () => {
       await axios
         .post(`/consultation/free/?type=${type}`)
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           alert("sent successfully")
         });
       setLoading(false);
     } catch (err) {
       setLoading(false);
-      console.log('message', err.message);
+      // console.log('message', err.message);
     }
   };
   return (
