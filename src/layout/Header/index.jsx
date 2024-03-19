@@ -1,14 +1,14 @@
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import './header.scss';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-// import { image } from '@/db/data';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { image } from '@/db/data';
 const Header = () => {
   return (
     <div className="header">
-      {/* <Swiper
+      <Swiper
         spaceBetween={30}
         centeredSlides={true}
         removeClippedSubviews={false}
@@ -29,12 +29,12 @@ const Header = () => {
             </div>
           </SwiperSlide>
         ))}
-      </Swiper> */}
-      <img
+      </Swiper>
+      {/* <img
         src="https://i.ibb.co/WDLXSq2/consultation.jpg"
         className="home-image"
         alt=""
-      />
+      /> */}
     </div>
   );
 };
