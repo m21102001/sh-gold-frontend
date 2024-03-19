@@ -120,7 +120,7 @@ const CreateConsultationsDash = () => {
             value={type}
             onChange={handleChangeType}
           >
-            <option selected value="online">ةاتفية</option>
+            <option selected value="online">هاتفية</option>
             <option value="offline">حضورية</option>
           </select>
 
