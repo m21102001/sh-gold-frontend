@@ -19,13 +19,14 @@ const Header = () => {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
-        slidesPerView={1}
-        loop={true}
       >
         {image?.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="m-0 bg-dark">
-              <LazyLoadImage src={item?.img} alt={item?.src} />
+              <LazyLoadImage
+                src={item?.img}
+                alt={item?.src}
+              />
             </div>
           </SwiperSlide>
         ))}
@@ -35,7 +36,7 @@ const Header = () => {
         className="home-image"
         alt=""
       /> */}
-    </div>
+    </div >
   );
 };
 

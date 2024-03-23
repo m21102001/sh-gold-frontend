@@ -54,11 +54,11 @@ const ContactUs = () => {
         <div className='Container'>
           <div className='m-auto d-flex justify-content-center my-5'>
             <span></span>
-            <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}>اتصل بنا</h2>
+            <h2 className='text-center comunation fs-1 fw-bold' style={{ color: 'var(--gold-color2)', background: "var(--darkblue-color)" }}> تواصل معنا</h2>
             <span></span>
           </div>
           <div className='card-form form-control container rounded-4 text-end text-light my-4'>
-            <p className="pt-3 fw-bold fs-5 ">إليك مطلق الحرية لإرسال مقترحاتك وشكوتك</p>
+            <p className="pt-3 fw-bold fs-5 ">إليك مطلق الحرية لإرسال مقترحاتك</p>
             <form className="row g-3" onSubmit={hanelSubmit}>
               <div className="col-md-6 col-sm-12">
                 <label
