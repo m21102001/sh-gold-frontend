@@ -16,7 +16,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState('')
-// console.log(phone.slice(4));
+console.log(phone.slice(4));
   const handelSubmit = async (e) => {
     e.preventDefault()
     if (!(phone.match('[0-9]{10}'))) {
@@ -30,8 +30,7 @@ const Signup = () => {
       await axios.post('/auth/signup', {
         name: name,
         email: email,
-        // phone: "0096595559682",
-        phone: phone?.slice(2),
+        phone: phone,
         password: password,
         passwordConfirm: passwordConfirm
       },
@@ -117,7 +116,7 @@ const Signup = () => {
                   <label
                     htmlFor="exampleInputPhone"
                     className="form-label fs-5 fw-bold"> رقم الهاتف*</label>
-                  {/* <PhoneInput
+                  <PhoneInput
                     defaultCountry="ui"
                     value={phone}
                     onChange={(phone) => setPhone(phone)}
@@ -125,15 +124,15 @@ const Signup = () => {
                     id="exampleInputPhone"
                     required
                     placeholder=' رقم الهاتف*'
-                  /> */}
-                  <input
+                  />
+                  {/* <input
                     type="text"
                     className="form-control"
                     id="exampleInputPhone"
                     aria-describedby="phoneHelp"
                     onChange={e => setPhone(e.target.value)}
                     value={phone}
-                  />
+                  /> */}
                 </div>
                 <div className="mb-3">
                   <label

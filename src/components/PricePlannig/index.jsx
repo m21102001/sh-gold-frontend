@@ -89,7 +89,7 @@ const PricePlannig = () => {
                     <h5 className="card-title">{item?.title}</h5>
                     <small>Individual</small>
                     <br /><br />
-                    <span className="h2">{item?.price}</span>
+                    <span className="h2">{item?.price}   <span className="text-danger fs-5">(وفر 105 دينار )</span></span>
                     <br /><br />
                   </div>
                 </div>
