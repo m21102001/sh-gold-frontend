@@ -173,7 +173,7 @@ const ContactUs = () => {
           <div className="text-center">
             <div className="row my-5">
               <div className="col">
-                <a href="https://wa.me/201095559682">
+                <a href="https://wa.me/00965-95559682">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">إتصل بنا مباشرة على :</h5>
@@ -183,7 +183,7 @@ const ContactUs = () => {
                 </a>
               </div>
               <div className="col">
-                <a href="https://wa.me/201095559682">
+                <a href="https://wa.me/00965-95559682">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق الواتساب :</h5>

@@ -50,7 +50,7 @@ const Club = () => {
                     <h2 className="fw-bold fs-1 text-center my-3 pb-5 digitalMarkting" style={{ color: 'var(--gold-color)' }}>نادى كامبردج</h2>
                     <h3 className="text-end fs-2 fw-bold text-light mb-4">{item?.welcome}</h3>
                     <p className="text-end fs-3 fw-bold text-light mb-4">{item?.define}</p>
-                    <h3 className="text-end text-light mb-4">{item?.desc} <span className="text-danger" onClick={window.location}>اشترك الان!</span></h3>
+                    <h3 className="text-end text-light mb-4">{item?.desc} <a className="text-danger"style={{cursor:'pointer'}} href="#C4">اشترك الان!</a></h3>
                   </div>
                   <div className="row justify-content-center mt-5 card-style text-end">
                     <h2 className="text-center text-light fw-bold mb-5">{item?.benfits}</h2>
@@ -63,7 +63,7 @@ const Club = () => {
                         </div>
                       </div>
                     ))}
-                    <h2 className="text-center text-light fw-bold mb-5">{item?.conslated}</h2>
+                    <h2 className="text-center text-light fw-bold mb-5 fs-2" id='C4'>{item?.conslated}</h2>
                     <div className="container p-5">
                       <div className="row planing">
                         {planning?.map((item, index) => (
