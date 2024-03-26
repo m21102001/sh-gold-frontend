@@ -122,8 +122,9 @@ const Club = () => {
                             <div className="card h-100 px-5 shadow-lg card-transmation">
                               <div className="card-body">
                                 <div className="text-center p-3">
-                                  <h5 className="card-title">{item?.title} <span className="text-danger">وفر 105 دينار</span>span></h5>
-                                  <small>Individual</small>
+                                  <h5 className="card-title">{item?.title} </h5>
+                                  <small>Individual <span className="text-danger">وفر 105 دينار </span> </small>
+                                  
                                   <br /><br />
                                   <span className="h2">{item?.price}</span>
                                   <br /><br />
