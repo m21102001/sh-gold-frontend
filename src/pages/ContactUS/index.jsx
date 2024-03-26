@@ -177,7 +177,7 @@ const ContactUs = () => {
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">إتصل بنا مباشرة على :</h5>
-                      <p className="card-text">00965-95559682</p>
+                      <p className="card-text">(+965) 95559682</p>
                     </div>
                   </div>
                 </a>
@@ -187,7 +187,7 @@ const ContactUs = () => {
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق الواتساب :</h5>
-                      <p className='card-text text-light'>00965-95559682</p>
+                      <p className='card-text text-light'>(+965) 95559682</p>
                     </div>
                   </div>
                 </a>
