@@ -64,7 +64,7 @@ const Club = () => {
                       </div>
                     ))}
                     <h2 className="text-center text-light fw-bold mb-5 fs-2" id='C4'>{item?.conslated}</h2>
-                    <h4 className="text-end text-light mb-4 lh-lg">
+                    {/*<h4 className="text-end text-light mb-4 lh-lg">
                       عندما يُشترك العميل كل ثلاثة أشهر،
                       يكون سعر الاشتراك <span className="text-danger">  65 دينارًا</span> فقط، مما يعني
                       أن كل شهر يكلفه 21.5 دينار. عندما نضرب هذا السعر بعدد الأشهر في السنة
@@ -73,7 +73,7 @@ const Club = () => {
                       أما بالنسبة للاشتراك السنوي، فبسعر<span className="text-danger"> 259 دينار</span>، يمكن للعميل
                       الاستفادة من الاشتراك لمدة سنة كاملة. وبالتقسيط، فإن كل شهر يكلفه فقط <span className="text-danger"> 12.5 دينار</span>.
                       وهذا يعني أن العميل يحصل على خصم قيمته <span className="text-danger">105 دينار</span> مقارنة بالاشتراك كل ثلاثة أشهر.
-                    </h4>
+                    </h4> */}
                     <div className="container p-5">
                       <div className="row planing">
                         {planning?.map((item, index) => (
@@ -136,7 +136,7 @@ const Club = () => {
                                       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-check" viewBox="0 0 16 16">
                                         <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
                                       </svg>
-                                      <p className="mb-0 fs-5">{item?.title}</p>
+                                      <p className="mb-0 fs-5">{item?.title} <span className="text-danger">وفر 105 دينار</span>span></p>
                                     </div>
                                   </div>
                                   <hr />
