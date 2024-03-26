@@ -111,7 +111,7 @@ const AddNewIdea = () => {
                 type="number"
                 className="form-control"
                 id="inputPhone"
-                required
+                // required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder='الهاتف*'

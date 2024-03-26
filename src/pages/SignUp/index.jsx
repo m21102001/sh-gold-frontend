@@ -3,7 +3,8 @@ import './signUp.scss'
 import { Navbar } from '@/layout'
 import { useState } from 'react'
 import axios from '@/api/axios'
-
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 const Signup = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
@@ -15,7 +16,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState('')
-
+// console.log(phone.slice(4));
   const handelSubmit = async (e) => {
     e.preventDefault()
     if (!(phone.match('[0-9]{10}'))) {
@@ -29,7 +30,8 @@ const Signup = () => {
       await axios.post('/auth/signup', {
         name: name,
         email: email,
-        phone: phone,
+        // phone: "0096595559682",
+        phone: phone?.slice(2),
         password: password,
         passwordConfirm: passwordConfirm
       },
@@ -115,16 +117,23 @@ const Signup = () => {
                   <label
                     htmlFor="exampleInputPhone"
                     className="form-label fs-5 fw-bold"> رقم الهاتف*</label>
-                  <input
+                  <PhoneInput
+                    defaultCountry="ui"
+                    value={phone}
+                    onChange={(phone) => setPhone(phone)}
+                    aria-describedby="phoneHelp"
+                    id="exampleInputPhone"
+                    required
+                    placeholder=' رقم الهاتف*'
+                  />
+                  {/* <input
                     type="text"
                     className="form-control"
                     id="exampleInputPhone"
-                    placeholder=' رقم الهاتف*'
                     aria-describedby="phoneHelp"
-                    value={phone}
                     onChange={e => setPhone(e.target.value)}
-                    required
-                  />
+                    value={phone}
+                  /> */}
                 </div>
                 <div className="mb-3">
                   <label

@@ -50,7 +50,7 @@ const Club = () => {
                     <h2 className="fw-bold fs-1 text-center my-3 pb-5 digitalMarkting" style={{ color: 'var(--gold-color)' }}>نادى كامبردج</h2>
                     <h3 className="text-end fs-2 fw-bold text-light mb-4">{item?.welcome}</h3>
                     <p className="text-end fs-3 fw-bold text-light mb-4">{item?.define}</p>
-                    <h3 className="text-end text-light mb-4">{item?.desc} <a className="text-danger"style={{cursor:'pointer'}} href="#C4">اشترك الان!</a></h3>
+                    <h3 className="text-end text-light mb-4">{item?.desc} <a className="text-danger" style={{ cursor: 'pointer' }} href="#C4">اشترك الان!</a></h3>
                   </div>
                   <div className="row justify-content-center mt-5 card-style text-end">
                     <h2 className="text-center text-light fw-bold mb-5">{item?.benfits}</h2>
@@ -64,6 +64,16 @@ const Club = () => {
                       </div>
                     ))}
                     <h2 className="text-center text-light fw-bold mb-5 fs-2" id='C4'>{item?.conslated}</h2>
+                    <h4 className="text-end text-light mb-4 lh-lg">
+                      عندما يُشترك العميل كل ثلاثة أشهر،
+                      يكون سعر الاشتراك <span className="text-danger">  65 دينارًا</span> فقط، مما يعني
+                      أن كل شهر يكلفه 21.5 دينار. عندما نضرب هذا السعر بعدد الأشهر في السنة
+                      (12 شهرًا)، نحصل على إجمالي قدره <span className="text-danger"> 259 دينار</span> لمدة سنة كاملة.
+<br />
+                      أما بالنسبة للاشتراك السنوي، فبسعر<span className="text-danger"> 259 دينار</span>، يمكن للعميل
+                      الاستفادة من الاشتراك لمدة سنة كاملة. وبالتقسيط، فإن كل شهر يكلفه فقط <span className="text-danger"> 12.5 دينار</span>.
+                      وهذا يعني أن العميل يحصل على خصم قيمته <span className="text-danger">105 دينار</span> مقارنة بالاشتراك كل ثلاثة أشهر.
+                    </h4>
                     <div className="container p-5">
                       <div className="row planing">
                         {planning?.map((item, index) => (
@@ -98,9 +108,9 @@ const Club = () => {
                                   </Link>
                                 ) : (
                                   user?.plan == 'basic' ? (
-                                  <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
-                                    <button onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
-                                  </a>
+                                    <a href={plannigPay.data} target="_blank" rel="noopener noreferrer">
+                                      <button onClick={subscribeSilver} style={{ padding: "0.3rem 3rem", fontSize: "large" }}>اشترك الان</button>
+                                    </a>
                                   ) : null
                                 )}
                               </div>
