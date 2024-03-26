@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Footer, Navbar } from '@/layout'
 import axios from '@/api/axios'
 import './contactUs.scss'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false)
@@ -173,7 +174,7 @@ const ContactUs = () => {
           <div className="text-center">
             <div className="row my-5">
               <div className="col">
-                <a href="https://wa.link/l9kgwv">
+                <a href="">
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">إتصل بنا مباشرة على :</h5>
@@ -187,7 +188,7 @@ const ContactUs = () => {
                   <div className="card card-form text-light">
                     <div className="card-body">
                       <h5 className="card-title text-end">التواصل عن طريق الواتساب :</h5>
-                      <p className='card-text text-light'>(+965) 95559682</p>
+                      <p className='card-text text-light'> (+965) 95559682  <FaWhatsapp color='green' size={30}/></p>
                     </div>
                   </div>
                 </a>
