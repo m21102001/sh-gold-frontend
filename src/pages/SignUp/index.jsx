@@ -117,7 +117,7 @@ const Signup = () => {
                   <label
                     htmlFor="exampleInputPhone"
                     className="form-label fs-5 fw-bold"> رقم الهاتف*</label>
-                  <PhoneInput
+                  {/* <PhoneInput
                     defaultCountry="ui"
                     value={phone}
                     onChange={(phone) => setPhone(phone)}
@@ -125,15 +125,15 @@ const Signup = () => {
                     id="exampleInputPhone"
                     required
                     placeholder=' رقم الهاتف*'
-                  />
-                  {/* <input
+                  /> */}
+                  <input
                     type="text"
                     className="form-control"
                     id="exampleInputPhone"
                     aria-describedby="phoneHelp"
                     onChange={e => setPhone(e.target.value)}
                     value={phone}
-                  /> */}
+                  />
                 </div>
                 <div className="mb-3">
                   <label
