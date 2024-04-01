@@ -83,7 +83,7 @@ const Development = () => {
                             />
                           </div>
                           <div className=''>
-                            <h3 className=' fw-700'>{item.title}</h3>
+                            <h3 className=' fw-bold'>{item.title}</h3>
                             <Link
                               to={`/development/details-playlist/${item?._id}`}
                               state={{ item: item }}

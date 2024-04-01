@@ -122,7 +122,7 @@ const Routers = () => {
 
   return (
     <div className="conatiner">
-      <Suspense fallback="loading....................">
+      <Suspense fallback="جاري تحميل البايانات">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

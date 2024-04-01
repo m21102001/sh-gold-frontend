@@ -70,7 +70,7 @@ const Login = () => {
           <div className="container text-end d-flex flex-column justify-content-center m-auto body-card">
             <div className="shadow-lg p-3 mb-5 bg-body rounded">
               <h3 className="text-center pt-3 fs-2 fw-bold">
-                مرحبًا بعودتك, لاتطيل الغياب علينا              </h3>
+               تسجيل الدخول          </h3>
               <form className="pb-5 pt-2" onSubmit={handelSubmit}>
                 <div className="mb-3">
                   <label

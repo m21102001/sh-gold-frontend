@@ -11,12 +11,12 @@ const AboutThat = () => {
           <div className="row align-items-start">
             <div className="col-lg-8 col-md-12 px-5">
               <h2 className="text-light text-end fw-semibold my-3 pt-4 digitalMarkting">من نحن ! </h2>
-              <h3 className="text-end text-light mb-4">
+              <h4 className="text-end text-light mb-4">
                 أهلاً بك في مؤسسة كامبردج تايم! كامبردج تايم مؤسسة متخصصة في تقديم خدمات الاستشارات الفنيـة فـي الاستثمار في قطاع المعـادن
                 الثمينة وبيع وشـراء سبائك الذهب وتقديم إرشـادات وتحليلات يوميـة عـن سـوق الذهب
                 والفضة، كمـا يقـدم النـادي استشارات فـي عـالم المـال والاستثمار وكـل مـا يخـص مجتمع
                 ريادة الاعمال
-              </h3>
+              </h4>
             </div>
             <div className="d-flex justify-content-around mt-5 card-style">
               {aboutthats?.map((item, index) => (
@@ -28,7 +28,7 @@ const AboutThat = () => {
                   />
                   <div className="card-body">
                     <h5 className="card-title text-center">{item?.title}</h5>
-                    <p className="card-text text-end fw-semibold">{item?.body}</p>
+                    <p className="card-text text-end fw-light">{item?.body}</p>
                   </div>
                 </div>
               ))}

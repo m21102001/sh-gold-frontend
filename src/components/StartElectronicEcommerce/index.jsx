@@ -42,7 +42,7 @@ const StartElectronicEcommerce = () => {
                   <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
                     <h2 className="mb-3 text-end" style={{ color: "var(--gold-color)" }}>{item?.title}</h2>
                   </Link>
-                  <h3 className="text-end text-light fs-5 lh-lg">
+                  <h3 className="text-end text-light fs-5 lh-base">
                     {showMore ? item?.description?.substring(400, 800) : `${item?.description?.substring(0, 400)}`}
                     <span
                       onClick={() => setShowMore(!showMore)}
@@ -86,7 +86,7 @@ const StartElectronicEcommerce = () => {
                   <Link to={`/book/detalis-book/${item?._id}`} state={{ item }}>
                     <h2 className="mb-3 text-end" style={{ color: "var(--gold-color)" }}>{item?.title}</h2>
                   </Link>
-                  <h3 className="text-end text-light fs-5 lh-lg">
+                  <h3 className="text-end text-light fs-5 lh-base">
                     {showMore2 ? item?.description?.substring(400, 800) : `${item?.description?.substring(0, 400)}`}
                     <span
                       onClick={() => setShowMore2(!showMore2)}
