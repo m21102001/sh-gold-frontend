@@ -59,7 +59,7 @@ const ContactUs = () => {
             <span></span>
           </div>
           <div className='card-form form-control container rounded-4 text-end text-light my-4'>
-            <p className="pt-3 fw-bold fs-5 "> لمقتراحتكم</p>
+            <p className="pt-3 fw-bold fs-5 "> لمقترحاتكم</p>
             <form className="row g-3" onSubmit={hanelSubmit}>
               <div className="col-md-6 col-sm-12">
                 <label
