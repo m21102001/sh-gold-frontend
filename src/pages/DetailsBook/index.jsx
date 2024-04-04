@@ -91,7 +91,7 @@ const DetailsBook = () => {
                   src={`${import.meta.env.VITE_IMAGE_URL}${dataUseLocation?.image}`}
                   alt={dataUseLocation?.title}
                   loading="lazy"
-                  style={{ width: '-webkit-fill-available', height: '80vh', borderRadius: '10px' }}
+                  style={{ height: '80vh', borderRadius: '10px' }}
                 />
               </SwiperSlide>
             </Swiper>
