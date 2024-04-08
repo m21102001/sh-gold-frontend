@@ -9,15 +9,9 @@ const Development = () => {
   const [loading, setLoading] = useState(false);
   const [getPlaylist, setGetPlaylist] = useState([])
 
-
-
-  let fetchPlaylist = {
-    method: 'get',
-    url: '/playlists',
-  };
   useEffect(() => {
     setLoading(true);
-    axios.request(fetchPlaylist)
+    axios.get("/playlists")
       .then((response) => {
         setGetPlaylist(response.data);
         setLoading(false);

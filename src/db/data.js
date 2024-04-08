@@ -517,3 +517,47 @@ export const clubCambridge = [
     ],
   },
 ]
+export const recommendation = [
+  {
+    id: 1,
+    title: `تحديد الاتجاهات السعرية للسوق بشكل يومى`,
+  },
+  {
+    id: 2,
+    title: `استكشاف اى تغيرات او انعكاسات في السعر رفع تحذيرات وتنبيهات للمشتركين`,
+  },
+  {
+    id: 3,
+    title: `ارسال عدة توصيات يومية حسب تغيرات السوق`,
+  },
+  {
+    id: 4,
+    title: `عمل استشارات خاصة للمشتركين`,
+  },
+  {
+    id: 5,
+    title: `ارسال الاخبار المهمة للمشتركين        `,
+  },
+  {
+    id: 6,
+    title: `ارسال بعض التعليمات التدربية`,
+  },
+]
+export const recommendationsMonth = [
+  {
+    id: 1,
+    title: 'عضوية 1 شهر (silver) ',
+    price: '23 دينار كويتى',
+    description: 'عضوية لمدة 1 شهر يستفيد من خلالها المشترك بالخدمات التالية',
+    type: 'silver',
+  },
+]
+export const recommendationsquarter = [
+  {
+    id: 1,
+    title: 'عضوية 3 شهور (golden) ',
+    price: '55 دينار كويتى',
+    description: 'عضوية لمدة 1 شهر يستفيد من خلالها المشترك بالخدمات التالية',
+    type: 'silver',
+  },
+]

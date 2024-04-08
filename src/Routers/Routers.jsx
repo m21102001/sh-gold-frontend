@@ -40,6 +40,7 @@ import {
   DetailsInvesmentDash,
   DetailsPlaylistDash,
   DetailsPlaylistDevelopment,
+  DetailsRecomendationDash,
   DetailsRequestBuyBooksDash,
   DetailsRequestGoldDash,
   DetailsRequestInvestment,
@@ -62,6 +63,8 @@ import {
   Profile,
   ProfileDash,
   ProjectIdea,
+  RecomendationDash,
+  Recommendations,
   RequestBuyBooksDash,
   RequestGoldDash,
   RequestInvestment,
@@ -72,6 +75,8 @@ import {
   RequsetPaymentPlan,
   RequsetPaymentPlanSilver,
   RequsetPaymentPlaylist,
+  RequsetPaymentRecomdationGold,
+  RequsetPaymentRecomdationSilver,
   ReservationTicket,
   ResetPassword,
   ResetPasswordOtp,
@@ -138,8 +143,9 @@ const Routers = () => {
             />
             <Route path="/view-more-details/:id" element={<ViewPdf />} />
             <Route path="/gold-news/:id" element={<GoldNews />} />
+            <Route path="/recommendations" element={<Recommendations />} />
             <Route path="/book" element={<Book />} />
-            <Route path="/book/detalis-book/:id" element={<DetailsBook/>} />
+            <Route path="/book/detalis-book/:id" element={<DetailsBook />} />
             <Route path="/Consulting" element={<Consulting />} />
             <Route path="/development" element={<Development />} />
             <Route
@@ -214,6 +220,22 @@ const Routers = () => {
               element={
                 // <Protect >
                 <RequsetPaymentConsultations />
+                // </Protect>
+              }
+            />
+            <Route
+              path="/auth/request/payment/recomendation/silver"
+              element={
+                // <Protect >
+                <RequsetPaymentRecomdationSilver />
+                // </Protect>
+              }
+            />
+            <Route
+              path="/auth/request/payment/recomendation/gold"
+              element={
+                // <Protect >
+                <RequsetPaymentRecomdationGold />
                 // </Protect>
               }
             />
@@ -686,6 +708,22 @@ const Routers = () => {
               }
             />
 
+            <Route
+              path="/dash/recomendation"
+              element={
+                <Protect path="dash" protect role={allowed?.role}>
+                  <RecomendationDash/>
+                </Protect>
+              }
+            />
+            <Route
+              path="/dash/recomendation/details/:id"
+              element={
+                <Protect path="dash" protect role={allowed?.role}>
+                  <DetailsRecomendationDash/>
+                </Protect>
+              }
+            />
             <Route
               path="/dash/profile"
               element={

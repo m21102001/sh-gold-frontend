@@ -125,7 +125,6 @@ const PricePlannig = () => {
         </div>
       </div>
     </div >
-
   )
 }
 

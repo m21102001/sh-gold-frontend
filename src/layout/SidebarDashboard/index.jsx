@@ -113,6 +113,10 @@ function SidebarDashboard() {
             <FaTicketAlt />{' '}
             <p className="fs-5 fw-bold me-4">الاستشارات المحجوزة</p>
           </NavLink>
+          <NavLink to="/dash/recomendation ">
+            <FaTicketAlt />{' '}
+            <p className="fs-5 fw-bold me-4">توصيات التداول</p>
+          </NavLink>
           <NavLink to="/dash/all-users ">
             <FaUsers /> <p className="fs-5 fw-bold me-4">كل المستخدمين</p>
           </NavLink>

@@ -103,6 +103,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item ms-2 ">
+                <NavLink className="nav-link navli" to="/recommendations">
+                توصيات التداول  
+                </NavLink>
+              </li>
+              <li className="nav-item ms-2 ">
                 <NavLink className="nav-link navli" to="/about-us">
                   من نحن
                 </NavLink>
