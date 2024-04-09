@@ -9,7 +9,7 @@ const ClubMembers = () => {
   const [loading, setLoading] = useState(false)
   const getInitialState = () => {
     const selectType = "online";
-    return selectType;
+    return selectType; 
   };
   const [type, setType] = useState(getInitialState);
   const handleChangeType = (e) => {

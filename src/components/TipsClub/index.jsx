@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import axios from '@/api/axios';
 import { MdTipsAndUpdates } from "react-icons/md";
 import styles from '../GoldCard/GoldCard.module.scss';
-
+import { Link } from 'react-router-dom';
+import { useAuth } from '@/context/Auth';
 const GoldStore = () => {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState([])
-
+  const { user } = useAuth();
   useEffect(() => {
     setLoading(true)
     axios.get(`/club`)
@@ -18,9 +19,9 @@ const GoldStore = () => {
         setLoading(false)
         console.log(error);
       });
-    }, [])
-    
-    // console.log('ffff',message);
+  }, [])
+
+  // console.log('ffff',message);
   ////////////////pagination///////////
   const [prev, setPrev] = useState(0)
   const [next, setNext] = useState(10)
@@ -54,24 +55,36 @@ const GoldStore = () => {
       <div className='m-auto d-flex justify-center'>
         <>
           <div className="container">
-            <div className={styles['home-grid']}>
-              {!loading && message?.messages?.map((item, index) => (
-                index >= prev && index <= next ? (
-                  <div key={index} className="card text-end" style={{ width: "18rem" }}>
-                    <div className="card-body">
-                      <h5 className="card-title fw-bold" style={{ color: 'var(--main-color)' }}>
-                        <MdTipsAndUpdates size={40} color="#ffcc00" />
-                        {item?.title}
-                      </h5>
-                      <p>{item?.description}</p>
-                      <div className="news-date">
-                        <label className="mx-2">التاريخ : {item?.createdAt?.split('T', 1)} </label>
+            {user?.plan == "silver" || user?.plan == "gold" ? (
+              <div className={styles['home-grid']}>
+                {!loading && message?.messages?.map((item, index) => (
+                  index >= prev && index <= next ? (
+                    <div key={index} className="card text-end" style={{ width: "18rem" }}>
+                      <div className="card-body">
+                        <h5 className="card-title fw-bold" style={{ color: 'var(--main-color)' }}>
+                          <MdTipsAndUpdates size={40} color="#ffcc00" />
+                          {item?.title}
+                        </h5>
+                        <p>{item?.description}</p>
+                        <div className="news-date">
+                          <label className="mx-2">التاريخ : {item?.createdAt?.split('T', 1)} </label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : null
-              ))}
-            </div>
+                  ) : null
+                ))}
+              </div>
+            ) : (
+              <div className=''>
+                <h3 className='text-light text-center pb-5'>استقبل التوصيات اليومية</h3>
+                <p className='text-center text-light'>
+                للاضطلاع علي التوصيات، اشترك في باقات النادي
+                </p>
+                <Link to={'/'} className='d-flex justify-content-center pt-4'>
+                  <button type="button" className='px-5'>اشترك الآن</button>
+                </Link>
+              </div>
+            )}
             < div className="pt-5 mt-5 d-flex justify-content-around " >
               <button className={`btn btn-outline-info ${next >= message?.length ? ('disabled') : ('')}`} onClick={handelNext}> next</button>
               <button className={`btn btn-outline-info ${prev == 0 ? ('disabled') : ('')}`} onClick={handelprev}> prev</button>

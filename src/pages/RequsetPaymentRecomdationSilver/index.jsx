@@ -43,14 +43,13 @@ const RequsetPaymentRecomdationSilver = () => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header ">
-              <h1 className="modal-title fs-5" id="exampleModalToggleLabel">طلب حجز استشاره</h1>
+              <h1 className="modal-title fs-5" id="exampleModalToggleLabel"> طلب اشتراك فى خدمة توصيات التداول </h1>
               <button type="button" className="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body text-end">
               <h3>
-                انت على بعد خطوة من تاكيد الشراء
+              انت على بعد خطوة من تاكيد الاشتراك
               </h3>
-              <p>سيتم التواصل معك لتأكيد الحجز قبل الموعد ب 24 ساعة</p>
               <h5 className="text-danger">{user?.phone}</h5>
             </div>
             <div className="modal-footer">
