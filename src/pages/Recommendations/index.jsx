@@ -5,6 +5,7 @@ import { Footer, Navbar } from "@/layout"
 import { recommendation, recommendationsMonth, recommendationsquarter } from "@/db/data"
 import { authenticated, useAuth } from "@/context/Auth"
 import { GrStatusGood } from "react-icons/gr";
+import './recommend.scss'
 const Recommendations = () => {
   const { user } = useAuth()
   const loggedIn = authenticated();
@@ -54,14 +55,14 @@ const Recommendations = () => {
                 <div className="row justify-content-center mt-5 card-style text-end">
                   <h2 className="text-center text-light fw-bold mb-5"> باقات العضوية</h2>
                   <div className="container-fluid planing rounded" style={{ background: "linear-gradient(90deg, gold 0%, silver 100%)" }}>
-                    <div className="container p-5">
+                    <div className="container p-5 recomended">
                       <div className="row">
                         {recommendationsMonth?.map((item, index) => (
                           < div key={index} className="col-lg-6 col-md-12 mb-4" >
                             <div className="card h-100 shadow-lg card-transmation">
                               <div className="card-body">
                                 <div className="text-center p-3">
-                                  <h5 className="card-title recomendation">{item?.title}</h5>
+                                  <h5 className="card-title">{item?.title}</h5>
                                   <small>Individual</small>
                                   <br /><br />
                                   <span className="h2">{item?.price}</span>
