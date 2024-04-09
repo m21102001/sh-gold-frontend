@@ -26,7 +26,7 @@ const ResetPasswordOtp = () => {
     setIsPending(true)
     try {
       await axios.post('/auth/forgotPassword', {
-        phone: phone,
+        phone: "+"+phone,
       },
         {
           headers: {
