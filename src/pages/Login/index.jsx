@@ -48,9 +48,10 @@ const Login = () => {
 
     } catch (err) {
       setIsPending(false);
-      toast.error('من فضلك تأكد من رقم الهاتف او الرقم السري')
+      // toast.error('من فضلك تأكد من رقم الهاتف او الرقم السري')
+      toast.error(err?.response?.data?.message)
       // < ToastContainer />
-      console.log('response', err);
+      // console.log('response', err?.response?.data?.message);
     } finally {
       if (
         user?.role == 'admin' ||

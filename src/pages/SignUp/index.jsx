@@ -5,6 +5,7 @@ import { useState } from 'react'
 import axios from '@/api/axios'
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
+import { ToastContainer, toast } from 'react-toastify';
 const Signup = () => {
   const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false)
@@ -16,7 +17,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState('')
-console.log(phone.slice(4));
+  console.log(phone.slice(4));
   const handelSubmit = async (e) => {
     e.preventDefault()
     if (!(phone.match('[0-9]{10}'))) {
@@ -42,12 +43,13 @@ console.log(phone.slice(4));
         .then((response) => {
           console.log(response);
           navigate('/auth/verifyphoneCode')
+          toast.success('تم انشاء حساب بنجاح ,رجاء تأكيد الحساب')
         })
 
     } catch (err) {
       setIsPending(false);
-      console.log('response', err.response);
-      // console.log('message', err.message);
+      toast.error(err?.response?.data?.errors[0]?.msg)
+      console.log('response', err?.response?.data?.errors[0]?.msg);
     }
   }
 
@@ -176,6 +178,7 @@ console.log(phone.slice(4));
                   />
                 </div>
                 <div className="d-grid gap-2 pt-4">
+                <ToastContainer />
                   <button >تسجيل الدخول</button>
                 </div>
               </form>

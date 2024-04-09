@@ -6,6 +6,7 @@ import { RxAvatar } from "react-icons/rx";
 const Profile = () => {
   const navigate = useNavigate()
   const { user } = useAuth(); 
+  console.log(user);
   return (
     <div style={{ background: 'var(--darkblue-color' }}>
       <Navbar />
@@ -62,6 +63,15 @@ const Profile = () => {
                     </div>
                     <div className="col-sm-9">
                       <p className="text-muted mb-0">{user?.phone ? user?.phone : 'رقم الهاتف غير موجود'}</p>
+                    </div>
+                  </div>
+                  <hr />
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">عضوية توصيات التداول</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{user?.recommendationPlan}</p>
                     </div>
                   </div>
                   <hr />

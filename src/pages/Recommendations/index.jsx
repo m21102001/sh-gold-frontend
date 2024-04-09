@@ -46,7 +46,7 @@ const Recommendations = () => {
           <div className="Container">
             <div className="row align-items-start">
               <Fragment>
-                <div className="col-lg-9 col-md-12 px-5">
+                <div className="col-md-12 px-5 recom">
                   <h2 className="text-light text-end fw-semibold digitalMarkting pb-5">توصيات  التداول</h2>
                   {recommendation?.map((item, index) => (
                     <h3 key={index} className="text-end text-light mb-4 d-flex flex-row"><GrStatusGood color='green' size='30' /><li className="list-unstyled pe-4">{item?.title}</li></h3>
@@ -54,6 +54,7 @@ const Recommendations = () => {
                 </div>
                 <div className="row justify-content-center mt-5 card-style text-end">
                   <h2 className="text-center text-light fw-bold mb-5"> باقات العضوية</h2>
+                  <p className="h3 text-center text-light pb-3">{user?.recommendationPlan =='basic'? (`انت غير مشترك فى باقةا`):('باقتى الان '+ user?.recommendationPlan)}</p>
                   <div className="container-fluid planing rounded" style={{ background: "linear-gradient(90deg, gold 0%, silver 100%)" }}>
                     <div className="container p-5 recomended">
                       <div className="row">
