@@ -8,6 +8,7 @@ import { GrStatusGood } from "react-icons/gr";
 import './recommend.scss'
 const Recommendations = () => {
   const { user } = useAuth()
+  console.log(user);
   const loggedIn = authenticated();
   const [plannigPay, setPlanningPay] = useState([])
   const [plannigPaygold, setPlanningPayGold] = useState([])
@@ -54,13 +55,13 @@ const Recommendations = () => {
                 </div>
                 <div className="row justify-content-center mt-5 card-style text-end">
                   <h2 className="text-center text-light fw-bold mb-5"> باقات العضوية</h2>
-                  <p className="h3 text-center text-light pb-3">{user?.recommendationPlan =='basic'? (`انت غير مشترك فى باقةا`):('باقتى الان '+ user?.recommendationPlan)}</p>
+                  <p className="h3 text-center text-light pb-3">{user == undefined ? (`انت غيرمشترك فى باقة الان`) : (user?.recommendationPlan == 'basic' ? (`انت غيرمشترك فى باقة الان`) : ('باقتى الان ' + user?.recommendationPlan))}</p>
                   <div className="container-fluid planing rounded" style={{ background: "linear-gradient(90deg, gold 0%, silver 100%)" }}>
                     <div className="container p-5 recomended">
                       <div className="row">
                         {recommendationsMonth?.map((item, index) => (
                           < div key={index} className="col-lg-6 col-md-12 mb-4" >
-                            <div className="card h-100 shadow-lg card-transmation">
+                            <div className="card h-100 shadow-lg card-transmation recomendation-card">
                               <div className="card-body">
                                 <div className="text-center p-3">
                                   <h5 className="card-title">{item?.title}</h5>
@@ -88,7 +89,7 @@ const Recommendations = () => {
                         ))}
                         {recommendationsquarter?.map((item, index) => (
                           < div key={index} className="col-lg-6 col-md-12 mb-4" >
-                            <div className="card h-100 shadow-lg card-transmation">
+                            <div className="card h-100 shadow-lg card-transmation recomendation-card">
                               <div className="card-body">
                                 <div className="text-center p-3">
                                   <h5 className="card-title">{item?.title}</h5>

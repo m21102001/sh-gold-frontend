@@ -1,8 +1,11 @@
 @media only screen and (max-width: 600px) {
-   .recomended{
+   .container.p-5.recomended{
     padding: 0 !important;
    }
-   .recom{
+   .col-md-12.px-5.recom{
       padding: 0 !important;
+   }
+   .card.h-100.shadow-lg.card-transmation.recomendation-card{
+      padding: 0;
    }
   }
