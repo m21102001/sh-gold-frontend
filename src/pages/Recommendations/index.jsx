@@ -55,7 +55,7 @@ const Recommendations = () => {
                 </div>
                 <div className="row justify-content-center mt-5 card-style text-end">
                   <h2 className="text-center text-light fw-bold mb-5"> باقات العضوية</h2>
-                  <p className="h3 text-center text-light pb-3">{user == undefined ? (`انت غيرمشترك فى باقة الان`) : (user?.recommendationPlan == 'basic' ? (`انت غيرمشترك فى باقة الان`) : ('باقتى الان ' + user?.recommendationPlan))}</p>
+                  <p className="h3 text-center pb-3 text-danger">{user == undefined ? (`انت غيرمشترك فى باقة الان`) : (user?.recommendationPlan == 'basic' ? (`انت غيرمشترك فى باقة الان`) : ('باقتى الان ' + user?.recommendationPlan))}</p>
                   <div className="container-fluid planing rounded" style={{ background: "linear-gradient(90deg, gold 0%, silver 100%)" }}>
                     <div className="container p-5 recomended">
                       <div className="row">
