@@ -8,7 +8,6 @@ import { GrStatusGood } from "react-icons/gr";
 import './recommend.scss'
 const Recommendations = () => {
   const { user } = useAuth()
-  console.log(user);
   const loggedIn = authenticated();
   const [plannigPay, setPlanningPay] = useState([])
   const [plannigPaygold, setPlanningPayGold] = useState([])

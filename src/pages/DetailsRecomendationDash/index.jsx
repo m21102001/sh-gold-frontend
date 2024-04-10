@@ -9,12 +9,10 @@ const DetailsRecomendationDash = () => {
   const [loading, setLoading] = useState(false);
   const [allUser, setAlluser] = useState([])
   const { user } = useAuth();
-  console.log(item?._id);
   useEffect(() => {
     setLoading(true);
     if (user.role == 'manager') {
-      axios.get(`recommend/${1}`, {
-        // axios.get(`recommend/${item?.subscriptionNo}`, {
+      axios.get(`recommend/${item?._id}`, {
         headers: {
           'Content-Type': 'application/json',
         }
@@ -22,7 +20,6 @@ const DetailsRecomendationDash = () => {
         .then((response) => {
           setLoading(false);
           setAlluser(response.data);
-          console.log("contactForm", response.data);
         })
         .catch((error) => {
           setLoading(false);
@@ -30,8 +27,10 @@ const DetailsRecomendationDash = () => {
         });
     }
   }, []);
+
   return (
     <div className="dashboard d-flex flex-row">
+      {loading && <div className='loadimg'> </div>}
       <SidebarDashboard />
       <div className="container text-center">
         <div className="shadow-none p-3 mt-3 mb-5 bg-body rounded main-title">
@@ -43,87 +42,85 @@ const DetailsRecomendationDash = () => {
         </Link>
         <section style={{ backgroundColor: "#eee" }}>
           <div className="container py-5">
-            {allUser?.document?.map((item, index) => (
-              <div key={index} className="row">
-                <div className="col-lg-12">
-                  <div className="card mb-4">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">الاسم بالكامل</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.user?.name}</p>
-                        </div>
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card mb-4">
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">الاسم بالكامل</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">البريدالالكترونى</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.user?.email}</p>
-                        </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.user?.name}</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">رقم الهاتف</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.user?.phone}</p>
-                        </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">البريدالالكترونى</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">العضوية</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.plan}</p>
-                        </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.user?.email}</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">تمن الباقة</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.amount}</p>
-                        </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">رقم الهاتف</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">وقت الدفع</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.paidOn?.split('T',1)}</p>
-                        </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.user?.phone}</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">تاريخ بداية الاشتراك</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.startDate?.split('T',1)}</p>
-                        </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">العضوية</p>
                       </div>
-                      <hr />
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <p className="mb-0">تاريخ نهاية الاشتراك</p>
-                        </div>
-                        <div className="col-sm-9">
-                          <p className="text-muted mb-0">{item?.endDate?.split('T',1)}</p>
-                        </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.plan}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">تمن الباقة</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.amount}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">وقت الدفع</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.paidOn?.split('T', 1)}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">تاريخ بداية الاشتراك</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.startDate?.split('T', 1)}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="row">
+                      <div className="col-sm-3">
+                        <p className="mb-0">تاريخ نهاية الاشتراك</p>
+                      </div>
+                      <div className="col-sm-9">
+                        <p className="text-muted mb-0">{allUser?.document?.endDate?.split('T', 1)}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </section>
       </div>
