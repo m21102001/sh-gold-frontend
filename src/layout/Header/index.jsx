@@ -1,41 +1,21 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import './header.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { image } from '@/db/data';
+import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 const Header = () => {
   return (
     <div className="header">
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        removeClippedSubviews={false}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
+      <MDBCarousel showControls >
         {image?.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="m-0 bg-dark">
-              <LazyLoadImage
-                src={item?.img}
-                alt={item?.src}
-              />
-            </div>
-          </SwiperSlide>
+          <MDBCarouselItem key={index} itemId={index}>
+            <LazyLoadImage
+              src={item?.img}
+              alt={item?.src}
+              className='d-block w-100'
+            />
+          </MDBCarouselItem>
         ))}
-      </Swiper>
-      {/* <img
-        src="https://i.ibb.co/WDLXSq2/consultation.jpg"
-        className="home-image"
-        alt=""
-      /> */}
+      </MDBCarousel>
     </div >
   );
 };

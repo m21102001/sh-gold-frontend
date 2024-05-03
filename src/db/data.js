@@ -44,6 +44,11 @@ export const image = [
 
     src: 'info',
   },
+  {
+    id: 6,
+    img: 'https://i.ibb.co/qrkJgks/tadawel.jpg',
+    src: 'info',
+  },
 ];
 export const consalting = [
   {

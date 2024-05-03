@@ -4,8 +4,9 @@ import axios from '@/api/axios'
 import { Footer, Navbar } from "@/layout"
 import { recommendation, recommendationsMonth, recommendationsquarter } from "@/db/data"
 import { authenticated, useAuth } from "@/context/Auth"
-import { GrStatusGood } from "react-icons/gr";
+import rightIcon from '@/assets/right-icon.svg'
 import './recommend.scss'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Recommendations = () => {
   const { user } = useAuth()
   const loggedIn = authenticated();
@@ -49,7 +50,10 @@ const Recommendations = () => {
                 <div className="col-md-12 px-5 recom">
                   <h2 className="text-light text-end fw-semibold digitalMarkting pb-5">توصيات  التداول</h2>
                   {recommendation?.map((item, index) => (
-                    <h3 key={index} className="text-end text-light mb-4 d-flex flex-row"><GrStatusGood color='green' size='30' /><li className="list-unstyled pe-4">{item?.title}</li></h3>
+                    <h3 key={index} className="text-end text-light mb-4 d-flex flex-row">
+                      <LazyLoadImage src={rightIcon} width={30}/>
+                      <li className="list-unstyled pe-4">{item?.title}</li>
+                    </h3>
                   ))}
                 </div>
                 <div className="row justify-content-center mt-5 card-style text-end">

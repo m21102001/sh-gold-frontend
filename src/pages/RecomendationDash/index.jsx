@@ -44,7 +44,6 @@ const RecomendationDash = () => {
         .then((response) => {
           setLoading(false);
           setAlluser(response.data);
-          console.log("contactForm", response.data);
         })
         .catch((error) => {
           setLoading(false);
