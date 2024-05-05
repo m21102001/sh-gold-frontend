@@ -6,7 +6,6 @@ import { recommendation, recommendationsMonth, recommendationsquarter } from "@/
 import { authenticated, useAuth } from "@/context/Auth"
 import rightIcon from '@/assets/right-icon.svg'
 import './recommend.scss'
-import { tadawel } from '@/db/data';
 import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const Recommendations = () => {
@@ -40,17 +39,15 @@ const Recommendations = () => {
     <div className="consalting">
       <Navbar />
       <div className="header">
-        <MDBCarousel showControls >
-          {tadawel?.map((item, index) => (
+        <MDBCarousel  >
 
-            <MDBCarouselItem key={index} itemId={index}>
+              <MDBCarouselItem itemId={1}>
               <LazyLoadImage
-                src={item?.img}
-                alt={item?.src}
+                src={'https://i.ibb.co/qrkJgks/tadawel.jpg'}
+                alt={'خبراء التداول مع الاستاذ صلاح'}
                 className='d-block w-100'
               />
             </MDBCarouselItem>
-          ))}
         </MDBCarousel>
       </div >
       <div className="StartElectronicEcommerce">

@@ -46,14 +46,6 @@ export const image = [
   },
 ];
 
-export const tadawel = [
-  {
-    id: 1,
-    img: 'https://i.ibb.co/qrkJgks/tadawel.jpg',
-    src: 'info',
-  },
-]
-
 export const consalting = [
   {
     id: 1,
