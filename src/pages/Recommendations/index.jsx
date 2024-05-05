@@ -6,6 +6,8 @@ import { recommendation, recommendationsMonth, recommendationsquarter } from "@/
 import { authenticated, useAuth } from "@/context/Auth"
 import rightIcon from '@/assets/right-icon.svg'
 import './recommend.scss'
+import { tadawel } from '@/db/data';
+import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const Recommendations = () => {
   const { user } = useAuth()
@@ -37,6 +39,20 @@ const Recommendations = () => {
   return (
     <div className="consalting">
       <Navbar />
+      <div className="header">
+        <MDBCarousel showControls >
+          {tadawel?.map((item, index) => (
+
+            <MDBCarouselItem key={index} itemId={index}>
+              <LazyLoadImage
+                src={item?.img}
+                alt={item?.src}
+                className='d-block w-100'
+              />
+            </MDBCarouselItem>
+          ))}
+        </MDBCarousel>
+      </div >
       <div className="StartElectronicEcommerce">
         <div className='m-auto d-flex justify-content-center pt-5 pb-3'>
           <span style={{ zIndex: "0", backgroundColor: "var(--gold-color)", width: "50px", height: "3px", margin: "auto 20px" }}></span>
@@ -51,7 +67,7 @@ const Recommendations = () => {
                   <h2 className="text-light text-end fw-semibold digitalMarkting pb-5">توصيات  التداول</h2>
                   {recommendation?.map((item, index) => (
                     <h3 key={index} className="text-end text-light mb-4 d-flex flex-row">
-                      <LazyLoadImage src={rightIcon} width={30}/>
+                      <LazyLoadImage src={rightIcon} width={30} />
                       <li className="list-unstyled pe-4">{item?.title}</li>
                     </h3>
                   ))}
